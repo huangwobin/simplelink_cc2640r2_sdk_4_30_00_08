@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The CC2640R2 SDK Platform" href="platform.html" />
+    <link rel="prev" title="Disclaimer" href="disclaimer.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x-guide get-started";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo-project-zero">Demo: Project Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn">Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#develop">Develop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhance">Enhance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-sdk">Installing the SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="get-started-introduction"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>This section serves as a road map for users developing applications
+and products using the TI SimpleLink Bluetooth Low Energy CC2640R2
+wireless MCU platform. Whether a seasoned developer or just getting
+started, TI has created a variety of resources to simplify
+development on the CC2640R2 platform. These resources will enhance
+your experience with the TI SimpleLink BLE-Stack ™ 3.03.05.00 Software
+Development Kit (SDK) from the out-of-the-box demo to production.</p>
+<p>To download the CC2640R2 SDK, please visit the download page:
+<a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK</a>.</p>
+<p><a class="reference internal" href="#fig-suggested-workflow"><span class="std std-numref">Figure 1.</span></a> shows the suggested work flow for getting
+started with TI’s
+SimpleLink Bluetooth Low Energy (BLE) development environment.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-suggested-workflow"></span><img alt="../_images/suggestedworkflow.png" src="../_images/suggestedworkflow.png" />
+<p class="caption"><span class="caption-number">Figure 1. </span><span class="caption-text">Suggested Workflow</span></p>
+</div>
+<div class="section" id="demo-project-zero">
+<span id="get-started-demo"></span><h2>Demo: Project Zero<a class="headerlink" href="#demo-project-zero" title="Permalink to this headline">¶</a></h2>
+<p>The CC2640R2 LaunchPad™ is the main development kit for Project Zero and
+developing applications with the BLE-Stack. To quickly get started on a
+simple project with the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a>, see the Project Zero overview page:
+<a class="reference external" href="http://ti.com/ble-project-zero">www.ti.com/ble-project-zero</a>.</p>
+<p>Project Zero uses a modified version of the simple_peripheral sample
+application from this SDK to demonstrate and evaluate some of the most
+commonly used BLE features. Using CCS Cloud™, TI’s web based IDE, Project
+Zero can be built, downloaded, and debugged directly from a supported browser
+without the need to install a full desktop IDE. With Project Zero
+running on the CC2640R2 LaunchPad, you can connect with your smart
+phone to remotely blink on-board LEDs, send text strings to the
+LaunchPad’s serial port, and receive button press notifications, all
+right out of the box.</p>
+<p>The following sections in this document focus on developing a custom
+application with BLE-Stack.</p>
+<p>To summarize, Project Zero allows you to quickly:</p>
+<ul class="simple">
+<li>Run software without installing any tools</li>
+<li>Flash the device with a single-button click from the browser</li>
+<li>Import a project to the cloud editor and develop, build, and debug</li>
+<li>Download all required project files in one archive file for CCS
+Desktop development</li>
+</ul>
+<div class="figure align-center" id="id5">
+<span id="fig-ccs-cloud"></span><img alt="../_images/image2.jpeg" src="../_images/image2.jpeg" />
+<p class="caption"><span class="caption-number">Figure 2. </span><span class="caption-text">Project Zero on CCS Cloud</span></p>
+</div>
+</div>
+<div class="section" id="learn">
+<span id="get-started-learn"></span><h2>Learn<a class="headerlink" href="#learn" title="Permalink to this headline">¶</a></h2>
+<p>Resources contained in the Learn track of <a class="reference internal" href="#fig-suggested-workflow"><span class="std std-numref">Figure 1.</span></a> are
+intended for users who are new to BLE or TI-RTOS. These modules demonstrate how
+to create custom applications with BLE-Stack and TI’s Real Time Operation
+System (TI-RTOS).</p>
+<ul class="simple">
+<li><strong>SimpleLink Academy</strong> <a class="reference external" href="http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC2640R2%20SDK%2FSimpleLink%20Academy%2FOverview">http://dev.ti.com/CC2640R2F-SimpleLink-Academy</a></li>
+</ul>
+<p>SimpleLink Academy provides a comprehensive set of training tools that allow
+users from beginners to experienced developers to learn about the SimpleLink MCU
+Platform.</p>
+<p>Using introductory material and labs, learn the fundamentals of
+BLE and how to develop a custom BLE profile.</p>
+<p>SimpleLink Academy also contains modules written to demonstrate the rich debug
+environment and peripheral driver capability provided by TI-RTOS.</p>
+<ul class="simple">
+<li><strong>TI-RTOS Kernel Workshop</strong> <a class="reference external" href="http://training.ti.com/ti-rtos-kernel-workshop">www.training.ti.com/ti-rtos-kernel-workshop</a></li>
+</ul>
+<p>This material teaches users who are new to TI-RTOS or any RTOS
+programming in general about TI’s RTOS kernel implementation.</p>
+<p>Modules within the kernel training greatly expand the information
+presented in the <a class="reference internal" href="tirtos-index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a> chapter.</p>
+<p>Learn how the TI-RTOS provides the most optimal power management
+and design flexibly.</p>
+</div>
+<div class="section" id="develop">
+<span id="get-started-develop"></span><h2>Develop<a class="headerlink" href="#develop" title="Permalink to this headline">¶</a></h2>
+<p>The develop track of <a class="reference internal" href="#fig-suggested-workflow"><span class="std std-numref">Figure 1.</span></a> is intended for
+programmers who are ready to start developing an end product using the CC2640R2.
+To begin:</p>
+<ol class="arabic simple">
+<li><strong>Download the SimpleLink CC2640R2 SDK</strong> <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK</a></li>
+</ol>
+<p>BLE-Stack contains the code necessary to create a complete Bluetooth Low Energy
+end application. The stack library implements the BLE protocol stack on the
+CC2640R2, and the various example projects use the stack library to implement
+end devices. These examples should be considered as starting points for end
+product designs.</p>
+<p>To install the BLE-Stack, run the
+<strong>simplelink_cc2640r2_sdk_M_mm_pp_bb.exe</strong> installer.</p>
+<ul>
+<li><p class="first">The default SDK install path is
+C:\ti\simplelink_cc2640r2_sdk_M_mm_pp_bb. Throughout the rest of
+this document, this path will be referred to as &lt;SDK_INSTALL_DIR&gt;.</p>
+<p>See <a class="reference internal" href="#sec-ble-stack-install"><span class="std std-ref">Installing the SDK</span></a> for help installing the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><strong>Get Familiar with the BLE-Stack User’s Guide</strong></li>
+</ol>
+<p>This User’s Guide is meant to be used alongside the BLE-Stack
+when developing an end product. It contains documentation on the stack
+architecture, APIs, and suggestions for developing applications. To jump to the
+Table of Contents, click here:  <a class="reference internal" href="index.html#sdg-overview"><span class="std std-ref">BLE-Stack User’s Guide</span></a></p>
+<ol class="arabic simple" start="3">
+<li><strong>Select an Example Project</strong></li>
+</ol>
+<p>The BLE-Stack includes a basic set of projects to use as a starting point for
+development of your custom application. TI recommends that users start their
+development on a project starting with <code class="docutils literal notranslate"><span class="pre">simple_</span></code>. Click the links below to find
+out more information about each project</p>
+<span id="tbl-sdk-ble-examples"></span><table border="1" class="docutils" id="id6">
+<caption><span class="caption-number">Table 1. </span><span class="caption-text">BLE examples available for the CC2640R2 platform</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/host_test/README.html">host_test</a></td>
+<td>A network processor project that is interfaced to via HCI and Vendor Specific HCI commands.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/micro_eddystone_beacon/README.html">micro_eddystone_beacon</a></td>
+<td>A sample implementation of an eddystone beacon using the TI BLE Microstack</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/multi_role/README.html">multi_role</a></td>
+<td>Project that supports multiple connection roles and is capable of functioning as any of
+the GAP roles. See <a class="reference internal" href="../ble-stack-3.x/gaprole.html#sec-gaprole-gaproletask"><span class="std std-ref">GAPRole Task</span></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/project_zero/README.html">project_zero</a></td>
+<td>A project implements a simple Bluetooth Low Energy peripheral device with LED, Button and
+Data service. This project is also used as a training tool in SimpleLink Academy.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/secure_fw/README.html">secure_fw</a></td>
+<td>A project which provides a mechanism to verify the integrity
+of the firmware image before executing it on a CC2640R2 BLE device.</td>
+</tr>
+<tr class="row-odd"><td>rtls_passive</td>
+<td>rtls_passive is a combination of Connection Monitor (CM) and RTLS examples.
+It uses the connection monitor to monitor a BLE connection and received AoA packets.
+This example is designed to be used with the RTLS examples available in the
+<a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC13X2-26X2-SDK">SimpleLink CC13X2 / CC26X2 SDK</a> ®.
+For details, please refer to the RTLS documentation enclosed in the SimpleLink ®
+CC13X2 / CC26X2 SDK documentation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_broadcaster/README.html">simple_broadcaster</a></td>
+<td>Sample implementation of non-connectable advertising.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_central/README.html">simple_central</a></td>
+<td>Simple central Implements a basic BLE central device with GATT client functionality.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_np/README.html">simple_np</a></td>
+<td>A network processor project that implements the BLE controller, host, and part of the
+application layer on the CC2640R2. The simple_np is intended for users attempting
+to quickly add BLE to an MCU only design.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_observer/README.html">simple_observer</a></td>
+<td>Sample implementation of a scanner application</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_peripheral/README.html">simple_peripheral</a></td>
+<td>Simple peripheral demonstrates a simple Bluetooth Low Energy slave application that
+implements connectable advertisements and a simple profile.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_peripheral_oad_offchip/README.html">simple_peripheral_oad_offchip</a></td>
+<td>Identical to the simple_peripheral project, except with off-chip OAD functionality with
+security added. See <a class="reference internal" href="../oad-secure/intro.html#sec-oad"><span class="std std-ref">Introduction</span></a> for more details.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_peripheral_oad_onchip/README.html">simple_peripheral_oad_onchip</a></td>
+<td>Identical to the simple_peripheral project, except with on-chip OAD functionality with
+security added. See <a class="reference internal" href="../oad-secure/intro.html#sec-oad"><span class="std std-ref">Introduction</span></a> for more details.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="../../../../../examples/rtos/CC2640R2_LAUNCHXL/blestack/simple_peripheral_secure_fw/README.html">simple_peripheral_secure_fw</a></td>
+<td>A modified simple_peripheral project which provides a mechanism to verify the integrity
+of the firmware image before executing it on a CC2640R2 BLE device.</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><strong>Begin Development with an IDE</strong></li>
+</ol>
+<p>An Integrated Development Environment can be set up to make it easier to browse
+through the
+relevant projects and view code. All embedded software for the CC2640R2 is
+developed using either TI’s Code Composer Studio or IAR’s Embedded Workbench for
+Arm (from IAR Systems) on a Windows 7® or later PC.</p>
+<p>To begin development in CCS, jump to: <a class="reference internal" href="../cc2640/developing_in_ccs.html#sec-developing-with-ccs"><span class="std std-ref">Developing with CCS</span></a></p>
+<p>To begin development in IAR, jump to: <a class="reference internal" href="../cc2640/developing_in_iar.html#sec-developing-with-iar"><span class="std std-ref">Developing with IAR</span></a></p>
+<ol class="arabic simple" start="5">
+<li><strong>Troubleshooting Help</strong></li>
+</ol>
+<p>While developing your custom application, you may run into issues that require
+the use of a debugger. The <a class="reference internal" href="debugging-index.html#sec-debugging"><span class="std std-ref">Debugging</span></a> chapter provides help with
+configuring your debugger and understanding common problems. If you are still
+having problems after reading through the Debugging chapter, see the <a class="reference internal" href="#get-started-support"><span class="std std-ref">Support</span></a>
+track for more options.</p>
+</div>
+<div class="section" id="enhance">
+<span id="get-started-enhance"></span><h2>Enhance<a class="headerlink" href="#enhance" title="Permalink to this headline">¶</a></h2>
+<p>The enhance track of <a class="reference internal" href="#fig-suggested-workflow"><span class="std std-numref">Figure 1.</span></a> is intended to take your
+product to
+the next level by leveraging TI’s web-based collateral. Additional
+resources found in these pages include application-specific source
+code examples, smart phone source code, and complete sub-system
+designs.</p>
+<ul class="simple">
+<li><strong>TI SimpleLink GitHub</strong> <a class="reference external" href="https://github.com/ti-simplelink/ble_examples">TI SimpleLink GitHub</a></li>
+</ul>
+<p>Additional sample applications created to implement specific use
+cases and examples. These are made to work in conjunction with the
+SDK.</p>
+<ul class="simple">
+<li><strong>TI Designs™</strong> <a class="reference external" href="http://www.ti.com/general/docs/refdesignsearchresults.tsp">http://www.ti.com/tidesigns</a></li>
+</ul>
+<p>Examples of system designs containing complete hardware and
+software examples, using the CC2640R2.</p>
+</div>
+<div class="section" id="support">
+<span id="get-started-support"></span><h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>The support track of <a class="reference internal" href="#fig-suggested-workflow"><span class="std std-numref">Figure 1.</span></a> is intended to provide you
+additional help and resources that aren’t contained in the previous tracks.</p>
+<ul class="simple">
+<li><strong>E2E Forums</strong> <a class="reference external" href="https://e2e.ti.com/support/wireless-connectivity/bluetooth/">www.ti.com/ble-forum</a></li>
+</ul>
+<p>A support community providing answers to questions relating to the
+BLE-Stack 3.03.05.00 and the CC2640R2. You can browse questions from other developers
+or ask your own questions if you run into issues developing with BLE-Stack 3.03.05.00.</p>
+</div>
+<div class="section" id="installing-the-sdk">
+<span id="sec-ble-stack-install"></span><h2>Installing the SDK<a class="headerlink" href="#installing-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>BLE-Stack 3.03.05.00 is a wireless component included as part of the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>. All path
+and file references in this document assume that the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> is installed to the
+default path (<strong>&lt;SDK_INSTALL_DIR&gt;</strong>).</p>
+<p>TI recommends making a backup copy of the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> before to making any changes.
+BLE-Stack 3.03.05.00 uses paths relative to the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> and therefore is portable in
+respect to any valid installation path for the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Code Composer Studio creates a <em>dynamic</em> installation variable for a
+discovered <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> instances. For more information, see
+<a class="reference internal" href="../cc2640/ble-build.html#sec-inc-developing-in-ccs-discover-ccs-products"><span class="std std-ref">BLE-Stack CCS Project Build Configurations</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If installing the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> to a non-default path, do not exceed the maximum
+length of the file system namepath. Actual paths may differ from the
+figures.</p>
+</div>
+<p><a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> also installs XDCTools if not already present. See the release
+notes for required version numbers. Newer versions of tools may not be
+compatible with this SDK release. Check the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> release note for the latest
+supported tool versions.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="platform.html" class="btn btn-neutral float-right" title="The CC2640R2 SDK Platform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="disclaimer.html" class="btn btn-neutral float-left" title="Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

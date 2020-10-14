@@ -1,0 +1,1238 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>EasyLink API Reference &mdash; 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RF commands reference" href="../rf-core/rf-commands-reference.html" />
+    <link rel="prev" title="API References" href="../proprietary-rf-guide/reference-cc2640.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug easylink easylink-api-reference-cc2640";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../proprietary-rf-guide/index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/quickstart-cc2640.html">Proprietary RF Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/examples-cc2640.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/proprietary-rf-index-cc2640.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/memory-index.html">Memory overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc2640/oad-easylink/oad.html">Over the Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/migration-cc2640.html">Migration Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proprietary-rf-guide/reference-cc2640.html">API References</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">EasyLink API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rf-core/rf-commands-reference.html">RF commands reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/glossary-cc2640.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../proprietary-rf-guide/index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../proprietary-rf-guide/index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../proprietary-rf-guide/reference-cc2640.html">API References</a> &raquo;</li>
+        
+      <li>EasyLink API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="easylink-api-reference">
+<span id="easylink-api"></span><h1>EasyLink API Reference<a class="headerlink" href="#easylink-api-reference" title="Permalink to this headline">¶</a></h1>
+<p>EasyLink RF API for CC13xx/CC26xx family. </p>
+<p><em>Overview</em></p>
+<p>The EasyLink API should be used in application code. The EasyLink API is intended to abstract the RF Driver in order to give a simple API for customers to use as is or extend to suit their application use cases.</p>
+<p><em>General Behavior</em></p>
+<p>Before using the EasyLink API:<ul class="simple">
+<li>The EasyLink Layer is initialized by calling <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a>. This initializes and opens the RF driver and configuring a modulation scheme passed to <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a>.</li>
+<li>The RX and TX can operate independently of each other.</li>
+</ul>
+</p>
+<p>The following is true for receive operation:<ul class="simple">
+<li>RX is enabled by calling <a class="reference internal" href="#group__EasyLink_1gaede498dfd26b52cc30fa3f1493ddf92a"><span class="std std-ref">EasyLink_receive()</span></a> or <a class="reference internal" href="#group__EasyLink_1ga043138fd5da1b37e0a8d56c57a310076"><span class="std std-ref">EasyLink_receiveAsync()</span></a>.</li>
+<li>Entering RX can be immediate or scheduled.</li>
+<li><a class="reference internal" href="#group__EasyLink_1gaede498dfd26b52cc30fa3f1493ddf92a"><span class="std std-ref">EasyLink_receive()</span></a> is blocking and <a class="reference internal" href="#group__EasyLink_1ga043138fd5da1b37e0a8d56c57a310076"><span class="std std-ref">EasyLink_receiveAsync()</span></a> is nonblocking.</li>
+<li>the EasyLink API does not queue messages so calling another API function while in <a class="reference internal" href="#group__EasyLink_1ga043138fd5da1b37e0a8d56c57a310076"><span class="std std-ref">EasyLink_receiveAsync()</span></a> will return <a class="reference internal" href="#group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda467f080e200aac5e73810d8aebda67ae"><span class="std std-ref">EasyLink_Status_Busy_Error</span></a></li>
+<li>an Async operation can be cancelled with <a class="reference internal" href="#group__EasyLink_1ga3bea05b43bac4ab7480f843c286d0feb"><span class="std std-ref">EasyLink_abort()</span></a></li>
+</ul>
+</p>
+<p>The following apply for transmit operation:<ul class="simple">
+<li>TX is enabled by calling <a class="reference internal" href="#group__EasyLink_1ga2251d1306e209ad90ecace8b474950c0"><span class="std std-ref">EasyLink_transmit()</span></a> or <a class="reference internal" href="#group__EasyLink_1gab92006c75f492a226d887b089f6cbd55"><span class="std std-ref">EasyLink_transmitAsync()</span></a>.</li>
+<li>TX can be immediate or scheduled.</li>
+<li><a class="reference internal" href="#group__EasyLink_1ga2251d1306e209ad90ecace8b474950c0"><span class="std std-ref">EasyLink_transmit()</span></a> is blocking and <a class="reference internal" href="#group__EasyLink_1gab92006c75f492a226d887b089f6cbd55"><span class="std std-ref">EasyLink_transmitAsync()</span></a> is nonblocking</li>
+<li><a class="reference internal" href="#group__EasyLink_1ga2251d1306e209ad90ecace8b474950c0"><span class="std std-ref">EasyLink_transmit()</span></a> for a scheduled command, or if TX can not start</li>
+<li>the EasyLink API does not queue messages so calling another API function while in <a class="reference internal" href="#group__EasyLink_1gab92006c75f492a226d887b089f6cbd55"><span class="std std-ref">EasyLink_transmitAsync()</span></a> will return <a class="reference internal" href="#group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda467f080e200aac5e73810d8aebda67ae"><span class="std std-ref">EasyLink_Status_Busy_Error</span></a></li>
+<li>an Async operation can be cancelled with <a class="reference internal" href="#group__EasyLink_1ga3bea05b43bac4ab7480f843c286d0feb"><span class="std std-ref">EasyLink_abort()</span></a></li>
+</ul>
+</p>
+<p><em>Error handling</em></p>
+<p>The EasyLink API will return <a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> containing success or error code. The EasyLink_Status code are:</p>
+<p><ul class="simple">
+<li>EasyLink_Status_Success</li>
+<li>EasyLink_Status_Config_Error</li>
+<li>EasyLink_Status_Param_Error</li>
+<li>EasyLink_Status_Mem_Error</li>
+<li>EasyLink_Status_Cmd_Error</li>
+<li>EasyLink_Status_Tx_Error</li>
+<li>EasyLink_Status_Rx_Error</li>
+<li>EasyLink_Status_Rx_Timeout</li>
+<li>EasyLink_Status_Busy_Error</li>
+<li>EasyLink_Status_Aborted</li>
+</ul>
+</p>
+<p><em>Power Management</em></p>
+<p>The TI-RTOS power management framework will try to put the device into the most power efficient mode whenever possible. Please see the technical reference manual for further details on each power mode.</p>
+<p>The EasyLink Layer uses the power management offered by the RF driver Refer to the RF drive documentation for more details.</p>
+<p></p>
+<p><em>Frame Structure</em></p>
+<p>The EasyLink implements a basic header for transmitting and receiving data. This header supports addressing for a star or point-to-point network with acknowledgments.</p>
+<p>Packet structure:</p>
+<p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span> <span class="n">_________________________________________________________</span>
+<span class="o">|</span>           <span class="o">|</span>                   <span class="o">|</span>                         <span class="o">|</span>
+<span class="o">|</span> <span class="mi">1</span><span class="n">B</span> <span class="n">Length</span> <span class="o">|</span> <span class="mi">1</span><span class="o">-</span><span class="mi">64</span><span class="n">b</span> <span class="n">Dst</span> <span class="n">Address</span> <span class="o">|</span>         <span class="n">Payload</span>         <span class="o">|</span>
+<span class="o">|</span><span class="n">___________</span><span class="o">|</span><span class="n">___________________</span><span class="o">|</span><span class="n">_________________________</span><span class="o">|</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="define">
+<dt id="c.EASYLINK_API_VERSION">
+<span class="target" id="group__EasyLink_1gaa75653dd8228c5af4ca7d7aec18f71ec"></span><code class="descname">EASYLINK_API_VERSION</code><a class="headerlink" href="#c.EASYLINK_API_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink API Version. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_MAX_ADDR_SIZE">
+<span class="target" id="group__EasyLink_1ga717a4378b6bb28a755c12e3077c380cb"></span><code class="descname">EASYLINK_MAX_ADDR_SIZE</code><a class="headerlink" href="#c.EASYLINK_MAX_ADDR_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>defines the Tx/Rx Max Address Size </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_MAX_ADDR_FILTERS">
+<span class="target" id="group__EasyLink_1gaeca1a703bd73b70ffc89ee27cf038aeb"></span><code class="descname">EASYLINK_MAX_ADDR_FILTERS</code><a class="headerlink" href="#c.EASYLINK_MAX_ADDR_FILTERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>defines the Max number of Rx Address filters </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_WHITENING_MODE">
+<span class="target" id="group__EasyLink_1ga36a11baa6c72b35dd7adc190cf2d857e"></span><code class="descname">EASYLINK_WHITENING_MODE</code><a class="headerlink" href="#c.EASYLINK_WHITENING_MODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>defines the whitening mode </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_RadioTime_To_ms">
+<span class="target" id="group__EasyLink_1gad1a9146650635815b19664666a4df717"></span><code class="descname">EasyLink_RadioTime_To_ms</code><span class="sig-paren">(</span>radioTime<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_RadioTime_To_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>macro to convert from Radio Time Ticks to ms </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_ms_To_RadioTime">
+<span class="target" id="group__EasyLink_1ga1244c0f8499a84396ecaf6837b5eec23"></span><code class="descname">EasyLink_ms_To_RadioTime</code><span class="sig-paren">(</span>ms<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_ms_To_RadioTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>macro to convert from ms to Radio Time Ticks </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_us_To_RadioTime">
+<span class="target" id="group__EasyLink_1ga21e200da4f9044d4dfabd55c15a53972"></span><code class="descname">EasyLink_us_To_RadioTime</code><span class="sig-paren">(</span>us<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_us_To_RadioTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>macro to convert from us to Radio Time Ticks </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_CUSTOM">
+<span class="target" id="group__EasyLink_1ga32575bd5d446da0dca8461992e9c2b95"></span><code class="descname">EasyLink_PHY_CUSTOM</code><a class="headerlink" href="#c.EasyLink_PHY_CUSTOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Phy Type defines so we can use them in checks. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_50KBPS2GFSK">
+<span class="target" id="group__EasyLink_1ga25c355f1f3562fa00469b43144f512ae"></span><code class="descname">EasyLink_PHY_50KBPS2GFSK</code><a class="headerlink" href="#c.EasyLink_PHY_50KBPS2GFSK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_625BPSLRM">
+<span class="target" id="group__EasyLink_1ga2f657c4951b24ba91b04d98e841a9e09"></span><code class="descname">EasyLink_PHY_625BPSLRM</code><a class="headerlink" href="#c.EasyLink_PHY_625BPSLRM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_2_4_200KBPS2GFSK">
+<span class="target" id="group__EasyLink_1ga55996f7dbe035f9b1365ff41b8eb861a"></span><code class="descname">EasyLink_PHY_2_4_200KBPS2GFSK</code><a class="headerlink" href="#c.EasyLink_PHY_2_4_200KBPS2GFSK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_5KBPSSLLR">
+<span class="target" id="group__EasyLink_1ga38a6948126e3428d1091c41aed0ca469"></span><code class="descname">EasyLink_PHY_5KBPSSLLR</code><a class="headerlink" href="#c.EasyLink_PHY_5KBPSSLLR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_2_4_100KBPS2GFSK">
+<span class="target" id="group__EasyLink_1ga3f3b13046df2b470acb9ed6f6e0b462d"></span><code class="descname">EasyLink_PHY_2_4_100KBPS2GFSK</code><a class="headerlink" href="#c.EasyLink_PHY_2_4_100KBPS2GFSK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_2_4_250KBPS2GFSK">
+<span class="target" id="group__EasyLink_1ga39b2b38484d1160524aa934698a1c1b3"></span><code class="descname">EasyLink_PHY_2_4_250KBPS2GFSK</code><a class="headerlink" href="#c.EasyLink_PHY_2_4_250KBPS2GFSK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="define">
+<dt id="c.EasyLink_PHY_200KBPS2GFSK">
+<span class="target" id="group__EasyLink_1ga7150dd5c15fed3c1d04bcf1227a91b63"></span><code class="descname">EasyLink_PHY_200KBPS2GFSK</code><a class="headerlink" href="#c.EasyLink_PHY_200KBPS2GFSK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="typedef">
+<dt id="c.EasyLink_GetRandomNumber">
+<span class="target" id="group__EasyLink_1gacac1352af56c6fd6e9de28d7619a9320"></span><em class="property">typedef </em>uint32_t<code class="descname">(* EasyLink_GetRandomNumber)</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_GetRandomNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink 32-bit Random number generator function type used in the clear channel assessment algorithm. </p>
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.EasyLink_ReceiveCb">
+<span class="target" id="group__EasyLink_1ga3282ba8c9b42128c6fea59d9c44aec96"></span><em class="property">typedef </em>void<code class="descname">(* EasyLink_ReceiveCb)</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_RxPacket" title="EasyLink_RxPacket">EasyLink_RxPacket</a><em>&nbsp;*rxPacket</em>, <a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a><em>&nbsp;status</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_ReceiveCb" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink Callback function type for Received packet, registered with EasyLink_ReceiveAsync() </p>
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.EasyLink_TxDoneCb">
+<span class="target" id="group__EasyLink_1ga7f0bd83cca9699b6fdec9146b741dcc1"></span><em class="property">typedef </em>void<code class="descname">(* EasyLink_TxDoneCb)</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a><em>&nbsp;status</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_TxDoneCb" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink Callback function type for Tx Done registered with EasyLink_TransmitAsync() </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="enum">
+<dt id="c.EasyLink_Status">
+<span class="target" id="group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"></span><code class="descname">EasyLink_Status</code><a class="headerlink" href="#c.EasyLink_Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink Status and error codes. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt id="c.0">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bdaed071aeac7025f18f922ecdf5fa894ec"></span><code class="descname">0</code><a class="headerlink" href="#c.0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Success. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.1">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda650f1867f31ac5cc9d36b57f2c6f2e57"></span><code class="descname">1</code><a class="headerlink" href="#c.1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.2">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda951615109f785aec528458eadbdcc411"></span><code class="descname">2</code><a class="headerlink" href="#c.2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Param error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.3">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda15b05ca7ebea112924358438aee19fd9"></span><code class="descname">3</code><a class="headerlink" href="#c.3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.4">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda167cd854550607dc40cd0fb943fb5d7d"></span><code class="descname">4</code><a class="headerlink" href="#c.4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.5">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bdae2db35a78f242684b5c111ce71acb431"></span><code class="descname">5</code><a class="headerlink" href="#c.5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tx Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.6">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda4f942c567a8f87708c74c6ecd684889e"></span><code class="descname">6</code><a class="headerlink" href="#c.6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rx Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.7">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bdaafa0b711c5d1991a04e6ea83718bb9d5"></span><code class="descname">7</code><a class="headerlink" href="#c.7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rx Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.8">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bdac694ce5db5a6dd1780bb854d8757b50a"></span><code class="descname">8</code><a class="headerlink" href="#c.8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rx Buffer Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.9">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda467f080e200aac5e73810d8aebda67ae"></span><code class="descname">9</code><a class="headerlink" href="#c.9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Busy Error. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.10">
+<span class="target" id="group__EasyLink_1gga84a5eb56e1eed379d073c4f6f1e882bda74a723fc9f0ac67801d93d7a11a8dd14"></span><code class="descname">10</code><a class="headerlink" href="#c.10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command stopped or aborted. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="c.EasyLink_PhyType">
+<span class="target" id="group__EasyLink_1ga7e06f491e8d87630db394b32f8d9f459"></span><code class="descname">EasyLink_PhyType</code><a class="headerlink" href="#c.EasyLink_PhyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Phy Type passed to <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a> </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a45682e2222921e1d188e243e198af0a3"></span><code class="descname">0</code></dt>
+<dd><p>Customer Phy specific settings exported from SmartRF Studio. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a20a4b82d6f1de5ce88897ea13aad43c0"></span><code class="descname">1</code></dt>
+<dd><p>Phy settings for Sub1G 50kbps data rate, IEEE 802.15.4g GFSK. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a510bc2110e73ed326ff0b5a15505a0c5"></span><code class="descname">2</code></dt>
+<dd><p>Phy settings for Sub1G 625bps data rate, Long Range Mode. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a059ce1397b75885220c810e284dab7e5"></span><code class="descname">3</code></dt>
+<dd><p>Phy settings for 2.4Ghz 200kbps data rate, IEEE 802.15.4g GFSK. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a7c057fb32e6d74afc08c081b75382bea"></span><code class="descname">4</code></dt>
+<dd><p>SimpleLink Long Range (5 kbps) </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459aa023a0b56bda5cc0de1067f613d1a916"></span><code class="descname">5</code></dt>
+<dd><p>Phy settings for 2.4Ghz 100kbps data rate, IEEE 802.15.4g GFSK. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a1339cd71fb9c7da049e83c53cf7857e4"></span><code class="descname">6</code></dt>
+<dd><p>Phy settings for 2.4Ghz 250kbps data rate, IEEE 802.15.4g GFSK. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459ab0199126d28629cae77ddfa78c17e2bd"></span><code class="descname">7</code></dt>
+<dd><p>Phy settings for 200kbps data rate, IEEE 802.15.4g GFSK. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.EasyLink_Num_Phy_Settings">
+<span class="target" id="group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a17092e636c0fbb83c7167bb38a3bbe12"></span><code class="descname">EasyLink_Num_Phy_Settings</code><a class="headerlink" href="#c.EasyLink_Num_Phy_Settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="c.EasyLink_CtrlOption">
+<span class="target" id="group__EasyLink_1ga45fe0d888f09a907e8149d39fc83efe4"></span><code class="descname">EasyLink_CtrlOption</code><a class="headerlink" href="#c.EasyLink_CtrlOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance configuration options. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4a973a996e4c4a01cdfe7f174a25feda39"></span><code class="descname">0</code></dt>
+<dd><p>Set the number of bytes in Addr for both Addr Filter and Tx/Rx operations </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4ad55ba2d3bd52b3efcf5984624e218f82"></span><code class="descname">1</code></dt>
+<dd><p>Set a timeout value for inactivity on the radio, i.e. if the radio stays idle for this amount of time it is automatically powered down </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4abc0cf0079ce2a6bcc2d1e4150d713fbe"></span><code class="descname">2</code></dt>
+<dd><p>Set Multiclient mode for application that will use multiple RF clients. Must be set before calling <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a>. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4ae1c7787ecd8886983d287dc50c28a6e5"></span><code class="descname">3</code></dt>
+<dd><p>Relative time in ticks from Async Rx start to TimeOut. A value of 0 means no timeout </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4a359dc6243750003979825ae70c06a4fc"></span><code class="descname">4</code></dt>
+<dd><p>Enable/Disable Test mode for Tone. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4aebf3a048c6ae9bb28a2556e58e9fe1c0"></span><code class="descname">5</code></dt>
+<dd><p>Enable/Disable Test mode for Signal. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4a8ba12607ea9d1dab23f7abf0650feb9f"></span><code class="descname">6</code></dt>
+<dd><p>Enable/Disable Rx Test mode for Tone. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="c.EasyLink_Params_init">
+<span class="target" id="group__EasyLink_1ga86110f94f2c2083381ea10e78e2835dd"></span>void <code class="descname">EasyLink_Params_init</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_Params" title="EasyLink_Params">EasyLink_Params</a>  *<em>&nbsp;params</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_Params_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the radio with specified Phy settings and RF client events. </p>
+<p>This function configures the radio phy settings. If the ui32ModType is <a class="reference internal" href="#group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a45682e2222921e1d188e243e198af0a3"><span class="std std-ref">EasyLink_Phy_Custom</span></a> then the configuration is taken from srf_settings.h. If a specific phy configuration is required (and not supported by any of the defined Phy types in <a class="reference internal" href="#group__EasyLink_1ga7e06f491e8d87630db394b32f8d9f459"><span class="std std-ref">EasyLink_PhyType</span></a> then you can cut and past the RF setting from the SmartRF Studio code export tool. This will copy and use the RF_prop, RF_cmdPropRadioDivSetup and RF_cmdFs commands, as well as the Sync word from the RF_cmdPropTx and RF_cmdPropRx commands. The function configures the callback for client events. The client events that trigger the callback are set using the nClientEventMask type in <a class="reference internal" href="#structEasyLink__Params"><span class="std std-ref">EasyLink_Params</span></a>. A pointer to the desired callback should be provided to the pClientEventCb type of the <a class="reference internal" href="#structEasyLink__Params"><span class="std std-ref">EasyLink_Params</span></a> structure.</p>
+<p><p>Default values are: ui32ModType = EasyLink_Phy_50kbps2gfsk RF_ClientCallback = NULL RF_ClientEventMask = 0 pGrnFxn = (EasyLink_GetRandomNumber)rand</p>
+<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">params</span></code>: The descriptor for the Phy mode and event callback settings</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>EasyLink_Status </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_init">
+<span class="target" id="group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_init</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_Params" title="EasyLink_Params">EasyLink_Params</a>  *<em>&nbsp;params</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the radio with specified Phy settings, CCA random number generator, and RF client events. </p>
+<p>This function configures the radio phy settings. If the ui32ModType is <a class="reference internal" href="#group__EasyLink_1gga7e06f491e8d87630db394b32f8d9f459a45682e2222921e1d188e243e198af0a3"><span class="std std-ref">EasyLink_Phy_Custom</span></a> then the configuration is taken from srf_settings.h. If a specific phy configuration is required (and not supported by any of the defined Phy types in <a class="reference internal" href="#group__EasyLink_1ga7e06f491e8d87630db394b32f8d9f459"><span class="std std-ref">EasyLink_PhyType</span></a> then you can cut and past the RF setting from the SmartRF Studio code export tool. This will copy and use the RF_prop, RF_cmdPropRadioDivSetup and RF_cmdFs commands, as well as the Sync word from the RF_cmdPropTx and RF_cmdPropRx commands. The function configures the callback for client events. The client events that trigger the callback are set using the nClientEventMask type in <a class="reference internal" href="#structEasyLink__Params"><span class="std std-ref">EasyLink_Params</span></a>. A pointer to the desired callback should be provided to the pClientEventCb type of the <a class="reference internal" href="#structEasyLink__Params"><span class="std std-ref">EasyLink_Params</span></a> structure.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>EasyLink_Status </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">params</span></code>: The descriptor for the Phy mode, random number generator, and event callback settings</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getAbsTime">
+<span class="target" id="group__EasyLink_1gabe7969234e1720a4e8da072aeeaa1f72"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_getAbsTime</code><span class="sig-paren">(</span>uint32_t *<em>&nbsp;pui32AbsTime</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getAbsTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the absolute radio time. </p>
+<p>This function returns the absolute radio time and can be used for monitoring or Tx/Rx events using the <a class="reference internal" href="#structEasyLink__TxPacket"><span class="std std-ref">EasyLink_TxPacket</span></a> and <a class="reference internal" href="#structEasyLink__RxPacket_1ae5b816d02ae93079ab934f14fee042a2"><span class="std std-ref">EasyLink_RxPacket::absTime</span></a> field.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">pui32AbsTime</span></code>: Pointer to return the signed RSSI value (dBm)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getRssi">
+<span class="target" id="group__EasyLink_1ga6a667b675f28d612160e9856a5e2f669"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_getRssi</code><span class="sig-paren">(</span>int8_t *<em>&nbsp;pi8Rssi</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getRssi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the RSSI value of an ongoing Radio Operation. </p>
+<p>This function returns the RSSI from an ongoing receiver radio operation. It is useful in receiver test modes to detect the presence of both modulated and unmodulated carrier waves</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a></dd>
+<dt><strong>Note</strong></dt>
+<dd>if no RSSI is available the function writes -128 to the value argument </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">pi8Rssi</span></code>: Pointer to return the signed RSSI value (dBm)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_transmit">
+<span class="target" id="group__EasyLink_1ga2251d1306e209ad90ecace8b474950c0"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_transmit</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_TxPacket" title="EasyLink_TxPacket">EasyLink_TxPacket</a>  *<em>&nbsp;txPacket</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_transmit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a Packet with blocking call. </p>
+<p>This function is a blocking call to send a packet. If the Tx is successfully scheduled then the function will block until the Tx is complete.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">txPacket</span></code>: The descriptor for the packet to be Tx’ed.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_transmitAsync">
+<span class="target" id="group__EasyLink_1gab92006c75f492a226d887b089f6cbd55"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_transmitAsync</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_TxPacket" title="EasyLink_TxPacket">EasyLink_TxPacket</a>  *<em>&nbsp;txPacket</em>, <a class="reference internal" href="#c.EasyLink_TxDoneCb" title="EasyLink_TxDoneCb">EasyLink_TxDoneCb</a><em>&nbsp;cb</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_transmitAsync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a Packet with non blocking call. </p>
+<p>This function is a non blocking call to send a packet. If the Tx is successfully scheduled then the callback will be call once the Tx is complete.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">txPacket</span></code>: The descriptor for the packet to be Tx’ed. </li>
+<li><code class="docutils literal notranslate"><span class="pre">cb</span></code>: The tx done function pointer.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_transmitCcaAsync">
+<span class="target" id="group__EasyLink_1ga4d66ef78c9746cac9ad4f460ff48eccb"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_transmitCcaAsync</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_TxPacket" title="EasyLink_TxPacket">EasyLink_TxPacket</a>  *<em>&nbsp;txPacket</em>, <a class="reference internal" href="#c.EasyLink_TxDoneCb" title="EasyLink_TxDoneCb">EasyLink_TxDoneCb</a><em>&nbsp;cb</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_transmitCcaAsync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a Packet with non blocking call if the channel is idle. </p>
+<p>This function is a non blocking call to send a packet. It will check for a clear channel prior to transmission. If the channel is busy it will backoff for a random period, in time units of EASYLINK_CCA_BACKOFF_TIMEUNITS, before reassessing. It does this a certain number (EASYLINK_MAX_CCA_BACKOFF_WINDOW - EASYLINK_MIN_CCA_BACKOFF_WINDOW) of times before quitting unsuccessfully and running to the callback. If the Tx is successfully scheduled then the callback will be called once the Tx is complete.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">txPacket</span></code>: The descriptor for the packet to be Tx’ed. </li>
+<li><code class="docutils literal notranslate"><span class="pre">cb</span></code>: The tx done function pointer.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_receive">
+<span class="target" id="group__EasyLink_1gaede498dfd26b52cc30fa3f1493ddf92a"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_receive</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_RxPacket" title="EasyLink_RxPacket">EasyLink_RxPacket</a>  *<em>&nbsp;rxPacket</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_receive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blocking call that waits for an Rx Packet. </p>
+<p>This function is a blocking call to wait for an Rx packet.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">rxPacket</span></code>: The descriptor for the packet to be Rx’ed.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_receiveAsync">
+<span class="target" id="group__EasyLink_1ga043138fd5da1b37e0a8d56c57a310076"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_receiveAsync</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_ReceiveCb" title="EasyLink_ReceiveCb">EasyLink_ReceiveCb</a><em>&nbsp;cb</em>, uint32_t<em>&nbsp;absTime</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_receiveAsync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables Asynchronous Packet Rx with non blocking call. </p>
+<p>This function is a non blocking call to Rx a packet. The Rx is turned on and the Callback is called once a packet is received. The Rx will timeout if <a class="reference internal" href="#group__EasyLink_1gga45fe0d888f09a907e8149d39fc83efe4ae1c7787ecd8886983d287dc50c28a6e5"><span class="std std-ref">EasyLink_Ctrl_AsyncRx_TimeOut</span></a> ctrl message is used to set the timeout to something other than 0.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">cb</span></code>: The rx function pointer. </li>
+<li><code class="docutils literal notranslate"><span class="pre">absTime</span></code>: Start time of Rx (0: now !0: absolute radio time to start Rx)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_abort">
+<span class="target" id="group__EasyLink_1ga3bea05b43bac4ab7480f843c286d0feb"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_abort</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abort a previously call Async Tx/Rx. </p>
+<p>This function is a blocking call to abort a previous Async Tx/Rx</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_setFrequency">
+<span class="target" id="group__EasyLink_1gaa446b905d7ad2b903985b36b4c3b2f46"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_setFrequency</code><span class="sig-paren">(</span>uint32_t<em>&nbsp;ui32Frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_setFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Frequency. </p>
+<p>This function set the radio to the specified frequency. Note that this will be rounded to the nearest frequency supported by the Frequency Synthesizer.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">ui32Frequency</span></code>: Frequency in units of kHz</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getFrequency">
+<span class="target" id="group__EasyLink_1ga5520ccd8a26b3f1b46ae22997a4c1343"></span>uint32_t <code class="descname">EasyLink_getFrequency</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Frequency. </p>
+<p>This function gets Frequency in units of kHz. This function will return the value set in the Frequency Synthesizer, and may not be the same as set using <a class="reference internal" href="#group__EasyLink_1gaa446b905d7ad2b903985b36b4c3b2f46"><span class="std std-ref">EasyLink_setFrequency()</span></a>. Note that this value does not include any offsets for deviations due to factors such as temperature and hence this API should not be used to get an accurate measure of frequency. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Frequency in units of kHz </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_enableRxAddrFilter">
+<span class="target" id="group__EasyLink_1ga79808397a37511625a0f939aa799445e"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_enableRxAddrFilter</code><span class="sig-paren">(</span>uint8_t *<em>&nbsp;pui8AddrFilterTable</em>, uint8_t<em>&nbsp;ui8AddrSize</em>, uint8_t<em>&nbsp;ui8NumAddrs</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_enableRxAddrFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables the address filter. </p>
+<p>This function enables the address filter to filter out address that are not in the address table provided.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">pui8AddrFilterTable</span></code>: A uint8 pointer to a variable size 2d array containing the addresses to filter on. </li>
+<li><code class="docutils literal notranslate"><span class="pre">ui8AddrSize</span></code>: The size of the address elements </li>
+<li><code class="docutils literal notranslate"><span class="pre">ui8NumAddrs</span></code>: The number of address elements</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getIeeeAddr">
+<span class="target" id="group__EasyLink_1gaa4b41c80a8bc50e87f689513d155c4d4"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_getIeeeAddr</code><span class="sig-paren">(</span>uint8_t *<em>&nbsp;ieeeAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getIeeeAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the IEEE address. </p>
+<p>This function gets the IEEE address</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">ieeeAddr</span></code>: pointer to an 8 element byte array to write the IEEE address to.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_setRfPower">
+<span class="target" id="group__EasyLink_1ga14e2b2345c298f7c82528128ca96ba33"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_setRfPower</code><span class="sig-paren">(</span>int8_t<em>&nbsp;i8TxPowerDbm</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_setRfPower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the TX Power. </p>
+<p>This function sets the Tx Power</p>
+<p><dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>The PA mode is chosen at build time, run-time switching from high PA to default PA (or vice versa) is not supported.</dd>
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">i8TxPowerDbm</span></code>: The Tx power in dBm’s to be set.<ol class="arabic">
+<li>All platforms other than the CC1352P: Value of -10 dBm or values in the range of 0-14 dBm are accepted. Values above 14 are set to 14 dBm while those below 0 are set to -10 dBm</li>
+<li>CC1352P Default PA: -20 to 14 dBm. Values above 14 dBm will be set to 14 dBm, while values below -20 dBm will cause a configuration error</li>
+<li>CC1352P High PA: 14 to 20 dBm. Values above 20 dBm will be set to 20 dBm, while values below 14 dBm will cause a configuration error</li>
+</ol>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getRfPower">
+<span class="target" id="group__EasyLink_1ga9d0f75c42d1b64265307b642a9be077e"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_getRfPower</code><span class="sig-paren">(</span>int8_t *<em>&nbsp;pi8TxPowerDbm</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getRfPower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the TX Power. </p>
+<p>This function gets the Tx Power in dBm, values ranging from -10 to 14 dBm should be expect</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">pi8TxPowerDbm</span></code>: Pointer to return the transmission power value (dBm)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_setCtrl">
+<span class="target" id="group__EasyLink_1ga63c1ea8650fc24e274ced9c412c409c5"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_setCtrl</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_CtrlOption" title="EasyLink_CtrlOption">EasyLink_CtrlOption</a><em>&nbsp;Ctrl</em>, uint32_t<em>&nbsp;ui32Value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_setCtrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets advanced configuration options. </p>
+<p>This function allows setting some of the advanced configuration options</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code>: The control option to be set </li>
+<li><code class="docutils literal notranslate"><span class="pre">ui32Value</span></code>: The value to set the control option to</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.EasyLink_getCtrl">
+<span class="target" id="group__EasyLink_1ga848768d3bb646a176cd7b9e99b811aec"></span><a class="reference internal" href="#c.EasyLink_Status" title="EasyLink_Status">EasyLink_Status</a> <code class="descname">EasyLink_getCtrl</code><span class="sig-paren">(</span><a class="reference internal" href="#c.EasyLink_CtrlOption" title="EasyLink_CtrlOption">EasyLink_CtrlOption</a><em>&nbsp;Ctrl</em>, uint32_t *<em>&nbsp;pui32Value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.EasyLink_getCtrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets advanced configuration options. </p>
+<p>This function allows getting some of the advanced configuration options</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="#group__EasyLink_1ga84a5eb56e1eed379d073c4f6f1e882bd"><span class="std std-ref">EasyLink_Status</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code>: The control option to get </li>
+<li><code class="docutils literal notranslate"><span class="pre">pui32Value</span></code>: Pointer to return the control option value</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="variable">
+<dt>
+<span class="target" id="group__EasyLink_1ga2b46f9164931d046af6c768837a6ae9e"></span><code class="descname">EasyLink_RfSetting EasyLink_supportedPhys[]</code></dt>
+<dd><p>Array containing all the supported EasyLink_rfSettings. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_numSupportedPhys">
+<span class="target" id="group__EasyLink_1gad481fe9bdbcb456bb1879d688fc7ef38"></span>const uint8_t <code class="descname">EasyLink_numSupportedPhys</code><a class="headerlink" href="#c.EasyLink_numSupportedPhys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the EasyLink_supportedPhys array. </p>
+</dd></dl>
+
+</div>
+<dl class="struct">
+<dt id="c.EasyLink_Params">
+<span class="target" id="structEasyLink__Params"></span><em class="property">struct </em><code class="descname">EasyLink_Params</code><a class="headerlink" href="#c.EasyLink_Params" title="Permalink to this definition">¶</a></dt>
+<dd><em>#include &lt;EasyLink.h&gt;</em><p>Structure for <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a> and <a class="reference internal" href="#group__EasyLink_1ga86110f94f2c2083381ea10e78e2835dd"><span class="std std-ref">EasyLink_Params_init()</span></a> </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.EasyLink_Params::ui32ModType">
+<span class="target" id="structEasyLink__Params_1a0e22721dcd5f3276e1297feb03d87ab1"></span><a class="reference internal" href="#c.EasyLink_PhyType" title="EasyLink_PhyType">EasyLink_PhyType</a> <code class="descname">ui32ModType</code><a class="headerlink" href="#c.EasyLink_Params::ui32ModType" title="Permalink to this definition">¶</a></dt>
+<dd><p>PHY type. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_Params::pClientEventCb">
+<span class="target" id="structEasyLink__Params_1ad1dda064624312f64a9b6ec1a6fad7b0"></span>RF_ClientCallback <code class="descname">pClientEventCb</code><a class="headerlink" href="#c.EasyLink_Params::pClientEventCb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client event callback function. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_Params::nClientEventMask">
+<span class="target" id="structEasyLink__Params_1a1259c93c8d2d3f54d7adf6c83a24b8ba"></span>RF_ClientEventMask <code class="descname">nClientEventMask</code><a class="headerlink" href="#c.EasyLink_Params::nClientEventMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client event mask. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_Params::pGrnFxn">
+<span class="target" id="structEasyLink__Params_1acc85378da49e15f76429364897162ce3"></span><a class="reference internal" href="#c.EasyLink_GetRandomNumber" title="EasyLink_GetRandomNumber">EasyLink_GetRandomNumber</a> <code class="descname">pGrnFxn</code><a class="headerlink" href="#c.EasyLink_Params::pGrnFxn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to function that returns a 32-bit unsigned random number. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="struct">
+<dt id="c.EasyLink_RfSetting">
+<span class="target" id="structEasyLink__RfSetting"></span><em class="property">struct </em><code class="descname">EasyLink_RfSetting</code><a class="headerlink" href="#c.EasyLink_RfSetting" title="Permalink to this definition">¶</a></dt>
+<dd><em>#include &lt;EasyLink.h&gt;</em><p>Structure for <a class="reference internal" href="#group__EasyLink_1gaf1ef3fd4567f06d82474ab674b285672"><span class="std std-ref">EasyLink_init()</span></a> containing pointers to all the commands necessary to define an RF setting. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::EasyLink_phyType">
+<span class="target" id="structEasyLink__RfSetting_1ac2a6136af948f0b8af436f41d9775aa8"></span><a class="reference internal" href="#c.EasyLink_PhyType" title="EasyLink_PhyType">EasyLink_PhyType</a> <code class="descname">EasyLink_phyType</code><a class="headerlink" href="#c.EasyLink_RfSetting::EasyLink_phyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PHY type that this RF setting defines </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pProp">
+<span class="target" id="structEasyLink__RfSetting_1a4e8961ff1487e118165eb52f47e472f2"></span>RF_Mode* <code class="descname">RF_pProp</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pProp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to RF Mode Command. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdPropRadioDivSetup">
+<span class="target" id="structEasyLink__RfSetting_1ac6c5214f5de7fb53cd8071704f3eec23"></span>rfc_CMD_PROP_RADIO_DIV_SETUP_t* <code class="descname">RF_pCmdPropRadioDivSetup</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdPropRadioDivSetup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdPropRadioSetup">
+<span class="target" id="structEasyLink__RfSetting_1a896982571abeaa39f5f80142dfe522ee"></span>rfc_CMD_PROP_RADIO_SETUP_t* <code class="descname">RF_pCmdPropRadioSetup</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdPropRadioSetup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_uCmdPropRadio">
+<span class="target" id="structEasyLink__RfSetting_1a48ed57a8b587dfc3102c20c986025f5e"></span>union <a class="reference internal" href="#c.EasyLink_RfSetting" title="EasyLink_RfSetting">EasyLink_RfSetting</a>::&#64;0 <code class="descname">RF_uCmdPropRadio</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_uCmdPropRadio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Union containing either a pointer to a divided radio setup command or a pointer to a radio setup command </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdFs">
+<span class="target" id="structEasyLink__RfSetting_1a02d02a5246b995ced5be62d9f673187d"></span>rfc_CMD_FS_t* <code class="descname">RF_pCmdFs</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdFs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to a frequency setup command. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdPropTx">
+<span class="target" id="structEasyLink__RfSetting_1ab0d5457058963db86b964ce070044652"></span>rfc_CMD_PROP_TX_t* <code class="descname">RF_pCmdPropTx</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdPropTx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to a RF TX command. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdPropTxAdv">
+<span class="target" id="structEasyLink__RfSetting_1af662e43d6407a889baf4e33214aaed8e"></span>rfc_CMD_PROP_TX_ADV_t* <code class="descname">RF_pCmdPropTxAdv</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdPropTxAdv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to an advanced RF TX command </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pCmdPropRxAdv">
+<span class="target" id="structEasyLink__RfSetting_1a67dc34406ab1b01abcc44caee114b36e"></span>rfc_CMD_PROP_RX_ADV_t* <code class="descname">RF_pCmdPropRxAdv</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pCmdPropRxAdv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to an advanced RF RX command </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_pTxPowerTable">
+<span class="target" id="structEasyLink__RfSetting_1a2031802547435de2d0f363698eac3d6c"></span>RF_TxPowerTable_Entry* <code class="descname">RF_pTxPowerTable</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_pTxPowerTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to a Tx power table. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RfSetting::RF_txPowerTableSize">
+<span class="target" id="structEasyLink__RfSetting_1adce5cdf67cbbbf5d26fe60a67d880b67"></span>uint8_t <code class="descname">RF_txPowerTableSize</code><a class="headerlink" href="#c.EasyLink_RfSetting::RF_txPowerTableSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tx power table size. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="struct">
+<dt id="c.EasyLink_TxPacket">
+<span class="target" id="structEasyLink__TxPacket"></span><em class="property">struct </em><code class="descname">EasyLink_TxPacket</code><a class="headerlink" href="#c.EasyLink_TxPacket" title="Permalink to this definition">¶</a></dt>
+<dd><em>#include &lt;EasyLink.h&gt;</em><p>Structure for the TX Packet. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt>
+<span class="target" id="structEasyLink__TxPacket_1a95919159eb0549ad02b820c3225b97d6"></span><code class="descname">uint8_t EasyLink_TxPacket::dstAddr[8]</code></dt>
+<dd><p>Destination address. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_TxPacket::absTime">
+<span class="target" id="structEasyLink__TxPacket_1af757c834115e276f9c812e32d48b2e8b"></span>uint32_t <code class="descname">absTime</code><a class="headerlink" href="#c.EasyLink_TxPacket::absTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute time to Tx packet (0 for immediate) Layer will use last SeqNum used + 1 </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_TxPacket::len">
+<span class="target" id="structEasyLink__TxPacket_1a99f9931f879a653ca33c8d92fe77f26d"></span>uint8_t <code class="descname">len</code><a class="headerlink" href="#c.EasyLink_TxPacket::len" title="Permalink to this definition">¶</a></dt>
+<dd><p>Payload Length. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt>
+<span class="target" id="structEasyLink__TxPacket_1a5d0db7990ccb7fec98fc123cb1c77608"></span><code class="descname">uint8_t EasyLink_TxPacket::payload[128]</code></dt>
+<dd><p>Payload. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="struct">
+<dt id="c.EasyLink_RxPacket">
+<span class="target" id="structEasyLink__RxPacket"></span><em class="property">struct </em><code class="descname">EasyLink_RxPacket</code><a class="headerlink" href="#c.EasyLink_RxPacket" title="Permalink to this definition">¶</a></dt>
+<dd><em>#include &lt;EasyLink.h&gt;</em><p>Structure for the RX’ed Packet. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt>
+<span class="target" id="structEasyLink__RxPacket_1a3501779260aa4b520d40fede875e2819"></span><code class="descname">uint8_t EasyLink_RxPacket::dstAddr[8]</code></dt>
+<dd><p>Dst Address of RX’ed packet. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RxPacket::rssi">
+<span class="target" id="structEasyLink__RxPacket_1a2cc242134a4ee52a96247ed3bd4bca72"></span>int8_t <code class="descname">rssi</code><a class="headerlink" href="#c.EasyLink_RxPacket::rssi" title="Permalink to this definition">¶</a></dt>
+<dd><p>rssi of RX’ed packet </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RxPacket::absTime">
+<span class="target" id="structEasyLink__RxPacket_1ae5b816d02ae93079ab934f14fee042a2"></span>uint32_t <code class="descname">absTime</code><a class="headerlink" href="#c.EasyLink_RxPacket::absTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute time to turn on Rx when passed (0 for immediate), Or Absolute time that packet was Rx when returned. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RxPacket::rxTimeout">
+<span class="target" id="structEasyLink__RxPacket_1af583434834a6da7fd1c99012a826f4b8"></span>uint32_t <code class="descname">rxTimeout</code><a class="headerlink" href="#c.EasyLink_RxPacket::rxTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative time in ticks from Rx start to Rx TimeOut a value of 0 means no timeout </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.EasyLink_RxPacket::len">
+<span class="target" id="structEasyLink__RxPacket_1a57fc6ab18d3b825a181ad967680b1ddd"></span>uint8_t <code class="descname">len</code><a class="headerlink" href="#c.EasyLink_RxPacket::len" title="Permalink to this definition">¶</a></dt>
+<dd><p>length of RX’ed packet </p>
+</dd></dl>
+
+<dl class="variable">
+<dt>
+<span class="target" id="structEasyLink__RxPacket_1ad16746c1cb28a40ae8c93e27c8a34aa6"></span><code class="descname">uint8_t EasyLink_RxPacket::payload[128]</code></dt>
+<dd><p>payload of RX’ed packet </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="define">
+<dt id="c.EASYLINK_DEFAULT_ADDR">
+<span class="target" id="group__EasyLink_1ga8f5a109af7574476c8df709f1b97e38f"></span><code class="descname">EASYLINK_DEFAULT_ADDR</code><a class="headerlink" href="#c.EASYLINK_DEFAULT_ADDR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the address that will accompany each packet sent from this device when EASYLINK_USE_DEFAULT_ADDR is true. It can also be thought of as this device’s own address. Organized in little endian format (e.g.an address of 0xABCD should be defined as {0xCD,0xAB}) </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_USE_DEFAULT_ADDR">
+<span class="target" id="group__EasyLink_1ga7f458739b92ce0a82f1b83c58534f2b0"></span><code class="descname">EASYLINK_USE_DEFAULT_ADDR</code><a class="headerlink" href="#c.EASYLINK_USE_DEFAULT_ADDR" title="Permalink to this definition">¶</a></dt>
+<dd><p>When false, the Easylink stack expects the application to provide an accompanying address for each <a class="reference internal" href="#structEasyLink__TxPacket"><span class="std std-ref">EasyLink_TxPacket</span></a> passed to the <a class="reference internal" href="#group__EasyLink_1ga2251d1306e209ad90ecace8b474950c0"><span class="std std-ref">EasyLink_transmit()</span></a>, <a class="reference internal" href="#group__EasyLink_1gab92006c75f492a226d887b089f6cbd55"><span class="std std-ref">EasyLink_transmitAsync()</span></a>, and <a class="reference internal" href="#group__EasyLink_1ga4d66ef78c9746cac9ad4f460ff48eccb"><span class="std std-ref">EasyLink_transmitCcaAsync()</span></a> APIs. Otherwise, these APIs will use the address defined in EASYLINK_DEFAULT_ADDR. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_MAX_DATA_LENGTH">
+<span class="target" id="group__EasyLink_1ga46187afe700d6a6054a3e85cdf9a9ee5"></span><code class="descname">EASYLINK_MAX_DATA_LENGTH</code><a class="headerlink" href="#c.EASYLINK_MAX_DATA_LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the largest Tx/Rx payload that the interface can support. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_ADDR_SIZE">
+<span class="target" id="group__EasyLink_1gace0c463df70967da53c65f636fb0bd59"></span><code class="descname">EASYLINK_ADDR_SIZE</code><a class="headerlink" href="#c.EASYLINK_ADDR_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default address size for rx and tx operations. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_ENABLE_ADDR_FILTERING">
+<span class="target" id="group__EasyLink_1ga6e4775f0c9c572ace2fa8792f4220a58"></span><code class="descname">EASYLINK_ENABLE_ADDR_FILTERING</code><a class="headerlink" href="#c.EASYLINK_ENABLE_ADDR_FILTERING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables of disables address filtering by default. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_NUM_ADDR_FILTER">
+<span class="target" id="group__EasyLink_1ga1c115e3ff927fcf73f88456146b209cf"></span><code class="descname">EASYLINK_NUM_ADDR_FILTER</code><a class="headerlink" href="#c.EASYLINK_NUM_ADDR_FILTER" title="Permalink to this definition">¶</a></dt>
+<dd><p>The table for setting the Rx Address Filters. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_ADDR_FILTER_TABLE">
+<span class="target" id="group__EasyLink_1gac7ff610eacf7388ea61fca568cb409dd"></span><code class="descname">EASYLINK_ADDR_FILTER_TABLE</code><a class="headerlink" href="#c.EASYLINK_ADDR_FILTER_TABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The table for setting the Rx Address Filters. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_IDLE_TIMEOUT">
+<span class="target" id="group__EasyLink_1ga54c100115ea88edae38d5f66ea13f272"></span><code class="descname">EASYLINK_IDLE_TIMEOUT</code><a class="headerlink" href="#c.EASYLINK_IDLE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the time for the radio to return to idle after inactivity. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_ENABLE_MULTI_CLIENT">
+<span class="target" id="group__EasyLink_1ga6695e9f9ebef2ca1a5373050dd0f5e02"></span><code class="descname">EASYLINK_ENABLE_MULTI_CLIENT</code><a class="headerlink" href="#c.EASYLINK_ENABLE_MULTI_CLIENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the application to use multiple RF clients. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_ASYNC_RX_TIMEOUT">
+<span class="target" id="group__EasyLink_1gae6d8aa123ba62894ea5de13c5899d259"></span><code class="descname">EASYLINK_ASYNC_RX_TIMEOUT</code><a class="headerlink" href="#c.EASYLINK_ASYNC_RX_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the relative time from async RX start to timeout. A value of 0 means no timeout. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_MIN_CCA_BACKOFF_WINDOW">
+<span class="target" id="group__EasyLink_1gaa775a7d6caf0146db0dac5bfaac67adb"></span><code class="descname">EASYLINK_MIN_CCA_BACKOFF_WINDOW</code><a class="headerlink" href="#c.EASYLINK_MIN_CCA_BACKOFF_WINDOW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum CCA back-off window in units of EASYLINK_CCA_BACKOFF_TIMEUNITS, as a power of 2. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_MAX_CCA_BACKOFF_WINDOW">
+<span class="target" id="group__EasyLink_1gad8da5666d036513d87d4aae8be754a49"></span><code class="descname">EASYLINK_MAX_CCA_BACKOFF_WINDOW</code><a class="headerlink" href="#c.EASYLINK_MAX_CCA_BACKOFF_WINDOW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum CCA back-off window in units of EASYLINK_CCA_BACKOFF_TIMEUNITS, as a power of 2. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_CCA_BACKOFF_TIMEUNITS">
+<span class="target" id="group__EasyLink_1ga8f03bc46a81af5a1f6f9fd1fbd4cf8b2"></span><code class="descname">EASYLINK_CCA_BACKOFF_TIMEUNITS</code><a class="headerlink" href="#c.EASYLINK_CCA_BACKOFF_TIMEUNITS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The back-off time units in microseconds. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_CS_RSSI_THRESHOLD_DBM">
+<span class="target" id="group__EasyLink_1gafd76f59ed4ee8bdc22576fd5a84105d9"></span><code class="descname">EASYLINK_CS_RSSI_THRESHOLD_DBM</code><a class="headerlink" href="#c.EASYLINK_CS_RSSI_THRESHOLD_DBM" title="Permalink to this definition">¶</a></dt>
+<dd><p>RSSI threshold for Clear Channel Assessment (CCA) </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_CHANNEL_IDLE_TIME_US">
+<span class="target" id="group__EasyLink_1ga60771ce6e44e3815225b1f7a912af777"></span><code class="descname">EASYLINK_CHANNEL_IDLE_TIME_US</code><a class="headerlink" href="#c.EASYLINK_CHANNEL_IDLE_TIME_US" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time for which the channel RSSI must remain below the specified threshold for the channel to be considered idle. </p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.EASYLINK_PARAM_CONFIG">
+<span class="target" id="group__EasyLink_1gabea0c95e4abc09699c85fa286f4cdc30"></span><code class="descname">EASYLINK_PARAM_CONFIG</code><a class="headerlink" href="#c.EASYLINK_PARAM_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd><p>EasyLink default parameter configuration. </p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rf-core/rf-commands-reference.html" class="btn btn-neutral float-right" title="RF commands reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../proprietary-rf-guide/reference-cc2640.html" class="btn btn-neutral float-left" title="API References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2016-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

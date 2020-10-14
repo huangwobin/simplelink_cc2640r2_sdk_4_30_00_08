@@ -1,0 +1,20 @@
+[
+    {
+        "files": [
+            "+../RFQueue.c -> RFQueue.c",
+            "+../main_nortos.c -> main_nortos.c",
+            "+../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../rfEchoTx.c -> rfEchoTx.c",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.icf -> CC2640R2_LAUNCHXL_NoRTOS.icf",
+            "+../RFQueue.h -> RFQueue.h",
+            "+../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../Board.h -> Board.h",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../README.md -> README.md",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

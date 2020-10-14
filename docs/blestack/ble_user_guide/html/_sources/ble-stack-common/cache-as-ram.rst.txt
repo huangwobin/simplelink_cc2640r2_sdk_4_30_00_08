@@ -1,0 +1,437 @@
+
+.. _section-cache-as-ram:
+
+Using the Cache as RAM
+^^^^^^^^^^^^^^^^^^^^^^
+
+The cache can be disabled temporarily or permanently and used as RAM in stead.
+When the cache is disabled, the device runs at reduced speed. This increases the
+device power consumption. If you want to use the cache as cache and temporarily
+disable it for extra RAM at runtime, jump ahead to the
+:ref:`section-cache-as-ram-dynamic-gpram` section. If you want to configure the
+cache to be used as RAM from the outset, see the
+:ref:`section-cache-as-ram-configure-cache` section.
+
+.. note::
+
+    **If you are using one SNV page** (``OSAL_SVN=1``) **you can only use the
+    last 4KB of the** :term:`GPRAM`.
+
+    This is because the SNV driver will use the first 4K of the GPRAM as
+    temporary storage during compaction. (This will happen regardless of whether
+    the GPRAM is being used as RAM or cache.) If you need to use the full GPRAM,
+    set ``OSAL_SVN=2``. One SNV page will be used for storage and one for
+    compaction. This way the SNV driver will not use the GPRAM.
+
+    You can read more about this in the :ref:`using-simple-nv` section.
+
+
+.. _section-cache-as-ram-configure-cache:
+
+Configure the Cache as GPRAM
+""""""""""""""""""""""""""""
+
+If your application needs more memory, or if you need more space in SRAM, the
+cache can be re-purposed as RAM. This will allow the linker to store parts of
+the compiled application in this section of the RAM. This section will be
+referred to as the general purpose RAM (:term:`GPRAM`). This will cause the program to
+run at a slightly reduced speed, and it will increase the device
+power consumption in sleep. This is because the :term:`GPRAM`, contrary to a cache,
+will have to be powered even when the device is sleeping. The current consumption
+in standby mode with and without cache retained is listed in the |device|
+datasheet.
+
+With the cache re-purposed as RAM, the program will run at a slightly decreased
+speed. This will cause the device to spend more time when active,
+which again will give a higher power consumption. How this will affect the
+device power consumption will depend on application. For some applications the
+added power consumption will be very small, but for processing intensive
+application it will be slightly higher. Please verify your application current
+consumption by using the method described in the `Measuring Bluetooth Low Energy
+Power Consumption Application Report (SWRA478) <http://www.ti.com/lit/pdf/swra478>`_.
+
+In order to enable using the cache as RAM, two things need to be done. Firstly, the
+program must be told to retain the cache\/GPRAM when it's being used. Secondly,
+the linker must be told to allocate the memory region used as cache to GPRAM,
+and what parts of code to store in the GPRAM. This is done in the linker
+command\/configuration file. The syntax for the linker command\/configuration
+file is slightly different in CCS and IAR. To read more about the CCS linker
+command file, see the article `Linker Command File Primer <http://software-dl.ti.com/ccs/esd/documents/sdto_cgt_Linker-Command-File-Primer.htmlr>`_.
+To read more about the IAR linker, see `IAR C/C++ Development Guide <http://ftp.
+iar.se/WWWfiles/arm/webic/doc/EWARM_DevelopmentGuide.ENU.pdf>`_.
+
+Some of the example projects found in |STACK| have a Build Configuration
+that allows using the cache as RAM. This is true for e.g. the multi_role project.
+In this case, cache as RAM can be enabled by choosing that build configuration.
+In CCS: Project -> Build Configurations -> Set Active -> FlashROM-CacheAsRAM.
+In IAR: Project -> Edit Configurations -> FlashROM-CacheAsRAM.
+
+  .. tip::
+    When changing the build configuration of a project, the project properties\/options
+    may reset. Please make sure to make changes to the project predefines etc.,
+    **after** changing the build configuration.
+
+**If you want to use the cache as RAM in a project which does not have the
+CacheAsRAM build configuration, follow these steps:**
+
+  .. note::
+    The steps will be different for CCS users and IAR users. The steps will
+    also differ depending on what example project your project is based on. For
+    the example projects found in the |STACK| folder, only step 1-5 will be
+    required.
+
+  1. In the ccfg file, (called ``ccfg_app_ble.c`` or ``ccfg.c``), include the
+  following **before**  ``#include <startup_files/ccfg.c>``:
+
+    .. code-block:: c
+
+      #ifdef CACHE_AS_RAM
+        #define SET_CCFG_SIZE_AND_DIS_FLAGS_DIS_GPRAM  0x0 /* Enable GPRAM */
+      #endif //CACHE_AS_RAM
+
+      #include <startup_files/ccfg.c>
+
+  2. In ``main()``, add the following code:
+
+    .. code-block:: c
+      :caption: Retain cache in sleep.
+
+      #ifdef CACHE_AS_RAM
+      // retain cache during standby
+      Power_setConstraint(PowerCC26XX_SB_VIMS_CACHE_RETAIN);
+      Power_setConstraint(PowerCC26XX_NEED_FLASH_IN_IDLE);
+      #else
+      // Enable iCache pre-fetching
+      VIMSConfigure(VIMS_BASE, TRUE, TRUE);
+      // Enable cache
+      VIMSModeSet(VIMS_BASE, VIMS_MODE_ENABLED);
+      #endif //CACHE_AS_RAM
+
+  .. important::
+    Please make sure your program is not using :term:`VIMS` while using cache as RAM.
+
+
+  In the same file, include the following files: (In ble5stack projects,
+  these are already included in main.c.)
+
+    .. code-block:: c
+
+      /* Power Driver */
+      #include <ti/drivers/Power.h>
+      #include <ti/drivers/power/PowerCC26XX.h>
+      /* Header files required to enable instruction fetch cache */
+      #include <ti/devices/cc26x0r2/inc/hw_memmap.h>
+      #include <ti/devices/cc26x0r2/driverlib/vims.h>
+
+  3. Go to the **compiler** predefines and add ``CACHE_AS_RAM``. For the
+  example projects from the ble5stack folder, this define will bring changes
+  to the executed code in the following files:
+
+    - ``ble_user_config.c``
+    - ``main.c``
+    - ``ble_user_config.h``
+
+  ``ble_user_config.c`` will include the following RF override when ``CACHE_AS_RAM``
+  is added as predefines.
+
+    .. code-block:: c
+
+      #ifdef CACHE_AS_RAM
+          0x00018063,
+      #endif //CACHE_AS_RAM
+
+  However, for applications that use RFCC26XX_multiMode driver such as all
+  the ToF examples in |STACK|, the additional override needs to be added manually.
+  For example, when running ToF examples while enabling ``CACHE_AS_RAM``, you need
+  to add the override ``0x00018063`` into pOverrides_2M table in ToF.c as shown below:
+
+    .. code-block:: c
+
+      // Override list for the fast synth settings:
+      // Overrides for CMD_RADIO_SETUP
+      uint32_t pOverrides_2M[] =
+      {
+       ...
+       ...
+       ...
+      #ifdef CACHE_AS_RAM
+          0x00018063,
+      #endif //CACHE_AS_RAM
+          0xFFFFFFFF,
+      }
+
+  .. important::
+    The override list is terminated with ``0xFFFFFFFF``, so you need to make sure
+    to apply the override ``0x00018063`` before ``0xFFFFFFFF``.
+
+  4. Go to the **linker** predefines and add ``CACHE_AS_RAM=1``. This define will
+  bring changes to the executed code in ``cc26xx_app.cmd``\/``cc26xx_app.icf``.
+
+  5. If your project is based on a |STACK| project, this will move as much of
+  the :term:`.bss` section that the SRAM can fit, from SRAM to GPRAM. The
+  exception is ``ll.o`` and, if you're using the BLE5-Stack ``ll_ae.o``. The RF
+  driver requires ``ll.o`` (and if applicable ``ll_ae.o``) to be placed in SRAM.
+  Other objects in :term:`.bss` can be moved as desired. See
+  :ref:`using-the-aux-as-ram` for an example of this. Rebuild and flash your app
+  project. View the .map file to see what parts of the device memory is
+  occupied. (Alternatively, in CCS: View -> Memory Allocation.)
+
+  6. If your project is not based on a |STACK| project, there are still
+  changes that need to be made in order to use the cache as GPRAM. If your
+  project is using the radio, add ``0x00018063`` to the radio overrides.
+
+  7. The GPRAM memory area must be defined in the linker command file. This
+  syntax is different for the CCS and IAR linker. IAR specific instructions
+  will follow the CCS specific instructions.
+
+  In CCS, the linker command file ends with ``.cmd`` (e.g.
+  ``cc26xx_app.cmd``).
+
+    .. code-block:: none
+      :caption: Under ``Memory Sizes``, add defines for GPRAM start and length.
+
+        /*******************************************************************************
+         * Memory Sizes
+         */
+        #define FLASH_BASE   0x00000000
+        #define GPRAM_BASE   0x11000000
+        #define RAM_BASE     0x20000000
+        #define ROM_BASE     0x10000000
+
+        #if defined(CC26X0ROM) || defined(CC26X0FLASH)
+        #define FLASH_SIZE 0x00020000
+        #define GPRAM_SIZE 0x00002000
+        #define RAM_SIZE   0x00005000
+        #define ROM_SIZE   0x0001C000
+        #endif /* CC26X0ROM || CC26X0FLASH */
+
+    .. code-block:: c
+      :caption: Add GPRAM under ``Memory Definitions``.
+
+        /*******************************************************************************
+         * GPRAM
+         */
+
+        #ifdef CACHE_AS_RAM
+          #define GPRAM_START GPRAM_BASE
+          #define GPRAM_END   (GPRAM_START + GPRAM_SIZE - 1)
+        #endif /* CACHE_AS_RAM */
+
+    .. code-block:: none
+      :caption: In ``MEMORY{}``, allocate room for GPRAM.
+
+          #ifdef CACHE_AS_RAM
+            GPRAM(RWX) : origin = GPRAM_START, length = GPRAM_SIZE
+          #endif /* CACHE_AS_RAM */
+
+    .. _mm_cacheasram_ccs_code:
+
+    .. code-block:: none
+      :caption: In ``SECTIONS{}``, move .bss from SRAM to GPRAM.
+
+        GROUP > SRAM
+        {
+          .data
+          #ifndef CACHE_AS_RAM
+          .bss
+          #endif /* CACHE_AS_RAM */
+          .vtable
+          .vtable_ram
+          vtable_ram
+          .sysmem
+          .nonretenvar
+          /*This keeps ll.o objects out of GPRAM, if no ll.o would be placed here
+          the warning #10068 is supressed.*/
+          #ifdef CACHE_AS_RAM
+          ll_bss
+          {
+            --library=*ll_*.a<ll.o> (.bss)
+            --library=*ll_*.a<ll_ae.o> (.bss)
+          }
+          #endif /* CACHE_AS_RAM */
+        } LOAD_END(heapStart)
+
+        .stack            :   >  SRAM (HIGH) LOAD_START(heapEnd)
+
+        #ifdef CACHE_AS_RAM
+        .bss :
+        {
+          *(.bss)
+        } > GPRAM
+        #endif /* CACHE_AS_RAM */
+
+    Rebuild your application. This will move :term:`.bss` from SRAM to GPRAM and
+    place the auto-heap size start after.  Other objects can also be moved. See
+    :ref:`using-the-aux-as-ram` for an example of this.
+
+    .. note:: If your project doesn't contain a ``ll.o`` or ``ll_ae.o`` you will
+      get a linker warning if you copy-paste :numref:`mm_cacheasram_ccs_code` into
+      your linker command file. If this happens, just remove the mention of the
+      relevant section from your linker command file.
+
+  8. In IAR, the linker configuration file ends with ``.icf`` (e.g.
+  ``cc26xx_app.icf``).
+
+    .. code-block:: none
+      :caption: Add defines for GPRAM start and length under ``Memory Definitions``.
+
+        //////////////////////////////////////////////////////////////////////////////
+        // GPRAM
+        //
+        if ( isdefinedsymbol(CACHE_AS_RAM) )
+        {
+          define symbol GPRAM_START           = 0x11000000;
+          define symbol GPRAM_SIZE            = 0x2000;
+          define symbol GPRAM_END             = GPRAM_START + GPRAM_SIZE;
+        }
+
+    .. code-block:: none
+      :caption: Under ``Memory Regions``, allocate room for GPRAM.
+
+        if ( isdefinedsymbol(CACHE_AS_RAM) )
+        {
+          define region GPRAM               = mem:[from GPRAM_START to GPRAM_END];
+        }
+
+    .. _mm_cacheasram_iar_code:
+
+    .. code-block:: none
+      :caption: Under ``Memory Placement``, move .bss from SRAM to GPRAM.
+
+        if ( isdefinedsymbol(CACHE_AS_RAM) )
+        {
+          // GPRAM
+          define block GPDATA { section .bss };
+          place in GPRAM { block GPDATA } except { object ll.o };
+        }
+
+    Rebuild your application. This will move :term:`.bss` from SRAM to GPRAM. Other
+    objects can also be moved. See :ref:`using-the-aux-as-ram` for an example
+    of this.
+
+    .. note:: If your project doesn't contain a ``ll.o`` or ``ll_ae.o`` your
+      project will probably not work as intended if you copy-paste
+      :numref:`mm_cacheasram_iar_code` into your linker command file. Please make
+      sure you only mention objects that exist in your linker command file.
+
+.. _section-cache-as-ram-dynamic-gpram:
+
+Dynamic GPRAM
+"""""""""""""
+
+In this mode, we will use the cache as RAM only when we need it. At all other
+times, the cache will operate as normal. When the cache is disabled and the
+memory is used as RAM, the current consumption will increase as described in the
+:ref:`section-cache-as-ram-configure-cache` section. When the cache is not
+configured as RAM but runs as usual, the power consumption is not increased.
+
+An example use-case is a device that sometimes receives or sends a data stream
+with a high throughput. When the device is not streaming, it can use the cache
+as usual. When the device receives the signal to start streaming, the device
+disables the cache and uses the GPRAM to store a buffer for the stream. When the
+device receives the command to stop streaming, the memory is freed and the cache
+is re-enabled. (The audio projects on `Github <https://github.com/ti-simplelink
+/ble_examples/tree/master>`_ are examples of this.)
+
+To use the :term:`GPRAM` to dynamically store a data buffer, follow these steps:
+
+    1. In order to use this functionality, the following files should be included:
+
+    .. code-block:: c
+
+        #include <ti/sysbios/family/arm/m3/Hwi.h>
+        #include <ti/drivers/Power.h>
+        #include <ti/drivers/power/PowerCC26XX.h>
+        #include <ti/devices/cc26x0r2/driverlib/vims.h>
+
+    2. In the application, make sure you disable the cache when before you start
+    using the memory area. Use :term:`VIMS` and the power driver.
+
+    .. code-block:: c
+
+        /*********************************************************************
+        * @fn      SimplePeripheral_disableCache
+        *
+        * @brief   Disables the instruction cache and sets power constaints
+        *          This prevents the device from sleeping while streaming
+        *
+        * @param   None.
+        *
+        * @return  None.
+        */
+        static void SimplePeripheral_disableCache()
+        {
+            uint_least16_t hwiKey = Hwi_disable();
+            Power_setConstraint(PowerCC26XX_SB_VIMS_CACHE_RETAIN);
+            Power_setConstraint(PowerCC26XX_NEED_FLASH_IN_IDLE);
+            VIMSModeSafeSet(VIMS_BASE, VIMS_MODE_DISABLED, true);
+            Hwi_restore(hwiKey);
+        }
+
+    3. Make sure to re-enable the cache after you are finished using it.
+
+    .. code-block:: c
+
+        /*********************************************************************
+        * @fn      SimplePeripheral_enableCache
+        *
+        * @brief   Enables the instruction cache and releases power constaints
+        *          Allows device to sleep again
+        *
+        * @param   None.
+        *
+        * @return  None.
+        */
+        static void SimplePeripheral_enableCache()
+        {
+            uint_least16_t hwiKey = Hwi_disable();
+            Power_releaseConstraint(PowerCC26XX_SB_VIMS_CACHE_RETAIN);
+            Power_releaseConstraint(PowerCC26XX_NEED_FLASH_IN_IDLE);
+            VIMSModeSafeSet(VIMS_BASE, VIMS_MODE_ENABLED, true);
+            Hwi_restore(hwiKey);
+        }
+
+    4. We will use the ``GPRAM_BASE`` define from ``hw_memmap.h``.
+    ``hw_memmap.h`` contains defines for the base addresses of the memories and
+    peripherals on the |device|.
+
+    .. code-block:: c
+
+        #define GPRAM_BASE   0x11000000
+
+        In the application file, initialize the buffer:
+
+    .. code-block:: c
+
+        // Initialize buffer
+        static int16_t *gpram_buffer = NULL;
+
+        // Disable instruction cache to use for the buffer
+        SimplePeripheral_disableCache();
+        gpram_buffer = (int16_t *)GPRAM_BASE;
+
+    5. Use the buffer. Using the UART echo driver example:
+
+    .. code-block:: c
+
+        if (gpram_buffer)
+        {
+            /* Loop forever echoing */
+            while (1)
+            {
+                UART_read(uart, gpram_buffer, 1);
+                UART_write(uart, gpram_buffer, 1);
+            }
+        }
+
+    Remember to free the memory and re-enable the cache when the buffer is no
+    longer in use.
+
+    .. code-block:: c
+
+        //Buffer no longer needed
+        if (gpram_buffer)
+        {
+            gpram_buffer = NULL;
+        }
+        SimplePeripheral_enableCache();

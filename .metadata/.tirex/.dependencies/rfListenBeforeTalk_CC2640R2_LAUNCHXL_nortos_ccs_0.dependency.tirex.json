@@ -1,0 +1,20 @@
+[
+    {
+        "files": [
+            "+../main_nortos.c -> main_nortos.c",
+            "+../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+            "+../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+            "+../application_settings.c -> application_settings.c",
+            "+../application_settings.h -> application_settings.h",
+            "+../README.md -> README.md",
+            "+../rfListenBeforeTalk.c -> rfListenBeforeTalk.c",
+            "+../Board.h -> Board.h",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.cmd -> CC2640R2_LAUNCHXL_NoRTOS.cmd",
+            "+../ccfg.c -> ccfg.c"
+        ]
+    }
+]

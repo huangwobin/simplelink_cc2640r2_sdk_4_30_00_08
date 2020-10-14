@@ -1,0 +1,20 @@
+[
+    {
+        "files": [
+            "+../main_tirtos.c -> main_tirtos.c",
+            "+../../AudioCodec.c -> AudioCodec.c",
+            "+../../i2secho.c -> i2secho.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../AudioCodec.h -> AudioCodec.h",
+            "+../../TI3254.h -> TI3254.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../README.html -> README.html",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

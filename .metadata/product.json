@@ -1,0 +1,17 @@
+{
+    "name": "simplelink_cc2640r2_sdk",
+    "displayName": "SimpleLink CC2640R2 SDK",
+    "version": "4.30.00.08",
+    "documentationPath": "../docs",
+    "includePaths": [
+        "../source"
+    ],
+    "components": [
+        "/ti/drivers/drivers.component.js"
+    ],
+    "devices": [
+        "CC2640R2FRGZ",
+        "CC2640R2FRHB",
+        "CC2640R2FRSM"
+    ]
+}

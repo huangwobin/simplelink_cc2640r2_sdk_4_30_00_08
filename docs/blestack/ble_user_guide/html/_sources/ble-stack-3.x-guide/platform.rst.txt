@@ -1,0 +1,13 @@
+The |DEVICE| SDK Platform
+*************************
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   /cc2640/hardware_architecture.rst
+   /cc2640/ble-software-architecture.rst
+   /cc2640/developing_in_ccs.rst
+   /cc2640/developing_in_iar.rst
+   /cc2640/ble-build.rst

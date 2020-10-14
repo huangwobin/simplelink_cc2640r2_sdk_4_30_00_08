@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the Cache as RAM &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the AUX RAM as RAM" href="aux-as-ram.html" />
+    <link rel="prev" title="RAM" href="memory_management.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-common cache-as-ram";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#main-initialization">Main initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#icall">ICall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#simple-peripheral-task">Simple Peripheral Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#intertask-messages">Intertask Messages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#memory-management">Memory Management</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="memory_map.html">Memory Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flash_memory-cc2640.html">Flash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html">RAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html#cache">Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html#aux-ram">AUX RAM</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using the Cache as RAM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-cache-as-gpram">Configure the Cache as GPRAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dynamic-gpram">Dynamic GPRAM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aux-as-ram.html">Using the AUX RAM as RAM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a> &raquo;</li>
+        
+      <li>Using the Cache as RAM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-cache-as-ram">
+<span id="section-cache-as-ram"></span><h1>Using the Cache as RAM<a class="headerlink" href="#using-the-cache-as-ram" title="Permalink to this headline">¶</a></h1>
+<p>The cache can be disabled temporarily or permanently and used as RAM in stead.
+When the cache is disabled, the device runs at reduced speed. This increases the
+device power consumption. If you want to use the cache as cache and temporarily
+disable it for extra RAM at runtime, jump ahead to the
+<a class="reference internal" href="#section-cache-as-ram-dynamic-gpram"><span class="std std-ref">Dynamic GPRAM</span></a> section. If you want to configure the
+cache to be used as RAM from the outset, see the
+<a class="reference internal" href="#section-cache-as-ram-configure-cache"><span class="std std-ref">Configure the Cache as GPRAM</span></a> section.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>If you are using one SNV page</strong> (<code class="docutils literal notranslate"><span class="pre">OSAL_SVN=1</span></code>) <strong>you can only use the
+last 4KB of the</strong> <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-gpram"><span class="xref std std-term">GPRAM</span></a>.</p>
+<p>This is because the SNV driver will use the first 4K of the GPRAM as
+temporary storage during compaction. (This will happen regardless of whether
+the GPRAM is being used as RAM or cache.) If you need to use the full GPRAM,
+set <code class="docutils literal notranslate"><span class="pre">OSAL_SVN=2</span></code>. One SNV page will be used for storage and one for
+compaction. This way the SNV driver will not use the GPRAM.</p>
+<p class="last">You can read more about this in the <a class="reference internal" href="flash_memory-cc2640.html#using-simple-nv"><span class="std std-ref">Using Simple NV for Flash Storage</span></a> section.</p>
+</div>
+<div class="section" id="configure-the-cache-as-gpram">
+<span id="section-cache-as-ram-configure-cache"></span><h2>Configure the Cache as GPRAM<a class="headerlink" href="#configure-the-cache-as-gpram" title="Permalink to this headline">¶</a></h2>
+<p>If your application needs more memory, or if you need more space in SRAM, the
+cache can be re-purposed as RAM. This will allow the linker to store parts of
+the compiled application in this section of the RAM. This section will be
+referred to as the general purpose RAM (<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-gpram"><span class="xref std std-term">GPRAM</span></a>). This will cause the program to
+run at a slightly reduced speed, and it will increase the device
+power consumption in sleep. This is because the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-gpram"><span class="xref std std-term">GPRAM</span></a>, contrary to a cache,
+will have to be powered even when the device is sleeping. The current consumption
+in standby mode with and without cache retained is listed in the CC2640R2
+datasheet.</p>
+<p>With the cache re-purposed as RAM, the program will run at a slightly decreased
+speed. This will cause the device to spend more time when active,
+which again will give a higher power consumption. How this will affect the
+device power consumption will depend on application. For some applications the
+added power consumption will be very small, but for processing intensive
+application it will be slightly higher. Please verify your application current
+consumption by using the method described in the <a class="reference external" href="http://www.ti.com/lit/pdf/swra478">Measuring Bluetooth Low Energy
+Power Consumption Application Report (SWRA478)</a>.</p>
+<p>In order to enable using the cache as RAM, two things need to be done. Firstly, the
+program must be told to retain the cache/GPRAM when it’s being used. Secondly,
+the linker must be told to allocate the memory region used as cache to GPRAM,
+and what parts of code to store in the GPRAM. This is done in the linker
+command/configuration file. The syntax for the linker command/configuration
+file is slightly different in CCS and IAR. To read more about the CCS linker
+command file, see the article <a class="reference external" href="http://software-dl.ti.com/ccs/esd/documents/sdto_cgt_Linker-Command-File-Primer.htmlr">Linker Command File Primer</a>.
+To read more about the IAR linker, see <a class="reference external" href="http://ftp.iar.se/WWWfiles/arm/webic/doc/EWARM_DevelopmentGuide.ENU.pdf">IAR C/C++ Development Guide</a>.</p>
+<p>Some of the example projects found in BLE-Stack have a Build Configuration
+that allows using the cache as RAM. This is true for e.g. the multi_role project.
+In this case, cache as RAM can be enabled by choosing that build configuration.
+In CCS: Project -&gt; Build Configurations -&gt; Set Active -&gt; FlashROM-CacheAsRAM.
+In IAR: Project -&gt; Edit Configurations -&gt; FlashROM-CacheAsRAM.</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When changing the build configuration of a project, the project properties/options
+may reset. Please make sure to make changes to the project predefines etc.,
+<strong>after</strong> changing the build configuration.</p>
+</div>
+</div></blockquote>
+<p><strong>If you want to use the cache as RAM in a project which does not have the
+CacheAsRAM build configuration, follow these steps:</strong></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The steps will be different for CCS users and IAR users. The steps will
+also differ depending on what example project your project is based on. For
+the example projects found in the BLE-Stack folder, only step 1-5 will be
+required.</p>
+</div>
+<p>1. In the ccfg file, (called <code class="docutils literal notranslate"><span class="pre">ccfg_app_ble.c</span></code> or <code class="docutils literal notranslate"><span class="pre">ccfg.c</span></code>), include the
+following <strong>before</strong>  <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;startup_files/ccfg.c&gt;</span></code>:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef CACHE_AS_RAM</span>
+  <span class="cp">#define SET_CCFG_SIZE_AND_DIS_FLAGS_DIS_GPRAM  0x0 </span><span class="cm">/* Enable GPRAM */</span><span class="cp"></span>
+<span class="cp">#endif </span><span class="c1">//CACHE_AS_RAM</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;startup_files/ccfg.c&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>In <code class="docutils literal notranslate"><span class="pre">main()</span></code>, add the following code:</li>
+</ol>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 32. </span><span class="caption-text">Retain cache in sleep.</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef CACHE_AS_RAM</span>
+<span class="c1">// retain cache during standby</span>
+<span class="n">Power_setConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_SB_VIMS_CACHE_RETAIN</span><span class="p">);</span>
+<span class="n">Power_setConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_NEED_FLASH_IN_IDLE</span><span class="p">);</span>
+<span class="cp">#else</span>
+<span class="c1">// Enable iCache pre-fetching</span>
+<span class="n">VIMSConfigure</span><span class="p">(</span><span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
+<span class="c1">// Enable cache</span>
+<span class="n">VIMSModeSet</span><span class="p">(</span><span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">VIMS_MODE_ENABLED</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">//CACHE_AS_RAM</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Please make sure your program is not using <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-vims"><span class="xref std std-term">VIMS</span></a> while using cache as RAM.</p>
+</div>
+<p>In the same file, include the following files: (In ble5stack projects,
+these are already included in main.c.)</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Power Driver */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/drivers/Power.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/drivers/power/PowerCC26XX.h&gt;</span><span class="cp"></span>
+<span class="cm">/* Header files required to enable instruction fetch cache */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/devices/cc26x0r2/inc/hw_memmap.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/devices/cc26x0r2/driverlib/vims.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>3. Go to the <strong>compiler</strong> predefines and add <code class="docutils literal notranslate"><span class="pre">CACHE_AS_RAM</span></code>. For the
+example projects from the ble5stack folder, this define will bring changes
+to the executed code in the following files:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ble_user_config.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">main.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ble_user_config.h</span></code></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">ble_user_config.c</span></code> will include the following RF override when <code class="docutils literal notranslate"><span class="pre">CACHE_AS_RAM</span></code>
+is added as predefines.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef CACHE_AS_RAM</span>
+    <span class="mh">0x00018063</span><span class="p">,</span>
+<span class="cp">#endif </span><span class="c1">//CACHE_AS_RAM</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>However, for applications that use RFCC26XX_multiMode driver such as all
+the ToF examples in BLE-Stack, the additional override needs to be added manually.
+For example, when running ToF examples while enabling <code class="docutils literal notranslate"><span class="pre">CACHE_AS_RAM</span></code>, you need
+to add the override <code class="docutils literal notranslate"><span class="pre">0x00018063</span></code> into pOverrides_2M table in ToF.c as shown below:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Override list for the fast synth settings:</span>
+<span class="c1">// Overrides for CMD_RADIO_SETUP</span>
+<span class="kt">uint32_t</span> <span class="n">pOverrides_2M</span><span class="p">[]</span> <span class="o">=</span>
+<span class="p">{</span>
+ <span class="p">...</span>
+ <span class="p">...</span>
+ <span class="p">...</span>
+<span class="cp">#ifdef CACHE_AS_RAM</span>
+    <span class="mh">0x00018063</span><span class="p">,</span>
+<span class="cp">#endif </span><span class="c1">//CACHE_AS_RAM</span>
+    <span class="mh">0xFFFFFFFF</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The override list is terminated with <code class="docutils literal notranslate"><span class="pre">0xFFFFFFFF</span></code>, so you need to make sure
+to apply the override <code class="docutils literal notranslate"><span class="pre">0x00018063</span></code> before <code class="docutils literal notranslate"><span class="pre">0xFFFFFFFF</span></code>.</p>
+</div>
+<p>4. Go to the <strong>linker</strong> predefines and add <code class="docutils literal notranslate"><span class="pre">CACHE_AS_RAM=1</span></code>. This define will
+bring changes to the executed code in <code class="docutils literal notranslate"><span class="pre">cc26xx_app.cmd</span></code>/<code class="docutils literal notranslate"><span class="pre">cc26xx_app.icf</span></code>.</p>
+<p>5. If your project is based on a BLE-Stack project, this will move as much of
+the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-bss"><span class="xref std std-term">.bss</span></a> section that the SRAM can fit, from SRAM to GPRAM. The
+exception is <code class="docutils literal notranslate"><span class="pre">ll.o</span></code> and, if you’re using the BLE5-Stack <code class="docutils literal notranslate"><span class="pre">ll_ae.o</span></code>. The RF
+driver requires <code class="docutils literal notranslate"><span class="pre">ll.o</span></code> (and if applicable <code class="docutils literal notranslate"><span class="pre">ll_ae.o</span></code>) to be placed in SRAM.
+Other objects in <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-bss"><span class="xref std std-term">.bss</span></a> can be moved as desired. See
+<a class="reference internal" href="aux-as-ram.html#using-the-aux-as-ram"><span class="std std-ref">Using the AUX RAM as RAM</span></a> for an example of this. Rebuild and flash your app
+project. View the .map file to see what parts of the device memory is
+occupied. (Alternatively, in CCS: View -&gt; Memory Allocation.)</p>
+<p>6. If your project is not based on a BLE-Stack project, there are still
+changes that need to be made in order to use the cache as GPRAM. If your
+project is using the radio, add <code class="docutils literal notranslate"><span class="pre">0x00018063</span></code> to the radio overrides.</p>
+<p>7. The GPRAM memory area must be defined in the linker command file. This
+syntax is different for the CCS and IAR linker. IAR specific instructions
+will follow the CCS specific instructions.</p>
+<p>In CCS, the linker command file ends with <code class="docutils literal notranslate"><span class="pre">.cmd</span></code> (e.g.
+<code class="docutils literal notranslate"><span class="pre">cc26xx_app.cmd</span></code>).</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 33. </span><span class="caption-text">Under <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Sizes</span></code>, add defines for GPRAM start and length.</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  /*******************************************************************************
+   * Memory Sizes
+   */
+  #define FLASH_BASE   0x00000000
+  #define GPRAM_BASE   0x11000000
+  #define RAM_BASE     0x20000000
+  #define ROM_BASE     0x10000000
+
+  #if defined(CC26X0ROM) || defined(CC26X0FLASH)
+  #define FLASH_SIZE 0x00020000
+  #define GPRAM_SIZE 0x00002000
+  #define RAM_SIZE   0x00005000
+  #define ROM_SIZE   0x0001C000
+  #endif /* CC26X0ROM || CC26X0FLASH */
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Listing 34. </span><span class="caption-text">Add GPRAM under <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Definitions</span></code>.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/*******************************************************************************</span>
+<span class="cm">   * GPRAM</span>
+<span class="cm">   */</span>
+
+  <span class="cp">#ifdef CACHE_AS_RAM</span>
+    <span class="cp">#define GPRAM_START GPRAM_BASE</span>
+    <span class="cp">#define GPRAM_END   (GPRAM_START + GPRAM_SIZE - 1)</span>
+  <span class="cp">#endif </span><span class="cm">/* CACHE_AS_RAM */</span><span class="cp"></span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-number">Listing 35. </span><span class="caption-text">In <code class="docutils literal notranslate"><span class="pre">MEMORY{}</span></code>, allocate room for GPRAM.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    #ifdef CACHE_AS_RAM
+      GPRAM(RWX) : origin = GPRAM_START, length = GPRAM_SIZE
+    #endif /* CACHE_AS_RAM */
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<span id="mm-cacheasram-ccs-code"></span><div class="code-block-caption"><span class="caption-number">Listing 36. </span><span class="caption-text">In <code class="docutils literal notranslate"><span class="pre">SECTIONS{}</span></code>, move .bss from SRAM to GPRAM.</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  GROUP &gt; SRAM
+  {
+    .data
+    #ifndef CACHE_AS_RAM
+    .bss
+    #endif /* CACHE_AS_RAM */
+    .vtable
+    .vtable_ram
+    vtable_ram
+    .sysmem
+    .nonretenvar
+    /*This keeps ll.o objects out of GPRAM, if no ll.o would be placed here
+    the warning #10068 is supressed.*/
+    #ifdef CACHE_AS_RAM
+    ll_bss
+    {
+      --library=*ll_*.a&lt;ll.o&gt; (.bss)
+      --library=*ll_*.a&lt;ll_ae.o&gt; (.bss)
+    }
+    #endif /* CACHE_AS_RAM */
+  } LOAD_END(heapStart)
+
+  .stack            :   &gt;  SRAM (HIGH) LOAD_START(heapEnd)
+
+  #ifdef CACHE_AS_RAM
+  .bss :
+  {
+    *(.bss)
+  } &gt; GPRAM
+  #endif /* CACHE_AS_RAM */
+</pre></div>
+</div>
+</div>
+<p>Rebuild your application. This will move <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-bss"><span class="xref std std-term">.bss</span></a> from SRAM to GPRAM and
+place the auto-heap size start after.  Other objects can also be moved. See
+<a class="reference internal" href="aux-as-ram.html#using-the-aux-as-ram"><span class="std std-ref">Using the AUX RAM as RAM</span></a> for an example of this.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your project doesn’t contain a <code class="docutils literal notranslate"><span class="pre">ll.o</span></code> or <code class="docutils literal notranslate"><span class="pre">ll_ae.o</span></code> you will
+get a linker warning if you copy-paste <a class="reference internal" href="#mm-cacheasram-ccs-code"><span class="std std-numref">Listing 36.</span></a> into
+your linker command file. If this happens, just remove the mention of the
+relevant section from your linker command file.</p>
+</div>
+</div></blockquote>
+<p>8. In IAR, the linker configuration file ends with <code class="docutils literal notranslate"><span class="pre">.icf</span></code> (e.g.
+<code class="docutils literal notranslate"><span class="pre">cc26xx_app.icf</span></code>).</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">Listing 37. </span><span class="caption-text">Add defines for GPRAM start and length under <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Definitions</span></code>.</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  //////////////////////////////////////////////////////////////////////////////
+  // GPRAM
+  //
+  if ( isdefinedsymbol(CACHE_AS_RAM) )
+  {
+    define symbol GPRAM_START           = 0x11000000;
+    define symbol GPRAM_SIZE            = 0x2000;
+    define symbol GPRAM_END             = GPRAM_START + GPRAM_SIZE;
+  }
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-number">Listing 38. </span><span class="caption-text">Under <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Regions</span></code>, allocate room for GPRAM.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  if ( isdefinedsymbol(CACHE_AS_RAM) )
+  {
+    define region GPRAM               = mem:[from GPRAM_START to GPRAM_END];
+  }
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<span id="mm-cacheasram-iar-code"></span><div class="code-block-caption"><span class="caption-number">Listing 39. </span><span class="caption-text">Under <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Placement</span></code>, move .bss from SRAM to GPRAM.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  if ( isdefinedsymbol(CACHE_AS_RAM) )
+  {
+    // GPRAM
+    define block GPDATA { section .bss };
+    place in GPRAM { block GPDATA } except { object ll.o };
+  }
+</pre></div>
+</div>
+</div>
+<p>Rebuild your application. This will move <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-bss"><span class="xref std std-term">.bss</span></a> from SRAM to GPRAM. Other
+objects can also be moved. See <a class="reference internal" href="aux-as-ram.html#using-the-aux-as-ram"><span class="std std-ref">Using the AUX RAM as RAM</span></a> for an example
+of this.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your project doesn’t contain a <code class="docutils literal notranslate"><span class="pre">ll.o</span></code> or <code class="docutils literal notranslate"><span class="pre">ll_ae.o</span></code> your
+project will probably not work as intended if you copy-paste
+<a class="reference internal" href="#mm-cacheasram-iar-code"><span class="std std-numref">Listing 39.</span></a> into your linker command file. Please make
+sure you only mention objects that exist in your linker command file.</p>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="dynamic-gpram">
+<span id="section-cache-as-ram-dynamic-gpram"></span><h2>Dynamic GPRAM<a class="headerlink" href="#dynamic-gpram" title="Permalink to this headline">¶</a></h2>
+<p>In this mode, we will use the cache as RAM only when we need it. At all other
+times, the cache will operate as normal. When the cache is disabled and the
+memory is used as RAM, the current consumption will increase as described in the
+<a class="reference internal" href="#section-cache-as-ram-configure-cache"><span class="std std-ref">Configure the Cache as GPRAM</span></a> section. When the cache is not
+configured as RAM but runs as usual, the power consumption is not increased.</p>
+<p>An example use-case is a device that sometimes receives or sends a data stream
+with a high throughput. When the device is not streaming, it can use the cache
+as usual. When the device receives the signal to start streaming, the device
+disables the cache and uses the GPRAM to store a buffer for the stream. When the
+device receives the command to stop streaming, the memory is freed and the cache
+is re-enabled. (The audio projects on <a class="reference external" href="https://github.com/ti-simplelink/ble_examples/tree/master">Github</a> are examples of this.)</p>
+<p>To use the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-gpram"><span class="xref std std-term">GPRAM</span></a> to dynamically store a data buffer, follow these steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In order to use this functionality, the following files should be included:</li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ti/sysbios/family/arm/m3/Hwi.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/drivers/Power.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/drivers/power/PowerCC26XX.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ti/devices/cc26x0r2/driverlib/vims.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>2. In the application, make sure you disable the cache when before you start
+using the memory area. Use <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-vims"><span class="xref std std-term">VIMS</span></a> and the power driver.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm">* @fn      SimplePeripheral_disableCache</span>
+<span class="cm">*</span>
+<span class="cm">* @brief   Disables the instruction cache and sets power constaints</span>
+<span class="cm">*          This prevents the device from sleeping while streaming</span>
+<span class="cm">*</span>
+<span class="cm">* @param   None.</span>
+<span class="cm">*</span>
+<span class="cm">* @return  None.</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_disableCache</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">uint_least16_t</span> <span class="n">hwiKey</span> <span class="o">=</span> <span class="n">Hwi_disable</span><span class="p">();</span>
+    <span class="n">Power_setConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_SB_VIMS_CACHE_RETAIN</span><span class="p">);</span>
+    <span class="n">Power_setConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_NEED_FLASH_IN_IDLE</span><span class="p">);</span>
+    <span class="n">VIMSModeSafeSet</span><span class="p">(</span><span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">VIMS_MODE_DISABLED</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="n">Hwi_restore</span><span class="p">(</span><span class="n">hwiKey</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Make sure to re-enable the cache after you are finished using it.</li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm">* @fn      SimplePeripheral_enableCache</span>
+<span class="cm">*</span>
+<span class="cm">* @brief   Enables the instruction cache and releases power constaints</span>
+<span class="cm">*          Allows device to sleep again</span>
+<span class="cm">*</span>
+<span class="cm">* @param   None.</span>
+<span class="cm">*</span>
+<span class="cm">* @return  None.</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_enableCache</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">uint_least16_t</span> <span class="n">hwiKey</span> <span class="o">=</span> <span class="n">Hwi_disable</span><span class="p">();</span>
+    <span class="n">Power_releaseConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_SB_VIMS_CACHE_RETAIN</span><span class="p">);</span>
+    <span class="n">Power_releaseConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_NEED_FLASH_IN_IDLE</span><span class="p">);</span>
+    <span class="n">VIMSModeSafeSet</span><span class="p">(</span><span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">VIMS_MODE_ENABLED</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="n">Hwi_restore</span><span class="p">(</span><span class="n">hwiKey</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>4. We will use the <code class="docutils literal notranslate"><span class="pre">GPRAM_BASE</span></code> define from <code class="docutils literal notranslate"><span class="pre">hw_memmap.h</span></code>.
+<code class="docutils literal notranslate"><span class="pre">hw_memmap.h</span></code> contains defines for the base addresses of the memories and
+peripherals on the CC2640R2.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define GPRAM_BASE   0x11000000</span>
+
+<span class="n">In</span> <span class="n">the</span> <span class="n">application</span> <span class="n">file</span><span class="p">,</span> <span class="n">initialize</span> <span class="n">the</span> <span class="nl">buffer</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Initialize buffer</span>
+<span class="k">static</span> <span class="kt">int16_t</span> <span class="o">*</span><span class="n">gpram_buffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="c1">// Disable instruction cache to use for the buffer</span>
+<span class="n">SimplePeripheral_disableCache</span><span class="p">();</span>
+<span class="n">gpram_buffer</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int16_t</span> <span class="o">*</span><span class="p">)</span><span class="n">GPRAM_BASE</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Use the buffer. Using the UART echo driver example:</li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">gpram_buffer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Loop forever echoing */</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">UART_read</span><span class="p">(</span><span class="n">uart</span><span class="p">,</span> <span class="n">gpram_buffer</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">UART_write</span><span class="p">(</span><span class="n">uart</span><span class="p">,</span> <span class="n">gpram_buffer</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Remember to free the memory and re-enable the cache when the buffer is no
+longer in use.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Buffer no longer needed</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">gpram_buffer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">gpram_buffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">SimplePeripheral_enableCache</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aux-as-ram.html" class="btn btn-neutral float-right" title="Using the AUX RAM as RAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="memory_management.html" class="btn btn-neutral float-left" title="RAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

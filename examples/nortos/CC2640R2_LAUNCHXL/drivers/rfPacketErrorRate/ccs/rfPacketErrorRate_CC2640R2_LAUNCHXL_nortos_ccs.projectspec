@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2640R2F"
+            />
+        </when>
+    </applicability>
+
+
+    <project
+        title="RF Packet Error Rate Test"
+        name="rfPacketErrorRate_CC2640R2_LAUNCHXL_nortos_ccs"
+        toolChain="TI"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC2640R2F"
+        ignoreDefaultDeviceSettings="true"
+        ignoreDefaultCCSSettings="true"
+        products="com.ti.SIMPLELINK_CC2640R2_SDK"
+        compilerBuildOptions="
+            -I${PROJECT_ROOT}
+            -DBOARD_DISPLAY_USE_LCD=1
+            -DDeviceFamily_CC26X0R2
+            -I${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/source
+            -DSUPPORT_PHY_CUSTOM
+            -DSUPPORT_PHY_2_4_100KBPS2GFSK
+            -DSUPPORT_PHY_2_4_250KBPS2GFSK
+            -I${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/kernel/nortos
+            -I${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/kernel/nortos/posix
+            --silicon_version=7M3
+            --code_state=16
+            --little_endian
+            --display_error_number
+            --diag_warning=255
+            --diag_wrap=off
+            --gen_func_subsections=on
+            --float_support=vfplib
+            --symdebug:dwarf
+            -I${CG_TOOL_ROOT}/include
+        "
+        linkerBuildOptions="
+             -i${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/source
+             -lti/display/lib/display.aem3
+             -lti/grlib/lib/ccs/m3/grlib.a
+             -lthird_party/spiffs/lib/ccs/m3/spiffs_cc26xx.a
+             -lti/drivers/rf/lib/rf_multiMode_cc26x0r2.aem3
+             -lti/drivers/lib/drivers_cc26x0r2.aem3
+             -i${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/kernel/nortos
+             -llib/nortos_cc26x0r2.aem3
+             -lti/devices/cc26x0r2/driverlib/bin/ccs/driverlib.lib
+             --warn_sections
+             --display_error_number
+             --diag_wrap=off
+             --rom_model
+             -i${CG_TOOL_ROOT}/lib
+             -llibc.a
+        "
+        preBuildStep="
+        "
+        postBuildStep="
+        "
+        description="Showcases different RF transfer modes and measures the packet error rate.">
+
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <group id="rfPacketErrorRate.SIMPLELINK_CC2640R2_SDK.CC2640R2_LAUNCHXL.drivers.TI"/>
+        <file path="../RFQueue.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../RFQueue.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../main_nortos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings_ble.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings_ble.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings_predefined.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../smartrf_settings/smartrf_settings_predefined.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="smartrf_settings">
+        </file>
+        <file path="../config.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../config.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../menu.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../menu_nortos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../README.md" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../rfPacketErrorRate_nortos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../rx.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../tx.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../Board.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR}/source/ti/boards/CC2640R2_LAUNCHXL/Board.html" openOnCreation="false" excludeFromBuild="false" action="link">
+        </file>
+        <file path="../CC2640R2_LAUNCHXL.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../CC2640R2_LAUNCHXL.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../CC2640R2_LAUNCHXL_fxns.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../ccs/CC2640R2_LAUNCHXL_NoRTOS.cmd" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../ccfg.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+    </project>
+</projectSpec>
+

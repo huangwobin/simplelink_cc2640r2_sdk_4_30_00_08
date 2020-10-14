@@ -1,0 +1,1988 @@
+###############################################################################
+#
+# IAR ELF Linker V7.50.3.10732/W32 for ARM                19/Aug/2016  11:05:18
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  C:\git\ble_core\build\rom\r2\ble\ROM\Exe\ble_r2.out.tmp
+#    Map file     =  C:\git\ble_core\build\rom\r2\ble\ROM\List\ble_r2.map
+#    Command line =  
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\abort.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\att_server.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\att_util.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ble.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ECC.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_configmgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_devmgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_linkmgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_peridevmgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_perilinkmgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gap_task.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gatt_server.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gatt_task.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\gattservapp.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\hci.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\hci_data.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\hci_event.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\l2cap_if.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\l2cap_task.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\l2cap_util.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\linkdb.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_adv_end_causes.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_common.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_enc.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_metric.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_privacy.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_rat.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_slave_end_causes.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_timer_drift.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\ll_wl.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\lowlevelapi.o
+#        C:\svn\restricted\invia-ecc\trunk\ecc\obj\lowlevelapi_m3.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\rt_init.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\scalarMul.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\sm_mgr.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\sm_pairing.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\sm_rsppairing.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\sm_task.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\smp.o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Obj\vectors_curves.o -o
+#        C:\git\ble_core\build\rom\r2\ble\ROM\Exe\ble_r2.out.tmp --config_def
+#        CC2650=1 --config_def ROM_BUILD=2 --config_def xTEST_ROM_IN_FLASH=1
+#        --map C:\git\ble_core\build\rom\r2\ble\ROM\List\ble_r2.map --log
+#        libraries,initialization,modules,redirects,sections,veneers,unused_fragments
+#        --log_file C:\git\ble_core\build\rom\r2\ble\ROM\List\ble_r2.log
+#        --config
+#        C:\git\ble_core\build\rom\r2\ble\..\..\..\..\..\ble_examples\src/common/cc26xx/iar/cc26xx_stack.icf
+#        --no_remove --no_fragments --no_veneers --no_library_search
+#        C:\git\ble_core\build\rom\r2\ble\..\..\..\..\src\rom\r2\rt_init\rt7M_tl.a
+#        --entry RT_Init --place_holder __checksum,2,.checksum,1
+#        --define_symbol __checksum_begin=0x10004940 --define_symbol
+#        __checksum_end=0x10019afd --no_exceptions --no_vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"P1":  place in [from 0x10004940 to 0x10019aff] { ro };
+"P2":  place in [from 0x200044f8 to 0x20004fff] { rw };
+"A1":  place at start of [0x10004940-0x10019aff] { ro section .romRuntimeInit };
+"A2":  place at end of [0x10004940-0x10019aff] { ro section .checksum };
+"A3":  place at start of [0x10019afc-0x10019afd] { ro section .rom_rev };
+"A4":  place at start of [0x200044f8-0x20004fff] { section .ramInitTable };
+"A5":  place at end of [0x200044f8-0x20004fff] { block ECC_DATA };
+
+  Section                Kind        Address     Size  Object
+  -------                ----        -------     ----  ------
+"A1":                                             0x4
+  .romRuntimeInit        ro code  0x10004940      0x4  rt_init.o [1]
+                                - 0x10004944      0x4
+
+"P1":                                         0x151a2
+  .text                  ro code  0x10004944   0x2654  ll.o [1]
+  .text                  ro code  0x10006f98   0x2366  ll_common.o [1]
+  .rodata                const    0x100092fe      0x2  ll.o [1]
+  .text                  ro code  0x10009300     0x66  ABImemset.o [4]
+  .text                  ro code  0x10009368      0x6  ABImemclr.o [4]
+  .text                  ro code  0x10009370   0x1480  ble.o [1]
+  .text                  ro code  0x1000a7f0   0x1250  hci.o [1]
+  .text                  ro code  0x1000ba40   0x1128  hci_event.o [1]
+  .text                  ro code  0x1000cb68    0xfc4  scalarMul.o [1]
+  .text                  ro code  0x1000db2c    0x5cc  lowlevelapi.o [1]
+  .text                  ro code  0x1000e0f8    0x878  lowlevelapi_m3.o [2]
+  .text                  ro code  0x1000e970      0x6  ABImemclr4.o [4]
+  .text                  ro code  0x1000e978    0x132  I64DivMod.o [4]
+  .text                  ro code  0x1000eaac     0x3a  ABImemset48.o [4]
+  .text                  ro code  0x1000eae8      0x2  I64DivZer.o [4]
+  .text                  ro code  0x1000eaec    0xf9c  sm_pairing.o [1]
+  .text                  ro code  0x1000fa88    0xd48  gatt_server.o [1]
+  .text                  ro code  0x100107d0    0xd12  gattservapp.o [1]
+  .text                  ro code  0x100114e4    0xc54  gap_linkmgr.o [1]
+  .text                  ro code  0x10012138    0xc1c  sm_mgr.o [1]
+  .text                  ro code  0x10012d54     0xa6  ABImemcpy.o [4]
+  .text                  ro code  0x10012dfc    0xb34  sm_rsppairing.o [1]
+  .text                  ro code  0x10013930    0xb28  ll_slave_end_causes.o [1]
+  .text                  ro code  0x10014458    0x878  gap_peridevmgr.o [1]
+  .text                  ro code  0x10014cd0    0x7e0  l2cap_util.o [1]
+  .text                  ro code  0x100154b0    0x734  ll_adv_end_causes.o [1]
+  .text                  ro code  0x10015be4    0x670  att_util.o [1]
+  .text                  ro code  0x10016254    0x540  smp.o [1]
+  .text                  ro code  0x10016794    0x520  ECC.o [1]
+  .text                  ro code  0x10016cb4    0x496  ll_privacy.o [1]
+  .text                  ro code  0x1001714c    0x48a  ll_enc.o [1]
+  .text                  ro code  0x100175d8    0x3f0  sm_task.o [1]
+  .text                  ro code  0x100179c8    0x3b4  l2cap_task.o [1]
+  .text                  ro code  0x10017d7c    0x3a4  linkdb.o [1]
+  .text                  ro code  0x10018120    0x39c  gatt_task.o [1]
+  .text                  ro code  0x100184bc    0x394  gap_configmgr.o [1]
+  .text                  ro code  0x10018850    0x330  gap_task.o [1]
+  .text                  ro code  0x10018b80    0x2b0  ll_wl.o [1]
+  .text                  ro code  0x10018e30    0x2a8  att_server.o [1]
+  .text                  ro code  0x100190d8    0x1e2  l2cap_if.o [1]
+  .text                  ro code  0x100192bc    0x188  gap_perilinkmgr.o [1]
+  .text                  ro code  0x10019444     0xe0  hci_data.o [1]
+  .text                  ro code  0x10019524     0xb8  gap_devmgr.o [1]
+  .rodata                const    0x100195dc     0x78  scalarMul.o [1]
+  .eh_frame              const    0x10019654     0x64  lowlevelapi_m3.o [2]
+  .rodata                const    0x100196b8     0x44  hci.o [1]
+  .text                  ro code  0x100196fc     0x40  zero_init3.o [4]
+  .rodata                const    0x1001973c     0x3c  scalarMul.o [1]
+  .text                  ro code  0x10019778     0x38  packbits_init_single.o [4]
+  .text                  ro code  0x100197b0     0x30  ll_rat.o [1]
+  .text                  ro code  0x100197e0     0x28  data_init.o [4]
+  .rodata                const    0x10019808     0x24  vectors_curves.o [1]
+  .rodata                const    0x1001982c     0x24  vectors_curves.o [1]
+  .rodata                const    0x10019850     0x24  vectors_curves.o [1]
+  .rodata                const    0x10019874     0x24  vectors_curves.o [1]
+  .rodata                const    0x10019898     0x24  vectors_curves.o [1]
+  .rodata                const    0x100198bc     0x24  vectors_curves.o [1]
+  .iar.init_table        const    0x100198e0     0x40  - Linker created -
+  .rodata                const    0x10019920     0x1c  sm_pairing.o [1]
+  .text                  ro code  0x1001993c     0x1c  ll_timer_drift.o [1]
+  .rodata                const    0x10019958     0x18  hci.o [1]
+  .rodata                const    0x10019970     0x18  scalarMul.o [1]
+  .rodata                const    0x10019988     0x18  scalarMul.o [1]
+  .rodata                const    0x100199a0     0x18  scalarMul.o [1]
+  .rodata                const    0x100199b8     0x18  scalarMul.o [1]
+  .rodata                const    0x100199d0     0x10  att_util.o [1]
+  .rodata                const    0x100199e0     0x10  ll_privacy.o [1]
+  .rodata                const    0x100199f0     0x10  ll_timer_drift.o [1]
+  .rodata                const    0x10019a00     0x10  sm_mgr.o [1]
+  .rodata                const    0x10019a10      0xc  ble.o [1]
+  .text                  ro code  0x10019a1c      0xc  XXexit.o [4]
+  .rodata                const    0x10019a28      0x8  ble.o [1]
+  .rodata                const    0x10019a30      0x8  scalarMul.o [1]
+  .text                  ro code  0x10019a38      0x8  abort.o [1]
+  .rodata                const    0x10019a40      0x4  ble.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  abort.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  att_server.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  att_util.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ble.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ECC.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_configmgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_devmgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_linkmgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_peridevmgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_perilinkmgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gap_task.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gatt_server.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gatt_task.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  gattservapp.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  hci.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  hci_data.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  hci_event.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  l2cap_if.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  l2cap_task.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  l2cap_util.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  linkdb.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_adv_end_causes.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_common.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_enc.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_metric.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_privacy.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_rat.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_slave_end_causes.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_timer_drift.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  ll_wl.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  lowlevelapi.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  rt_init.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  scalarMul.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  sm_mgr.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  sm_pairing.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  sm_rsppairing.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  sm_task.o [1]
+  __DLIB_PERTHREAD       const    0x10019a44      0x0  smp.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  abort.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  att_server.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  att_util.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ble.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ECC.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_configmgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_devmgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_linkmgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_peridevmgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_perilinkmgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gap_task.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gatt_server.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gatt_task.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  gattservapp.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  hci.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  hci_data.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  hci_event.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  l2cap_if.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  l2cap_task.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  l2cap_util.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  linkdb.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_adv_end_causes.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_common.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_enc.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_metric.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_privacy.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_rat.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_slave_end_causes.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_timer_drift.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  ll_wl.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  lowlevelapi.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  rt_init.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  scalarMul.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  sm_mgr.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  sm_pairing.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  sm_rsppairing.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  sm_task.o [1]
+  __DLIB_PERTHREAD_init  const    0x10019a44      0x0  smp.o [1]
+  .rodata                const    0x10019a44      0x0  zero_init3.o [4]
+  .rodata                const    0x10019a44      0x0  packbits_init_single.o [4]
+  Initializer bytes      const    0x10019a44     0x85  <for P2-1>
+  Initializer bytes      const    0x10019ac9     0x1d  <for ECC_DATA-1>
+                                - 0x10019ae6  0x151a2
+
+"A3":                                             0x2
+  .rom_rev               const    0x10019afc      0x2  ll.o [1]
+  .rom_rev               const    0x10019afe      0x0  ll.o [1]
+                                - 0x10019afe      0x2
+
+"A2":                                             0x2
+  .checksum              const    0x10019afe      0x2  Place holder __checksum
+                                - 0x10019b00      0x2
+
+"A4":                                            0x10
+  .ramInitTable          rw data  0x200044f8      0x0  ll.o [1]
+  .ramInitTable          zero     0x200044f8      0x4  ll.o [1]
+  .ramInitTable          zero     0x200044fc      0x4  ll.o [1]
+  .ramInitTable          zero     0x20004500      0x4  ll.o [1]
+  .ramInitTable          zero     0x20004504      0x4  ll.o [1]
+                                - 0x20004508     0x10
+
+"P2", part 1 of 2:                               0xa2
+  P2-1                            0x20004508     0xa2  <Init block>
+    .data                inited   0x20004508     0x50  gap_configmgr.o [1]
+    .data                inited   0x20004558      0xc  gap_peridevmgr.o [1]
+    .data                inited   0x20004564      0x4  gap_perilinkmgr.o [1]
+    .data                inited   0x20004568     0x10  ll.o [1]
+    .data                inited   0x20004578      0xc  ll_common.o [1]
+    .data                inited   0x20004584     0x18  sm_rsppairing.o [1]
+    .data                inited   0x2000459c      0x2  gap_linkmgr.o [1]
+    .data                inited   0x2000459e      0x2  gatt_server.o [1]
+    .data                inited   0x200045a0      0x2  l2cap_task.o [1]
+    .data                inited   0x200045a2      0x1  gap_configmgr.o [1]
+    .data                inited   0x200045a3      0x1  gap_peridevmgr.o [1]
+    .data                inited   0x200045a4      0x1  gap_task.o [1]
+    .data                inited   0x200045a5      0x1  gatt_server.o [1]
+    .data                inited   0x200045a6      0x1  gatt_task.o [1]
+    .data                inited   0x200045a7      0x1  gattservapp.o [1]
+    .data                inited   0x200045a8      0x1  l2cap_task.o [1]
+    .data                inited   0x200045a9      0x1  sm_task.o [1]
+  .data                  rw data  0x200045aa      0x0  lowlevelapi_m3.o [2]
+                                - 0x200045aa     0xa2
+
+"P2", part 2 of 2:                              0x9d4
+  .bss                   zero     0x200045ac    0x140  ll_privacy.o [1]
+  .bss                   zero     0x200046ec     0xe0  ble.o [1]
+  .bss                   zero     0x200047cc     0xdc  ll_wl.o [1]
+  .bss                   zero     0x200048a8     0xdc  ll_wl.o [1]
+  .bss                   zero     0x20004988     0x98  ll.o [1]
+  .bss                   zero     0x20004a20     0x48  ble.o [1]
+  .bss                   zero     0x20004a68     0x44  sm_pairing.o [1]
+  .bss                   zero     0x20004aac     0x38  ble.o [1]
+  .bss                   zero     0x20004ae4     0x38  ble.o [1]
+  .bss                   zero     0x20004b1c     0x30  l2cap_task.o [1]
+  .bss                   zero     0x20004b4c     0x30  linkdb.o [1]
+  .bss                   zero     0x20004b7c     0x30  ll.o [1]
+  .bss                   zero     0x20004bac     0x24  ble.o [1]
+  .bss                   zero     0x20004bd0     0x24  ble.o [1]
+  .bss                   zero     0x20004bf4     0x20  ble.o [1]
+  .bss                   zero     0x20004c14     0x20  ll.o [1]
+  .bss                   zero     0x20004c34     0x1c  ble.o [1]
+  .bss                   zero     0x20004c50     0x1c  gap_configmgr.o [1]
+  .bss                   zero     0x20004c6c     0x18  ble.o [1]
+  .bss                   zero     0x20004c84     0x18  ble.o [1]
+  .bss                   zero     0x20004c9c     0x18  ble.o [1]
+  .bss                   zero     0x20004cb4     0x18  ble.o [1]
+  .bss                   zero     0x20004ccc     0x18  ble.o [1]
+  .bss                   zero     0x20004ce4     0x18  ble.o [1]
+  .bss                   zero     0x20004cfc     0x18  gattservapp.o [1]
+  .bss                   zero     0x20004d14     0x18  ll.o [1]
+  .bss                   zero     0x20004d2c     0x18  ll.o [1]
+  .bss                   zero     0x20004d44     0x18  ll_common.o [1]
+  .bss                   zero     0x20004d5c     0x14  ble.o [1]
+  .bss                   zero     0x20004d70     0x14  ble.o [1]
+  .bss                   zero     0x20004d84     0x10  ble.o [1]
+  .bss                   zero     0x20004d94     0x10  ble.o [1]
+  .bss                   zero     0x20004da4     0x10  ble.o [1]
+  .bss                   zero     0x20004db4     0x10  ble.o [1]
+  .bss                   zero     0x20004dc4     0x10  ble.o [1]
+  .bss                   zero     0x20004dd4      0xc  ble.o [1]
+  .bss                   zero     0x20004de0      0xc  ble.o [1]
+  .bss                   zero     0x20004dec      0xc  ll.o [1]
+  .bss                   zero     0x20004df8      0xc  ll_enc.o [1]
+  .bss                   zero     0x20004e04      0x8  gap_configmgr.o [1]
+  .bss                   zero     0x20004e0c      0x8  gap_linkmgr.o [1]
+  .bss                   zero     0x20004e14      0x8  hci_event.o [1]
+  .bss                   zero     0x20004e1c      0x8  hci_event.o [1]
+  .bss                   zero     0x20004e24      0x8  hci_event.o [1]
+  .bss                   zero     0x20004e2c      0x8  ll.o [1]
+  .bss                   zero     0x20004e34      0x8  ll.o [1]
+  .bss                   zero     0x20004e3c      0x8  ll.o [1]
+  .bss                   zero     0x20004e44      0x8  ll.o [1]
+  .bss                   zero     0x20004e4c      0x4  att_server.o [1]
+  .bss                   zero     0x20004e50      0x8  ll.o [1]
+  .bss                   zero     0x20004e58      0x8  ll.o [1]
+  .bss                   zero     0x20004e60      0x8  ll.o [1]
+  .bss                   zero     0x20004e68      0x8  ll.o [1]
+  .bss                   zero     0x20004e70      0x8  ll_common.o [1]
+  .bss                   zero     0x20004e78      0x8  ll_privacy.o [1]
+  .bss                   zero     0x20004e80      0x4  ble.o [1]
+  .bss                   zero     0x20004e84      0x4  ble.o [1]
+  .bss                   zero     0x20004e88      0x4  ble.o [1]
+  .bss                   zero     0x20004e8c      0x4  ble.o [1]
+  .bss                   zero     0x20004e90      0x4  ble.o [1]
+  .bss                   zero     0x20004e94      0x4  ble.o [1]
+  .bss                   zero     0x20004e98      0x4  gap_devmgr.o [1]
+  .bss                   zero     0x20004e9c      0x4  gap_devmgr.o [1]
+  .bss                   zero     0x20004ea0      0x4  gap_linkmgr.o [1]
+  .bss                   zero     0x20004ea4      0x4  gap_linkmgr.o [1]
+  .bss                   zero     0x20004ea8      0x4  gap_linkmgr.o [1]
+  .bss                   zero     0x20004eac      0x4  gap_linkmgr.o [1]
+  .bss                   zero     0x20004eb0      0x4  gap_peridevmgr.o [1]
+  .bss                   zero     0x20004eb4      0x4  gap_peridevmgr.o [1]
+  .bss                   zero     0x20004eb8      0x4  gap_peridevmgr.o [1]
+  .bss                   zero     0x20004ebc      0x4  gap_task.o [1]
+  .bss                   zero     0x20004ec0      0x4  gap_task.o [1]
+  .bss                   zero     0x20004ec4      0x4  gap_task.o [1]
+  .bss                   zero     0x20004ec8      0x4  gatt_server.o [1]
+  .bss                   zero     0x20004ecc      0x4  gatt_server.o [1]
+  .bss                   zero     0x20004ed0      0x4  gatt_task.o [1]
+  .bss                   zero     0x20004ed4      0x4  gatt_task.o [1]
+  .bss                   zero     0x20004ed8      0x4  gattservapp.o [1]
+  .bss                   zero     0x20004edc      0x4  gattservapp.o [1]
+  .bss                   zero     0x20004ee0      0x4  gattservapp.o [1]
+  .bss                   zero     0x20004ee4      0x4  l2cap_task.o [1]
+  .bss                   zero     0x20004ee8      0x4  linkdb.o [1]
+  .bss                   zero     0x20004eec      0x4  ll.o [1]
+  .bss                   zero     0x20004ef0      0x4  ll.o [1]
+  .bss                   zero     0x20004ef4      0x4  ll.o [1]
+  .bss                   zero     0x20004ef8      0x4  ll.o [1]
+  .bss                   zero     0x20004efc      0x4  ll.o [1]
+  .bss                   zero     0x20004f00      0x4  ll.o [1]
+  .bss                   zero     0x20004f04      0x4  ll.o [1]
+  .bss                   zero     0x20004f08      0x4  ll.o [1]
+  .bss                   zero     0x20004f0c      0x4  ll.o [1]
+  .bss                   zero     0x20004f10      0x4  ll.o [1]
+  .bss                   zero     0x20004f14      0x4  ll.o [1]
+  .bss                   zero     0x20004f18      0x4  ll.o [1]
+  .bss                   zero     0x20004f1c      0x4  ll.o [1]
+  .bss                   zero     0x20004f20      0x4  ll.o [1]
+  .bss                   zero     0x20004f24      0x4  ll_enc.o [1]
+  .bss                   zero     0x20004f28      0x4  ll_enc.o [1]
+  .bss                   zero     0x20004f2c      0x4  ll_enc.o [1]
+  .bss                   zero     0x20004f30      0x4  sm_pairing.o [1]
+  .bss                   zero     0x20004f34      0x4  sm_pairing.o [1]
+  .bss                   zero     0x20004f38      0x4  sm_pairing.o [1]
+  .bss                   zero     0x20004f3c      0x2  gap_peridevmgr.o [1]
+  .bss                   zero     0x20004f3e      0x2  gattservapp.o [1]
+  .bss                   zero     0x20004f40      0x2  hci.o [1]
+  .bss                   zero     0x20004f42      0x2  ll.o [1]
+  .bss                   zero     0x20004f44      0x2  ll.o [1]
+  .bss                   zero     0x20004f46      0x2  ll.o [1]
+  .bss                   zero     0x20004f48      0x2  ll.o [1]
+  .bss                   zero     0x20004f4a      0x2  ll.o [1]
+  .bss                   zero     0x20004f4c      0x2  ll.o [1]
+  .bss                   zero     0x20004f4e      0x2  ll.o [1]
+  .bss                   zero     0x20004f50      0x2  ll.o [1]
+  .bss                   zero     0x20004f52      0x2  ll.o [1]
+  .bss                   zero     0x20004f54      0x2  ll.o [1]
+  .bss                   zero     0x20004f56      0x2  ll_slave_end_causes.o [1]
+  .bss                   zero     0x20004f58      0x1  gap_configmgr.o [1]
+  .bss                   zero     0x20004f59      0x1  gap_configmgr.o [1]
+  .bss                   zero     0x20004f5a      0x1  gap_devmgr.o [1]
+  .bss                   zero     0x20004f5b      0x1  gap_linkmgr.o [1]
+  .bss                   zero     0x20004f5c      0x1  gap_linkmgr.o [1]
+  .bss                   zero     0x20004f5d      0x1  gap_task.o [1]
+  .bss                   zero     0x20004f5e      0x1  gatt_task.o [1]
+  .bss                   zero     0x20004f5f      0x1  gatt_task.o [1]
+  .bss                   zero     0x20004f60      0x1  gattservapp.o [1]
+  .bss                   zero     0x20004f61      0x1  gattservapp.o [1]
+  .bss                   zero     0x20004f62      0x1  hci.o [1]
+  .bss                   zero     0x20004f63      0x1  hci.o [1]
+  .bss                   zero     0x20004f64      0x1  l2cap_if.o [1]
+  .bss                   zero     0x20004f65      0x1  l2cap_task.o [1]
+  .bss                   zero     0x20004f66      0x1  l2cap_task.o [1]
+  .bss                   zero     0x20004f67      0x1  l2cap_task.o [1]
+  .bss                   zero     0x20004f68      0x1  l2cap_util.o [1]
+  .bss                   zero     0x20004f69      0x1  linkdb.o [1]
+  .bss                   zero     0x20004f6a      0x1  linkdb.o [1]
+  .bss                   zero     0x20004f6b      0x1  ll.o [1]
+  .bss                   zero     0x20004f6c      0x1  ll.o [1]
+  .bss                   zero     0x20004f6d      0x1  ll.o [1]
+  .bss                   zero     0x20004f6e      0x1  ll.o [1]
+  .bss                   zero     0x20004f6f      0x1  ll.o [1]
+  .bss                   zero     0x20004f70      0x1  ll.o [1]
+  .bss                   zero     0x20004f71      0x1  ll.o [1]
+  .bss                   zero     0x20004f72      0x1  ll.o [1]
+  .bss                   zero     0x20004f73      0x1  ll.o [1]
+  .bss                   zero     0x20004f74      0x1  ll.o [1]
+  .bss                   zero     0x20004f75      0x1  ll.o [1]
+  .bss                   zero     0x20004f76      0x1  ll.o [1]
+  .bss                   zero     0x20004f77      0x1  ll.o [1]
+  .bss                   zero     0x20004f78      0x1  ll.o [1]
+  .bss                   zero     0x20004f79      0x1  ll.o [1]
+  .bss                   zero     0x20004f7a      0x1  ll.o [1]
+  .bss                   zero     0x20004f7b      0x1  ll.o [1]
+  .bss                   zero     0x20004f7c      0x1  sm_task.o [1]
+  .bss                   zero     0x20004f7d      0x1  sm_task.o [1]
+  .bss                   zero     0x20004f7e      0x0  lowlevelapi_m3.o [2]
+                                - 0x20004f7e    0x9d2
+
+"A5":                                            0x80
+  ECC_DATA                        0x20004f80     0x80  <Block>
+    ECC_DATA-1                    0x20004f80     0x1d  <Init block>
+      .eccRomData        inited   0x20004f80      0x4  ECC.o [1]
+      .eccRomData        inited   0x20004f84      0x4  ECC.o [1]
+      .eccRomData        inited   0x20004f88      0x4  scalarMul.o [1]
+      .eccRomData        inited   0x20004f8c      0x4  scalarMul.o [1]
+      .eccRomData        inited   0x20004f90      0x4  scalarMul.o [1]
+      .eccRomData        inited   0x20004f94      0x4  scalarMul.o [1]
+      .eccRomData        inited   0x20004f98      0x4  scalarMul.o [1]
+      .eccRomData        inited   0x20004f9c      0x1  scalarMul.o [1]
+    .eccRomData          rw data  0x20004f9d      0x0  ECC.o [1]
+    .eccRomData          rw data  0x20004f9d      0x0  lowlevelapi.o [1]
+    .eccRomData          rw data  0x20004f9d      0x0  scalarMul.o [1]
+    .eccRomData          zero     0x20004fa0      0x8  lowlevelapi.o [1]
+    .eccRomData          zero     0x20004fa8      0x4  lowlevelapi.o [1]
+    .eccRomData          zero     0x20004fac      0x4  lowlevelapi.o [1]
+    .eccRomData          zero     0x20004fb0      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fb4      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fb8      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fbc      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fc0      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fc4      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fc8      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fcc      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fd0      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fd4      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fd8      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fdc      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fe0      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fe4      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fe8      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004fec      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004ff0      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004ff4      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004ff8      0x4  scalarMul.o [1]
+    .eccRomData          zero     0x20004ffc      0x1  lowlevelapi.o [1]
+                                - 0x20005000     0x80
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    3 destination ranges, total size 0xa3f:
+          0x200044f8   0x10
+          0x200045ac  0x9d2
+          0x20004fa0   0x5d
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x1d:
+          0x10019ac9   0x1d
+    1 destination range, total size 0x1d:
+          0x20004f80   0x1d
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x85 (82% of destination):
+          0x10019a44   0x85
+    1 destination range, total size 0xa2:
+          0x20004508   0xa2
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+C:\git\ble_core\build\rom\r2\ble\ROM\Obj: [1]
+    ECC.o                     1 312        8        8
+    abort.o                       8
+    att_server.o                680                 4
+    att_util.o                1 648       16
+    ble.o                     5 248       24      852
+    gap_configmgr.o             916       66      119
+    gap_devmgr.o                184                 9
+    gap_linkmgr.o             3 156        2       28
+    gap_peridevmgr.o          2 168       11       27
+    gap_perilinkmgr.o           392        3        4
+    gap_task.o                  816                14
+    gatt_server.o             3 400        2       11
+    gatt_task.o                 924        1       11
+    gattservapp.o             3 346        1       41
+    hci.o                     4 688       92        4
+    hci_data.o                  224
+    hci_event.o               4 392                24
+    l2cap_if.o                  482                 1
+    l2cap_task.o                948        3       58
+    l2cap_util.o              2 016                 1
+    linkdb.o                    932                54
+    ll.o                      9 812       17      481
+    ll_adv_end_causes.o       1 844
+    ll_common.o               9 062       10       44
+    ll_enc.o                  1 162                24
+    ll_metric.o
+    ll_privacy.o              1 174       16      328
+    ll_rat.o                     48
+    ll_slave_end_causes.o     2 856                 2
+    ll_timer_drift.o             28       16
+    ll_wl.o                     688               440
+    lowlevelapi.o             1 484                17
+    rt_init.o                     4
+    scalarMul.o               4 036      305       97
+    sm_mgr.o                  3 100       16
+    sm_pairing.o              3 996       28       80
+    sm_rsppairing.o           2 868       20       24
+    sm_task.o                 1 008        1        3
+    smp.o                     1 344
+    vectors_curves.o                     216
+    -------------------------------------------------
+    Total:                   82 394      874    2 810
+
+C:\svn\restricted\invia-ecc\trunk\ecc\obj: [2]
+    lowlevelapi_m3.o          2 168      100
+    -------------------------------------------------
+    Total:                    2 168      100
+
+command line: [3]
+    -------------------------------------------------
+    Total:
+
+rt7M_tl.a: [4]
+    ABImemclr.o                   6
+    ABImemclr4.o                  6
+    ABImemcpy.o                 166
+    ABImemset.o                 102
+    ABImemset48.o                58
+    I64DivMod.o                 306
+    I64DivZer.o                   2
+    XXexit.o                     12
+    data_init.o                  40
+    packbits_init_single.o       56
+    zero_init3.o                 64
+    -------------------------------------------------
+    Total:                      818
+
+    Gaps                         22                 7
+    Linker created                        64
+-----------------------------------------------------
+    Grand Total:             85 402    1 040    2 817
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x100198e0          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x10019920          --   Gb  - Linker created -
+ACCX                    0x20004fd8    0x4  Data  Wk  scalarMul.o [1]
+ACCY                    0x20004fdc    0x4  Data  Wk  scalarMul.o [1]
+ACCZ                    0x20004fe0    0x4  Data  Wk  scalarMul.o [1]
+ATOMICPATTERN           0x1000d2d5  0x3a6  Code  Wk  scalarMul.o [1]
+ATT_BuildErrorRsp       0x10015c49   0x12  Code  Wk  att_util.o [1]
+ATT_BuildExchangeMTUReq
+                        0x10015c7d    0x2  Code  Wk  att_util.o [1]
+ATT_BuildExchangeMTURsp
+                        0x10015c8d    0x4  Code  Wk  att_util.o [1]
+ATT_BuildExecuteWriteReq
+                        0x10015ff5    0x8  Code  Wk  att_util.o [1]
+ATT_BuildFindByTypeValueReq
+                        0x10015d25   0x1a  Code  Wk  att_util.o [1]
+ATT_BuildFindByTypeValueRsp
+                        0x10015d89    0x8  Code  Wk  att_util.o [1]
+ATT_BuildFindInfoReq    0x10015cb9    0x2  Code  Wk  att_util.o [1]
+ATT_BuildFindInfoRsp    0x10015cc9   0x18  Code  Wk  att_util.o [1]
+ATT_BuildHandleValueInd
+                        0x1001601d    0x4  Code  Wk  att_util.o [1]
+ATT_BuildPrepareWriteReq
+                        0x10015f75    0x2  Code  Wk  att_util.o [1]
+ATT_BuildPrepareWriteRsp
+                        0x10015fa1    0x4  Code  Wk  att_util.o [1]
+ATT_BuildReadBlobReq    0x10015eb1    0x4  Code  Wk  att_util.o [1]
+ATT_BuildReadBlobRsp    0x10015ef9    0x4  Code  Wk  att_util.o [1]
+ATT_BuildReadByGrpTypeRsp
+                        0x10015f35    0x4  Code  Wk  att_util.o [1]
+ATT_BuildReadByTypeReq  0x10015da5   0x1a  Code  Wk  att_util.o [1]
+ATT_BuildReadByTypeRsp  0x10015e29    0x2  Code  Wk  att_util.o [1]
+ATT_BuildReadMultiReq   0x10015f0d    0x8  Code  Wk  att_util.o [1]
+ATT_BuildReadMultiRsp   0x10015f2d    0x4  Code  Wk  att_util.o [1]
+ATT_BuildReadReq        0x10015e4d    0x2  Code  Wk  att_util.o [1]
+ATT_BuildReadRsp        0x10015e6d    0x4  Code  Wk  att_util.o [1]
+ATT_BuildWriteReq       0x10015ea1    0x2  Code  Wk  att_util.o [1]
+ATT_CompareUUID         0x10016111   0x5c  Code  Wk  att_util.o [1]
+ATT_ConvertUUIDto128    0x10016179   0x2a  Code  Wk  att_util.o [1]
+ATT_ConvertUUIDto16     0x100161a5   0x42  Code  Wk  att_util.o [1]
+ATT_ErrorRsp            0x10018e39   0x1e  Code  Wk  att_server.o [1]
+ATT_ExchangeMTURsp      0x10018e59   0x28  Code  Wk  att_server.o [1]
+ATT_ExecuteWriteRsp     0x10019025   0x10  Code  Wk  att_server.o [1]
+ATT_FindByTypeValueRsp  0x10018ebd   0x32  Code  Wk  att_server.o [1]
+ATT_FindInfoRsp         0x10018e81   0x3a  Code  Wk  att_server.o [1]
+ATT_GetMTU              0x1001621d   0x28  Code  Wk  att_util.o [1]
+ATT_GetParamValue       0x10016251    0x4  Code  Wk  att_util.o [1]
+ATT_HandleValueInd      0x10019065   0x1e  Code  Wk  att_server.o [1]
+ATT_HandleValueNoti     0x10019045   0x1e  Code  Wk  att_server.o [1]
+ATT_ParseErrorRsp       0x10015c5d   0x1e  Code  Wk  att_util.o [1]
+ATT_ParseExchangeMTUReq
+                        0x10015c81    0xa  Code  Wk  att_util.o [1]
+ATT_ParseExchangeMTURsp
+                        0x10015ca1   0x16  Code  Wk  att_util.o [1]
+ATT_ParseExecuteWriteReq
+                        0x10015ffd   0x12  Code  Wk  att_util.o [1]
+ATT_ParseExecuteWriteRsp
+                        0x10016011    0xa  Code  Wk  att_util.o [1]
+ATT_ParseFindByTypeValueReq
+                        0x10015d41   0x48  Code  Wk  att_util.o [1]
+ATT_ParseFindByTypeValueRsp
+                        0x10015d91   0x12  Code  Wk  att_util.o [1]
+ATT_ParseFindInfoReq    0x10015cbd    0xa  Code  Wk  att_util.o [1]
+ATT_ParseFindInfoRsp    0x10015ce1   0x42  Code  Wk  att_util.o [1]
+ATT_ParseHandleValueCfm
+                        0x10016065    0xa  Code  Wk  att_util.o [1]
+ATT_ParseHandleValueInd
+                        0x10016035   0x1e  Code  Wk  att_util.o [1]
+ATT_ParsePacket         0x10015be5   0x64  Code  Wk  att_util.o [1]
+ATT_ParsePrepareWriteReq
+                        0x10015f79   0x28  Code  Wk  att_util.o [1]
+ATT_ParsePrepareWriteRsp
+                        0x10015fc1   0x32  Code  Wk  att_util.o [1]
+ATT_ParseReadBlobReq    0x10015ed1    0xa  Code  Wk  att_util.o [1]
+ATT_ParseReadBlobRsp    0x10015efd    0x4  Code  Wk  att_util.o [1]
+ATT_ParseReadByGrpTypeRsp
+                        0x10015f49   0x20  Code  Wk  att_util.o [1]
+ATT_ParseReadByTypeReq  0x10015de5   0x42  Code  Wk  att_util.o [1]
+ATT_ParseReadByTypeRsp  0x10015e2d   0x20  Code  Wk  att_util.o [1]
+ATT_ParseReadMultiReq   0x10015f15   0x18  Code  Wk  att_util.o [1]
+ATT_ParseReadMultiRsp   0x10015f31    0x2  Code  Wk  att_util.o [1]
+ATT_ParseReadReq        0x10015e51    0xa  Code  Wk  att_util.o [1]
+ATT_ParseReadRsp        0x10015e71    0x2  Code  Wk  att_util.o [1]
+ATT_ParseWriteReq       0x10015e75   0x2a  Code  Wk  att_util.o [1]
+ATT_ParseWriteRsp       0x10015ea5    0xa  Code  Wk  att_util.o [1]
+ATT_PrepareWriteRsp     0x10018ffd   0x28  Code  Wk  att_server.o [1]
+ATT_ReadBlobRsp         0x10018f51   0x24  Code  Wk  att_server.o [1]
+ATT_ReadByGrpTypeRsp    0x10018fbd   0x30  Code  Wk  att_server.o [1]
+ATT_ReadByTypeRsp       0x10018ef1   0x30  Code  Wk  att_server.o [1]
+ATT_ReadMultiRsp        0x10018f91   0x24  Code  Wk  att_server.o [1]
+ATT_ReadRsp             0x10018f2d   0x24  Code  Wk  att_server.o [1]
+ATT_RegisterServer      0x10018e31    0x6  Code  Wk  att_server.o [1]
+ATT_SetParamValue       0x1001624d    0x2  Code  Wk  att_util.o [1]
+ATT_UpdateMTU           0x100161e9   0x34  Code  Wk  att_util.o [1]
+ATT_WriteRsp            0x10018fed   0x10  Code  Wk  att_server.o [1]
+COPY                    0x1000dbf1   0x16  Code  Wk  lowlevelapi.o [1]
+ECC_DATA$$Base          0x20004f80          --   Gb  - Linker created -
+ECC_DATA$$Limit         0x20005000          --   Gb  - Linker created -
+ECC_allocWorkzone       0x10016795    0x8  Code  Wk  ECC.o [1]
+ECC_keyGen              0x10016c1d   0x2c  Code  Wk  ECC.o [1]
+ECC_setWin              0x1001679d    0x8  Code  Wk  ECC.o [1]
+ECDH_commonKey          0x10016c65   0x20  Code  Wk  ECC.o [1]
+ECDSA_sign              0x100167a5  0x190  Code  Wk  ECC.o [1]
+ECDSA_verif             0x10016941  0x2c4  Code  Wk  ECC.o [1]
+EXPORTOPERAND           0x1000db95   0x24  Code  Wk  lowlevelapi.o [1]
+EXPW                    0x20004fd4    0x4  Data  Wk  scalarMul.o [1]
+EXPX                    0x20004fc8    0x4  Data  Wk  scalarMul.o [1]
+EXPY                    0x20004fcc    0x4  Data  Wk  scalarMul.o [1]
+EXPZ                    0x20004fd0    0x4  Data  Wk  scalarMul.o [1]
+GAP_Authenticate        0x10011701   0xc0  Code  Wk  gap_linkmgr.o [1]
+GAP_Bond                0x1001187d   0x9a  Code  Wk  gap_linkmgr.o [1]
+GAP_ConfigDeviceAddr    0x100185ad   0xbc  Code  Wk  gap_configmgr.o [1]
+GAP_EndDiscoverable     0x10014599   0x46  Code  Wk  gap_peridevmgr.o [1]
+GAP_GetAdvToken         0x10014655   0x24  Code  Wk  gap_peridevmgr.o [1]
+GAP_GetIRK              0x100185a5    0x6  Code  Wk  gap_configmgr.o [1]
+GAP_GetParamValue       0x100184f5   0x10  Code  Wk  gap_configmgr.o [1]
+GAP_Init                0x10018859   0x20  Code  Wk  gap_task.o [1]
+GAP_MakeDiscoverable    0x10014459   0xb0  Code  Wk  gap_peridevmgr.o [1]
+GAP_NumActiveConnections
+                        0x100188fd    0xa  Code  Wk  gap_task.o [1]
+GAP_ParamsInit          0x10018505   0x34  Code  Wk  gap_configmgr.o [1]
+GAP_PasscodeUpdate      0x10011829   0x54  Code  Wk  gap_linkmgr.o [1]
+GAP_PasskeyUpdate       0x100117ed   0x3c  Code  Wk  gap_linkmgr.o [1]
+GAP_PeriConnRegister    0x1001930d   0x2e  Code  Wk  gap_perilinkmgr.o [1]
+GAP_PeriDevMgrInit      0x100146b1   0x5c  Code  Wk  gap_peridevmgr.o [1]
+GAP_PrivacyInit         0x10018565   0x40  Code  Wk  gap_configmgr.o [1]
+GAP_ProcessEvent        0x10018879   0x84  Code  Wk  gap_task.o [1]
+GAP_RegisterBondMgrCBs  0x10018b51    0x6  Code  Wk  gap_task.o [1]
+GAP_RegisterForMsgs     0x10018851    0x6  Code  Wk  gap_task.o [1]
+GAP_RemoveAdvToken      0x10014679   0x1c  Code  Wk  gap_peridevmgr.o [1]
+GAP_SecParamsInit       0x10018539   0x2a  Code  Wk  gap_configmgr.o [1]
+GAP_SendSlaveSecurityRequest
+                        0x100192bd   0x4e  Code  Wk  gap_perilinkmgr.o [1]
+GAP_SetAdvToken         0x100145e1   0x68  Code  Wk  gap_peridevmgr.o [1]
+GAP_SetParamValue       0x100184bd   0x38  Code  Wk  gap_configmgr.o [1]
+GAP_Signable            0x100116ad   0x52  Code  Wk  gap_linkmgr.o [1]
+GAP_TerminateAuth       0x100117c1   0x2c  Code  Wk  gap_linkmgr.o [1]
+GAP_TerminateLinkReq    0x100114e5   0x96  Code  Wk  gap_linkmgr.o [1]
+GAP_UpdateAdvTokens     0x10014695   0x1c  Code  Wk  gap_peridevmgr.o [1]
+GAP_UpdateAdvertisingData
+                        0x10014509   0x8e  Code  Wk  gap_peridevmgr.o [1]
+GAP_UpdateLinkParamReq  0x1001157d   0x88  Code  Wk  gap_linkmgr.o [1]
+GAP_UpdateLinkParamReqReply
+                        0x10011605   0xa6  Code  Wk  gap_linkmgr.o [1]
+GATTServApp_TaskID      0x20004f60    0x1  Data  Wk  gattservapp.o [1]
+GATT_AppCompletedMsg    0x1001814d   0x2e  Code  Wk  gatt_task.o [1]
+GATT_DeregisterService  0x1000fbc1   0x48  Code  Wk  gatt_server.o [1]
+GATT_FindHandle         0x1000fdbd   0x48  Code  Wk  gatt_server.o [1]
+GATT_FindHandleUUID     0x1000fd55   0x66  Code  Wk  gatt_server.o [1]
+GATT_FindNextAttr       0x1000fe05   0x9a  Code  Wk  gatt_server.o [1]
+GATT_GetNextHandle      0x100107b9    0x6  Code  Wk  gatt_server.o [1]
+GATT_Indication         0x1000ffcd   0x76  Code  Wk  gatt_server.o [1]
+GATT_Init               0x1001817d   0x2e  Code  Wk  gatt_task.o [1]
+GATT_InitServer         0x1000fa89   0x7e  Code  Wk  gatt_server.o [1]
+GATT_Notification       0x10010045   0x58  Code  Wk  gatt_server.o [1]
+GATT_NotifyEvent        0x10018341   0x1c  Code  Wk  gatt_task.o [1]
+GATT_ProcessEvent       0x100181ad   0x32  Code  Wk  gatt_task.o [1]
+GATT_RegisterForMsgs    0x10018131    0x8  Code  Wk  gatt_task.o [1]
+GATT_RegisterForReq     0x1000fc09    0x8  Code  Wk  gatt_server.o [1]
+GATT_RegisterService    0x1000fb09   0xb6  Code  Wk  gatt_server.o [1]
+GATT_SendRsp            0x1000fedd   0xee  Code  Wk  gatt_server.o [1]
+GATT_ServiceChangedInd  0x1000fccd   0x88  Code  Wk  gatt_server.o [1]
+GATT_ServiceEncKeySize  0x1000febd   0x12  Code  Wk  gatt_server.o [1]
+GATT_ServiceNumAttrs    0x1000fead    0xe  Code  Wk  gatt_server.o [1]
+GATT_SetHostToAppFlowCtrl
+                        0x10018139   0x14  Code  Wk  gatt_task.o [1]
+GATT_UpdateMTU          0x1001835d   0x2e  Code  Wk  gatt_task.o [1]
+GATT_VerifyReadPermissions
+                        0x1000fc11   0x46  Code  Wk  gatt_server.o [1]
+GATT_VerifyWritePermissions
+                        0x1000fc59   0x5e  Code  Wk  gatt_server.o [1]
+GATT_bm_alloc           0x10018405   0x84  Code  Wk  gatt_task.o [1]
+GATT_bm_free            0x10018489   0x1a  Code  Wk  gatt_task.o [1]
+GETBIT                  0x1000d1f1   0x12  Code  Wk  scalarMul.o [1]
+GETDIGIT                0x1000d205   0x4e  Code  Wk  scalarMul.o [1]
+GETDIGITL2R             0x1000d255   0x6e  Code  Wk  scalarMul.o [1]
+HCI_CommandCompleteEvent
+                        0x1000bb91   0x9a  Code  Wk  hci_event.o [1]
+HCI_CommandStatusEvent  0x1000bca5   0x48  Code  Wk  hci_event.o [1]
+HCI_DataBufferOverflowEvent
+                        0x1000ba8d   0x24  Code  Wk  hci_event.o [1]
+HCI_DisconnectCmd       0x1000a875   0x1c  Code  Wk  hci.o [1]
+HCI_EXT_AdvEventNoticeCmd
+                        0x1000b78d    0xa  Code  Wk  hci.o [1]
+HCI_EXT_BuildRevisionCmd
+                        0x1000b7a5   0x4a  Code  Wk  hci.o [1]
+HCI_EXT_ClkDivOnHaltCmd
+                        0x1000b3f5   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_ConnEventNoticeCmd
+                        0x1000b799    0xa  Code  Wk  hci.o [1]
+HCI_EXT_DeclareNvUsageCmd
+                        0x1000b415   0x22  Code  Wk  hci.o [1]
+HCI_EXT_DecryptCmd      0x1000b439   0x5c  Code  Wk  hci.o [1]
+HCI_EXT_DelaySleepCmd   0x1000b7f1   0x2a  Code  Wk  hci.o [1]
+HCI_EXT_DisconnectImmedCmd
+                        0x1000b6a9   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_EnablePTMCmd    0x1000b5f9   0x18  Code  Wk  hci.o [1]
+HCI_EXT_EndModemTestCmd
+                        0x1000b569   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_ExtendRfRangeCmd
+                        0x1000b739   0x34  Code  Wk  hci.o [1]
+HCI_EXT_GetConnInfoCmd  0x1000b891   0x9e  Code  Wk  hci.o [1]
+HCI_EXT_HaltDuringRfCmd
+                        0x1000b76d   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_MapPmIoPortCmd  0x1000b689   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_ModemHopTestTxCmd
+                        0x1000b529   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_ModemTestRxCmd  0x1000b549   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_ModemTestTxCmd  0x1000b509   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_NumComplPktsLimitCmd
+                        0x1000b871   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_OnePktPerEvtCmd
+                        0x1000b3c1   0x26  Code  Wk  hci.o [1]
+HCI_EXT_OverlappedProcessingCmd
+                        0x1000b851   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_PERbyChanCmd    0x1000b719   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_PacketErrorRateCmd
+                        0x1000b6c9   0x36  Code  Wk  hci.o [1]
+HCI_EXT_ResetSystemCmd  0x1000b825   0x28  Code  Wk  hci.o [1]
+HCI_EXT_SaveFreqTuneCmd
+                        0x1000b649   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetBDADDRCmd    0x1000b5a1   0x36  Code  Wk  hci.o [1]
+HCI_EXT_SetFastTxResponseTimeCmd
+                        0x1000b4b5   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetFreqTuneCmd  0x1000b619   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetLocalSupportedFeaturesCmd
+                        0x1000b495   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetMaxDataLenCmd
+                        0x1000b935   0x26  Code  Wk  hci.o [1]
+HCI_EXT_SetMaxDtmTxPowerCmd
+                        0x1000b669   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetRxGainCmd    0x1000b351   0x2e  Code  Wk  hci.o [1]
+HCI_EXT_SetSCACmd       0x1000b5d9   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetSlaveLatencyOverrideCmd
+                        0x1000b4d5   0x1e  Code  Wk  hci.o [1]
+HCI_EXT_SetTxPowerCmd   0x1000b381   0x32  Code  Wk  hci.o [1]
+HCI_HardwareErrorEvent  0x1000bced   0x2e  Code  Wk  hci_event.o [1]
+HCI_HostBufferSizeCmd   0x1000a9b9   0x2a  Code  Wk  hci.o [1]
+HCI_HostNumCompletedPktCmd
+                        0x1000a9f1   0x5e  Code  Wk  hci.o [1]
+HCI_LE_AddDeviceToResolvingListCmd
+                        0x1000b16d   0x1a  Code  Wk  hci.o [1]
+HCI_LE_AddWhiteListCmd  0x1000adc9   0x24  Code  Wk  hci.o [1]
+HCI_LE_ClearResolvingListCmd
+                        0x1000b1b1   0x1e  Code  Wk  hci.o [1]
+HCI_LE_ClearWhiteListCmd
+                        0x1000ada9   0x1e  Code  Wk  hci.o [1]
+HCI_LE_ConnUpdateCmd    0x1000ae21   0x2a  Code  Wk  hci.o [1]
+HCI_LE_CreateConnCancelCmd
+                        0x1000ad55   0x1e  Code  Wk  hci.o [1]
+HCI_LE_CreateConnCmd    0x1000ad11   0x42  Code  Wk  hci.o [1]
+HCI_LE_EncryptCmd       0x1000aed9   0x40  Code  Wk  hci.o [1]
+HCI_LE_GenerateDHKeyCmd
+                        0x1000b2bd   0x22  Code  Wk  hci.o [1]
+HCI_LE_LtkReqNegReplyCmd
+                        0x1000afa9   0x1c  Code  Wk  hci.o [1]
+HCI_LE_LtkReqReplyCmd   0x1000af8d   0x1c  Code  Wk  hci.o [1]
+HCI_LE_RandCmd          0x1000af21   0x40  Code  Wk  hci.o [1]
+HCI_LE_ReadAdvChanTxPowerCmd
+                        0x1000aca1   0x22  Code  Wk  hci.o [1]
+HCI_LE_ReadBufSizeCmd   0x1000ab89   0x3a  Code  Wk  hci.o [1]
+HCI_LE_ReadChannelMapCmd
+                        0x1000ae6d   0x28  Code  Wk  hci.o [1]
+HCI_LE_ReadLocalP256PublicKeyCmd
+                        0x1000b289   0x1e  Code  Wk  hci.o [1]
+HCI_LE_ReadLocalResolvableAddressCmd
+                        0x1000b22d   0x1e  Code  Wk  hci.o [1]
+HCI_LE_ReadLocalSupportedFeaturesCmd
+                        0x1000abc5   0x20  Code  Wk  hci.o [1]
+HCI_LE_ReadMaxDataLenCmd
+                        0x1000b141   0x2a  Code  Wk  hci.o [1]
+HCI_LE_ReadPeerResolvableAddressCmd
+                        0x1000b1f5   0x1e  Code  Wk  hci.o [1]
+HCI_LE_ReadRemoteUsedFeaturesCmd
+                        0x1000ae95   0x34  Code  Wk  hci.o [1]
+HCI_LE_ReadResolvingListSizeCmd
+                        0x1000b1d1   0x22  Code  Wk  hci.o [1]
+HCI_LE_ReadSuggestedDefaultDataLenCmd
+                        0x1000b0f5   0x2c  Code  Wk  hci.o [1]
+HCI_LE_ReadSupportedStatesCmd
+                        0x1000afc5   0x2a  Code  Wk  hci.o [1]
+HCI_LE_ReadWhiteListSizeCmd
+                        0x1000ad75   0x22  Code  Wk  hci.o [1]
+HCI_LE_ReceiverTestCmd  0x1000b2fd   0x1e  Code  Wk  hci.o [1]
+HCI_LE_RemoteConnParamReqNegReplyCmd
+                        0x1000b0bd   0x1c  Code  Wk  hci.o [1]
+HCI_LE_RemoteConnParamReqReplyCmd
+                        0x1000b079   0x42  Code  Wk  hci.o [1]
+HCI_LE_RemoveDeviceFromResolvingListCmd
+                        0x1000b191   0x1e  Code  Wk  hci.o [1]
+HCI_LE_RemoveWhiteListCmd
+                        0x1000adfd   0x24  Code  Wk  hci.o [1]
+HCI_LE_SetAddressResolutionEnableCmd
+                        0x1000b24d   0x1e  Code  Wk  hci.o [1]
+HCI_LE_SetAdvDataCmd    0x1000ac41   0x1e  Code  Wk  hci.o [1]
+HCI_LE_SetAdvEnableCmd  0x1000ac81   0x1e  Code  Wk  hci.o [1]
+HCI_LE_SetAdvParamCmd   0x1000ac09   0x36  Code  Wk  hci.o [1]
+HCI_LE_SetDataLenCmd    0x1000b0d9   0x1c  Code  Wk  hci.o [1]
+HCI_LE_SetEventMaskCmd  0x1000ab61   0x28  Code  Wk  hci.o [1]
+HCI_LE_SetHostChanClassificationCmd
+                        0x1000ae4d   0x1e  Code  Wk  hci.o [1]
+HCI_LE_SetRandomAddressCmd
+                        0x1000abe5   0x24  Code  Wk  hci.o [1]
+HCI_LE_SetResolvablePrivateAddressTimeoutCmd
+                        0x1000b26d   0x1c  Code  Wk  hci.o [1]
+HCI_LE_SetScanEnableCmd
+                        0x1000acf1   0x1e  Code  Wk  hci.o [1]
+HCI_LE_SetScanParamCmd  0x1000acc5   0x2c  Code  Wk  hci.o [1]
+HCI_LE_SetScanRspDataCmd
+                        0x1000ac61   0x1e  Code  Wk  hci.o [1]
+HCI_LE_StartEncyptCmd   0x1000af71   0x1c  Code  Wk  hci.o [1]
+HCI_LE_TestEndCmd       0x1000b31d   0x34  Code  Wk  hci.o [1]
+HCI_LE_TransmitterTestCmd
+                        0x1000b2e1   0x1c  Code  Wk  hci.o [1]
+HCI_LE_WriteSuggestedDefaultDataLenCmd
+                        0x1000b121   0x1e  Code  Wk  hci.o [1]
+HCI_NumOfCompletedPacketsEvent
+                        0x1000bab1   0xc6  Code  Wk  hci_event.o [1]
+HCI_ReadAuthPayloadTimeoutCmd
+                        0x1000b001   0x26  Code  Wk  hci.o [1]
+HCI_ReadBDADDRCmd       0x1000ab05   0x1e  Code  Wk  hci.o [1]
+HCI_ReadLocalSupportedCommandsCmd
+                        0x1000aac1   0x1c  Code  Wk  hci.o [1]
+HCI_ReadLocalSupportedFeaturesCmd
+                        0x1000aadd   0x28  Code  Wk  hci.o [1]
+HCI_ReadLocalVersionInfoCmd
+                        0x1000aa51   0x6e  Code  Wk  hci.o [1]
+HCI_ReadRemoteVersionInfoCmd
+                        0x1000a891   0x34  Code  Wk  hci.o [1]
+HCI_ReadRssiCmd         0x1000ab25   0x20  Code  Wk  hci.o [1]
+HCI_ReadTransmitPowerLevelCmd
+                        0x1000a959   0x22  Code  Wk  hci.o [1]
+HCI_ResetCmd            0x1000a91d   0x3c  Code  Wk  hci.o [1]
+HCI_ReverseBytes        0x10019445   0x1e  Code  Wk  hci_data.o [1]
+HCI_SendCommandCompleteEvent
+                        0x1000bd79   0xa8  Code  Wk  hci_event.o [1]
+HCI_SendCommandStatusEvent
+                        0x1000bd51   0x28  Code  Wk  hci_event.o [1]
+HCI_SendControllerToHostEvent
+                        0x1000be21   0x50  Code  Wk  hci_event.o [1]
+HCI_SendDataPkt         0x1000a839   0x3a  Code  Wk  hci.o [1]
+HCI_SetControllerToHostFlowCtrlCmd
+                        0x1000a97d   0x3a  Code  Wk  hci.o [1]
+HCI_SetEventMaskCmd     0x1000a8c5   0x2c  Code  Wk  hci.o [1]
+HCI_SetEventMaskPage2Cmd
+                        0x1000a8f1   0x2c  Code  Wk  hci.o [1]
+HCI_ValidConnTimeParams
+                        0x1000a7fd   0x3c  Code  Wk  hci.o [1]
+HCI_VendorSpecifcCommandCompleteEvent
+                        0x1000bc2d   0x66  Code  Wk  hci_event.o [1]
+HCI_WriteAuthPayloadTimeoutCmd
+                        0x1000b041   0x1c  Code  Wk  hci.o [1]
+HCI_bm_alloc            0x1000a7f1    0xc  Code  Wk  hci.o [1]
+ICall_dispatcher        0x200044f8    0x4  Data  Wk  ll.o [1]
+ICall_enterCriticalSection
+                        0x200044fc    0x4  Data  Wk  ll.o [1]
+ICall_leaveCriticalSection
+                        0x20004500    0x4  Data  Wk  ll.o [1]
+IMPORTDATA              0x1000dbb9   0x1c  Code  Wk  lowlevelapi.o [1]
+IMPORTLENGTH            0x1000db2d    0x4  Code  Wk  lowlevelapi.o [1]
+IMPORTMODULUS           0x1000db31   0x24  Code  Wk  lowlevelapi.o [1]
+IMPORTOPERAND           0x1000db55   0x3e  Code  Wk  lowlevelapi.o [1]
+INVERT                  0x1000d8e1  0x184  Code  Wk  scalarMul.o [1]
+IOCapMatrix             0x10019920   0x1c  Data  Wk  sm_pairing.o [1]
+JACADD                  0x1000d6e9  0x1d4  Code  Wk  scalarMul.o [1]
+L2CAP_BuildCmdReject    0x10014fad   0x3e  Code  Wk  l2cap_util.o [1]
+L2CAP_BuildInfoRsp      0x100150d5   0x4e  Code  Wk  l2cap_util.o [1]
+L2CAP_BuildParamUpdateRsp
+                        0x10015095    0x2  Code  Wk  l2cap_util.o [1]
+L2CAP_CmdReject         0x10019185   0x16  Code  Wk  l2cap_if.o [1]
+L2CAP_ConnParamUpdateReq
+                        0x100191c5   0x42  Code  Wk  l2cap_if.o [1]
+L2CAP_ConnParamUpdateRsp
+                        0x10019209   0x16  Code  Wk  l2cap_if.o [1]
+L2CAP_GetMTU            0x1001929d    0x6  Code  Wk  l2cap_if.o [1]
+L2CAP_GetParamValue     0x100154ad    0x4  Code  Wk  l2cap_util.o [1]
+L2CAP_HostNumCompletedPkts
+                        0x10019275   0x1c  Code  Wk  l2cap_if.o [1]
+L2CAP_InfoReq           0x1001919d   0x26  Code  Wk  l2cap_if.o [1]
+L2CAP_Init              0x100179c9   0x86  Code  Wk  l2cap_task.o [1]
+L2CAP_ParseInfoReq      0x100150b9    0xa  Code  Wk  l2cap_util.o [1]
+L2CAP_ParseParamUpdateReq
+                        0x10015059   0x3a  Code  Wk  l2cap_util.o [1]
+L2CAP_ProcessEvent      0x10017a51   0x88  Code  Wk  l2cap_task.o [1]
+L2CAP_RegisterApp       0x100190d9   0x2a  Code  Wk  l2cap_if.o [1]
+L2CAP_RegisterFlowCtrlTask
+                        0x10017b29    0x6  Code  Wk  l2cap_task.o [1]
+L2CAP_SendData          0x10019105   0x80  Code  Wk  l2cap_if.o [1]
+L2CAP_SendDataPkt       0x10015451   0x36  Code  Wk  l2cap_util.o [1]
+L2CAP_SetBufSize        0x10019291    0xc  Code  Wk  l2cap_if.o [1]
+L2CAP_SetControllerToHostFlowCtrl
+                        0x10019231   0x44  Code  Wk  l2cap_if.o [1]
+L2CAP_SetParamValue     0x100154a9    0x2  Code  Wk  l2cap_util.o [1]
+L2CAP_SetUserConfig     0x100192b9    0x2  Code  Wk  l2cap_if.o [1]
+L2CAP_bm_alloc          0x1001542d   0x22  Code  Wk  l2cap_util.o [1]
+LEN                     0x20004fac    0x4  Data  Wk  lowlevelapi.o [1]
+LL_AddDeviceToResolvingList
+                        0x10006425   0xfc  Code  Wk  ll.o [1]
+LL_AddWhiteListDevice   0x100049f9   0x2a  Code  Wk  ll.o [1]
+LL_AdvReportCback       0x1000c415  0x10a  Code  Wk  hci_event.o [1]
+LL_AuthPayloadTimeoutExpiredCback
+                        0x1000be71   0x72  Code  Wk  hci_event.o [1]
+LL_ChanMapUpdate        0x10005f95   0xb2  Code  Wk  ll.o [1]
+LL_ClearResolvingList   0x1000659d   0x5a  Code  Wk  ll.o [1]
+LL_ClearWhiteList       0x100049d9   0x20  Code  Wk  ll.o [1]
+LL_ConnActive           0x10005f61   0x30  Code  Wk  ll.o [1]
+LL_ConnParamUpdateCback
+                        0x1000c749   0xb2  Code  Wk  hci_event.o [1]
+LL_ConnUpdate           0x10005279   0xd6  Code  Wk  ll.o [1]
+LL_ConnectionCompleteCback
+                        0x1000c521  0x112  Code  Wk  hci_event.o [1]
+LL_CreateConn           0x10005afd  0x376  Code  Wk  ll.o [1]
+LL_CreateConnCancel     0x10005e85   0xbe  Code  Wk  ll.o [1]
+LL_CtrlToHostFlowControl
+                        0x10004bbd   0x14  Code  Wk  ll.o [1]
+LL_DataLengthChangeEventCback
+                        0x1000bf65   0x66  Code  Wk  hci_event.o [1]
+LL_DirectTestEnd        0x100050e9   0x9e  Code  Wk  ll.o [1]
+LL_DirectTestEndDoneCback
+                        0x1000cb35   0x26  Code  Wk  hci_event.o [1]
+LL_DirectTestRxTest     0x10004fe9  0x100  Code  Wk  ll.o [1]
+LL_DirectTestTxTest     0x10004e45  0x1a4  Code  Wk  ll.o [1]
+LL_Disconnect           0x10004d15   0x60  Code  Wk  ll.o [1]
+LL_DisconnectCback      0x1000c695   0x78  Code  Wk  hci_event.o [1]
+LL_ENC_AES128_Decrypt   0x100172f9   0x3c  Code  Wk  ll_enc.o [1]
+LL_ENC_AES128_Encrypt   0x1001729d   0x3c  Code  Wk  ll_enc.o [1]
+LL_ENC_Decrypt          0x100174f9   0xa0  Code  Wk  ll_enc.o [1]
+LL_ENC_DecryptMsg       0x100173f9   0x8c  Code  Wk  ll_enc.o [1]
+LL_ENC_Encrypt          0x10017485   0x62  Code  Wk  ll_enc.o [1]
+LL_ENC_EncryptMsg       0x10017361   0x8c  Code  Wk  ll_enc.o [1]
+LL_ENC_GenDeviceIV      0x10017221   0x12  Code  Wk  ll_enc.o [1]
+LL_ENC_GenDeviceSKD     0x1001720d   0x12  Code  Wk  ll_enc.o [1]
+LL_ENC_GenerateNonce    0x10017235   0x22  Code  Wk  ll_enc.o [1]
+LL_ENC_GeneratePseudoRandNum
+                        0x100171cd   0x16  Code  Wk  ll_enc.o [1]
+LL_ENC_GenerateTrueRandNum
+                        0x100171e5   0x28  Code  Wk  ll_enc.o [1]
+LL_ENC_Init             0x1001714d   0x60  Code  Wk  ll_enc.o [1]
+LL_ENC_LoadKey          0x10017259   0x44  Code  Wk  ll_enc.o [1]
+LL_ENC_ReverseBytes     0x100171ad   0x1e  Code  Wk  ll_enc.o [1]
+LL_EXT_AdvEventNotice   0x10006d7d   0x1c  Code  Wk  ll.o [1]
+LL_EXT_BuildRevision    0x10006dc1   0x24  Code  Wk  ll.o [1]
+LL_EXT_ClkDivOnHalt     0x100068c1    0x4  Code  Wk  ll.o [1]
+LL_EXT_ConnEventNotice  0x10006d99   0x28  Code  Wk  ll.o [1]
+LL_EXT_DeclareNvUsage   0x100068c5    0x4  Code  Wk  ll.o [1]
+LL_EXT_Decrypt          0x100068c9   0x20  Code  Wk  ll.o [1]
+LL_EXT_DisconnectImmed  0x10006cbd   0x46  Code  Wk  ll.o [1]
+LL_EXT_EndModemTest     0x10006b59   0x30  Code  Wk  ll.o [1]
+LL_EXT_ExtendRfRange    0x10006d75    0x4  Code  Wk  ll.o [1]
+LL_EXT_ExtendRfRangeCback
+                        0x1000ba31   0x10  Code  Wk  hci.o [1]
+LL_EXT_GetConnInfo      0x10006e59   0x9c  Code  Wk  ll.o [1]
+LL_EXT_HaltDuringRf     0x10006d79    0x4  Code  Wk  ll.o [1]
+LL_EXT_MapPmIoPort      0x10006cb9    0x4  Code  Wk  ll.o [1]
+LL_EXT_ModemHopTestTx   0x10006a01   0x9c  Code  Wk  ll.o [1]
+LL_EXT_ModemTestRx      0x10006ab5   0x76  Code  Wk  ll.o [1]
+LL_EXT_ModemTestTx      0x10006965   0x8c  Code  Wk  ll.o [1]
+LL_EXT_NumComplPktsLimit
+                        0x10006e25   0x1e  Code  Wk  ll.o [1]
+LL_EXT_OnePacketPerEvent
+                        0x100068a1   0x1e  Code  Wk  ll.o [1]
+LL_EXT_OverlappedProcessing
+                        0x10006e21    0x4  Code  Wk  ll.o [1]
+LL_EXT_PERbyChan        0x10006d55   0x20  Code  Wk  ll.o [1]
+LL_EXT_PacketErrorRate  0x10006d05   0x40  Code  Wk  ll.o [1]
+LL_EXT_PacketErrorRateCback
+                        0x1000b9d9   0x56  Code  Wk  hci.o [1]
+LL_EXT_ResetSystem      0x10006ded   0x34  Code  Wk  ll.o [1]
+LL_EXT_SaveFreqTune     0x10006c99    0x4  Code  Wk  ll.o [1]
+LL_EXT_SetBDADDR        0x10006b8d   0x8a  Code  Wk  ll.o [1]
+LL_EXT_SetFastTxResponseTime
+                        0x10006929   0x14  Code  Wk  ll.o [1]
+LL_EXT_SetFreqTune      0x10006c95    0x4  Code  Wk  ll.o [1]
+LL_EXT_SetLocalSupportedFeatures
+                        0x100068ed   0x3a  Code  Wk  ll.o [1]
+LL_EXT_SetMaxDataLen    0x100063bd   0x5c  Code  Wk  ll.o [1]
+LL_EXT_SetMaxDtmTxPower
+                        0x10006c9d   0x1a  Code  Wk  ll.o [1]
+LL_EXT_SetRxGain        0x10006859    0xe  Code  Wk  ll.o [1]
+LL_EXT_SetRxGainCback   0x1000b991   0x10  Code  Wk  hci.o [1]
+LL_EXT_SetSCA           0x10006c1d   0x78  Code  Wk  ll.o [1]
+LL_EXT_SetSlaveLatencyOverride
+                        0x10006941   0x22  Code  Wk  ll.o [1]
+LL_EXT_SetTxPower       0x10006869   0x36  Code  Wk  ll.o [1]
+LL_EXT_SetTxPowerCback  0x1000b9a1   0x10  Code  Wk  hci.o [1]
+LL_EncChangeCback       0x1000ca01   0x5c  Code  Wk  hci_event.o [1]
+LL_EncKeyRefreshCback   0x1000ca69   0x64  Code  Wk  hci_event.o [1]
+LL_EncLtkNegReply       0x10005ab5   0x48  Code  Wk  ll.o [1]
+LL_EncLtkReply          0x10005a61   0x48  Code  Wk  ll.o [1]
+LL_EncLtkReqCback       0x1000c921   0xc2  Code  Wk  hci_event.o [1]
+LL_Encrypt              0x10004a95   0x20  Code  Wk  ll.o [1]
+LL_EnhancedConnectionCompleteCback
+                        0x1000c1c9  0x20e  Code  Wk  hci_event.o [1]
+LL_GenerateDHKeyCmd     0x10006819   0x3c  Code  Wk  ll.o [1]
+LL_GenerateDHKeyCompleteEventCback
+                        0x1000c0f9   0xc2  Code  Wk  hci_event.o [1]
+LL_GetNumActiveConns    0x10004b49    0xe  Code  Wk  ll.o [1]
+LL_NumEmptyWlEntries    0x10004a79   0x14  Code  Wk  ll.o [1]
+LL_PRIV_Ah              0x10016d29   0x48  Code  Wk  ll_privacy.o [1]
+LL_PRIV_ClearExtWL      0x10017021   0x30  Code  Wk  ll_privacy.o [1]
+LL_PRIV_FindExtWLEntry  0x100170d9   0x42  Code  Wk  ll_privacy.o [1]
+LL_PRIV_FindPeerInRL    0x10016f19   0x74  Code  Wk  ll_privacy.o [1]
+LL_PRIV_GenerateNRPA    0x10016dd1   0x4a  Code  Wk  ll_privacy.o [1]
+LL_PRIV_GenerateRPA     0x10016d71   0x5e  Code  Wk  ll_privacy.o [1]
+LL_PRIV_GenerateRSA     0x10016e1d   0x3a  Code  Wk  ll_privacy.o [1]
+LL_PRIV_Init            0x10016cb5   0x74  Code  Wk  ll_privacy.o [1]
+LL_PRIV_IsIDA           0x10016eb5   0x18  Code  Wk  ll_privacy.o [1]
+LL_PRIV_IsNRPA          0x10016e9d   0x16  Code  Wk  ll_privacy.o [1]
+LL_PRIV_IsRPA           0x10016e89   0x14  Code  Wk  ll_privacy.o [1]
+LL_PRIV_IsResolvable    0x10016ecd   0x34  Code  Wk  ll_privacy.o [1]
+LL_PRIV_IsZeroIRK       0x10016f01   0x16  Code  Wk  ll_privacy.o [1]
+LL_PRIV_NumberPeerRLEntries
+                        0x10016fc5   0x1e  Code  Wk  ll_privacy.o [1]
+LL_PRIV_ResolveRPA      0x10016e59   0x2e  Code  Wk  ll_privacy.o [1]
+LL_PRIV_SetWLSize       0x10017139   0x12  Code  Wk  ll_privacy.o [1]
+LL_PRIV_SetupPrivacy    0x10016fe5   0x18  Code  Wk  ll_privacy.o [1]
+LL_PRIV_TeardownPrivacy
+                        0x10016ffd   0x18  Code  Wk  ll_privacy.o [1]
+LL_PRIV_UpdateExtWLEntry
+                        0x10017051   0x86  Code  Wk  ll_privacy.o [1]
+LL_PRIV_UpdateRL        0x10016f8d   0x38  Code  Wk  ll_privacy.o [1]
+LL_PseudoRand           0x10004ac1   0x2c  Code  Wk  ll.o [1]
+LL_RX_bm_alloc          0x10004969   0x22  Code  Wk  ll.o [1]
+LL_Rand                 0x10004ab5    0xc  Code  Wk  ll.o [1]
+LL_RandCback            0x1000b95d   0x2a  Code  Wk  hci.o [1]
+LL_ReadAdvChanTxPower   0x10005701   0x28  Code  Wk  ll.o [1]
+LL_ReadAuthPayloadTimeout
+                        0x100061c1   0x2c  Code  Wk  ll.o [1]
+LL_ReadBDADDR           0x1000498d   0x20  Code  Wk  ll.o [1]
+LL_ReadChanMap          0x10004c81   0x34  Code  Wk  ll.o [1]
+LL_ReadDefaultDataLen   0x10006309   0x28  Code  Wk  ll.o [1]
+LL_ReadLocalP256PublicKeyCmd
+                        0x100067d5   0x42  Code  Wk  ll.o [1]
+LL_ReadLocalP256PublicKeyCompleteEventCback
+                        0x1000c015   0xca  Code  Wk  hci_event.o [1]
+LL_ReadLocalResolvableAddress
+                        0x10006685   0x2e  Code  Wk  ll.o [1]
+LL_ReadLocalSupportedFeatures
+                        0x10004b59   0x22  Code  Wk  ll.o [1]
+LL_ReadLocalVersionInfo
+                        0x10004b7d   0x3e  Code  Wk  ll.o [1]
+LL_ReadMaxDataLen       0x1000637d   0x3e  Code  Wk  ll.o [1]
+LL_ReadPeerResolvableAddress
+                        0x10006625   0x54  Code  Wk  ll.o [1]
+LL_ReadRemoteUsedFeatures
+                        0x1000614d   0x5c  Code  Wk  ll.o [1]
+LL_ReadRemoteUsedFeaturesCompleteCback
+                        0x1000c825   0x60  Code  Wk  hci_event.o [1]
+LL_ReadRemoteVersionInfo
+                        0x10004bd1   0x60  Code  Wk  ll.o [1]
+LL_ReadRemoteVersionInfoCback
+                        0x1000c8ad   0x6e  Code  Wk  hci_event.o [1]
+LL_ReadResolvingListSize
+                        0x1000661d    0x8  Code  Wk  ll.o [1]
+LL_ReadRssi             0x10004cb5   0x60  Code  Wk  ll.o [1]
+LL_ReadSupportedStates  0x10004aed   0x5c  Code  Wk  ll.o [1]
+LL_ReadTxPowerLevel     0x10004c31   0x4e  Code  Wk  ll.o [1]
+LL_ReadWlSize           0x10004a61   0x16  Code  Wk  ll.o [1]
+LL_RemoteConnParamReqCback
+                        0x1000bee5   0x80  Code  Wk  hci_event.o [1]
+LL_RemoteConnParamReqNegReply
+                        0x10005229   0x48  Code  Wk  ll.o [1]
+LL_RemoteConnParamReqReply
+                        0x10005189   0x9e  Code  Wk  ll.o [1]
+LL_RemoveDeviceFromResolvingList
+                        0x10006521   0x7a  Code  Wk  ll.o [1]
+LL_RemoveWhiteListDevice
+                        0x10004a25   0x2c  Code  Wk  ll.o [1]
+LL_RxDataCompleteCback  0x10019465   0xb4  Code  Wk  hci_data.o [1]
+LL_SetAddressResolutionEnable
+                        0x100066bd   0x9a  Code  Wk  ll.o [1]
+LL_SetAdvControl        0x100055f1  0x10c  Code  Wk  ll.o [1]
+LL_SetAdvData           0x1000559d   0x48  Code  Wk  ll.o [1]
+LL_SetAdvParam          0x1000536d  0x206  Code  Wk  ll.o [1]
+LL_SetDataLen           0x10006269   0x7e  Code  Wk  ll.o [1]
+LL_SetRandomAddress     0x100049ad   0x2c  Code  Wk  ll.o [1]
+LL_SetResolvablePrivateAddressTimeout
+                        0x10006781   0x54  Code  Wk  ll.o [1]
+LL_SetScanControl       0x10005919   0xd4  Code  Wk  ll.o [1]
+LL_SetScanParam         0x10005795  0x160  Code  Wk  ll.o [1]
+LL_SetScanRspData       0x10005739   0x52  Code  Wk  ll.o [1]
+LL_StartEncrypt         0x1000604d   0xf4  Code  Wk  ll.o [1]
+LL_TX_bm_alloc          0x10004945   0x22  Code  Wk  ll.o [1]
+LL_TaskID               0x20004f6e    0x1  Data  Wk  ll.o [1]
+LL_TxData               0x10004d81   0xc4  Code  Wk  ll.o [1]
+LL_WriteAuthPayloadTimeout
+                        0x100061fd   0x6c  Code  Wk  ll.o [1]
+LL_WriteDefaultDataLen  0x10006335   0x48  Code  Wk  ll.o [1]
+LUTC                    0x10019988   0x18  Data  Wk  scalarMul.o [1]
+LUTINCI                 0x100199b8   0x18  Data  Wk  scalarMul.o [1]
+LUTJ                    0x100195dc   0x78  Data  Wk  scalarMul.o [1]
+LUTOPCODE               0x10019a30    0x8  Data  Wk  scalarMul.o [1]
+LUTOPSIGN               0x10019970   0x18  Data  Wk  scalarMul.o [1]
+LUTSE                   0x100199a0   0x18  Data  Wk  scalarMul.o [1]
+LUTSTATE                0x1001973c   0x3c  Data  Wk  scalarMul.o [1]
+MOD                     0x20004fa8    0x4  Data  Wk  lowlevelapi.o [1]
+MSBMOD                  0x20004ffc    0x1  Data  Wk  lowlevelapi.o [1]
+NIST256_Gx              0x10019898   0x24  Data  Wk  vectors_curves.o [1]
+NIST256_Gy              0x100198bc   0x24  Data  Wk  vectors_curves.o [1]
+NIST256_a               0x10019850   0x24  Data  Wk  vectors_curves.o [1]
+NIST256_b               0x10019874   0x24  Data  Wk  vectors_curves.o [1]
+NIST256_p               0x10019808   0x24  Data  Wk  vectors_curves.o [1]
+NIST256_r               0x1001982c   0x24  Data  Wk  vectors_curves.o [1]
+PAGE_SIZE {Abs}         0x00001000          --   Gb  command line/config [3]
+RAM_BASE_ADDR {Abs}     0x200044f8          --   Gb  command line/config [3]
+RFHAL_AllocDataEntry    0x1000a5dd   0x44  Code  Wk  ble.o [1]
+RFHAL_AllocDataEntryQueue
+                        0x1000a585   0x1a  Code  Wk  ble.o [1]
+RFHAL_BuildDataEntryRingBuffer
+                        0x1000a6c5   0x7e  Code  Wk  ble.o [1]
+RFHAL_BuildLinkedBuffer
+                        0x1000a745   0x8e  Code  Wk  ble.o [1]
+RFHAL_BuildRingBuffer   0x1000a629   0x8a  Code  Wk  ble.o [1]
+RFHAL_FreeDataEntry     0x1000a621    0x8  Code  Wk  ble.o [1]
+RFHAL_FreeDataEntryQueue
+                        0x1000a5a1    0x8  Code  Wk  ble.o [1]
+RFHAL_FreeNextTxDataEntry
+                        0x1000a55d   0x26  Code  Wk  ble.o [1]
+RFHAL_GetNextDataEntry  0x1000a5a9    0x4  Code  Wk  ble.o [1]
+RFHAL_GetTempDataEntry  0x1000a5ad    0x4  Code  Wk  ble.o [1]
+RFHAL_InitDataQueue     0x1000a551    0xc  Code  Wk  ble.o [1]
+RFHAL_NextDataEntryDone
+                        0x1000a5b1   0x26  Code  Wk  ble.o [1]
+ROM_BASE_ADDR {Abs}     0x10004941          --   Gb  command line/config [3]
+ROM_FlashJT             0x20004504    0x4  Data  Wk  ll.o [1]
+RT_Init                 0x10004941    0x4  Code  Wk  rt_init.o [1]
+Region$$Table$$Base     0x100198e0          --   Gb  - Linker created -
+Region$$Table$$Limit    0x10019920          --   Gb  - Linker created -
+SAVEPOINT               0x1000d1b1   0x40  Code  Wk  scalarMul.o [1]
+SCA                     0x100199f0   0x10  Data  Wk  ll_timer_drift.o [1]
+SCAL                    0x20004fc4    0x4  Data  Wk  scalarMul.o [1]
+SCALARMUL               0x1000d195   0x1a  Code  Wk  scalarMul.o [1]
+SCALARMUL_core          0x1000ccb9  0x374  Code  Wk  scalarMul.o [1]
+SCALARMUL_final         0x1000d08d  0x108  Code  Wk  scalarMul.o [1]
+SCALARMUL_init          0x1000cb69  0x13a  Code  Wk  scalarMul.o [1]
+SETOPERAND              0x1000dbd5   0x1c  Code  Wk  lowlevelapi.o [1]
+SETWORD                 0x1000dc15    0xa  Code  Wk  lowlevelapi.o [1]
+SM_Encrypt              0x10012139   0x44  Code  Wk  sm_mgr.o [1]
+SM_GenerateAuthenSig    0x10012465   0xbc  Code  Wk  sm_mgr.o [1]
+SM_GetDHKey             0x1001790d   0x7a  Code  Wk  sm_task.o [1]
+SM_GetEccKeys           0x100178c5   0x48  Code  Wk  sm_task.o [1]
+SM_GetScConfirmOob      0x10017989   0x18  Code  Wk  sm_task.o [1]
+SM_Init                 0x100175d9   0x3c  Code  Wk  sm_task.o [1]
+SM_PasskeyUpdate        0x1000eb91   0xfe  Code  Wk  sm_pairing.o [1]
+SM_ProcessEvent         0x10017615   0xac  Code  Wk  sm_task.o [1]
+SM_RegisterTask         0x100178bd    0x6  Code  Wk  sm_task.o [1]
+SM_ResponderInit        0x10012dfd   0x2c  Code  Wk  sm_rsppairing.o [1]
+SM_SetECCRegenerationCount
+                        0x1000f551   0x12  Code  Wk  sm_pairing.o [1]
+SM_StartPairing         0x1000eaed   0xa4  Code  Wk  sm_pairing.o [1]
+SM_VerifyAuthenSig      0x10012521  0x102  Code  Wk  sm_mgr.o [1]
+SM_appExpectingKey      0x20004f7d    0x1  Data  Wk  sm_task.o [1]
+SM_appTaskID            0x200045a9    0x1  Data  Wk  sm_task.o [1]
+SQUAREMULTIPLYWORD      0x1000da81   0x52  Code  Wk  scalarMul.o [1]
+SelectReg               0x1000d2c5   0x10  Code  Wk  scalarMul.o [1]
+SysBootMsg              0x20004f04    0x4  Data  Wk  ll.o [1]
+TMP1                    0x20004fe4    0x4  Data  Wk  scalarMul.o [1]
+TMP2                    0x20004fe8    0x4  Data  Wk  scalarMul.o [1]
+TMP3                    0x20004fec    0x4  Data  Wk  scalarMul.o [1]
+TMP4                    0x20004ff0    0x4  Data  Wk  scalarMul.o [1]
+TMP5                    0x20004ff4    0x4  Data  Wk  scalarMul.o [1]
+TMP6                    0x20004ff8    0x4  Data  Wk  scalarMul.o [1]
+WL_AddEntry             0x10018ca9   0x96  Code  Wk  ll_wl.o [1]
+WL_Clear                0x10018bb1   0x3c  Code  Wk  ll_wl.o [1]
+WL_ClearEntry           0x10018bed   0x24  Code  Wk  ll_wl.o [1]
+WL_ClearIgnoreList      0x10018df9   0x38  Code  Wk  ll_wl.o [1]
+WL_FindEntry            0x10018c51   0x56  Code  Wk  ll_wl.o [1]
+WL_GetNumFreeEntries    0x10018c25   0x24  Code  Wk  ll_wl.o [1]
+WL_GetSize              0x10018c11   0x14  Code  Wk  ll_wl.o [1]
+WL_Init                 0x10018b81   0x22  Code  Wk  ll_wl.o [1]
+WL_RemoveEntry          0x10018d41   0x56  Code  Wk  ll_wl.o [1]
+WL_SetWlIgnore          0x10018dc1   0x36  Code  Wk  ll_wl.o [1]
+ZERO                    0x1000dc09    0xc  Code  Wk  lowlevelapi.o [1]
+__aeabi_ldiv0           0x1000eae9         Code  Gb  I64DivZer.o [4]
+__aeabi_ldivmod         0x1000e979         Code  Gb  I64DivMod.o [4]
+__aeabi_memclr          0x10009369         Code  Gb  ABImemclr.o [4]
+__aeabi_memclr4         0x1000e971         Code  Gb  ABImemclr4.o [4]
+__aeabi_memcpy          0x10012d55         Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy4         0x10012d75         Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy8         0x10012d75         Code  Gb  ABImemcpy.o [4]
+__aeabi_memset          0x10009301         Code  Gb  ABImemset.o [4]
+__aeabi_memset4         0x1000eaad         Code  Gb  ABImemset48.o [4]
+__aeabi_memset8         0x1000eaad         Code  Gb  ABImemset48.o [4]
+__aeabi_uldivmod        0x1000e9bd         Code  Gb  I64DivMod.o [4]
+__checksum              0x10019afe    0x2  Data  Gb  Place holder __checksum
+__checksum_begin {Abs}  0x10004940          --   Gb  command line/config [3]
+__checksum_end {Abs}    0x10019afd          --   Gb  command line/config [3]
+__exit                  0x10019a1d         Code  Gb  XXexit.o [4]
+__iar_Memset            0x10009301         Code  Gb  ABImemset.o [4]
+__iar_Memset4_word      0x1000eab5         Code  Gb  ABImemset48.o [4]
+__iar_Memset8_word      0x1000eab5         Code  Gb  ABImemset48.o [4]
+__iar_Memset_word       0x10009309         Code  Gb  ABImemset.o [4]
+__iar_data_init3        0x100197e1   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x10019779   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_zero_init3        0x100196fd   0x40  Code  Gb  zero_init3.o [4]
+abort                   0x10019a39    0x8  Code  Wk  abort.o [1]
+activeConns             0x20004f00    0x4  Data  Wk  ll.o [1]
+advChan                 0x10019a40    0x4  Data  Wk  ble.o [1]
+advCmd                  0x20004a20   0x48  Data  Wk  ble.o [1]
+advDataEntry            0x20004ae4   0x38  Data  Wk  ble.o [1]
+advDataQueue            0x20004da4   0x10  Data  Wk  ble.o [1]
+advEvt2Cmd              0x10019a10    0xc  Data  Wk  ble.o [1]
+advEvt2State            0x10019a28    0x8  Data  Wk  ble.o [1]
+advInfo                 0x20004f10    0x4  Data  Wk  ll.o [1]
+advOutput               0x20004db4   0x10  Data  Wk  ble.o [1]
+advParam                0x20004bf4   0x20  Data  Wk  ble.o [1]
+appTaskID               0x200045a7    0x1  Data  Wk  gattservapp.o [1]
+attSendMsg              0x10016071   0xa0  Code  Wk  att_util.o [1]
+attSendRspMsg           0x10019099   0x36  Code  Wk  att_server.o [1]
+attServerNotifyTxCB     0x20004e4c    0x4  Data  Wk  att_server.o [1]
+attrLen                 0x20004f3e    0x2  Data  Wk  gattservapp.o [1]
+aux64                   0x20004fa0    0x8  Data  Wk  lowlevelapi.o [1]
+btBaseUUID              0x100199d0   0x10  Data  Wk  att_util.o [1]
+buildInfo               0x20004f0c    0x4  Data  Wk  ll.o [1]
+cachedTRNGdata          0x20004df8    0xc  Data  Wk  ll_enc.o [1]
+connInitialMaxTxOctets  0x20004f44    0x2  Data  Wk  ll.o [1]
+connInitialMaxTxTime    0x20004f46    0x2  Data  Wk  ll.o [1]
+connOutput              0x20004d5c   0x14  Data  Wk  ble.o [1]
+connReqData             0x20004c84   0x18  Data  Wk  ble.o [1]
+const_Rb                0x10019a00   0x10  Data  Wk  sm_mgr.o [1]
+cryptoDrvTblPtr         0x20004ef8    0x4  Data  Wk  ll.o [1]
+cryptoPRAND             0x20004c14   0x20  Data  Wk  ll.o [1]
+ctrlToHostEnable        0x20004f63    0x1  Data  Wk  hci.o [1]
+curTxPowerVal           0x20004f71    0x1  Data  Wk  ll.o [1]
+data_Gx                 0x20004f80    0x4  Data  Wk  ECC.o [1]
+data_Gy                 0x20004f84    0x4  Data  Wk  ECC.o [1]
+data_a                  0x20004f94    0x4  Data  Wk  scalarMul.o [1]
+data_b                  0x20004f98    0x4  Data  Wk  scalarMul.o [1]
+data_p                  0x20004f8c    0x4  Data  Wk  scalarMul.o [1]
+data_r                  0x20004f90    0x4  Data  Wk  scalarMul.o [1]
+deviceFeatureSet        0x20004dec    0xc  Data  Wk  ll.o [1]
+disconnectNext          0x10011c8d   0x26  Code  Wk  gap_linkmgr.o [1]
+dtmInfo                 0x20004f1c    0x4  Data  Wk  ll.o [1]
+eccDrvTblPtr            0x20004ef4    0x4  Data  Wk  ll.o [1]
+eccParams               0x20004b7c   0x30  Data  Wk  ll.o [1]
+encHandle               0x20004f28    0x4  Data  Wk  ll_enc.o [1]
+encKey                  0x20004f2c    0x4  Data  Wk  ll_enc.o [1]
+encParams               0x20004f24    0x4  Data  Wk  ll_enc.o [1]
+fastTxRespTime          0x20004f77    0x1  Data  Wk  ll.o [1]
+flowCtrlTaskId          0x200045a8    0x1  Data  Wk  l2cap_task.o [1]
+fwImmedCmd              0x20004e44    0x8  Data  Wk  ll.o [1]
+fwParCmd                0x20004e58    0x8  Data  Wk  ll.o [1]
+fwParDtmCmd             0x20004d14   0x18  Data  Wk  ll.o [1]
+fwParRfCmd              0x20004d44   0x18  Data  Wk  ll_common.o [1]
+fwParamImmedCmd         0x20004e70    0x8  Data  Wk  ll_common.o [1]
+gapAddAddrAdj           0x10018741   0x26  Code  Wk  gap_configmgr.o [1]
+gapAddAdvToken          0x100149fd   0x3c  Code  Wk  gap_peridevmgr.o [1]
+gapAdvAppTaskID         0x200045a3    0x1  Data  Wk  gap_peridevmgr.o [1]
+gapAllocAdvRecs         0x1001476d   0x4e  Code  Wk  gap_peridevmgr.o [1]
+gapAppTaskID            0x200045a2    0x1  Data  Wk  gap_configmgr.o [1]
+gapBuildADTokens        0x10014abd   0xd0  Code  Wk  gap_peridevmgr.o [1]
+gapCalcAdvTokenDataLen  0x10014a89   0x34  Code  Wk  gap_peridevmgr.o [1]
+gapClrState             0x100195ad   0x1c  Code  Wk  gap_devmgr.o [1]
+gapConnectedCleanUpAdvertising
+                        0x100149c9   0x34  Code  Wk  gap_peridevmgr.o [1]
+gapCurrentRandomAddr    0x20004e04    0x8  Data  Wk  gap_configmgr.o [1]
+gapDeleteAdvToken       0x10014a39   0x36  Code  Wk  gap_peridevmgr.o [1]
+gapDeviceAddrMode       0x20004f59    0x1  Data  Wk  gap_configmgr.o [1]
+gapFindADType           0x10019549   0x58  Code  Wk  gap_devmgr.o [1]
+gapFindAdvToken         0x10014a71   0x16  Code  Wk  gap_peridevmgr.o [1]
+gapFreeAdvertState      0x10014c51   0x24  Code  Wk  gap_peridevmgr.o [1]
+gapFreeAuthLink         0x10011dc1   0x40  Code  Wk  gap_linkmgr.o [1]
+gapFreeEstLink          0x10011e01   0x24  Code  Wk  gap_linkmgr.o [1]
+gapGetDevAddress        0x100187ad   0x3c  Code  Wk  gap_configmgr.o [1]
+gapGetDevAddressMode    0x100187a5    0x6  Code  Wk  gap_configmgr.o [1]
+gapGetSRK               0x10018775    0x6  Code  Wk  gap_configmgr.o [1]
+gapGetSignCounter       0x1001877d    0x8  Code  Wk  gap_configmgr.o [1]
+gapHost2CtrlOwnAddrType
+                        0x10018769    0xa  Code  Wk  gap_configmgr.o [1]
+gapIncSignCounter       0x10018785   0x20  Code  Wk  gap_configmgr.o [1]
+gapIsAdvertising        0x10019525    0x4  Code  Wk  gap_devmgr.o [1]
+gapIsScanning           0x10019529    0x4  Code  Wk  gap_devmgr.o [1]
+gapL2capConnParamUpdateReq
+                        0x100193dd   0x22  Code  Wk  gap_perilinkmgr.o [1]
+gapLimitedAdvertisingTimeout
+                        0x20004f3c    0x2  Data  Wk  gap_peridevmgr.o [1]
+gapPairingCompleteCB    0x10011f75  0x16e  Code  Wk  gap_linkmgr.o [1]
+gapParameters           0x20004508   0x50  Data  Wk  gap_configmgr.o [1]
+gapParams               0x20004c50   0x1c  Data  Wk  gap_configmgr.o [1]
+gapPasskeyNeededCB      0x10011efd   0x78  Code  Wk  gap_linkmgr.o [1]
+gapPeriProcessConnEvt   0x1001933d   0x48  Code  Wk  gap_perilinkmgr.o [1]
+gapPeriProcessConnUpdateCmdStatus
+                        0x10019385   0x14  Code  Wk  gap_perilinkmgr.o [1]
+gapPeriProcessConnUpdateCompleteEvt
+                        0x10019399   0x44  Code  Wk  gap_perilinkmgr.o [1]
+gapPeriProcessHCICmdCompleteEvt
+                        0x1001470d   0x5e  Code  Wk  gap_peridevmgr.o [1]
+gapPeriProcessSignalEvt
+                        0x10019401   0x28  Code  Wk  gap_perilinkmgr.o [1]
+gapPeripheralCBs        0x20004558    0xc  Data  Wk  gap_peridevmgr.o [1]
+gapPeripheralConnCBs    0x20004564    0x4  Data  Wk  gap_perilinkmgr.o [1]
+gapProcessAdvertisingEvt
+                        0x1001495d   0x58  Code  Wk  gap_peridevmgr.o [1]
+gapProcessAdvertisingTimeout
+                        0x100149b5   0x14  Code  Wk  gap_peridevmgr.o [1]
+gapProcessBLEEvents     0x10018971   0xa0  Code  Wk  gap_task.o [1]
+gapProcessCommandStatusEvt
+                        0x10018ab5   0x54  Code  Wk  gap_task.o [1]
+gapProcessConnEvt       0x10018b09   0x38  Code  Wk  gap_task.o [1]
+gapProcessConnectionCompleteEvt
+                        0x100119e1   0xe0  Code  Wk  gap_linkmgr.o [1]
+gapProcessDisconnectCompleteEvt
+                        0x10011af9   0x7e  Code  Wk  gap_linkmgr.o [1]
+gapProcessHCICmdCompleteEvt
+                        0x10018a11   0xa2  Code  Wk  gap_task.o [1]
+gapProcessNewAddr       0x10018709   0x36  Code  Wk  gap_configmgr.o [1]
+gapProcessOSALMsg       0x10018909   0x68  Code  Wk  gap_task.o [1]
+gapProcessRemoteConnParamReqEvt
+                        0x10011ac1   0x36  Code  Wk  gap_linkmgr.o [1]
+gapProfileRole          0x20004f58    0x1  Data  Wk  gap_configmgr.o [1]
+gapReadBD_ADDRStatus    0x10018679   0x44  Code  Wk  gap_configmgr.o [1]
+gapReadBufSizeCmdStatus
+                        0x100186bd   0x4a  Code  Wk  gap_configmgr.o [1]
+gapRegisterCentral      0x10018b41    0x6  Code  Wk  gap_task.o [1]
+gapRegisterCentralConn  0x100120f1    0x6  Code  Wk  gap_linkmgr.o [1]
+gapRegisterPeripheral   0x10018b49    0x6  Code  Wk  gap_task.o [1]
+gapRegisterPeripheralConn
+                        0x100120f9    0x6  Code  Wk  gap_linkmgr.o [1]
+gapSendAdDataUpdateEvent
+                        0x10014be5   0x36  Code  Wk  gap_peridevmgr.o [1]
+gapSendBondCompleteEvent
+                        0x10011e25   0x5c  Code  Wk  gap_linkmgr.o [1]
+gapSendDeviceInitDoneEvent
+                        0x100187e9   0x4c  Code  Wk  gap_configmgr.o [1]
+gapSendEndDiscoverableEvent
+                        0x10014c1d   0x32  Code  Wk  gap_peridevmgr.o [1]
+gapSendLinkUpdateEvent  0x10011c35   0x58  Code  Wk  gap_linkmgr.o [1]
+gapSendMakeDiscEvent    0x10014ba1   0x3c  Code  Wk  gap_peridevmgr.o [1]
+gapSendPairingReqEvent  0x10011e81   0x74  Code  Wk  gap_linkmgr.o [1]
+gapSendSignUpdateEvent  0x1001194d   0x36  Code  Wk  gap_linkmgr.o [1]
+gapSendSlaveSecurityReqEvent
+                        0x10011985   0x36  Code  Wk  gap_linkmgr.o [1]
+gapSetAdvParams         0x100147bd   0xb8  Code  Wk  gap_peridevmgr.o [1]
+gapSetAdvParamsStatus   0x10014881   0x2e  Code  Wk  gap_peridevmgr.o [1]
+gapSetState             0x100195a1    0xa  Code  Wk  gap_devmgr.o [1]
+gapState                0x20004f5a    0x1  Data  Wk  gap_devmgr.o [1]
+gapTaskID               0x20004f5d    0x1  Data  Wk  gap_task.o [1]
+gapUnwantedTaskID       0x200045a4    0x1  Data  Wk  gap_task.o [1]
+gapUpdateConnSignCounter
+                        0x10011919   0x32  Code  Wk  gap_linkmgr.o [1]
+gapValidADType          0x10019535   0x14  Code  Wk  gap_devmgr.o [1]
+gapWriteAdvDataStatus   0x10014951    0xc  Code  Wk  gap_peridevmgr.o [1]
+gapWriteAdvEnableStatus
+                        0x100148b1   0x98  Code  Wk  gap_peridevmgr.o [1]
+gattAppTaskID           0x200045a6    0x1  Data  Wk  gatt_task.o [1]
+gattFindServerInfo      0x1001065d   0x28  Code  Wk  gatt_server.o [1]
+gattFindService         0x1001061d   0x16  Code  Wk  gatt_server.o [1]
+gattGetPayload          0x100183b1   0x54  Code  Wk  gatt_task.o [1]
+gattGetServerStatus     0x10010635   0x26  Code  Wk  gatt_server.o [1]
+gattNotifyEvent         0x100182a9   0x62  Code  Wk  gatt_task.o [1]
+gattNumConns            0x20004f5e    0x1  Data  Wk  gatt_task.o [1]
+gattParseReq            0x10010519   0x84  Code  Wk  gatt_server.o [1]
+gattProcessExchangeMTUReq
+                        0x1001026d    0x4  Code  Wk  gatt_server.o [1]
+gattProcessExecuteWriteReq
+                        0x10010619    0x4  Code  Wk  gatt_server.o [1]
+gattProcessFindByTypeValueReq
+                        0x1001039d   0x22  Code  Wk  gatt_server.o [1]
+gattProcessFindInfoReq  0x10010271  0x118  Code  Wk  gatt_server.o [1]
+gattProcessOSALMsg      0x100181e1   0x12  Code  Wk  gatt_task.o [1]
+gattProcessReadByGrpTypeReq
+                        0x1001049d   0x4c  Code  Wk  gatt_server.o [1]
+gattProcessReadByTypeReq
+                        0x100103c1   0x22  Code  Wk  gatt_server.o [1]
+gattProcessReadMultiReq
+                        0x10010421   0x70  Code  Wk  gatt_server.o [1]
+gattProcessReadReq      0x100103f9   0x26  Code  Wk  gatt_server.o [1]
+gattProcessReq          0x1001059d   0x7c  Code  Wk  gatt_server.o [1]
+gattProcessRxData       0x100181f5   0xb2  Code  Wk  gatt_task.o [1]
+gattProcessWriteReq     0x100104e9   0x30  Code  Wk  gatt_server.o [1]
+gattRegisterClient      0x10018129    0x8  Code  Wk  gatt_task.o [1]
+gattRegisterServer      0x10018121    0x8  Code  Wk  gatt_task.o [1]
+gattResetServerInfo     0x10010685   0x16  Code  Wk  gatt_server.o [1]
+gattSendFlowCtrlEvt     0x1001838d   0x24  Code  Wk  gatt_task.o [1]
+gattServApp_DeregisterServiceCBs
+                        0x100108c1   0x36  Code  Wk  gattservapp.o [1]
+gattServApp_FindAuthorizeAttrCB
+                        0x100114d5    0xe  Code  Wk  gattservapp.o [1]
+gattServApp_FindPrepareWriteQ
+                        0x10011409   0x26  Code  Wk  gattservapp.o [1]
+gattServApp_FindReadAttrCB
+                        0x10011489    0xe  Code  Wk  gattservapp.o [1]
+gattServApp_FindServiceCBs
+                        0x100108f9   0x16  Code  Wk  gattservapp.o [1]
+gattServApp_FindWriteAttrCB
+                        0x10011499    0xe  Code  Wk  gattservapp.o [1]
+gattServApp_IsWriteLong
+                        0x1001134d   0xbc  Code  Wk  gattservapp.o [1]
+gattServApp_PrepareWriteQInUse
+                        0x1001143d   0x4a  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessExecuteWriteReq
+                        0x100112d9   0x72  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessFindByTypeValueReq
+                        0x10010a7d  0x144  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessMsg  0x10010911  0x16c  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessPrepareWriteReq
+                        0x10011205   0xc6  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessReadBlobReq
+                        0x10010ddd   0x80  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessReadByGrpTypeReq
+                        0x10010fd5  0x174  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessReadByTypeReq
+                        0x10010bd5   0xf8  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessReadMultiReq
+                        0x10010ea9  0x106  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessReadReq
+                        0x10010d5d   0x80  Code  Wk  gattservapp.o [1]
+gattServApp_ProcessWriteReq
+                        0x10011165   0xa0  Code  Wk  gattservapp.o [1]
+gattServApp_RegisterServiceCBs
+                        0x10010881   0x40  Code  Wk  gattservapp.o [1]
+gattServApp_SetNumPrepareWrites
+                        0x100107d1   0xb0  Code  Wk  gattservapp.o [1]
+gattServApp_buildReadByTypeRsp
+                        0x10010cd5   0x88  Code  Wk  gattservapp.o [1]
+gattServerHandleConnStatusCB
+                        0x1001071d   0x90  Code  Wk  gatt_server.o [1]
+gattServerHandleTimerCB
+                        0x100106e1   0x2e  Code  Wk  gatt_server.o [1]
+gattServerNotifyTxCB    0x100106b9   0x1a  Code  Wk  gatt_server.o [1]
+gattServerProcessMsgCB  0x100100e9  0x184  Code  Wk  gatt_server.o [1]
+gattServerStartTimer    0x1001069d   0x1a  Code  Wk  gatt_server.o [1]
+gattServiceLastHandle   0x100100ad   0x1a  Code  Wk  gatt_server.o [1]
+gattStartTimer          0x1001830d   0x14  Code  Wk  gatt_task.o [1]
+gattStopTimer           0x10018321   0x1e  Code  Wk  gatt_task.o [1]
+gattStoreServerInfo     0x100100c9   0x1e  Code  Wk  gatt_server.o [1]
+gattTaskID              0x20004f5f    0x1  Data  Wk  gatt_task.o [1]
+generate_subkey         0x10012789   0xba  Code  Wk  sm_mgr.o [1]
+hciInitEventMasks       0x1000ba41   0x4a  Code  Wk  hci_event.o [1]
+hciPTMenabled           0x20004f62    0x1  Data  Wk  hci.o [1]
+inPointX                0x20004fb4    0x4  Data  Wk  scalarMul.o [1]
+inPointY                0x20004fb8    0x4  Data  Wk  scalarMul.o [1]
+inScalar                0x20004fb0    0x4  Data  Wk  scalarMul.o [1]
+initCmd                 0x20004c6c   0x18  Data  Wk  ble.o [1]
+initDataEntry           0x20004aac   0x38  Data  Wk  ble.o [1]
+initDataQueue           0x20004d84   0x10  Data  Wk  ble.o [1]
+initInfo                0x20004f18    0x4  Data  Wk  ll.o [1]
+initOutput              0x20004dd4    0xc  Data  Wk  ble.o [1]
+initParam               0x20004bac   0x24  Data  Wk  ble.o [1]
+isLimitedDiscoverableMode
+                        0x10014c75   0x2c  Code  Wk  gap_peridevmgr.o [1]
+l2capAllocChannel       0x10015239   0x2e  Code  Wk  l2cap_util.o [1]
+l2capAllocConnChannel   0x10015269   0x40  Code  Wk  l2cap_util.o [1]
+l2capBuildInfoReq       0x100150a5    0x4  Code  Wk  l2cap_util.o [1]
+l2capBuildParamUpdateReq
+                        0x1001502d   0x2c  Code  Wk  l2cap_util.o [1]
+l2capBuildSignalHdr     0x10014ce5   0x14  Code  Wk  l2cap_util.o [1]
+l2capChannels           0x20004ee4    0x4  Data  Wk  l2cap_task.o [1]
+l2capDisconnectAllChannels
+                        0x10015391   0x6a  Code  Wk  l2cap_util.o [1]
+l2capEncapSendData      0x10014eb9   0x98  Code  Wk  l2cap_util.o [1]
+l2capFindLocalId        0x100152bd   0x2a  Code  Wk  l2cap_util.o [1]
+l2capFixedChannels      0x20004b1c   0x30  Data  Wk  l2cap_task.o [1]
+l2capFlowCtrlMode       0x20004f64    0x1  Data  Wk  l2cap_if.o [1]
+l2capFreeChannel        0x100152a9   0x12  Code  Wk  l2cap_util.o [1]
+l2capFreePendingPkt     0x100153fd   0x30  Code  Wk  l2cap_util.o [1]
+l2capHandleConnStatusCB
+                        0x10017d25   0x36  Code  Wk  l2cap_task.o [1]
+l2capHandleRxError      0x10015385    0xc  Code  Wk  l2cap_util.o [1]
+l2capHandleTimerCB      0x10015321   0x2a  Code  Wk  l2cap_util.o [1]
+l2capId                 0x20004f68    0x1  Data  Wk  l2cap_util.o [1]
+l2capMtuSize            0x200045a0    0x2  Data  Wk  l2cap_task.o [1]
+l2capNotifyData         0x10015189   0x52  Code  Wk  l2cap_util.o [1]
+l2capNotifyEvent        0x1001534d   0x38  Code  Wk  l2cap_util.o [1]
+l2capNotifySignal       0x100151dd   0x5a  Code  Wk  l2cap_util.o [1]
+l2capNumChannels        0x20004f66    0x1  Data  Wk  l2cap_task.o [1]
+l2capNumDataPkts        0x20004f67    0x1  Data  Wk  l2cap_task.o [1]
+l2capParseCmdReject     0x10014fed   0x40  Code  Wk  l2cap_util.o [1]
+l2capParseInfoRsp       0x10015125   0x64  Code  Wk  l2cap_util.o [1]
+l2capParsePacket        0x10014f51   0x5c  Code  Wk  l2cap_util.o [1]
+l2capParseParamUpdateRsp
+                        0x10015099    0xa  Code  Wk  l2cap_util.o [1]
+l2capParseSignalHdr     0x10014cd1   0x14  Code  Wk  l2cap_util.o [1]
+l2capProcessOSALMsg     0x10017ad9   0x4e  Code  Wk  l2cap_task.o [1]
+l2capProcessReq         0x10017cc9   0x5c  Code  Wk  l2cap_task.o [1]
+l2capProcessRsp         0x10017c3d   0x8a  Code  Wk  l2cap_task.o [1]
+l2capProcessRxData      0x10017b31   0x7e  Code  Wk  l2cap_task.o [1]
+l2capProcessSignal      0x10017bbd   0x80  Code  Wk  l2cap_task.o [1]
+l2capSendCmd            0x10014d75   0x90  Code  Wk  l2cap_util.o [1]
+l2capSendFCPkt          0x10014e69   0x4e  Code  Wk  l2cap_util.o [1]
+l2capSendPkt            0x10014e2d   0x32  Code  Wk  l2cap_util.o [1]
+l2capSendReq            0x10014cf9   0x7a  Code  Wk  l2cap_util.o [1]
+l2capStartTimer         0x100152e9   0x20  Code  Wk  l2cap_util.o [1]
+l2capStopTimer          0x10015309   0x10  Code  Wk  l2cap_util.o [1]
+l2capStoreFCPkt         0x10014e05   0x26  Code  Wk  l2cap_util.o [1]
+l2capTaskID             0x20004f65    0x1  Data  Wk  l2cap_task.o [1]
+leftshift_onebit        0x1001287d   0x18  Code  Wk  sm_mgr.o [1]
+linkCBs                 0x20004b4c   0x30  Data  Wk  linkdb.o [1]
+linkCmd                 0x20004e80    0x4  Data  Wk  ble.o [1]
+linkDB                  0x20004ee8    0x4  Data  Wk  linkdb.o [1]
+linkDBNumConns          0x20004f69    0x1  Data  Wk  linkdb.o [1]
+linkDB_Add              0x10017e05   0x8a  Code  Wk  linkdb.o [1]
+linkDB_Authen           0x1001804d   0x5c  Code  Wk  linkdb.o [1]
+linkDB_Find             0x10017f55   0x28  Code  Wk  linkdb.o [1]
+linkDB_FindFirst        0x10017f7d   0x34  Code  Wk  linkdb.o [1]
+linkDB_GetInfo          0x10017f09   0x4a  Code  Wk  linkdb.o [1]
+linkDB_Init             0x10017d7d   0x66  Code  Wk  linkdb.o [1]
+linkDB_MTU              0x1001803d    0xe  Code  Wk  linkdb.o [1]
+linkDB_NumActive        0x10017ff1   0x26  Code  Wk  linkdb.o [1]
+linkDB_NumConns         0x10018019    0x6  Code  Wk  linkdb.o [1]
+linkDB_PerformFunc      0x100180b5   0x2e  Code  Wk  linkdb.o [1]
+linkDB_Register         0x10017de5   0x1e  Code  Wk  linkdb.o [1]
+linkDB_Remove           0x10017e91   0x42  Code  Wk  linkdb.o [1]
+linkDB_Role             0x10017fd5    0xe  Code  Wk  linkdb.o [1]
+linkDB_SecurityModeSCOnly
+                        0x10018105    0x6  Code  Wk  linkdb.o [1]
+linkDB_State            0x10017fb1   0x24  Code  Wk  linkdb.o [1]
+linkDB_Update           0x10017ed5   0x32  Code  Wk  linkdb.o [1]
+linkDB_UpdateMTU        0x10018021   0x1a  Code  Wk  linkdb.o [1]
+linkDB_reportStatusChange
+                        0x100180e5   0x20  Code  Wk  linkdb.o [1]
+linkDB_secureConnectionOnlyMode
+                        0x20004f6a    0x1  Data  Wk  linkdb.o [1]
+linkParam               0x20004e84    0x4  Data  Wk  ble.o [1]
+llAddTxDataEntry        0x1000a4f5   0x5a  Code  Wk  ble.o [1]
+llAdv_TaskAbort         0x10015b75   0x28  Code  Wk  ll_adv_end_causes.o [1]
+llAdv_TaskConnect       0x10015559  0x4b6  Code  Wk  ll_adv_end_causes.o [1]
+llAdv_TaskEnd           0x10015a61   0xf8  Code  Wk  ll_adv_end_causes.o [1]
+llAlignToNextEvent      0x10008d71   0xca  Code  Wk  ll_common.o [1]
+llAllocConnId           0x100080f1  0x19a  Code  Wk  ll_common.o [1]
+llAtLeastTwoChans       0x100080b9   0x38  Code  Wk  ll_common.o [1]
+llCBTimer_AptoExpiredCback
+                        0x10008b01   0x7e  Code  Wk  ll_common.o [1]
+llCalcScaFactor         0x1001993d   0x1c  Code  Wk  ll_timer_drift.o [1]
+llCheckForLstoDuringSL  0x10014435   0x24  Code  Wk  ll_slave_end_causes.o [1]
+llCheckRxBuffers        0x100093ad   0x2e  Code  Wk  ble.o [1]
+llCheckWhiteListUsage   0x10007205   0x4c  Code  Wk  ll_common.o [1]
+llCombinePDU            0x10008c01  0x13c  Code  Wk  ll_common.o [1]
+llConnCleanup           0x10008479  0x110  Code  Wk  ll_common.o [1]
+llConnExists            0x10008385   0xea  Code  Wk  ll_common.o [1]
+llConnTerminate         0x100085a9   0x36  Code  Wk  ll_common.o [1]
+llConns                 0x20004e68    0x8  Data  Wk  ll.o [1]
+llConvertCtrlProcTimeoutToEvent
+                        0x100086b9   0x22  Code  Wk  ll_common.o [1]
+llConvertLstoToEvent    0x10008699   0x20  Code  Wk  ll_common.o [1]
+llCreateRxBuffer        0x10009371   0x3c  Code  Wk  ble.o [1]
+llDequeueCtrlPkt        0x10007f09   0x4c  Code  Wk  ll_common.o [1]
+llDirAdv_TaskEnd        0x100154b1   0xa8  Code  Wk  ll_adv_end_causes.o [1]
+llEnqueueCtrlPkt        0x10007ead   0x56  Code  Wk  ll_common.o [1]
+llEventDelta            0x10008691    0x6  Code  Wk  ll_common.o [1]
+llEventInRange          0x10008669   0x28  Code  Wk  ll_common.o [1]
+llFragmentPDU           0x10008b81   0x78  Code  Wk  ll_common.o [1]
+llGenerateCRC           0x10008635   0x34  Code  Wk  ll_common.o [1]
+llGetCurrentTime        0x100197b1    0x8  Code  Wk  ll_rat.o [1]
+llGetMinCI              0x10008301   0x74  Code  Wk  ll_common.o [1]
+llGetNextDataChan       0x10007ff5   0x54  Code  Wk  ll_common.o [1]
+llGetSlowestPhy         0x10008fbd   0x1e  Code  Wk  ll_common.o [1]
+llGetTxPower            0x100071e9   0x1c  Code  Wk  ll_common.o [1]
+llHaltRadio             0x10007075   0x3a  Code  Wk  ll_common.o [1]
+llHardwareError         0x1000929d    0xa  Code  Wk  ll_common.o [1]
+llInitFeatureSet        0x10008621   0x14  Code  Wk  ll_common.o [1]
+llMemCopyDst            0x100092e9   0x16  Code  Wk  ll_common.o [1]
+llMemCopySrc            0x100092d1   0x18  Code  Wk  ll_common.o [1]
+llMoveTempTxDataEntries
+                        0x100095b9   0x50  Code  Wk  ble.o [1]
+llOctets2Time           0x10008f89   0x34  Code  Wk  ll_common.o [1]
+llPatchCM0              0x1000941d   0x14  Code  Wk  ble.o [1]
+llPendingUpdateParam    0x100085e1   0x3e  Code  Wk  ll_common.o [1]
+llProcessChanMap        0x10007fb5   0x40  Code  Wk  ll_common.o [1]
+llProcessMasterControlPacket
+                        0x10009d5d  0x6ec  Code  Wk  ble.o [1]
+llProcessPostRfOps      0x1000713d   0x54  Code  Wk  ll_common.o [1]
+llProcessSlaveControlPacket
+                        0x10009609  0x6ac  Code  Wk  ble.o [1]
+llProcessSlaveControlProcedures
+                        0x10013f05  0x492  Code  Wk  ll_slave_end_causes.o [1]
+llProcessTxData         0x100086dd   0x7e  Code  Wk  ll_common.o [1]
+llRatChanCBack_A        0x10009465    0x2  Code  Wk  ble.o [1]
+llRatChanCBack_B        0x10009469    0x2  Code  Wk  ble.o [1]
+llRatChanCBack_C        0x1000946d    0x2  Code  Wk  ble.o [1]
+llRatChanCBack_D        0x10009471    0x2  Code  Wk  ble.o [1]
+llRealignConn           0x10009071  0x22a  Code  Wk  ll_common.o [1]
+llReleaseAllConnId      0x100082cd   0x34  Code  Wk  ll_common.o [1]
+llReleaseConnId         0x1000828d   0x34  Code  Wk  ll_common.o [1]
+llReplaceCtrlPkt        0x10007f69   0x2a  Code  Wk  ll_common.o [1]
+llReplaceRxBuffers      0x100093dd   0x3e  Code  Wk  ble.o [1]
+llResetRadio            0x10007071    0x2  Code  Wk  ll_common.o [1]
+llRfInit                0x10006fed   0x84  Code  Wk  ll_common.o [1]
+llRfSetup               0x10006f99   0x52  Code  Wk  ll_common.o [1]
+llRfStartFS             0x100070b1   0x8c  Code  Wk  ll_common.o [1]
+llSendReject            0x10008949   0x54  Code  Wk  ll_common.o [1]
+llSetNextDataChan       0x10008049   0x58  Code  Wk  ll_common.o [1]
+llSetTxPower            0x10007191   0x4c  Code  Wk  ll_common.o [1]
+llSetupAdv              0x10007251  0x226  Code  Wk  ll_common.o [1]
+llSetupAdvDataEntryQueue
+                        0x100094dd   0x20  Code  Wk  ble.o [1]
+llSetupConn             0x10007829   0x40  Code  Wk  ll_common.o [1]
+llSetupConnParamReq     0x1000899d   0x2e  Code  Wk  ll_common.o [1]
+llSetupConnParamRsp     0x100089d5   0x2e  Code  Wk  ll_common.o [1]
+llSetupConnRxDataEntryQueue
+                        0x10009509   0xae  Code  Wk  ble.o [1]
+llSetupEncReq           0x1000798d   0x9e  Code  Wk  ll_common.o [1]
+llSetupEncRsp           0x10007a2d   0x8c  Code  Wk  ll_common.o [1]
+llSetupFeatureSetReq    0x10007c89   0x48  Code  Wk  ll_common.o [1]
+llSetupFeatureSetRsp    0x10007cdd   0x40  Code  Wk  ll_common.o [1]
+llSetupInit             0x10007659  0x1d0  Code  Wk  ll_common.o [1]
+llSetupInitDataEntryQueue
+                        0x100094b9   0x22  Code  Wk  ble.o [1]
+llSetupLenCtrlPkt       0x100088bd   0x8a  Code  Wk  ll_common.o [1]
+llSetupNextSlaveEvent   0x10013b75  0x382  Code  Wk  ll_slave_end_causes.o [1]
+llSetupPauseEncReq      0x10007b61   0x40  Code  Wk  ll_common.o [1]
+llSetupPauseEncRsp      0x10007bad   0x5a  Code  Wk  ll_common.o [1]
+llSetupPingReq          0x100087fd   0x32  Code  Wk  ll_common.o [1]
+llSetupPingRsp          0x1000885d   0x32  Code  Wk  ll_common.o [1]
+llSetupRATChanCompare   0x10009431   0x34  Code  Wk  ble.o [1]
+llSetupRejectInd        0x10007c39   0x32  Code  Wk  ll_common.o [1]
+llSetupRejectIndExt     0x10008aa5   0x48  Code  Wk  ll_common.o [1]
+llSetupScan             0x10007479  0x1c8  Code  Wk  ll_common.o [1]
+llSetupScanDataEntryQueue
+                        0x10009475   0x44  Code  Wk  ble.o [1]
+llSetupStartEncReq      0x10007aed   0x2a  Code  Wk  ll_common.o [1]
+llSetupStartEncRsp      0x10007b19   0x36  Code  Wk  ll_common.o [1]
+llSetupTermInd          0x10007de5   0x4a  Code  Wk  ll_common.o [1]
+llSetupUnknownRsp       0x10007e49   0x34  Code  Wk  ll_common.o [1]
+llSetupUpdateChanReq    0x10007901   0x8a  Code  Wk  ll_common.o [1]
+llSetupUpdateParamReq   0x10007869   0x98  Code  Wk  ll_common.o [1]
+llSetupVersionIndReq    0x10007d5d   0x60  Code  Wk  ll_common.o [1]
+llSlave_TaskEnd         0x10013931  0x242  Code  Wk  ll_slave_end_causes.o [1]
+llSortActiveConns       0x10008fdd   0x76  Code  Wk  ll_common.o [1]
+llState                 0x20004f6f    0x1  Data  Wk  ll.o [1]
+llTime2Octets           0x10008f59   0x2e  Code  Wk  ll_common.o [1]
+llTimeCompare           0x100197b9   0x1a  Code  Wk  ll_rat.o [1]
+llTimeDelta             0x100197dd    0x4  Code  Wk  ll_rat.o [1]
+llValidateConnParams    0x10008ed5   0x7a  Code  Wk  ll_common.o [1]
+llVerifyConnParamReqParams
+                        0x10008e45   0x88  Code  Wk  ll_common.o [1]
+llWriteTxData           0x1000876d   0x8e  Code  Wk  ll_common.o [1]
+ll_buildRevision        0x100092fe    0x2  Data  Wk  ll.o [1]
+localEccKeys            0x20004a68   0x44  Data  Wk  sm_pairing.o [1]
+mADD                    0x1000e6c9         Code  Gb  lowlevelapi_m3.o [2]
+mINVK                   0x1000dd2d  0x148  Code  Wk  lowlevelapi.o [1]
+mMULT                   0x1000e0f9         Code  Gb  lowlevelapi_m3.o [2]
+mOUT                    0x1000e8c1         Code  Gb  lowlevelapi_m3.o [2]
+mSET                    0x1000dc21   0xc2  Code  Wk  lowlevelapi.o [1]
+mSUB                    0x1000e7c5         Code  Gb  lowlevelapi_m3.o [2]
+maxNumConns             0x20004f7b    0x1  Data  Wk  ll.o [1]
+maxNumPrepareWrites     0x20004f61    0x1  Data  Wk  gattservapp.o [1]
+maxNumTxDataBufs        0x20004f6d    0x1  Data  Wk  ll.o [1]
+maxPduSize              0x20004f6b    0x1  Data  Wk  ll.o [1]
+maxTxPwrForDTM          0x20004f72    0x1  Data  Wk  ll.o [1]
+nextHandle              0x2000459e    0x2  Data  Wk  gatt_server.o [1]
+numComplPkts            0x20004f74    0x1  Data  Wk  ll.o [1]
+numComplPktsFlush       0x20004f76    0x1  Data  Wk  ll.o [1]
+numComplPktsLimit       0x20004f75    0x1  Data  Wk  ll.o [1]
+numHostBufs             0x20004f40    0x2  Data  Wk  hci.o [1]
+numTxDataBufs           0x20004f7a    0x1  Data  Wk  ll.o [1]
+onePktPerEvt            0x20004f73    0x1  Data  Wk  ll.o [1]
+outPointX               0x20004fbc    0x4  Data  Wk  scalarMul.o [1]
+outPointY               0x20004fc0    0x4  Data  Wk  scalarMul.o [1]
+ownPublicAddr           0x20004e2c    0x8  Data  Wk  ll.o [1]
+ownRandomAddr           0x20004e34    0x8  Data  Wk  ll.o [1]
+ownSavedPublicAddr      0x20004e3c    0x8  Data  Wk  ll.o [1]
+pAttrValue              0x20004ee0    0x4  Data  Wk  gattservapp.o [1]
+pAuthLink               0x20004ea4    0x4  Data  Wk  gap_linkmgr.o [1]
+pBleEvtMask             0x20004e14    0x8  Data  Wk  hci_event.o [1]
+pEstLink                0x20004ea0    0x4  Data  Wk  gap_linkmgr.o [1]
+pGapAdData              0x20004eb4    0x4  Data  Wk  gap_peridevmgr.o [1]
+pGapAdvTokens           0x20004eb0    0x4  Data  Wk  gap_peridevmgr.o [1]
+pGapAdvertState         0x20004e9c    0x4  Data  Wk  gap_devmgr.o [1]
+pGapDiscReq             0x20004e98    0x4  Data  Wk  gap_devmgr.o [1]
+pGapScanRspData         0x20004eb8    0x4  Data  Wk  gap_peridevmgr.o [1]
+pHciEvtMask             0x20004e1c    0x8  Data  Wk  hci_event.o [1]
+pHciEvtMask2            0x20004e24    0x8  Data  Wk  hci_event.o [1]
+pPairingParams          0x20004f30    0x4  Data  Wk  sm_pairing.o [1]
+pServiceList            0x20004ecc    0x4  Data  Wk  gatt_server.o [1]
+padding                 0x10012861   0x1c  Code  Wk  sm_mgr.o [1]
+pfnBondMgrCBs           0x20004ec4    0x4  Data  Wk  gap_task.o [1]
+pfnCentralCBs           0x20004ec0    0x4  Data  Wk  gap_task.o [1]
+pfnCentralConnCBs       0x20004ea8    0x4  Data  Wk  gap_linkmgr.o [1]
+pfnClientProcessMsgCB   0x20004ed4    0x4  Data  Wk  gatt_task.o [1]
+pfnInitiatorCBs         0x20004f38    0x4  Data  Wk  sm_pairing.o [1]
+pfnPeripheralCBs        0x20004ebc    0x4  Data  Wk  gap_task.o [1]
+pfnPeripheralConnCBs    0x20004eac    0x4  Data  Wk  gap_linkmgr.o [1]
+pfnResponderCBs         0x20004f34    0x4  Data  Wk  sm_pairing.o [1]
+pfnServerProcessMsgCB   0x20004ed0    0x4  Data  Wk  gatt_task.o [1]
+postRfOperations        0x20004f52    0x2  Data  Wk  ll.o [1]
+prepareWritesTbl        0x20004ed8    0x4  Data  Wk  gattservapp.o [1]
+privInfo                0x20004e78    0x8  Data  Wk  ll_privacy.o [1]
+reqTaskId               0x200045a5    0x1  Data  Wk  gatt_server.o [1]
+resolvingList           0x200045ac  0x140  Data  Wk  ll_privacy.o [1]
+rfCfgAdiVal             0x20004f54    0x2  Data  Wk  ll.o [1]
+rfCmdHandle             0x20004f42    0x2  Data  Wk  ll.o [1]
+rfDrvTblPtr             0x20004ef0    0x4  Data  Wk  ll.o [1]
+rfEvent                 0x20004e50    0x8  Data  Wk  ll.o [1]
+rfFeModeBias            0x20004f6c    0x1  Data  Wk  ll.o [1]
+rfHandle                0x20004eec    0x4  Data  Wk  ll.o [1]
+rfMode                  0x20004568   0x10  Data  Wk  ll.o [1]
+rfObject                0x20004988   0x98  Data  Wk  ll.o [1]
+rfSetup                 0x20004d2c   0x18  Data  Wk  ll.o [1]
+romRev                  0x10019afc    0x2  Data  Wk  ll.o [1]
+rsp                     0x20004cfc   0x18  Data  Wk  gattservapp.o [1]
+rssiCorrection          0x20004f70    0x1  Data  Wk  ll.o [1]
+rxDataQ                 0x20004e88    0x4  Data  Wk  ble.o [1]
+rxFifoFlowCtrl          0x20004f79    0x1  Data  Wk  ll.o [1]
+rxModemTestCmd          0x20004ce4   0x18  Data  Wk  ble.o [1]
+rxRingBuf               0x20004e90    0x4  Data  Wk  ble.o [1]
+rxTestOut               0x20004de0    0xc  Data  Wk  ble.o [1]
+rxTestParam             0x20004d70   0x14  Data  Wk  ble.o [1]
+scanCmd                 0x20004c9c   0x18  Data  Wk  ble.o [1]
+scanDataEntry           0x200046ec   0xe0  Data  Wk  ble.o [1]
+scanDataQueue           0x20004d94   0x10  Data  Wk  ble.o [1]
+scanInfo                0x20004f14    0x4  Data  Wk  ll.o [1]
+scanOutput              0x20004cb4   0x18  Data  Wk  ble.o [1]
+scanParam               0x20004bd0   0x24  Data  Wk  ble.o [1]
+sclkSrc                 0x20004f08    0x4  Data  Wk  ll.o [1]
+sendAuthEvent           0x10011cb5  0x10a  Code  Wk  gap_linkmgr.o [1]
+sendEstLinkEvent        0x10011b85   0x72  Code  Wk  gap_linkmgr.o [1]
+sendTerminateEvent      0x10011bf9   0x3a  Code  Wk  gap_linkmgr.o [1]
+serverInfoTbl           0x20004ec8    0x4  Data  Wk  gatt_server.o [1]
+serviceCBsList          0x20004edc    0x4  Data  Wk  gattservapp.o [1]
+slOverride              0x20004f78    0x1  Data  Wk  ll.o [1]
+slaveConnHandle         0x2000459c    0x2  Data  Wk  gap_linkmgr.o [1]
+slaveUpdateReq          0x20004e0c    0x8  Data  Wk  gap_linkmgr.o [1]
+smAuthReqToUint8        0x100123e1   0x28  Code  Wk  sm_mgr.o [1]
+smDetermineIOCaps       0x1000f819   0x38  Code  Wk  sm_pairing.o [1]
+smDetermineKeySize      0x1000f9cd   0x22  Code  Wk  sm_pairing.o [1]
+smEncrypt               0x10012445   0x14  Code  Wk  sm_mgr.o [1]
+smEncryptLocal          0x10012459    0xc  Code  Wk  sm_mgr.o [1]
+smEndPairing            0x1000f985   0x46  Code  Wk  sm_pairing.o [1]
+smF5Wrapper             0x1000f215   0xa4  Code  Wk  sm_pairing.o [1]
+smFinishPublicKeyExchange
+                        0x10013365   0xec  Code  Wk  sm_rsppairing.o [1]
+smFreePairingParams     0x1000f911   0x74  Code  Wk  sm_pairing.o [1]
+smGenerateAddrInput     0x1000f399   0x9c  Code  Wk  sm_pairing.o [1]
+smGenerateConfirm       0x1000f129   0x1e  Code  Wk  sm_pairing.o [1]
+smGenerateDHKeyCheck    0x1000f2b9   0xa2  Code  Wk  sm_pairing.o [1]
+smGeneratePairingReqRsp
+                        0x1000f0d9   0x50  Code  Wk  sm_pairing.o [1]
+smGenerateRandBuf       0x100123b1   0x2e  Code  Wk  sm_mgr.o [1]
+smGenerateRandMsg       0x1000f149   0x28  Code  Wk  sm_pairing.o [1]
+smGetECCKeys            0x1000f465   0x80  Code  Wk  sm_pairing.o [1]
+smIncrementEccKeyRecycleCount
+                        0x1000f565   0x28  Code  Wk  sm_pairing.o [1]
+smLinkCheck             0x1000eca1   0x3a  Code  Wk  sm_pairing.o [1]
+smNextPairingState      0x1000eef1   0x40  Code  Wk  sm_pairing.o [1]
+smOobSCAuthentication   0x1000f58d   0x78  Code  Wk  sm_pairing.o [1]
+smPairingSendEncInfo    0x1000f855   0x12  Code  Wk  sm_pairing.o [1]
+smPairingSendIdentityAddrInfo
+                        0x1000f8c1   0x2c  Code  Wk  sm_pairing.o [1]
+smPairingSendIdentityInfo
+                        0x1000f899   0x12  Code  Wk  sm_pairing.o [1]
+smPairingSendMasterID   0x1000f869   0x2e  Code  Wk  sm_pairing.o [1]
+smPairingSendSigningInfo
+                        0x1000f8fd   0x12  Code  Wk  sm_pairing.o [1]
+smProcessDataMsg        0x1000eced  0x10c  Code  Wk  sm_pairing.o [1]
+smProcessEncryptChange  0x1000ee25   0xca  Code  Wk  sm_pairing.o [1]
+smProcessHCIBLEEventCode
+                        0x10017715   0x4e  Code  Wk  sm_task.o [1]
+smProcessHCIBLEMetaEventCode
+                        0x10017765  0x142  Code  Wk  sm_task.o [1]
+smProcessOSALMsg        0x100176c1   0x54  Code  Wk  sm_task.o [1]
+smProcessPairingReq     0x1000f05d   0x60  Code  Wk  sm_pairing.o [1]
+smRegisterInitiator     0x1000ec91    0x8  Code  Wk  sm_pairing.o [1]
+smRegisterResponder     0x1000ec99    0x8  Code  Wk  sm_pairing.o [1]
+smResponderAuthStageTwo
+                        0x100134cd   0x6e  Code  Wk  sm_rsppairing.o [1]
+smResponderCBs          0x20004584   0x18  Data  Wk  sm_rsppairing.o [1]
+smResponderProcessLTKReq
+                        0x10012e29  0x11a  Code  Wk  sm_rsppairing.o [1]
+smResponderSendNextKeyInfo
+                        0x100136f1  0x22c  Code  Wk  sm_rsppairing.o [1]
+smSavePairInfo          0x1000f609  0x20a  Code  Wk  sm_pairing.o [1]
+smSaveRemotePublicKeys  0x1000f18d   0x30  Code  Wk  sm_pairing.o [1]
+smSendDHKeyCheck        0x1000f435   0x1e  Code  Wk  sm_pairing.o [1]
+smSendFailAndEnd        0x1000edf9   0x2a  Code  Wk  sm_pairing.o [1]
+smSendFailureEvt        0x1000fa39   0x34  Code  Wk  sm_pairing.o [1]
+smSendPublicKeys        0x1000f1bd   0x58  Code  Wk  sm_pairing.o [1]
+smSendSMMsg             0x1001673d   0x54  Code  Wk  smp.o [1]
+smSetPairingReqRsp      0x1000f9f1   0x48  Code  Wk  sm_pairing.o [1]
+smStartEncryption       0x1000f0bd   0x1c  Code  Wk  sm_pairing.o [1]
+smStartRspTimer         0x1001217d   0x28  Code  Wk  sm_mgr.o [1]
+smStopRspTimer          0x100121a5   0x12  Code  Wk  sm_mgr.o [1]
+smTaskID                0x20004f7c    0x1  Data  Wk  sm_task.o [1]
+smTimedOut              0x1000ecdd    0xe  Code  Wk  sm_pairing.o [1]
+smUint8ToAuthReq        0x10012409   0x3c  Code  Wk  sm_mgr.o [1]
+sm_CMAC                 0x10012625  0x14c  Code  Wk  sm_mgr.o [1]
+sm_allocateSCParameters
+                        0x1000f35d   0x3a  Code  Wk  sm_pairing.o [1]
+sm_c1                   0x1000ef31   0xde  Code  Wk  sm_pairing.o [1]
+sm_c1new                0x1001225d   0xe4  Code  Wk  sm_mgr.o [1]
+sm_computeDHKey         0x1000f501   0x4e  Code  Wk  sm_pairing.o [1]
+sm_d1                   0x100121b9   0x3c  Code  Wk  sm_mgr.o [1]
+sm_dm                   0x10012205   0x3e  Code  Wk  sm_mgr.o [1]
+sm_f4                   0x10012895   0xca  Code  Wk  sm_mgr.o [1]
+sm_f5                   0x10012961  0x184  Code  Wk  sm_mgr.o [1]
+sm_f6                   0x10012b01   0xfa  Code  Wk  sm_mgr.o [1]
+sm_g2                   0x10012c45   0xde  Code  Wk  sm_mgr.o [1]
+sm_s1                   0x10012365   0x38  Code  Wk  sm_mgr.o [1]
+sm_xor                  0x1001234d   0x16  Code  Wk  sm_mgr.o [1]
+smpBuildEncInfo         0x100164ad   0x1a  Code  Wk  smp.o [1]
+smpBuildIdentityAddrInfo
+                        0x10016579   0x24  Code  Wk  smp.o [1]
+smpBuildIdentityInfo    0x10016549   0x1a  Code  Wk  smp.o [1]
+smpBuildKeypressNoti    0x1001670d   0x10  Code  Wk  smp.o [1]
+smpBuildMasterID        0x100164e5   0x2c  Code  Wk  smp.o [1]
+smpBuildPairingConfirm  0x1001640d   0x1a  Code  Wk  smp.o [1]
+smpBuildPairingDHKeyCheck
+                        0x100166d9   0x1c  Code  Wk  smp.o [1]
+smpBuildPairingFailed   0x1001647d   0x10  Code  Wk  smp.o [1]
+smpBuildPairingPublicKey
+                        0x1001666d   0x2e  Code  Wk  smp.o [1]
+smpBuildPairingRandom   0x10016445   0x1a  Code  Wk  smp.o [1]
+smpBuildPairingReq      0x10016255   0x12  Code  Wk  smp.o [1]
+smpBuildPairingReqRsp   0x1001627d   0xb0  Code  Wk  smp.o [1]
+smpBuildPairingRsp      0x10016269   0x12  Code  Wk  smp.o [1]
+smpBuildSecurityReq     0x10016625   0x22  Code  Wk  smp.o [1]
+smpBuildSigningInfo     0x100165ed   0x1a  Code  Wk  smp.o [1]
+smpParseEncInfo         0x100164c9   0x1a  Code  Wk  smp.o [1]
+smpParseIdentityAddrInfo
+                        0x100165c9   0x24  Code  Wk  smp.o [1]
+smpParseIdentityInfo    0x1001659d   0x1a  Code  Wk  smp.o [1]
+smpParseKeypressNoti    0x10016729   0x12  Code  Wk  smp.o [1]
+smpParseMasterID        0x10016511   0x2a  Code  Wk  smp.o [1]
+smpParsePairingConfirm  0x10016429   0x1a  Code  Wk  smp.o [1]
+smpParsePairingDHKeyCheck
+                        0x100166f5   0x18  Code  Wk  smp.o [1]
+smpParsePairingFailed   0x1001648d   0x1e  Code  Wk  smp.o [1]
+smpParsePairingPublicKey
+                        0x1001669d   0x2a  Code  Wk  smp.o [1]
+smpParsePairingRandom   0x10016461   0x1a  Code  Wk  smp.o [1]
+smpParsePairingReq      0x1001632d   0xe0  Code  Wk  smp.o [1]
+smpParseSecurityReq     0x10016649   0x22  Code  Wk  smp.o [1]
+smpParseSigningInfo     0x10016609   0x1a  Code  Wk  smp.o [1]
+smpProcessIncoming      0x1000f01d   0x3e  Code  Wk  sm_pairing.o [1]
+smpResponderProcessEncryptionInformation
+                        0x1001353d   0x4c  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessIdentityAddrInfo
+                        0x10013641   0x5e  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessIdentityInfo
+                        0x100135fd   0x3a  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessIncoming
+                        0x10012f65   0xfa  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessMasterID
+                        0x10013589   0x74  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessPairingConfirm
+                        0x10013165   0x88  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessPairingDHKeyCheck
+                        0x10013451   0x7a  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessPairingPublicKey
+                        0x10013335   0x2e  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessPairingRandom
+                        0x100131ed  0x138  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessPairingReq
+                        0x10013061   0x2e  Code  Wk  sm_rsppairing.o [1]
+smpResponderProcessSigningInfo
+                        0x100136a1   0x4e  Code  Wk  sm_rsppairing.o [1]
+smpResponderSendPairRspEvent
+                        0x10013091   0xc8  Code  Wk  sm_rsppairing.o [1]
+supportedCmdsTable      0x100196b8   0x44  Data  Wk  hci.o [1]
+supportedMaxRxOctets    0x20004f4c    0x2  Data  Wk  ll.o [1]
+supportedMaxRxTime      0x20004f4e    0x2  Data  Wk  ll.o [1]
+supportedMaxTxOctets    0x20004f48    0x2  Data  Wk  ll.o [1]
+supportedMaxTxTime      0x20004f4a    0x2  Data  Wk  ll.o [1]
+taskEndAction           0x20004f20    0x4  Data  Wk  ll.o [1]
+taskEndStatus           0x20004f50    0x2  Data  Wk  ll.o [1]
+terminateAllTaskID      0x20004f5b    0x1  Data  Wk  gap_linkmgr.o [1]
+terminateReason         0x20004f5c    0x1  Data  Wk  gap_linkmgr.o [1]
+trngDrvTblPtr           0x20004efc    0x4  Data  Wk  ll.o [1]
+trxTestCmd              0x20004ccc   0x18  Data  Wk  ble.o [1]
+txDataQ                 0x20004e8c    0x4  Data  Wk  ble.o [1]
+txModemTestCmd          0x20004c34   0x1c  Data  Wk  ble.o [1]
+txTestOut               0x20004e94    0x4  Data  Wk  ble.o [1]
+txTestParam             0x20004dc4   0x10  Data  Wk  ble.o [1]
+verInfo                 0x20004e60    0x8  Data  Wk  ll.o [1]
+win                     0x20004f9c    0x1  Data  Wk  scalarMul.o [1]
+wlTable                 0x200047cc   0xdc  Data  Wk  ll_wl.o [1]
+wlTableScan             0x200048a8   0xdc  Data  Wk  ll_wl.o [1]
+workzone                0x20004f88    0x4  Data  Wk  scalarMul.o [1]
+xor_128                 0x1001284d   0x14  Code  Wk  sm_mgr.o [1]
+zADD                    0x1000de81   0x46  Code  Wk  lowlevelapi.o [1]
+zADD32                  0x1000e021   0x40  Code  Wk  lowlevelapi.o [1]
+zMACC32                 0x1000df4d   0x86  Code  Wk  lowlevelapi.o [1]
+zMULT32                 0x1000e075   0x72  Code  Wk  lowlevelapi.o [1]
+zSET                    0x1000dd25    0x8  Code  Wk  lowlevelapi.o [1]
+zSUB                    0x1000dec9   0x6e  Code  Wk  lowlevelapi.o [1]
+zSUB32                  0x1000dfd5   0x4c  Code  Wk  lowlevelapi.o [1]
+
+
+[1] = C:\git\ble_core\build\rom\r2\ble\ROM\Obj
+[2] = C:\svn\restricted\invia-ecc\trunk\ecc\obj
+[3] = command line
+[4] = rt7M_tl.a
+
+  85 402 bytes of readonly  code memory
+   1 040 bytes of readonly  data memory
+   2 817 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

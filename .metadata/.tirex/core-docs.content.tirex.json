@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/release_notes_coresdk_cc13xx_cc26xx_4_20_03_02.html",
+        "categories": [
+            [
+                "Documents"
+            ]
+        ]
+    },
+    {
+        "name": "Documentation Links",
+        "resourceType": "file",
+        "location": "../../docs/Documentation_Overview_cc13xx_cc26xx.html",
+        "categories": [
+            [
+                "Documents"
+            ]
+        ]
+    }
+]

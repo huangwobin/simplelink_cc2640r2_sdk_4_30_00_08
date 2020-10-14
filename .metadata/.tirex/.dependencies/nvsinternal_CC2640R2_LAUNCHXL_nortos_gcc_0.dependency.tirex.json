@@ -1,0 +1,17 @@
+[
+    {
+        "files": [
+            "+../main_nortos.c -> main_nortos.c",
+            "+../README.md -> README.md",
+            "+../nvsinternal.c -> nvsinternal.c",
+            "+../README.html -> README.html",
+            "+../Board.h -> Board.h",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+CC2640R2_LAUNCHXL_NoRTOS.lds -> CC2640R2_LAUNCHXL_NoRTOS.lds",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../ccfg.c -> ccfg.c",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

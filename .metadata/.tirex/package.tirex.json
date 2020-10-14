@@ -1,0 +1,23 @@
+[{
+    "metadataVersion": "3.0.0",
+    "id": "com.ti.SIMPLELINK_CC2640R2_SDK",
+    "name": "SimpleLink CC2640R2 SDK",
+    "version": "4.30.00.08",
+    "type": "software",
+    "devices": [
+        "CC2640R2F"
+    ],
+    "allowPartialDownload": "false",
+    "license": "../../license_simplelink_cc2640r2_sdk_4_30_00_08.txt",
+    "image": "./cc2640r2-tirex.png",
+    "dependencies": [{
+        "packageId": "xdctools",
+        "version": "3.51.03.28",
+        "require": "mandatory"
+    }, {
+        "packageId": "arm.ti",
+        "version": "18.12.5",
+        "require": "mandatory"
+    }],
+    "description": "Welcome to the SimpleLink CC2640R2 SDK"
+}]

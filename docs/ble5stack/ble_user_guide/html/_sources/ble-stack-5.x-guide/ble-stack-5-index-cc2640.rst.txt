@@ -1,0 +1,79 @@
+***********
+Application
+***********
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-5.x/the-application
+
+Memory Management
+=================
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-common/memory_map
+   /ble-stack-common/flash_memory-cc2640
+   /ble-stack-common/memory_management
+   /ble-stack-common/cache-as-ram
+   /ble-stack-common/aux-as-ram
+
+.. _the_stack:
+
+**********
+BLE5-Stack
+**********
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-5.x/overview-cc2640
+   /ble-stack-5.x/gap
+   /ble-stack-5.x/gatt
+   /ble-stack-5.x/gapbondmngr-cc2640
+   /ble-stack-5.x/privacy
+   /ble-stack-common/l2cap
+   /ble-stack-common/link-layer-cc2640
+   /ble-stack-5.x/channel-selection-algorithm-number-two
+   /ble-stack-5.x/hci
+   /ble-stack-5.x/phy
+   /ble-stack-5.x/stack-configuration-cc2640
+
+.. _creating_custom_ble_app:
+
+*******************************
+Developing a Custom Application
+*******************************
+
+A system designer must have a firm grasp on the general system architecture,
+application, and Bluetooth Low Energy stack framework to implement a custom
+Bluetooth Low Energy application. This section provides indications and
+guidance on where and how to start implementing a custom application based on
+information presented in the previous sections (:ref:`the_application` and
+:ref:`the_stack`) as well as knowledge of TI-RTOS and |DEVICE|.
+
+Decide what role and purpose the custom application should have. If an
+application is tied to a specific service or profile, start with that sample
+application.
+
+A project's role can be essentially be placed in one of the five (5)
+categories as described by :ref:`gap_roles`.
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-5.x/creating-a-custom-bluetooth-low-energy-application-cc2640
+
+.. _sect-custom-hardware:
+
+**********************************
+Running the SDK on Custom Hardware
+**********************************
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-5.x/custom-hardware-cc2640

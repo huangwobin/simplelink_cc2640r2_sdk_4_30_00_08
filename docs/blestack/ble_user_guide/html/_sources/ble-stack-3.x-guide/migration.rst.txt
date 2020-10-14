@@ -1,0 +1,36 @@
+..  README
+    Newest guides at the top. Previous one-time guides go into Previous Migration
+    Guides section. The nice thing here is that you just need to move the guide.
+
+.. _migration_guides:
+
+Migration Guides
+================
+
+.. toctree::
+    :titlesonly:
+
+    blestack3.03.04-to-blestack3.03.05.rst
+
+
+Previous Migration Guides
+-------------------------
+
+.. toctree::
+    :titlesonly:
+
+    blestack3.03.03-to-blestack3.03.04.rst
+    blestack3.03.02-to-blestack3.03.03.rst
+    blestack3.03.01-to-blestack3.03.02.rst
+    blestack3.03.00-to-blestack3.03.01.rst
+    blestack3.02.03-to-blestack3.03.00.rst
+    blestack3.02.02-to-blestack3.02.03.rst
+    blestack3.02.01-to-blestack3.02.02.rst
+    blestack3.02.00-to-blestack3.02.01.rst
+    blestack3.01.01-to-blestack3.02.00.rst
+    blestack3.01.00-to-blestack3.01.01.rst
+    blestack3.00.01-to-blestack3.01.00.rst
+    blestack3.00.00-to-blestack3.00.01.rst
+    /cc2640/software-on-cc2640r2l.rst
+    cc2640-to-cc2640r2.rst
+    cc254x-to-cc2640.rst

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_c8106c56f32b5780bf0010e445f76780" kind="dir">
+    <compoundname>crypto</compoundname>
+    <innerfile refid="_crypto_c_c26_x_x_8h">CryptoCC26XX.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,573 @@
+.. _cc2640-cc2640r2-migration-guide:
+
+CC2640 to CC2640R2F
+===================
+
+Introduction
+------------
+
+This section describes main differences an Application Developer must
+be aware of between the CC2640 and the CC2640R2F along with a example
+porting guide to demonstrate the migration effort.
+
+The CC2640R2F was designed to increase flash availability for the
+application, without changing underlying proven hardware of the CC2640.
+
+Due to the underlaying hardware and platform based on the CC2640, the
+migration effort from a CC2640 to CC2640R2F is very minor. For more information 
+on specific steps, see :ref:`cc2640-to-cc2640r2-porting-guide`.
+
+Features and Benefits
+---------------------
+
+To enable maximum possible flash availability, the CC2640R2F features:
+    * :ref:`cc2640-to-cc2640r2-additional-rom-support`
+    * :ref:`cc2640-to-cc2640r2-improved-icall`
+
+Additional benefits of the CC2640R2F:
+    * :ref:`cc2640-to-cc2640r2-launchpad-support`
+    * :ref:`cc2640-to-cc2640r2-improved-oad-support`
+    * :ref:`cc2640-to-cc2640r2-ti-u-stack-for-broadcaster`
+    * :ref:`cc2640-to-cc2640r2-additional-vs-hci-cmds`
+
+These features and benefits enable rapid development, future-ready, and
+innovative robust products.
+
+
+.. _cc2640-to-cc2640r2-additional-rom-support:
+
+Additional ROM Support on CC2640R2F
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A majority of the increase in application flash availability on the CC2640R2F is 
+due to portions of the BLE-Stack being placed into ROM. When enabled, the stack 
+flash usage dramatically decreases. Up to an ~50% decrease of the BLE-Stack flash 
+usage can be realized with this feature alone; this results in up to an 
+additional 30 kB for the application when migrating from an existing CC2640 
+project.
+
+In addition, the |STACK| has the following Bluetooth 4.2 features always enabled:
+
+    * Ping
+    * Slave feature exchange
+    * Connection Parameter Update Request
+    * Multirole Connections
+    * Privacy
+    * LE Data Length Extension
+
+See :ref:`stack_features_configuration` for more information on
+selecting features.
+
+See :ref:`cc2640-to-cc2640r2-porting-guide` for specific instructions.
+
+.. warning::
+    Flashing a CC2640 with binaries made for CC2640R2F will
+    result in a spin-lock prior to ``main``.
+
+    .. figure:: resources/running-r2-on-r1-trap.png
+        :align: center
+
+        A screen shot highlighting the spin-lock in IAR when running
+        CC2640R2F code on a CC2640.
+
+    .. figure:: resources/running-r2-on-r1-trap-ccs.png
+        :align: center
+
+        A screen shot highlighting the spin-lock in CCS when running
+        CC2640R2F code on a CC2640.
+
+
+.. _cc2640-to-cc2640r2-improved-icall:
+
+Improved ICall and App/Stack Library Builds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ICall has been optimized for reduced flash usage and increased stack operational 
+efficiency. Given these improvements to ICall, stack library builds are possible.
+
+Library builds will not have an application/stack boundary. Instead, global 
+linking is enabled. This allows the linker to only link the stack components 
+that are utilized. Global linking also allows objects used by both the 
+application and stack to be shared.
+
+No ICall/Stack API changes are required to realize these benefits.
+
+For details regarding improved ICall and it's benefits, see 
+:ref:`sec-the-application-icall-lite`.
+
+For additional information on ICall see :ref:`icall`.
+
+
+.. _cc2640-to-cc2640r2-launchpad-support:
+
+CC2640R2F LaunchPad Support
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All example applications of the |SDK| are compatible with the `CC2640R2F LaunchPad`_ 
+development kit. These features allow for a unified development experience and 
+empowers developers to rapidly release to market.
+
+`CC2640R2 LaunchPad Development Kit Product Page <http://www.ti.com/tool/launchxl-cc2640r2>`_
+
+
+.. _cc2640-to-cc2640r2-improved-oad-support:
+
+Improved OAD Support
+^^^^^^^^^^^^^^^^^^^^
+
+OAD Support on the CC2640R2F has been improved with new features to boost flash 
+availability to both the application and the stack and reduce costs to future 
+proof.
+
+The CC2640R2F has been improved to allow linking to TI-RTOS ROM functions for 
+OAD application images. The nature of OAD and BIM on CC2640 forced TI-RTOS to be 
+linked into flash for OAD application images.
+
+In addition, BIM for CC2640R2F is redesigned to reside in Page 31 of flash. 
+CC2640's BIM resided in both Page 0 and Page 31, limiting Application and Stack 
+flash. This feature allows for an additional Page for the developer to use.
+
+BTool now supports the OAD profile, replacing BLE Device Monitor. This change 
+gives a consistent OAD Downloader experience across all devices supporting the 
+TI BLE-Stack.
+
+For more information regarding OAD, see :ref:`sec-oad`
+
+.. note::
+    On-Chip OAD was supported by IAR Embedded Workbench for Arm for
+    CC2640.
+
+
+.. _cc2640-to-cc2640r2-ti-u-stack-for-broadcaster:
+
+Micro BLE Stack for Broadcaster Applications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Micro BLE Stack is included with the |SDK|. It features the ability to send 
+non-connectable advertisements.
+
+For more information on the Micro BLE Stack see :ref:`sec-index-micro-ble-stack`.
+
+
+.. _cc2640-to-cc2640r2-additional-vs-hci-cmds:
+
+Additional Vendor Specific HCI Functionality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Two additional vendor specific commands were created in BLE-Stack 3.00.00:
+
+    * :ble_api:`HCI_EXT_ScanEventNoticeCmd`
+
+        Scan Request Detection allows for a BLE Application operating as a
+        Peripheral or Broadcaster GAPRole to receive a notification when a Scan
+        Request is received from a peer device.
+
+    * :ble_api:`HCI_EXT_ScanReqRptCmd`
+
+        Scan Event Notifications allows for a BLE Application operating as a
+        Central or Observer GAPRole to receive a notification when a Scan Event
+        is completed.
+
+For more information on how to use these commands, please see the `TI Vendor 
+Specific HCI Guide`_.
+
+
+.. _cc2640-to-cc2640r2-porting-guide:
+
+Porting Guide from CC2640 to CC2640R2F
+--------------------------------------
+
+These sections describe porting between different versions of the BLE-Stack. To 
+port from versions of the BLE-Stack prior to BLE-Stack 2.2.1, see the
+`Porting Guide Wiki <http://processors.wiki.ti.com/index.php/CC2640_Porting_Projects>`_
+
+To port to newer versions of the |STACK|, see guides on the 
+:ref:`migration_guides` page.
+
+
+Porting Instructions from BLE-Stack 2.2.3 to BLE-Stack 3.3.2
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section will describe a way to port a project from BLE-Stack 2.2.3 to
+a BLE-Stack 3.3.2 project. BLE-Stack 2.2.3 can be downloaded from ti.com (`TI 
+Bluetooth LE Software Stack`_) and BLE-Stack 3.3.2 is bundled in the |SDK| 3.40.
+
+For this porting guide, simple\_peripheral from BLE-Stack 2.2.3 will be ported
+over to BLE-Stack 3.3.2. Due to the a number of changes in the directory
+structure and drivers, we will utilize the simple\_peripheral project in
+BLE-Stack 3.3.2 as the project base. In other words, no modifications will be
+made to the BLE-Stack 2.2.3 project. All application specific code will be
+inserted into the BLE-Stack 3.3.2 project.
+
+#. Choose a BLE-Stack 3.3.2 example project
+
+    For reference, see available sample projects that start with "simple\_". A 
+    full overview of example projects is given in the :ref:`get-started-develop` 
+    section of the Quick Start Guide.
+
+    In this example, we're going to use simple\_peripheral as the starting
+    BLE-Stack 3.3.2 sample project.
+
+    .. tip::
+
+        All BLE-Stack 3.3.2 sample projects by default contain all the necessary 
+        includes and preprocessor defines to utilize the improved ICall in 
+        FlashROM\_Library configurations.
+
+#. Transfer all modified application files into the example project
+
+    Place modified profile and application files the existing files in
+    the |SDK| to match those in BLE-Stack 2.2.3 project.
+
+    Modify ``main.c`` in the BLE-Stack 3.3.2 example if additional tasks
+    were added in the BLE-Stack 2.2.3 project.
+
+    In this example, the following files from BLE-Stack 2.2.3 were moved into
+    simple\_peripheral BLE-Stack 3.3.2 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+    - ``simple_gatt_profile.c``
+    - ``simple_gatt_profile.h``
+
+    .. note::
+        The folder structure has changed, see :ref:`tbl-root-folder`.
+
+    .. attention::
+        For applications using **Directed Advertisements** comment
+        out ``#define GBM_GATT_NO_CLIENT`` in  ``gapbondmgr.c`` of BLE
+        v3.3.2 project to remain compliant with the |CORESPEC|.
+
+        .. code-block:: c
+            :linenos:
+            :emphasize-lines: 3
+
+            #ifdef GATT_NO_CLIENT
+            #ifndef GBM_GATT_NO_CLIENT
+            //#define GBM_GATT_NO_CLIENT // <-- Comment this out
+            #endif // !GBM_GATT_NO_CLIENT
+            #endif // GATT_NO_CLIENT
+
+        See :ref:`creating-a-custom-ble-app_directed_advertisements` for more
+        information.
+
+#. Include ``icall.h`` and ``icall_ble_api.h`` if Stack/ICall APIs are used.
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 2,3
+
+        #include "icall_apimsg.h"            // Remove
+        #include <icall.h>                   // Add
+        #include "icall_ble_api.h"           // Add
+
+    For more information regarding ``icall_ble_api.h`` see
+    :ref:`sec-the-application-icall-lite`.
+
+    .. attention::
+
+        All Stack/ICall APIs are listed in ``icall_ble_api.h``. If any APIs are
+        used without ``icall_ble_api.h``, build and or link errors may occur with
+        erratic runtime behaviors!
+
+    Remove the ``icall_apimsg.h`` include. In addition, remove any include 
+    statements for BLE-Stack header files such as ``gatt.h``, ``gapbondmgr.h`` etc.
+
+    .. code-block:: c
+        :linenos:
+
+        #include "hci_tl.h"         // Remove
+        #include "gatt.h"           // Remove
+        #include "gapgattserver.h"  // Remove
+        #include "gattservapp.h"    // Remove
+        #include "gapbondmgr.h"     // Remove
+        #include "osal_snv.h"       // Remove
+        #include "linkdb.h"         // Remove
+        #include "bcomdef.h"        // Remove
+
+#. Convert the application to use the TI-RTOS Event module.
+
+    ICall/the BLE-Stack now synchronize threads with the TI-RTOS Event Module 
+    instead of the TI-RTOS Semaphore module.
+
+    In this example, simple\_peripheral needs to modified as shown in
+    :ref:`cc2640-to-cc2640r2-using-events`.
+
+#. Apply changes from TI-RTOS drivers used in BLE-Stack 2.2.3 to the TI-RTOS
+   drivers included with the |SDK|.
+
+    TI-RTOS Kernel is now packaged with the |SDK|. When
+    migrating from the BLE-Stack 2.2.3, the following drivers have changed.
+    Please see the changes to these files between TI-RTOS for SimpleLink
+    CC13xx/CC26xx 2.21.01.08 with the supplied headers in the |SDK|.
+
+    - ``PDMCC26XX.h``
+    - ``PDMCC26XX_util.h``
+    - ``PINCC26XX.h``
+    - ``PWMTimerCC26XX.h``
+    - ``UARTCC26XX.h``
+    - ``WatchdogCC26XX.h``
+
+    Also, refer to the Core SDK release notes for additional information and the 
+    TI-RTOS examples included with |SDK|.
+
+    For additional information on how BLE-Stack 3.3.2 uses TI-RTOS see
+    :ref:`sec-tirtos-overview`
+
+    For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and `TI 
+    Driver API Reference`_.
+
+    In this example, the simple\_peripheral includes paths need to modified. The
+    TI-RTOS Display Driver driver has been relocated to the following location:
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 2
+
+        #include <ti/mw/display/Display.h> // NOT CORRECT
+        #include <ti/display/Display.h>    // CORRECT
+
+#. Build the stack library project
+   
+   In the Output Folder of the IDE, a library file will be generated. 
+
+#. Build application project
+   Build and flash the project onto the CC2640R2F. At this point, you should 
+   have a functional BLE-Stack 3.3.2 project running on the CC2640R2F.
+
+
+.. _cc2640-to-cc2640r2-using-events:
+
+ICall Utilizes the TI-RTOS Event Module Instead of Semaphores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Applications for the BLE-Stack projects now use the TI-RTOS Event module
+instead of the TI-RTOS Semaphore module to implement stack-application ICall
+messaging and synchronization. The following items need to be changed when
+porting applications from BLE-Stack 2.2.3 to BLE-Stack 3.3.2. Existing
+applications that utilize Semaphores for non-ICall aware tasks do **not** need
+to adapt to the Event module.
+
+For more information on how to use the Event module, see the
+:ref:`sec-rtos-overview-event` and the Event Synchronization Module section
+the `TI-RTOS Kernel Users Guide`_
+
+.. tip::
+
+   To compare the changes required to use the TI-RTOS Event module instead of
+   the Semaphore module in your application, see changes between 
+   ``simple_peripheral.c`` in BLE-Stack 2.2.3 and BLE-Stack 3.3.2. Use a text 
+   comparison program to look at the difference between the two 
+   ``simple_peripheral.c`` files.
+
+#. Change include paths from Semaphore to Event module: 
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 2
+
+        #include <ti/sysbios/knl/Semaphore.h> //Remove
+        #include <ti/sysbios/knl/Event.h>     //Add
+
+#. Change the type ``ICall_Semaphore`` to ``ICall_SyncHandle``:
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 2
+
+        static ICall_Semaphore sem;           //Remove
+        static ICall_SyncHandle syncEvent;    //Add
+
+    Replace any references to ``sem`` with ``syncEvent``.
+
+#. Add the ``syncEvent`` in ``ICall_registerApp``
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 6
+
+        // ******************************************************************
+        // N0 STACK API CALLS CAN OCCUR BEFORE THIS CALL TO ICall_registerApp
+        // ******************************************************************
+        // Register the current thread as an ICall dispatcher application
+        // so that the application can send and receive messages.
+        ICall_registerApp(&selfEntity, &syncEvent);
+
+#. If you are using ``Util_enqueueMsg`` to enqueue messages in the application 
+   queue, it also takes the ``syncEvent`` argument:
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 24
+
+        /*********************************************************************
+         *
+         * @brief   Creates a message and puts the message in RTOS queue.
+         *
+         * @param   event - message event.
+         * @param   state - message state.
+         * @param   pData - message data pointer.
+         *
+         * @return  TRUE or FALSE
+         */
+        static uint8_t SimplePeripheral_enqueueMsg(uint8_t event, uint8_t state,
+                                                   uint8_t *pData)
+        {
+          sbpEvt_t *pMsg = ICall_malloc(sizeof(sbpEvt_t));
+
+          // Create dynamic pointer to message.
+          if (pMsg)
+          {
+            pMsg->hdr.event = event;
+            pMsg->hdr.state = state;
+            pMsg->pData = pData;
+
+            // Enqueue the message.
+            return Util_enqueueMsg(appMsgQueue, syncEvent, (uint8_t *)pMsg);
+          }
+
+          return FALSE;
+        }
+
+#. Add internal events for TI-RTOS. Add a bit mask to contain all the RTOS events 
+   (``SBP_ALL_EVENTS``). Any events to be processed in the task function 
+   (``SimplePeripheral_taskFxn``) must also be added here (in this case, we want 
+   to process the ``SBP_PERIODIC_EVT`` in the task function).
+
+    .. code-block:: c
+        :linenos:
+
+        // Application events
+        #define SBP_STATE_CHANGE_EVT                  0x0001
+        #define SBP_CHAR_CHANGE_EVT                   0x0002
+        #define SBP_PAIRING_STATE_EVT                 0x0004
+        #define SBP_PASSCODE_NEEDED_EVT               0x0008
+        #define SBP_CONN_EVT                          0x0010
+
+        // Internal Events for RTOS application
+        #define SBP_ICALL_EVT                         ICALL_MSG_EVENT_ID // Event_Id_31
+        #define SBP_QUEUE_EVT                         UTIL_QUEUE_EVENT_ID // Event_Id_30
+        #define SBP_PERIODIC_EVT                      Event_Id_00
+
+        // Bitwise OR of all events to pend on
+        #define SBP_ALL_EVENTS                        (SBP_ICALL_EVT        | \
+                                                       SBP_QUEUE_EVT        | \
+                                                       SBP_PERIODIC_EVT)
+
+#. Replace ``Semaphore_post()`` with ``Event_post()`` and remove any references
+   to the previously used ``events`` flag.
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 4, 7, 10
+
+        static void SimpleBLEPeripheral_clockHandler(UArg arg)
+        {
+            // Store the event.
+            events |= arg; // Remove
+
+            // Wake up the application.
+            Semaphore_post(sem); // Remove
+
+            // Wake up the application.
+            Event_post(syncEvent, arg); // Add
+        }
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 3
+
+        if (events & SBP_PERIODIC_EVT)
+        {
+            events &= ~SBP_PERIODIC_EVT; // Remove
+
+            Util_startClock(&periodicClock);
+
+            // Perform periodic application task
+            SimplePeripheral_performPeriodicTask();
+        }
+
+
+#. Relocate the global ``events`` flag. Remove the global ``uint16_t events``
+   variable and place ``uint32_t events`` into ``SimpleBLEPeripheral_taskFxn()``
+   as a local variable.
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 8
+
+        #if defined(FEATURE_OAD)
+        // Event data from OAD profile.
+        static Queue_Struct oadQ;
+        static Queue_Handle hOadQ;
+        #endif //FEATURE_OAD
+
+        // events flag for internal application events.
+        static uint16_t events; // Remove
+
+        // Task configuration
+        Task_Struct sbpTask;
+        Char sbpTaskStack[SBP_TASK_STACK_SIZE];
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 3
+
+        static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
+        {
+            uint32_t events; // Add
+
+            // Initialize application
+            SimpleBLEPeripheral_init();
+
+
+#. Replace ``ICall_wait()`` in Application Task with ``Event_pend()``
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 9-13, 15
+
+        static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
+        {
+           // Initialize application
+           SimpleBLEPeripheral_init();
+
+           // Application main loop
+           for (;;)
+           {
+               // Waits for a signal to the semaphore associated with the calling thread.
+               // Note that the semaphore associated with a thread is signaled when a
+               // message is queued to the message receive queue of the thread or when
+               // ICall_signal() function is called onto the semaphore.
+               ICall_Errno errno = ICall_wait(ICALL_TIMEOUT_FOREVER);  // Remove
+
+               if (errno == ICALL_ERRNO_SUCCESS) // Remove
+               {
+                    ICall_EntityID dest;
+                    ICall_ServiceEnum src;
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 11-15, 17
+
+        static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
+        {
+            uint32_t events;
+
+            // Initialize application
+            SimpleBLEPeripheral_init();
+
+            // Application main loop
+            for (;;)
+            {
+                // Waits for an event to be posted associated with the calling thread.
+                // Note that an event associated with a thread is posted when a
+                // message is queued to the message receive queue of the thread
+                events = Event_pend(syncEvent, Event_Id_NONE, SBP_ALL_EVENTS,
+                                    ICALL_TIMEOUT_FOREVER); // Add
+
+            if (events) // Add
+            {
+                ICall_EntityID dest;
+                ICall_ServiceEnum src;
+

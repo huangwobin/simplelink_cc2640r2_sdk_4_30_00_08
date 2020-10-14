@@ -1,0 +1,109 @@
+This page will describe how to use the |LP| as a Bluetooth Low Energy
+(BLE) wireless network processor. A wireless network processor (:term:`NP`)
+setup is a dual MCU solution, where an external MCU such as the MSP432 manages
+the Bluetooth application layer (Profiles and Services) and sends commands to
+the
+|LP| BLE wireless MCU over a serial interface. In the NP
+configuration, the BLE Host and Controller protocol stack elements reside on
+the wireless MCU.
+Adding BLE to your existing MCU quickly enables IoT capability in an existing
+closed/cabled design.
+
+.. note::
+
+    A Network Processor is not the same as an HCI LE Controller-only
+    configuration, such as supported by CC2564 and WiLink8 controllers.
+    The |LP| wireless MCU does not support a standalone LE
+    Controller-only configuration since the TI BLE Stack (Host and Controller)
+    executes on the |LP|.
+
+
+.. figure:: resources/simple_network_processor.png
+    :align: center
+    :width: 75%
+
+
+Serial Interface (NPI)
+======================
+
+The serial connection between the Application Processor (:term:`AP`) and Network
+Processor is handled through TI's Network Processor Interface (NPI). NPI is
+compile time configurable and currently supports UART and SPI. There are two
+versions of NPI. While they share a lot of similarities, there are important
+differences that must be accounted for when developing a dual MCU solution.
+
+To learn more about the NPI interface that each NP solution uses, please see
+:ref:`sec-npi`
+
+
+TI BLE Wireless Network Processor Example Projects
+==================================================
+
+TI offers two Wireless Network Processor example projects in the |STACK|
+to quickly add BLE to your existing MCU/SoC architecture.
+To assist with finding the right NP application for your Bluetooth Low Energy
+(BLE) design, the table below shows some of the benefits and trade offs
+associated with each NP example. These sample projects can be found under the
+examples folder in the |STACK| SDK.
+
++----------------+-----------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| Name           | Description                                                                 | Interface | Advantages                                                                          | Disadvantages                                                         |
++----------------+-----------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| SimpleNP (SNP) | An easy to use BLE network processor solution and default SW  offering.     | Unified   | Only a handful of commands are required to start sending data over BLE.             | Peripheral + Broadcaster GAP role support only.                       |
+|                | HCI layer is abstracted away, interface with NP via remote procedure calls. | NPI       | Most Bluetooth related processing is handled by the SNP, freeing up the             |                                                                       |
+|                |                                                                             |           | application processor (AP) for other tasks.                                         |                                                                       |
+|                |                                                                             |           | Lightweight interface library for the Application MCU (SAP) is provided in source.  |                                                                       |
+|                |                                                                             |           | LE Security, including LE Secure Connections is supported.                          |                                                                       |
++----------------+-----------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| HostTest       | A network processor solution that interfaces with TI's controller and host  | NPI       | Configurable, supports all controller and host roles and features from the SDK.     | Requires external MCU to implement the TI Vendor Specific HCI layer,  |
+|                | using HCI and HCI Vendor Specific commands                                  |           | Includes support for performing all  regulatory testing (i.e., FCC & RF-PHY)        | handling all commands and events generated                            |
+|                |                                                                             |           |                                                                                     |                                                                       |
+|                |                                                                             |           |                                                                                     |                                                                       |
++----------------+-----------------------------------------------------------------------------+-----------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+
+
+Simple Network Processor
+------------------------
+
+SimpleNP is for developers who want to easily add a simple and reliable BLE
+interface/subsystem to an existing MCU. Using the |STACK| simple network
+processor mode allows for quick and easy addition of secure Bluetooth Low Energy
+wireless connectivity to any embedded system by providing a simple API (SAP)
+to drive the |LP| wireless MCU from a host microcontroller.
+The complete Bluetooth Low Energy controller, host and a simple network
+processor interface layer resides on the |LP| wireless MCU, while a light
+network processor driver library resides on an external MCU connected to
+|LP| device via a standard serial connection.
+Developers can leverage this mode to reuse years of technology developed on
+embedded MCUs and easily add wireless connectivity to their system without going
+through the learning curve of Bluetooth Low Energy wireless protocol and
+software stacks.
+All SNP & SAP project code is provided in full source form
+(except for the core BLE Stack), so the developer can easily port or customize
+these projects to work with other application processor MCUs.
+
+
+To get started with the simple\_np, please download the `MSP Bluetooth Plugin`_
+and do the Bluetooth SDK Plugin Lab of the  `MSP432P4 SimpleLink Academy`_
+
+Host Test
+---------
+
+Developers should consider HostTest for developing a dual-MCU BLE solution if
+they need to support the Central or multiple GAP roles and are familiar with
+the HCI and Vendor-Specific (VS) HCI protocol implementation.
+
+A combination of HCI and VS HCI commands/events form the interface to the
+HostTest app from the application processor. HostTest uses NPI (non Unified
+version, see link above) to send and receive raw HCI-formatted commands over the
+serial interface, and pack/unpack them for the BLE stack to process. At the NPI
+layer all HCI packets are queued up asynchronously. NPI primarily serves to
+pack and unpack the HCI data structures into byte arrays, all HCI packets are
+sent in a FIFO manner.
+
+The HCI/HCI Vendor Specific interface is described in the
+`TI Vendor Specific HCI Guide`_.
+See this document for more information about the TI Vendor Specific (VS)
+HCI interface.
+
+

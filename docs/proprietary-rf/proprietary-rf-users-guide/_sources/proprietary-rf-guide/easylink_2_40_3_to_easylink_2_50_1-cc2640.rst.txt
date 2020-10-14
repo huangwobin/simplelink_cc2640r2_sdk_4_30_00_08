@@ -1,0 +1,35 @@
+Porting From EasyLink 2.40.3 to EasyLink 2.50.1
+=================================================
+
+EasyLink 2.40.3 is bundled with the SimpleLink |DEVICEAND| **2.40** SDK. EasyLink 
+2.50.1 is bundled with the SimpleLink |DEVICEAND| **3.10** SDK. 
+
+For this migration guide, the rfEasyLinkTx project will be ported from EasyLink 
+2.40.3 to EasyLink 2.50.1. The steps should be transferable for any EasyLink 
+example project. 
+
+Because the directory structure is nearly identical between the two releases, the 
+recommended approach is to start with a EasyLink 2.50.1 project that contains the 
+same base functionality as the porting target project and merge in any custom 
+functionality. 
+
+#. Choose a EasyLink 2.50.1 example project that contains your target project’s 
+   base functionality. 
+
+   For this example, we will use rfEasyLinkTx as the starting EasyLink 2.50.1
+   example project. 
+
+#. Transfer all modified application files from EasyLink 2.40.3 into the EasyLink 
+   2.50.1 example project.
+
+   In this example, the following files from EasyLink 2.40.3 were moved into 
+   rfEasyLinkTx EasyLink 2.50.1 example:
+
+		* ``rfEasyLinkTx.c``
+		* ``smartrf_settings`` files
+
+#. Configure the default address.
+
+   In EasyLink 2.50.1 there are two new parameter in ``easylink_config.h`` called 
+   EASYLINK_USE_DEFAULT_ADDR and EASYLINK_DEFAULT_ADDR. Thier usage is documented 
+   in  ``easylink_config.h``

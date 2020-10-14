@@ -1,0 +1,17 @@
+[
+    {
+        "files": [
+            "+../main_nortos.c -> main_nortos.c",
+            "+../gpiointerrupt.c -> gpiointerrupt.c",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.icf -> CC2640R2_LAUNCHXL_NoRTOS.icf",
+            "+../Board.h -> Board.h",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../README.md -> README.md",
+            "+../README.html -> README.html",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>On-Chip OAD &mdash; 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Migration Guides" href="../../proprietary-rf-guide/migration-cc2640.html" />
+    <link rel="prev" title="Off-Chip OAD" href="oad_offchip.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc2640 oad-easylink oad_onchip";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/quickstart-cc2640.html">Proprietary RF Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/examples-cc2640.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/proprietary-rf-index-cc2640.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/memory-index.html">Memory overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="oad.html">Over the Air Download (OAD)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html">Firmware update process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html">Image Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html">Off-Chip OAD</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">On-Chip OAD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constraints-and-requirements-for-on-chip-oad">Constraints and Requirements for On-chip OAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-chip-oad-memory-layout">On-Chip OAD Memory layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-on-chip-oad-image">Creating an On-chip OAD image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bim-for-on-chip-oad">BIM for On-chip OAD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/migration-cc2640.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/reference-cc2640.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../proprietary-rf-guide/index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="oad.html">Over the Air Download (OAD)</a> &raquo;</li>
+        
+      <li>On-Chip OAD</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="on-chip-oad">
+<span id="sect-on-chip-oad"></span><h1>On-Chip OAD<a class="headerlink" href="#on-chip-oad" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the On-chip OAD process. On-chip OAD uses only internal
+flash to update the user application. No external memory components are
+required to implement On-chip OAD.</p>
+<div class="section" id="constraints-and-requirements-for-on-chip-oad">
+<span id="sect-on-chip-limitations"></span><h2>Constraints and Requirements for On-chip OAD<a class="headerlink" href="#constraints-and-requirements-for-on-chip-oad" title="Permalink to this headline">¶</a></h2>
+<p>In order to perform On-chip OAD the application design must meet the following
+requirements:</p>
+<ul class="simple">
+<li>The application must be built without the <code class="code docutils literal notranslate"><span class="pre">.ccfg</span></code> section.</li>
+<li>Image header + application image must not exceed 60 KiB code size.</li>
+<li>The application must be built with OAD capabilities.</li>
+</ul>
+<p>Please note that the OAD Image header differs in the EasyLink example projects
+compared to OAD examples in the BLE-Stack and TI 15.4-Stack.</p>
+</div>
+<div class="section" id="on-chip-oad-memory-layout">
+<span id="sect-on-chip-bim-memory-layout"></span><h2>On-Chip OAD Memory layout<a class="headerlink" href="#on-chip-oad-memory-layout" title="Permalink to this headline">¶</a></h2>
+<p>The memory map for CC2640R2 internal flash in an On-chip OAD configuration is
+shown below.</p>
+<img alt="../../_images/aafig-9b22b4dbc89b8e9f8f6f06f25b057e3883e0b7ac.png" class="align-center" src="../../_images/aafig-9b22b4dbc89b8e9f8f6f06f25b057e3883e0b7ac.png" />
+<p>The internal flash contains the <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-55"><span class="xref std std-term">BIM</span></a> in the first flash page and the
+customer configuration area (.ccfg) in the last flash page. Both are
+persistent and can not be updated. The remaining flash pages are split in 2
+sections A and B, each starting with a 16 Bytes meta data header followed by
+the application image. The application must not exceed 60 KiB code size.</p>
+</div>
+<div class="section" id="creating-an-on-chip-oad-image">
+<span id="sect-create-on-chip-image"></span><h2>Creating an On-chip OAD image<a class="headerlink" href="#creating-an-on-chip-oad-image" title="Permalink to this headline">¶</a></h2>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li>Python 2.7</li>
+<li>Python intelhex-2.1</li>
+<li>Python crcmod-1.7</li>
+</ul>
+<p>To build a project for On-Chip OAD with Code Composer Studio, the following
+settings must be configured:</p>
+<ul>
+<li><p class="first">Predefined symbols:</p>
+<ul class="simple">
+<li>FEATURE_OAD_ONCHIP</li>
+<li>HAL_IMAGE_A or HAL_IMAGE_B</li>
+</ul>
+</li>
+<li><p class="first">In the TI-RTOS .cfg file, the reset vector addresses must be configured</p>
+<div class="code js highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Assign an address for the reset vector.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Default is 0x0, which is the start of Flash. Ordinarily this setting should</span>
+<span class="cm"> * not be changed.</span>
+<span class="cm"> */</span>
+<span class="c1">// Image A Reset Vector Address</span>
+<span class="n">m3Hwi</span><span class="p">.</span><span class="n">resetVectorAddress</span> <span class="o">=</span> <span class="mh">0x1010</span><span class="p">;</span>
+
+<span class="c1">// Image B Reset Vector Address</span>
+<span class="c1">//m3Hwi.resetVectorAddress = 0x10010;</span>
+</pre></div>
+</div>
+<p>Comment out the appropriate resetVectorAddress for the image you are not building.</p>
+</li>
+<li><p class="first">Hex file generation must be enabled to let CCS generate a binary in hex format.</p>
+</li>
+</ul>
+<p>Now we can either combine the application with the <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-55"><span class="xref std std-term">BIM</span></a> to flash both
+during production or we can just create and prepend the meta data for a
+regular firmware update.</p>
+<p>For the former case, the python intelhex merge utility is used to combine the
+BIM and App into one hex file that can be downloaded later with UniFlash or
+SmartRF Flash Programmer 2:</p>
+<div class="code sh highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">SDK_DIR</span><span class="o">&gt;/</span><span class="n">examples</span><span class="o">/</span><span class="n">rtos</span><span class="o">/</span><span class="n">CC1310_LAUNCHXL</span><span class="o">/</span><span class="n">easylink</span><span class="o">/</span><span class="n">hexfiles</span><span class="o">/</span><span class="n">oad</span><span class="o">/&lt;</span><span class="n">int_flash</span><span class="o">/</span><span class="n">ext_flash</span><span class="o">&gt;/</span>
+<span class="n">python</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">hexmerge</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">rfWsnNodeOad_CC1310LP_all</span><span class="p">.</span><span class="n">hex</span> <span class="s">&quot;--overlap=error&quot;</span> <span class="n">rfWsnNodeOad_CC1310LP_app</span><span class="p">.</span><span class="n">hex</span> <span class="n">bim_extflash_cc1350lp_bim</span><span class="p">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+<p>The resulting binary still lacks the OAD header, so we need to add it with the oad_image_tool.py:</p>
+<div class="code sh highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">easylink</span><span class="o">/</span><span class="n">oad_image_tool</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">v</span> <span class="mh">0x100</span> <span class="o">-</span><span class="n">m</span> <span class="mh">0x1000</span> <span class="o">-</span><span class="n">t</span> <span class="n">onchip</span> <span class="o">-</span><span class="n">i</span> <span class="n">production</span> <span class="n">rfWsnNodeOad_CC1310LP_all</span><span class="p">.</span><span class="n">hex</span> <span class="o">-</span><span class="n">ob</span> <span class="n">rfWsnNodeOad_CC1310LP_all</span><span class="p">.</span><span class="n">bin</span>
+</pre></div>
+</div>
+<p>In the other case where an OAD image is desired, the same <code class="docutils literal notranslate"><span class="pre">oad_image_tool.py</span></code> is used, but with the command line options:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">onchip</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">app</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">0x1000</span></code> (for image A) or <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">0x10000</span></code> (for image B)</li>
+<li>A version number that is newer than the current image residing on the device
+where major version (XX) and minor version (YY) must be of the format 0xXXYY, for example 2.3 would be 0x0203.</li>
+</ul>
+<p>An example of building a binary for each case is shown below. If you are
+directly flashing the image to the device with the BIM, please see the next
+section.</p>
+<p>OAD Image A:</p>
+<div class="code python highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">oad_image_tool</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">t</span> <span class="n">onchip</span> <span class="o">-</span><span class="n">i</span> <span class="n">app</span> <span class="o">-</span><span class="n">v</span> <span class="mh">0x0100</span> <span class="o">-</span><span class="n">m</span> <span class="mh">0x1000</span> <span class="o">-</span><span class="n">ob</span> <span class="n">app_v1</span><span class="p">.</span><span class="n">bin</span> <span class="n">app_v1</span><span class="p">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+<p>OAD Image B:</p>
+<div class="code python highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">oad_image_tool</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">t</span> <span class="n">onchip</span> <span class="o">-</span><span class="n">i</span> <span class="n">app</span> <span class="o">-</span><span class="n">v</span> <span class="mh">0x0200</span> <span class="o">-</span><span class="n">m</span> <span class="mh">0x10000</span> <span class="o">-</span><span class="n">ob</span> <span class="n">app_v2</span><span class="p">.</span><span class="n">bin</span> <span class="n">app_v2</span><span class="p">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+<p>Please note that BIM chooses the Image with the highest version number
+(provided that Image A and Image B have valid CRC status).</p>
+</div>
+<div class="section" id="bim-for-on-chip-oad">
+<span id="sect-bim-for-on-chip-oad"></span><h2>BIM for On-chip OAD<a class="headerlink" href="#bim-for-on-chip-oad" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-55"><span class="xref std std-term">BIM</span></a> executes on startup and decides from which of the two images
+it should proceed. In order to build the <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-55"><span class="xref std std-term">BIM</span></a>, the <code class="docutils literal notranslate"><span class="pre">bim_onchip</span></code>
+example project can be used. Prebuilt <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-55"><span class="xref std std-term">BIM</span></a> files are available in the
+example project folder.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../proprietary-rf-guide/migration-cc2640.html" class="btn btn-neutral float-right" title="Migration Guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="oad_offchip.html" class="btn btn-neutral float-left" title="Off-Chip OAD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2016-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

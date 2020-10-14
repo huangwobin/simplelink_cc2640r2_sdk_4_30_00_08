@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Serial Interface (NPI) &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TI Provided Board Files" href="custom-hardware.html" />
+    <link rel="prev" title="Defining Application Behavior" href="creating-a-custom-bluetooth-low-energy-application.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x network-processor";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Serial Interface (NPI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ti-ble-wireless-network-processor-example-projects">TI BLE Wireless Network Processor Example Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simple-network-processor">Simple Network Processor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Host Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a> &raquo;</li>
+        
+      <li>Serial Interface (NPI)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This page will describe how to use the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> as a Bluetooth Low Energy
+(BLE) wireless network processor. A wireless network processor (<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-126"><span class="xref std std-term">NP</span></a>)
+setup is a dual MCU solution, where an external MCU such as the MSP432 manages
+the Bluetooth application layer (Profiles and Services) and sends commands to
+the
+<a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> BLE wireless MCU over a serial interface. In the NP
+configuration, the BLE Host and Controller protocol stack elements reside on
+the wireless MCU.
+Adding BLE to your existing MCU quickly enables IoT capability in an existing
+closed/cabled design.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A Network Processor is not the same as an HCI LE Controller-only
+configuration, such as supported by CC2564 and WiLink8 controllers.
+The <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> wireless MCU does not support a standalone LE
+Controller-only configuration since the TI BLE Stack (Host and Controller)
+executes on the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a>.</p>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/simple_network_processor.png"><img alt="../_images/simple_network_processor.png" src="../_images/simple_network_processor.png" style="width: 75%;" /></a>
+</div>
+<div class="section" id="serial-interface-npi">
+<h1>Serial Interface (NPI)<a class="headerlink" href="#serial-interface-npi" title="Permalink to this headline">¶</a></h1>
+<p>The serial connection between the Application Processor (<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-128"><span class="xref std std-term">AP</span></a>) and Network
+Processor is handled through TI’s Network Processor Interface (NPI). NPI is
+compile time configurable and currently supports UART and SPI. There are two
+versions of NPI. While they share a lot of similarities, there are important
+differences that must be accounted for when developing a dual MCU solution.</p>
+<p>To learn more about the NPI interface that each NP solution uses, please see
+<a class="reference internal" href="../ble-stack-common/npi-index.html#sec-npi"><span class="std std-ref">Network Processor Interface (NPI)</span></a></p>
+</div>
+<div class="section" id="ti-ble-wireless-network-processor-example-projects">
+<h1>TI BLE Wireless Network Processor Example Projects<a class="headerlink" href="#ti-ble-wireless-network-processor-example-projects" title="Permalink to this headline">¶</a></h1>
+<p>TI offers two Wireless Network Processor example projects in the BLE-Stack
+to quickly add BLE to your existing MCU/SoC architecture.
+To assist with finding the right NP application for your Bluetooth Low Energy
+(BLE) design, the table below shows some of the benefits and trade offs
+associated with each NP example. These sample projects can be found under the
+examples folder in the BLE-Stack SDK.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="30%" />
+<col width="4%" />
+<col width="33%" />
+<col width="27%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name</td>
+<td>Description</td>
+<td>Interface</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+</tr>
+<tr class="row-even"><td>SimpleNP (SNP)</td>
+<td>An easy to use BLE network processor solution and default SW  offering.
+HCI layer is abstracted away, interface with NP via remote procedure calls.</td>
+<td>Unified
+NPI</td>
+<td>Only a handful of commands are required to start sending data over BLE.
+Most Bluetooth related processing is handled by the SNP, freeing up the
+application processor (AP) for other tasks.
+Lightweight interface library for the Application MCU (SAP) is provided in source.
+LE Security, including LE Secure Connections is supported.</td>
+<td>Peripheral + Broadcaster GAP role support only.</td>
+</tr>
+<tr class="row-odd"><td>HostTest</td>
+<td>A network processor solution that interfaces with TI’s controller and host
+using HCI and HCI Vendor Specific commands</td>
+<td>NPI</td>
+<td>Configurable, supports all controller and host roles and features from the SDK.
+Includes support for performing all  regulatory testing (i.e., FCC &amp; RF-PHY)</td>
+<td>Requires external MCU to implement the TI Vendor Specific HCI layer,
+handling all commands and events generated</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="simple-network-processor">
+<h2>Simple Network Processor<a class="headerlink" href="#simple-network-processor" title="Permalink to this headline">¶</a></h2>
+<p>SimpleNP is for developers who want to easily add a simple and reliable BLE
+interface/subsystem to an existing MCU. Using the BLE-Stack simple network
+processor mode allows for quick and easy addition of secure Bluetooth Low Energy
+wireless connectivity to any embedded system by providing a simple API (SAP)
+to drive the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> wireless MCU from a host microcontroller.
+The complete Bluetooth Low Energy controller, host and a simple network
+processor interface layer resides on the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> wireless MCU, while a light
+network processor driver library resides on an external MCU connected to
+<a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> device via a standard serial connection.
+Developers can leverage this mode to reuse years of technology developed on
+embedded MCUs and easily add wireless connectivity to their system without going
+through the learning curve of Bluetooth Low Energy wireless protocol and
+software stacks.
+All SNP &amp; SAP project code is provided in full source form
+(except for the core BLE Stack), so the developer can easily port or customize
+these projects to work with other application processor MCUs.</p>
+<p>To get started with the simple_np, please download the <a class="reference external" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/msp_connectivity_library/latest/index_FDS.html">MSP Bluetooth Plugin</a>
+and do the Bluetooth SDK Plugin Lab of the  <a class="reference external" href="http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20MSP432P4%20SDK%2FSimpleLink%20Academy%2FOverview">MSP432P4 SimpleLink Academy</a></p>
+</div>
+<div class="section" id="id3">
+<h2>Host Test<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Developers should consider HostTest for developing a dual-MCU BLE solution if
+they need to support the Central or multiple GAP roles and are familiar with
+the HCI and Vendor-Specific (VS) HCI protocol implementation.</p>
+<p>A combination of HCI and VS HCI commands/events form the interface to the
+HostTest app from the application processor. HostTest uses NPI (non Unified
+version, see link above) to send and receive raw HCI-formatted commands over the
+serial interface, and pack/unpack them for the BLE stack to process. At the NPI
+layer all HCI packets are queued up asynchronously. NPI primarily serves to
+pack and unpack the HCI data structures into byte arrays, all HCI packets are
+sent in a FIFO manner.</p>
+<p>The HCI/HCI Vendor Specific interface is described in the
+<a class="reference external" href="../../TI_BLE_Vendor_Specific_HCI_Guide.pdf">TI Vendor Specific HCI Guide</a>.
+See this document for more information about the TI Vendor Specific (VS)
+HCI interface.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="custom-hardware.html" class="btn btn-neutral float-right" title="TI Provided Board Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="creating-a-custom-bluetooth-low-energy-application.html" class="btn btn-neutral float-left" title="Defining Application Behavior" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+***********
+Application
+***********
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+
+   /ble-stack-3.x/the-application
+
+Memory Management
+=================
+
+This section aims to describe the various memory regions available on the
+device as well as how they are used by the stack and application. The
+chapter starts with an overview of the memory map of the device, and then each
+section goes into detail on how this memory region is used.
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-common/memory_map
+   /ble-stack-common/flash_memory-cc2640
+   /ble-stack-common/memory_management
+   /ble-stack-common/cache-as-ram
+   /ble-stack-common/aux-as-ram
+
+.. _the_stack:
+
+*********
+BLE-Stack
+*********
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-3.x/overview
+   /ble-stack-3.x/gap
+   /ble-stack-3.x/gaprole
+   /ble-stack-3.x/gatt
+   /ble-stack-3.x/gapbondmngr
+   /ble-stack-3.x/privacy
+   /ble-stack-common/l2cap
+   /ble-stack-common/link-layer-cc2640
+   /ble-stack-3.x/hci
+   /ble-stack-3.x/stack-configuration
+
+.. _creating_custom_ble_app:
+
+*******************************
+Developing a Custom Application
+*******************************
+
+A system designer must have a firm grasp on the general system
+architecture, application, and Bluetooth Low Energy stack framework
+to implement a custom Bluetooth Low Energy application. This section
+provides indications and guidance on where and how to start
+implementing a custom application based on information presented in
+the previous sections (:ref:`the_application` and :ref:`the_stack`)
+as well as knowledge of TI RTOS and |DEVICE|.
+
+Decide what role and purpose the custom
+application should have. If an application is tied to a specific
+service or profile, start with that sample application. Base your project on one
+of the following sample applications that implement one of the fundamental
+GAP roles:
+
+    - simple\_central
+
+    - simple\_peripheral
+
+    - simple\_broadcaster
+
+    - simple\_observer
+
+If you are using a network processor solution, please see the
+:ref:`sec-network-proc` section.
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-3.x/creating-a-custom-bluetooth-low-energy-application
+
+
+.. _sec-network-proc:
+
+*********************
+BLE Network Processor
+*********************
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-3.x/network-processor
+
+
+
+.. _sect-custom-hardware:
+
+**********************************
+Running the SDK on Custom Hardware
+**********************************
+
+.. toctree::
+   :maxdepth: 2
+
+   /ble-stack-3.x/custom-hardware

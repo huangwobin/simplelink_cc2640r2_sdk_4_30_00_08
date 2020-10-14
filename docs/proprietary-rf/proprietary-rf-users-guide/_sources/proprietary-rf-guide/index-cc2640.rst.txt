@@ -1,0 +1,37 @@
+.. _index-page:
+
+Proprietary RF User's Guide
+===========================
+
+This document describes how to use the SimpleLink Wireless MCU family
+|PROPRFDEVICE| from a software developer's point of view.  The focus is on
+proprietary communication on the RF core, but some general topics about
+TI-RTOS the high-level drivers are also covered.
+
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   quickstart-cc2640
+   index-platform-cc2640
+   examples-cc2640
+   custom-hardware
+   tirtos-index
+   nortos-index
+   rf-core-index
+   proprietary-rf-index-cc2640
+   easylink-index
+   debugging-index
+   memory-index
+   /cc2640/oad-easylink/oad
+   migration-cc2640
+   reference-cc2640
+   glossary-cc2640
+
+Indexes and tables
+==================
+
+* :doc:`glossary-cc2640`
+* :ref:`genindex`

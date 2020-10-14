@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Privacy &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logical Link Control and Adaptation Layer Protocol (L2CAP)" href="../ble-stack-common/l2cap.html" />
+    <link rel="prev" title="GAP Bond Manager and LE Secure Connections" href="gapbondmngr.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x privacy";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gap.html">Generic Access Profile (GAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gaprole.html">GAPRole Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gatt.html">Generic Attribute Profile (GATT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gatt.html#gap-gatt-service-ggs">GAP GATT Service (GGS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gatt.html#generic-attribute-profile-service-gatt-service">Generic Attribute Profile Service (GATT Service)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gatt.html#gattservapp-module">GATTServApp Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gapbondmngr.html">GAP Bond Manager and LE Secure Connections</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Privacy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#privacy-and-address-types">Privacy and Address Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device-addresses-in-the-ble-core-specification">Device Addresses in the BLE Core Specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-device-addresses-in-stack-applications">Using Device Addresses in BLE-Stack Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#resolving-private-addresses">Resolving Private Addresses</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host-responsibilities">Host Responsibilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resolving-list">Resolving List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller-responsibilities">Controller Responsibilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-privacy-in-stack">Using Privacy in BLE-Stack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simple-peripheral-setup">Simple Peripheral Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host-test-setup">Host Test Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstrating-privacy-using-btool">Demonstrating Privacy Using BTool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-common/l2cap.html">Logical Link Control and Adaptation Layer Protocol (L2CAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-common/link-layer-cc2640.html">Link Layer (LL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hci.html">Host Controller Interface (HCI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack-configuration.html">Stack Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a> &raquo;</li>
+        
+      <li>Privacy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="privacy">
+<span id="le-privacy"></span><h1>Privacy<a class="headerlink" href="#privacy" title="Permalink to this headline">¶</a></h1>
+<p>The LE privacy feature allows devices to periodically generate new address to
+use over the air. This behavior greatly reduces the ability for a scanner to
+track broadcasting Bluetooth Low Energy devices over a period of time.</p>
+<p>There are two privacy variants defined by the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>: Controller-based and
+Host-based. In Host-based privacy, the Host is responsible for managing all
+aspects of the privacy feature - generating new addresses to use and resolving
+private addresses sent by peers to determine their identity. In Controller-based
+privacy, the privacy feature is largely implemented in the Link Layer of the
+Controller. However, interaction with the Host is required for configuration and
+to manage communication with other devices using privacy.</p>
+<p>The BLE-Stack supports only the Controller-based privacy variant as defined by the
+<a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a> (Vol 1, Part A, Section 5.4.5). The Link Layer privacy feature is
+always enabled in the BLE-Stack.</p>
+<p>Privacy is discussed in the following sections of the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>. It is
+suggested to review and familiarize yourself with these sections before
+continuing.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Vol 1, Part A, Section 5.4.5 - Overview of the LE Privacy Feature</li>
+<li>Vol 2, Part E, Sections 7.8 - HCI Commands</li>
+<li>Vol 3, Part C, Section 10.7 - Privacy in the Host</li>
+<li>Vol 3, Part C, Section 12 - GAP Service and Characteristics for GATT Server</li>
+<li>Vol 6, Part B, Section 1.3 - Device Address</li>
+<li>Vol 6, Part B, Section 6 - Privacy in the Link Layer</li>
+</ul>
+</div></blockquote>
+<p>The following terms are used throughout the Privacy section. It is suggested to
+review these terms before continuing.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-device-address"><span class="xref std std-term">Device Address</span></a></li>
+<li><a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-identity-address"><span class="xref std std-term">Identity Address</span></a></li>
+<li><a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolvable-private-address"><span class="xref std std-term">Resolvable Private Address</span></a></li>
+<li><a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a></li>
+<li><a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="privacy-and-address-types">
+<h2>Privacy and Address Types<a class="headerlink" href="#privacy-and-address-types" title="Permalink to this headline">¶</a></h2>
+<p>Before going too in depth into a discussion of the BLE-Stack privacy
+implementation, one should have a thorough understanding about Device Address
+Types as defined by the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a> and how they are used by the BLE-Stack. The
+section below is intended to refresh the key concepts in order to provide
+context for the topic of Privacy. For other important implementation details,
+see the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a> or the BLE-Stack API Guide.</p>
+<div class="section" id="device-addresses-in-the-ble-core-specification">
+<h3>Device Addresses in the BLE Core Specification<a class="headerlink" href="#device-addresses-in-the-ble-core-specification" title="Permalink to this headline">¶</a></h3>
+<p>According to the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>, all Bluetooth device addresses can be divided into
+two types: Public (0x00) and Random (0x01). The Random address type can be
+categorized into two subtypes: Static or Private. The Private address subtype
+can be further divided into two subtypes: Resolvable or Non-Resolvable. These
+divisions can be visualized with the following tree:</p>
+<img alt="../_images/ditaa-dc7f81a6ba45323a4c0c2dd5c7450f0ea484bb06.png" src="../_images/ditaa-dc7f81a6ba45323a4c0c2dd5c7450f0ea484bb06.png" />
+<div class="section" id="public-device-address">
+<h4>Public Device Address<a class="headerlink" href="#public-device-address" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Static - does not change during device lifecycle</li>
+<li>Can be used as an Identity Address</li>
+</ul>
+</div>
+<div class="section" id="random-static-device-address">
+<h4>Random Static Device Address<a class="headerlink" href="#random-static-device-address" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Static - does not change during device lifecycle. May change after a power
+cycle.</li>
+<li>Can be used as an Identity Address</li>
+</ul>
+</div>
+<div class="section" id="random-resolvable-private-device-address-rpa">
+<h4>(Random) Resolvable Private Device Address (RPA)<a class="headerlink" href="#random-resolvable-private-device-address-rpa" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Device Address changes over time</li>
+<li>Address can be matched, or resolved, to an Identity Address for tracking by
+trusted peers.</li>
+</ul>
+</div>
+<div class="section" id="random-non-resolvable-private-device-address">
+<h4>(Random) Non-resolvable Private Device Address<a class="headerlink" href="#random-non-resolvable-private-device-address" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Device Address changes over time</li>
+<li>Does not provide a way to link private device address to a static address</li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-device-addresses-in-stack-applications">
+<h3>Using Device Addresses in BLE-Stack Applications<a class="headerlink" href="#using-device-addresses-in-stack-applications" title="Permalink to this headline">¶</a></h3>
+<p><strong>Configuring Local Device Address Mode</strong></p>
+<p>A BLE-Stack application configures its own device address mode with the
+<code class="docutils literal notranslate"><span class="pre">addrMode</span></code> parameter of <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaaffa833dc484847afd019d087eefb2c6">GAP_ConfigDeviceAddr()</a>. This API must be
+called after GAP_DeviceInit has completed and should not be called during
+scanning or advertising. See <a class="reference internal" href="#gapbondmgr-enable-rpa"><span class="std std-numref">Listing 66.</span></a>.</p>
+<p>The modes that are supported by the BLE-Stack are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="6%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>symbol</td>
+<td>value</td>
+<td>description</td>
+</tr>
+<tr class="row-even"><td>ADDRMODE_PUBLIC</td>
+<td>0x00</td>
+<td>the local device will only use a Public device address</td>
+</tr>
+<tr class="row-odd"><td>ADDRMODE_STATIC</td>
+<td>0x01</td>
+<td>the local device will only use a Random Static device address</td>
+</tr>
+<tr class="row-even"><td>ADDRMODE_PRIVATE_NONRESOLVE</td>
+<td>0x02</td>
+<td>the local device will use an Non-Resolvable Private Address</td>
+</tr>
+<tr class="row-odd"><td>ADDRMODE_PRIVATE_RESOLVE</td>
+<td>0x03</td>
+<td>the local device will always use an RPA that can be resolved to
+its Identity Address. The type of Identity Address used depends on
+whether or not a Random Static Address is passed to the
+GAP_ConfigDeviceAddr function.</td>
+</tr>
+</tbody>
+</table>
+<p>A BLE-Stack device can only change its address modes using GAP_ConfigDeviceAddr.
+By default, in the BLE-Stack, a Random Static address does not change after a
+power cycle and its identification information is stored in NV.</p>
+<p><strong>Interpreting Addresses in</strong> BLE-Stack <strong>Applications</strong></p>
+<p>Addresses can be received in GAP &amp; GAP Bond Manager events. Address
+information can also be queried using LinkDB. When receiving Peer Address
+information, the values will be different depending on whether or not the peer
+device identity information is in the Resolving List or not. The address types
+that may be seen for peer devices is as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="7%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>symbol</td>
+<td>value</td>
+<td>description</td>
+</tr>
+<tr class="row-even"><td>ADDRTYPE_PUBLIC</td>
+<td>0x00</td>
+<td>the corresponding device address is a Public address</td>
+</tr>
+<tr class="row-odd"><td>ADDRTYPE_RANDOM</td>
+<td>0x01</td>
+<td>the corresponding device address is a Random address
+of any subtype</td>
+</tr>
+<tr class="row-even"><td>ADDRTYPE_PUBLIC_ID</td>
+<td>0x02</td>
+<td>the corresponding device address is using an RPA
+with a Public identity address. Receiving this type
+means the RPA was resolved in the Controller.</td>
+</tr>
+<tr class="row-odd"><td>ADDRTYPE_RANDOM_ID</td>
+<td>0x03</td>
+<td>the corresponding device address is using an RPA
+with a Random Static identity address. Receiving this
+type means the RPA was resolved in the Controller.</td>
+</tr>
+</tbody>
+</table>
+<p>If a device adds the peer identity information to the resolving list, it will
+only receive the identity address in the application, not the RPA the peer is
+currently using.</p>
+<p>If an RPA is received for a bonded device in an event, this means that the
+address is not present in the resolving list. The address can still be resolved
+to its identity address at the application’s discretion, but it will always
+receive ADDRTYPE_RANDOM when receiving messages from the Controller.</p>
+<p><strong>Communicating Address Information to Controller</strong></p>
+<p>When specifying the address type of a peer device, linkDB_GetInfo can be used
+to the retrieve the correct address type. The <code class="docutils literal notranslate"><span class="pre">linkDBInfo_t</span></code> struct contains
+an addrType field that can be used to send the correct address type to the
+Controller.</p>
+</div>
+</div>
+<div class="section" id="resolving-private-addresses">
+<h2>Resolving Private Addresses<a class="headerlink" href="#resolving-private-addresses" title="Permalink to this headline">¶</a></h2>
+<p>The addresses we generally use in privacy discussions are RPAs and Identity
+Addresses. As mentioned above, a device using an RPA periodically changes the
+address it uses over the air. This happens at a specified timeout interval. The
+addresses it uses are generated with an Identity Resolving Key (<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-irk"><span class="xref std std-term">IRK</span></a>).
+This key associates the Resolvable Private Address to an Identity Address that
+remains constant.</p>
+<p>The privacy feature inhibits tracking from untrusted peer devices. However, some
+devices may need the ability to recognize, and be recognized by, their peer
+devices after their RPA has changed. Since RPAs are associated with an identity
+address, they can be resolved to that fixed address, if a peer device has the
+right key.</p>
+<p>As mentioned above, in the Controller-based privacy variant, the Controller and
+the Host each manage different aspects of privacy. Prior to Bluetooth Core
+Specification v4.2, the Host was responsible for all aspects of privacy. The
+Link Layer Privacy feature was introduced in Bluetooth Core Specification 4.2.
+This feature hands off the repetitive work (generating &amp; resolving addresses) to
+the Controller, while the Host is responsible for configuration and
+managing identity information.</p>
+<p>The division of responsibilities between the Host and the Controller is depicted
+in the flowchart below and is covered in detail in the following sections:</p>
+<img alt="../_images/ditaa-79b92513a9dae06ed486bf4372de9761504deea3.png" src="../_images/ditaa-79b92513a9dae06ed486bf4372de9761504deea3.png" />
+<div class="section" id="host-responsibilities">
+<h3>Host Responsibilities<a class="headerlink" href="#host-responsibilities" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="setting-privacy-related-gap-parameters">
+<h4>Setting Privacy-related GAP Parameters<a class="headerlink" href="#setting-privacy-related-gap-parameters" title="Permalink to this headline">¶</a></h4>
+<p><strong>Configure Local RPA Usage</strong></p>
+<p>The Host is responsible for setting the address mode used by the Controller as
+discussed above using the GAP_ConfigDeviceAddr command. This contains the
+addrMode the Host wants the Controller to use when setting up its
+device address.</p>
+<p>If a BLE-Stack device is configured to use an RPA, the Host will also share its
+local identification information with the Controller upon initialization to use
+for local device address generation and to resolve the local device address when
+sent by peers.</p>
+<p><strong>Resolvable Private Address Timeout</strong></p>
+<p>When using an <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-rpa"><span class="xref std std-term">RPA</span></a>, the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a> specifies a default timeout interval
+of 15 minutes before the device changes its device address. This can be changed
+via the <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ga17bff9e0109ea7e726de6688f1e2acf8">TGAP_PRIVATE_ADDR_INT</a> parameter in
+<a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#ga45fab6682fc253681d7abe697a4fc0b5">GAP_SetParamValue()</a>.</p>
+</div>
+<div class="section" id="exchanging-supported-privacy-feature-information">
+<h4>Exchanging Supported Privacy Feature Information<a class="headerlink" href="#exchanging-supported-privacy-feature-information" title="Permalink to this headline">¶</a></h4>
+<p>Any device that is operating as a Central or a Peripheral must contain the GAP
+Service. The GAP Service contains 1 privacy-related characteristics: the Central
+Address Resolution Characteristic.</p>
+<p><strong>Central Address Resolution Characteristic (CAR)</strong></p>
+<p>Any device operating as a Central that supports the Link Layer Privacy feature
+must include a Central Address Resolution (CAR) Characteristic in its GAP
+Service. The value of this characteristic signifies whether or not the Central
+device can resolve its own address in the Controller. Since the Link Layer
+privacy feature is always enabled in the BLE-Stack, the GAP Service implemented by
+the BLE-Stack projects sets this value automatically.</p>
+<p>A Peripheral wishing to send Directed Advertisements when the peer Central is
+using an RPA must read this characteristic before proceeding. In order to
+accomplish this, the stack must be built with <code class="docutils literal notranslate"><span class="pre">GATT_NO_CLIENT</span></code> compiler option
+disabled so that the GATT client is included. See <a class="reference internal" href="creating-a-custom-bluetooth-low-energy-application.html#sec-compiler-options"><span class="std std-ref">Compiler Options</span></a>
+for more information on how to change predefined project symbols.The BLE-Stack
+reads this characteristic if the local device is a Peripheral that has bonded to
+a peer using an RPA. This characteristic is checked by <code class="docutils literal notranslate"><span class="pre">GapAdv_enable()</span></code> when
+attempting to send directed advertisements in the BLE-Stack.</p>
+</div>
+<div class="section" id="managing-identity-information">
+<h4>Managing Identity Information<a class="headerlink" href="#managing-identity-information" title="Permalink to this headline">¶</a></h4>
+<p>As mentioned above, RPAs can be associated with a long-term identity address
+using an IRK. During Phase 3 of the pairing process, BLE-Stack devices using RPAs
+exchange their IRKs and their Identity Addresses with their peers, as described
+in [Vol3] Part H, Section 3.6 of the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>. From this point on, given that
+a peer has shared a valid, non-zero <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-irk"><span class="xref std std-term">IRK</span></a> and uses a
+<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolvable-private-address"><span class="xref std std-term">Resolvable Private Address</span></a>, the peer device can resolve this <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-rpa"><span class="xref std std-term">RPA</span></a>
+into the associated <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-identity-address"><span class="xref std std-term">Identity Address</span></a>.</p>
+<p>If a Peer using an RPA exchanges an IRK containing all zeros, the IRK will not
+be considered valid and its RPA will not be resolved. Only devices using Random
+Static, Public, or Non-Resolvable Private device addresses should exchange a
+zero-IRK.</p>
+</div>
+<div class="section" id="managing-the-resolving-list">
+<h4>Managing the Resolving List<a class="headerlink" href="#managing-the-resolving-list" title="Permalink to this headline">¶</a></h4>
+<p>The Host is responsible for sharing the Identity Information it has
+collected with the Controller for resolution purposes. It is also responsible
+for removing devices from the resolving list when they are no longer needed or
+if the Identity Information has changed.</p>
+<p>If the Host wishes to use device filtering and still receive requests from
+incoming known peers who are using RPAs, it must provide the identification
+information to the Controller. Care should be taken in situations in which the
+Resolving List and the White List are both used. If your application requires
+White List filtering of devices using RPAs, please reference the
+<a class="reference internal" href="#sec-privacy-and-white-list"><span class="std std-ref">Privacy and White List</span></a> section below.</p>
+</div>
+</div>
+<div class="section" id="resolving-list">
+<h3>Resolving List<a class="headerlink" href="#resolving-list" title="Permalink to this headline">¶</a></h3>
+<p>When the Link Layer Privacy feature was introduced, the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a>
+concept was also introduced. A Resolving List contains device identity
+information for known devices that can be used by the Link Layer to resolve RPAs
+in the Controller before passing events to the Host. The resolving list contents
+determine how the Controller and Host communicate about devices using RPAs. A
+Resolving List is necessary in order to use device filtering with devices using
+RPAs.</p>
+<p>A resolving list record entry consists of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>an Identity Address</li>
+<li>the address type of Identity Address (Public or Random Static)</li>
+<li>the IRK used to resolve the Identity Address</li>
+</ul>
+</div></blockquote>
+<p>After bonding with a peer device, the Host can create a resolving list
+record entry for the device using the information shared during Phase 3 of the
+pairing process. This entry is added to the Resolving List which the Controller
+will use to process incoming RPAs. The <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolvable-private-address"><span class="xref std std-term">Resolvable Private Address</span></a> of a
+peer device is not used at the Host layer of the local device after bonding if
+its identity information is stored in the Resolving List. Instead, the RPA is
+resolved in the Controller and the Host is only given the associated peer’s
+<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-identity-address"><span class="xref std std-term">Identity Address</span></a> when receiving messages from the controller. In the
+BLE-Stack, the GAP Bond Manager automatically adds devices to the Resolving List
+after bonding.</p>
+<p>If the peer device identity information is not in the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a>,
+then the link layer may pass such link events to the host for further resolution
+(if <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> filtering is not used).</p>
+<p>In the rare event the peer IRK is no longer valid, one of the GAPBOND_ERASE
+parameters can be used to erase the bond record and remove the entry from the
+Resolving List. If the device has been added to the Resolving List, it will be
+removed automatically by the GAP Bond Manager. A peer IRK will only become
+invalid if the peer device has reset its identity information for some reason.
+This does not occur during normal operation but it might happen after a power
+cycle, device reset to factory conditions, NV data corruption, etc.</p>
+<p>Upon reset, the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a> is empty and it’s up to the host to
+add and remove devices from the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a>. This is automatically
+handled for the application when using the GAP Bond Manager. Devices are added
+to the Resolving List when a bond is added and are removed from the Resolving
+List when the bond is removed.</p>
+<p>If the local device receives incoming Link Layer events from the peer device
+that is using a <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolvable-private-address"><span class="xref std std-term">Resolvable Private Address</span></a>, it will attempt to resolve
+the address using the known IRKs in its Resolving List to see if it matches an
+Identity Address.</p>
+<p>If the Resolving List is full, the Host is responsible for determining if any of
+the existing Resolving List entries should be replaced if a new bond is formed.
+Any request from a peer using an RPA not in the resolving list will be
+forwarded to the Host as long as device filtering is disabled.</p>
+<div class="section" id="resolving-list-limitations">
+<h4>Resolving List Limitations<a class="headerlink" href="#resolving-list-limitations" title="Permalink to this headline">¶</a></h4>
+<p>The BLE-Stack supports a resolving list that can hold identity information for 10
+peers. This size is fixed and cannot be configured by the user. If more than 10
+addresses will need to be resolved, the application must handle the adding and
+removing of devices from the resolving list as needed.</p>
+</div>
+<div class="section" id="privacy-and-white-list">
+<span id="sec-privacy-and-white-list"></span><h4>Privacy and White List<a class="headerlink" href="#privacy-and-white-list" title="Permalink to this headline">¶</a></h4>
+<p>The Host also has the option to configure a filter policy in a
+<a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> which is also in the Controller’s link layer. When enabled,
+policies can be set to filter out Link Layer events after they were processed
+by the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-resolving-list"><span class="xref std std-term">Resolving List</span></a>. This provides a way of filtering devices if you
+only want to communicate with certain devices at a time. The Host can update the
+devices in the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> so that the
+Controller can automatically process future connection or scan events.</p>
+<p>The intent for the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> mechanism is to reduce power consumption
+by filtering out undesired devices. The <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> will prevent the Host
+from receiving packets about any device not in the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a>.
+By removing undesirable Link Layer events at the Controller, the Host can
+remain in low power modes. In order to take advantage of white list filtering,
+set the appropriate <code class="docutils literal notranslate"><span class="pre">GapAdv</span></code> and <code class="docutils literal notranslate"><span class="pre">GapScan</span></code> filter policies as
+described in the BLE5-Stack API Guide.</p>
+<p>The GAP Bond Manager can also be configured to have bonded device automatically
+added to the Controller’s <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-white-list"><span class="xref std std-term">White List</span></a> by setting the GAPBOND_AUTO_SYNC_WL
+parameter. This automatically adds the peer device Identity Address to the White
+List after adding the device to the Resolving List.</p>
+<p>When a local device receives a link layer event from a peer device, it will
+first check the resolving list to see if it contains an entry for the peer
+device before applying the white list filter. If there is not an entry in the
+Resolving List, the Controller will be unable to match the RPA it received to
+the corresponding Identity Address information. If the Controller is unable to
+resolve the address, it cannot match the Random address seen over the air to the
+Identity Address in the White List. That means Host will not receive information
+about a device using an RPA if the Identity Address is in the White List but not
+the Resolving List. If you are using the GAP Bond Manager, with the
+GAPBOND_AUTO_SYNC_WL parameter enabled, the BLE-Stack will automatically handle
+this behavior for you.</p>
+<p><strong>Enabling Auto Sync of White List</strong></p>
+<p>The stack can automatically add devices to the white list after
+bonding. Use the following code to enable this syncing of the white
+list.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<span id="privacy12-add-to-whitelist"></span><div class="code-block-caption"><span class="caption-number">Listing 65. </span><span class="caption-text">Enable syncing of white list.</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">autoSyncWhiteList</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">GAPBondMgr_SetParameter</span><span class="p">(</span><span class="n">GAPBOND_AUTO_SYNC_WL</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">autoSyncWhiteList</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="section" id="controller-responsibilities">
+<h3>Controller Responsibilities<a class="headerlink" href="#controller-responsibilities" title="Permalink to this headline">¶</a></h3>
+<p>The Link Layer privacy feature was introduced to enable device filtering when
+RPAs are being used. This feature moved the work of generating and resolving
+addresses to the Controller. The Controller relies on the contents of the
+resolving list to interact with other private devices.</p>
+<div class="section" id="generating-device-addresses">
+<h4>Generating Device Addresses<a class="headerlink" href="#generating-device-addresses" title="Permalink to this headline">¶</a></h4>
+<p>The Controller will generate the local device address. The Controller uses the
+local Identity Information in the Resolving List to generate its own address.
+The Controller uses the local device IRK and the identity address to generate
+the address is uses over-the-air. The RPA is generated using the Private Device
+Address Generation procedure detailed in [Vol 6] Part B, Section 1.3.2.2 of the
+<a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>.</p>
+<p>The Controller regenerates the RPA device address at the time interval specified
+by the Host using the value of <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ga17bff9e0109ea7e726de6688f1e2acf8">TGAP_PRIVATE_ADDR_INT</a>. The
+default value recommended by the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a> is 15 minutes.</p>
+</div>
+<div class="section" id="resolving-device-addresses">
+<h4>Resolving Device Addresses<a class="headerlink" href="#resolving-device-addresses" title="Permalink to this headline">¶</a></h4>
+<p>Device addresses are used over the air in advertising channel PDUs. The address
+type a device is using can be read in the TxAdd and RxAdd fields. If the value
+is ‘0’ the device address used is understood to be a Public device address. If
+the value used is ‘1’ the device is understood to be using a Random address (of
+any subtype).</p>
+<p>The Controller can attempt to resolve the addresses it sees Over the Air using
+the Private Device Address Resolution procedure detailed in [Vol 6] Part B,
+Section 1.3.2.3 of the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>.</p>
+<p>Devices are resolved by using the contents of the Resolving List. When the
+controller receives a peer RPA, it will check the RPA against the identity
+information of all the peer devices that have been added to the resolving list.
+If it finds a match, it will check the device the device is present in the white
+list (if one is being used), before sending the identity address with the
+correct identity address type (PUBLIC ID or RANDOM ID) to the Host.</p>
+<p>If it doesn’t find a match in the resolving list, the Controller will check to
+see if a white list is being used. If there is no white list, or the white list
+contains the peer device’s current RPA (because this may change over time,
+proper white list management must be used), the Controller will use the RPA
+and the RANDOM address type to send the request to the Host for further
+processing.</p>
+</div>
+</div>
+</div>
+<div class="section" id="using-privacy-in-stack">
+<h2>Using Privacy in BLE-Stack<a class="headerlink" href="#using-privacy-in-stack" title="Permalink to this headline">¶</a></h2>
+<p>The typical privacy use case can be demonstrated using the Simple Peripheral
+Host Test sample applications. BTool can be used to control and configure the
+Host Test application.</p>
+<div class="section" id="simple-peripheral-setup">
+<h3>Simple Peripheral Setup<a class="headerlink" href="#simple-peripheral-setup" title="Permalink to this headline">¶</a></h3>
+<p><strong>1. Enable the GATT client.</strong></p>
+<blockquote>
+<div>The application must have GATT client functionality to read the
+<code class="docutils literal notranslate"><span class="pre">Central</span> <span class="pre">Address</span> <span class="pre">Resolution</span></code> characteristic if Directed Advertisements
+will be used. If <code class="docutils literal notranslate"><span class="pre">GATT_NO_CLIENT</span></code> is defined in the project’s predefined
+symbols, remove it. See <a class="reference internal" href="creating-a-custom-bluetooth-low-energy-application.html#sec-compiler-options"><span class="std std-ref">Compiler Options</span></a> on how to change
+predefined project symbols.</div></blockquote>
+<p><strong>2. Configure Simple Peripheral device to use Resolvable Private Addresses.</strong></p>
+<p>Use <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaaffa833dc484847afd019d087eefb2c6">GAP_ConfigDeviceAddr()</a> to use random address. This API must be
+called after the GAP layer is started but cannot be called during any BLE
+activity. In peripheral.c, in the function <code class="docutils literal notranslate"><span class="pre">gapRole_processGAPMsg()</span></code> add the
+code below in the case statement for GAP_DEVICE_INIT_DONE_EVENT after
+<code class="docutils literal notranslate"><span class="pre">gapRole_state</span> <span class="pre">=</span> <span class="pre">GAPROLE_STARTED</span></code>:</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id4">
+<span id="gapbondmgr-enable-rpa"></span><div class="code-block-caption"><span class="caption-number">Listing 66. </span><span class="caption-text">Enabling Simple Peripheral to use Resolvable Private Addresses</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//set address type to resolvable private address</span>
+<span class="n">stat</span> <span class="o">=</span> <span class="n">GAP_ConfigDeviceAddr</span><span class="p">(</span><span class="n">ADDRMODE_PRIVATE_RESOLVE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">stat</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">System_abort</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>It can be verified with a sniffer that the address changes when
+advertising. The default timeout value between private (resolvable)
+address changes is 15 minutes. This can be modified by
+<a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#ga45fab6682fc253681d7abe697a4fc0b5">GAP_SetParamValue()</a> after calling <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaaffa833dc484847afd019d087eefb2c6">GAP_ConfigDeviceAddr()</a>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Set timeout value to 5 minute</span>
+<span class="n">GAP_SetParamValue</span><span class="p">(</span> <span class="n">TGAP_PRIVATE_ADDR_INT</span> <span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// Update the advertising data</span>
+<span class="c1">//...</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>3. Enable bonding to share your identity with trusted peer devices.</strong></dt>
+<dd><code class="docutils literal notranslate"><span class="pre">GAPBOND_BONDING_ENABLED</span></code> is a GAP Bond Manager Parameter that allows you
+to bond with a peer device during the pairing process. During this process,
+the devices share their IRKs so they can be known in the future when their
+RPAs change. This can be configured by changing the value of the <code class="docutils literal notranslate"><span class="pre">bonding</span></code>
+variable in simple_peripheral.c as shown below:</dd>
+</dl>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Request bonding (storing long-term keys for re-encryption upon subsequent</span>
+<span class="c1">// connections without repairing)</span>
+<span class="kt">uint8_t</span> <span class="n">bonding</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>4. Build the Stack Library and Application projects and flash the device.</strong></dt>
+<dd>After flashing the device, you can open a terminal using the standard COM
+settings: 115200, 8N1 (see BLE-Stack Quick Start Guide or Simple Peripheral
+README.html for more information).</dd>
+</dl>
+</div>
+<div class="section" id="host-test-setup">
+<h3>Host Test Setup<a class="headerlink" href="#host-test-setup" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>1. Enable the GAP Bond Manager.</strong></dt>
+<dd>The default Host Test project is built without the GAP Bond Manager enabled.
+The GAP Bond Manager greatly simplifies the pairing and bonding process. The
+GAP Bond Manager can be enabled by removing the comments around
+<code class="docutils literal notranslate"><span class="pre">-DGAP_BOND_MGR</span></code> in the Stack Library project’s build_config.opt.</dd>
+</dl>
+<p><strong>2. Build the Stack Library and Application projects and flash the device.</strong></p>
+</div>
+<div class="section" id="demonstrating-privacy-using-btool">
+<h3>Demonstrating Privacy Using BTool<a class="headerlink" href="#demonstrating-privacy-using-btool" title="Permalink to this headline">¶</a></h3>
+<p>BTool proficiency is expected. For more information about using BTool and how to
+issue advanced commands, see the BTool User’s Guide.</p>
+<dl class="docutils">
+<dt><strong>1. Configure Host Test device to use Resolvable Private Addresses.</strong></dt>
+<dd>After the BTool initialization procedure, send GAP_ConfigDeviceAddr with the
+addrMode <code class="docutils literal notranslate"><span class="pre">ADDRMODE_PRIVATE_RESOLVE</span></code>.</dd>
+<dt><strong>2. Configure Host Test Bond Manager.</strong></dt>
+<dd><p class="first">The following parameters should be set using the <code class="docutils literal notranslate"><span class="pre">GAPBondMgr_SetParameter</span></code>
+command:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="23%" />
+<col width="32%" />
+<col width="46%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>paramID</td>
+<td>value</td>
+<td>effect</td>
+</tr>
+<tr class="row-even"><td>GAPBOND_PAIRING_MODE</td>
+<td>GAPBOND_PAIRING_MODE_INITIATE</td>
+<td>Sends Pairing Request upon connection formation</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND_IO_CAPABILITIES</td>
+<td>GAPBOND_IO_CAP_NO_INPUT_NO_OUTPUT</td>
+<td>Forces JustWorks pairing so passcode isn’t needed</td>
+</tr>
+<tr class="row-even"><td>GAPBOND_BONDING_ENABLED</td>
+<td>TRUE</td>
+<td>Saves Bond Record in SNV for future connections</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>3. Scan and Connect to Simple Peripheral Device.</strong></dt>
+<dd>After Host Test parameter configuration, you can scan and connect to Simple
+Peripheral using the Scan and Establish buttons in the Discover Connect
+Operations tab. Simple Peripheral will be advertising using the RPA
+displayed in its terminal window. In the BTool Advertisement Reports, you
+will see that the address type for Simple Peripheral is 0x01
+(ADDRTYPE_RANDOM).</dd>
+<dt><strong>4. Disconnect and Scan again.</strong></dt>
+<dd>Disconnect from Simple Peripheral using the Terminate button in BTool. Use
+the Scan button to rediscover peer devices. Now, the Simple Peripheral
+Advertisement Report will display the Identity Address displayed in the
+Simple Peripheral terminal window. The address type is listed as 0x02
+(ADDRTYPE_PUBLIC_ID) which means the RPA was resolved to an IA before being
+passed to the Host.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ble-stack-common/l2cap.html" class="btn btn-neutral float-right" title="Logical Link Control and Adaptation Layer Protocol (L2CAP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gapbondmngr.html" class="btn btn-neutral float-left" title="GAP Bond Manager and LE Secure Connections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

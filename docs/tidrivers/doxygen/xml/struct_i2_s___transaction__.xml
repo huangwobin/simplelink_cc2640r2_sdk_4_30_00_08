@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_i2_s___transaction__" kind="struct" language="C++" prot="public">
+    <compoundname>I2S_Transaction_</compoundname>
+    <includes refid="_i2_s_8h" local="no">I2S.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_i2_s___transaction___1a5228d22402bcfebc6501698484287ada" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_list___elem" kindref="compound">List_Elem</ref></type>
+        <definition>List_Elem I2S_Transaction_::queueElement</definition>
+        <argsstring></argsstring>
+        <name>queueElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Used internally to link descriptors together </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="649" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="649" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1a4ff4f588027c268d095934f9712c874e" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2S_Transaction_::bufPtr</definition>
+        <argsstring></argsstring>
+        <name>bufPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the buffer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="651" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="651" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1a417c126a698a675b74b1a1ab270b3898" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t I2S_Transaction_::bufSize</definition>
+        <argsstring></argsstring>
+        <name>bufSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of the buffer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="653" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="653" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1ab85c4420ca74927bbe58409d474cc433" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t I2S_Transaction_::bytesTransferred</definition>
+        <argsstring></argsstring>
+        <name>bytesTransferred</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal use only. Number of bytes written to or read from the buffer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="655" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="655" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1ae3c18b29fdac33fc14608c9356fdfcd7" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t I2S_Transaction_::untransferredBytes</definition>
+        <argsstring></argsstring>
+        <name>untransferredBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of non-transfered bytes at transaction&apos;s end. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="657" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="657" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1a2acdcde7e70f6f458fa891c3767ab6b0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t I2S_Transaction_::numberOfCompletions</definition>
+        <argsstring></argsstring>
+        <name>numberOfCompletions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter incremented each time the transaction is completed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="659" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="659" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___transaction___1a44991881905faa78742079722b174986" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t I2S_Transaction_::arg</definition>
+        <argsstring></argsstring>
+        <name>arg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal argument. Application must not modify this element. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="661" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="661" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>I2S transaction descriptor. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="444">
+        <label>List_Elem</label>
+        <link refid="struct_list___elem"/>
+        <childnode refid="444" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="443">
+        <label>I2S_Transaction_</label>
+        <link refid="struct_i2_s___transaction__"/>
+        <childnode refid="444" relation="usage">
+          <edgelabel>queueElement</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="647" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="647" bodyend="662"/>
+    <listofallmembers>
+      <member refid="struct_i2_s___transaction___1a44991881905faa78742079722b174986" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>arg</name></member>
+      <member refid="struct_i2_s___transaction___1a4ff4f588027c268d095934f9712c874e" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>bufPtr</name></member>
+      <member refid="struct_i2_s___transaction___1a417c126a698a675b74b1a1ab270b3898" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>bufSize</name></member>
+      <member refid="struct_i2_s___transaction___1ab85c4420ca74927bbe58409d474cc433" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>bytesTransferred</name></member>
+      <member refid="struct_i2_s___transaction___1a2acdcde7e70f6f458fa891c3767ab6b0" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>numberOfCompletions</name></member>
+      <member refid="struct_i2_s___transaction___1a5228d22402bcfebc6501698484287ada" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>queueElement</name></member>
+      <member refid="struct_i2_s___transaction___1ae3c18b29fdac33fc14608c9356fdfcd7" prot="public" virt="non-virtual"><scope>I2S_Transaction_</scope><name>untransferredBytes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

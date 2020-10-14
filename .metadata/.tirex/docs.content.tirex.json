@@ -1,0 +1,318 @@
+[{
+        "name": "Release Notes",
+        "resourceType": "file",
+        "location": "../../release_notes_simplelink_cc2640r2_sdk_4_30_00_08.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "Documentation Overview",
+        "resourceType": "file",
+        "location": "../../docs/Documentation_Overview.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/Quick_Start_Guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "SimpleLink MCU SDK User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/Users_Guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "BLE-Stack User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/blestack/ble_user_guide/blestack-users-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "BLE-Stack Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/blestack/ble_user_guide/blestack-getting-started-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "BLE-Stack API Guide",
+        "resourceType": "file",
+        "location": "../../docs/blestack/ble_user_guide/blestack-apis.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "BLE-Stack Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/blestack/ble_user_guide/blestack-migration-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "BLE-Stack Debugging Guide",
+        "resourceType": "file",
+        "location": "../../docs/blestack/ble_user_guide/blestack-debugging.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "BLE5-Stack User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-users-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-getting-started-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack API Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-apis.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-migration-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Debugging Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-debugging.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "Proprietary RF User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/proprietary-rf/proprietary-rf-users-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Proprietary RF"]
+    },
+    {
+        "name": "Proprietary RF Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/proprietary-rf/proprietary-rf-quick-start-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Proprietary RF"]
+    },
+    {
+        "name": "Proprietary RF Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/proprietary-rf/proprietary-rf-migration-guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Proprietary RF"]
+    },
+    {
+        "name": "TI Drivers Power Management",
+        "resourceType": "file",
+        "location": "../../docs/tidrivers/Power_Management.pdf",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Drivers"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Drivers"]
+    },
+    {
+        "name": "TI Drivers Runtime APIs",
+        "resourceType": "file",
+        "location": "../../docs/tidrivers/tidriversAPIs.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Drivers"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Drivers"]
+    },
+    {
+        "name": "TI-RTOS Kernel Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/release_notes_bios_6_55_01_03.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Kernel"]
+    },
+    {
+        "name": "TI-RTOS Kernel User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/docs/Bios_User_Guide.pdf",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Kernel"]
+    },
+    {
+        "name": "TI-RTOS Kernel Runtime APIs and Configuration",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/docs/Bios_APIs.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Kernel"]
+    },
+    {
+        "name": "TI-POSIX User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/tiposix/Users_Guide.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": [
+            "Documents",
+            "TI POSIX"
+        ]
+    },
+    {
+        "name": "TI-RTOS Instrumentation Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/release_notes_uia_2_40_00_06.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    },
+    {
+        "name": "TI-RTOS Instrumentation User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/docs/spruh43f.pdf",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    },
+    {
+        "name": "TI-RTOS Instrumentation Runtime APIs and Configuration",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/docs/cdoc/index.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    },
+    {
+        "name": "Driverlib Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/driverlib_cc13xx_cc26xx/release_notes_driverlib_cc13xx_cc26xx.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "DriverLib"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["DriverLib"]
+    },
+    {
+        "name": "Driverlib Documentation",
+        "resourceType": "file",
+        "location": "../../docs/driverlib_cc13xx_cc26xx/doc_overview_driverlib_cc13xx_cc26xx.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Documents", "DriverLib"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["DriverLib"]
+    },
+    {
+        "name": "Connection Monitor Readme",
+        "resourceType": "file",
+        "location": "../../tools/blestack/connection_monitor/README.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Tools", "BLE-Stack"],
+        "mainCategories": ["Tools"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "OAD Readme",
+        "resourceType": "file",
+        "location": "../../tools/blestack/oad/README.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Tools", "BLE-Stack"],
+        "mainCategories": ["Tools"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "RTLS Agent Readme",
+        "resourceType": "file",
+        "location": "../../tools/blestack/rtls_agent/README.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Tools", "BLE-Stack"],
+        "mainCategories": ["Tools"],
+        "subCategories": ["BLE-Stack"]
+    },
+    {
+        "name": "Lib Search Readme",
+        "resourceType": "file",
+        "location": "../../tools/ble5stack/lib_search/README.html",
+        "devices": ["CC2640R2F"],
+        "devtools": ["LAUNCHXL-CC2640R2"],
+        "categories": ["Tools", "BLE5-Stack"],
+        "mainCategories": ["Tools"],
+        "subCategories": ["BLE5-Stack"]
+    }
+]

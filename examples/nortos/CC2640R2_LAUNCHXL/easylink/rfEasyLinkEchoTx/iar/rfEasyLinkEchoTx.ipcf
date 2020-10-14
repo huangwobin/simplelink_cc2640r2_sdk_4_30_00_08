@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IAR Project Connection File -->
+
+<iarProjectConnection version="1.8" name="rfEasyLinkEchoTx" oneShot="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+  xsi:noNamespaceSchemaLocation="IarProjectConnection_1.8.xsd">
+
+  <device>
+    <name>CC2640R2F</name>
+  </device>
+
+  <includePath>
+    <path>$PROJ_DIR$</path>
+    <path>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source</path>
+    <path>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/kernel/nortos</path>
+    <path>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/kernel/nortos/posix</path>
+  </includePath>
+
+  <defines>
+    <define>DeviceFamily_CC26X0R2</define>
+    <define>SUPPORT_PHY_CUSTOM</define>
+    <define>SUPPORT_PHY_2_4_100KBPS2GFSK</define>
+    <define>SUPPORT_PHY_2_4_250KBPS2GFSK</define>
+  </defines>
+
+  <extraOptions>
+      <arg></arg>
+      <arg>--debug</arg>
+      <arg>--silent</arg>
+      <arg>-e</arg>
+      <arg>--aeabi</arg>
+      <arg>--thumb</arg>
+      <arg>--diag_suppress=Pa050</arg>
+  </extraOptions>
+
+  <asmIncludePath>
+    <path>$PROJ_DIR$</path>
+  </asmIncludePath>
+
+  <asmDefines>
+  </asmDefines>
+
+  <linkerFile>
+    <override>true</override>
+    <path>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/iar/CC2640R2_LAUNCHXL_NoRTOS.icf</path>
+  </linkerFile>
+
+  <linkerExtraOptions>
+    <args>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/display/lib/display.arm3</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/grlib/lib/iar/m3/grlib.a</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/third_party/spiffs/lib/iar/m3/spiffs_cc26xx.a</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/drivers/rf/lib/rf_multiMode_cc26x0r2.arm3</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/drivers/lib/drivers_cc26x0r2.arm3</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/kernel/nortos/lib/nortos_cc26x0r2.arm3</arg>
+      <arg>$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/devices/cc26x0r2/driverlib/bin/iar/driverlib.lib</arg>
+      <arg>--silent</arg>
+      <arg>--cpu=Cortex-M3</arg>
+    </args>
+  </linkerExtraOptions>
+
+  <customBuildTools>
+  </customBuildTools>
+
+  <heaps>
+    <heap> <!-- If omitted, id="0" -->
+      <size>0</size>
+    </heap>
+    <heap id="1">
+      <size>0</size>
+    </heap>
+  </heaps>
+  <stacks>
+    <stack> <!-- If omitted, id="0" -->
+      <size>512</size>
+    </stack>
+  </stacks>
+
+
+  <files>
+    <group name="Source files">
+      <path copyTo="$PROJ_DIR$/easylink/easylink_config.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/easylink/easylink_config.c</path>
+      <path copyTo="$PROJ_DIR$/easylink/EasyLink_nortos.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/easylink/EasyLink_nortos.c</path>
+      <path copyTo="$PROJ_DIR$/main_nortos.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/main_nortos.c</path>
+      <path copyTo="$PROJ_DIR$/smartrf_settings/smartrf_settings.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/smartrf_settings/smartrf_settings.c</path>
+      <path copyTo="$PROJ_DIR$/smartrf_settings/smartrf_settings_predefined.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/smartrf_settings/smartrf_settings_predefined.c</path>
+      <path copyTo="$PROJ_DIR$/rfEasyLinkEchoTx_nortos.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/rfEasyLinkEchoTx_nortos.c</path>
+      <path copyTo="$PROJ_DIR$/CC2640R2_LAUNCHXL.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/CC2640R2_LAUNCHXL.c</path>
+      <path copyTo="$PROJ_DIR$/CC2640R2_LAUNCHXL_fxns.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/CC2640R2_LAUNCHXL_fxns.c</path>
+      <path copyTo="$PROJ_DIR$/ccfg.c">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/ccfg.c</path>
+      <path copyTo="$PROJ_DIR$/CC2640R2_LAUNCHXL_NoRTOS.icf">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/iar/CC2640R2_LAUNCHXL_NoRTOS.icf</path>
+    </group>
+
+    <group name="Header files">
+      <path copyTo="$PROJ_DIR$/easylink/EasyLink.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/easylink/EasyLink.h</path>
+      <path copyTo="$PROJ_DIR$/easylink/easylink_config.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/easylink/easylink_config.h</path>
+      <path copyTo="$PROJ_DIR$/smartrf_settings/smartrf_settings.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/smartrf_settings/smartrf_settings.h</path>
+      <path copyTo="$PROJ_DIR$/smartrf_settings/smartrf_settings_predefined.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/smartrf_settings/smartrf_settings_predefined.h</path>
+      <path copyTo="$PROJ_DIR$/Board.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/Board.h</path>
+      <path copyTo="$PROJ_DIR$/CC2640R2_LAUNCHXL.h">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/CC2640R2_LAUNCHXL.h</path>
+    </group>
+
+    <group name="Documentation" build="false">
+      <path copyTo="$PROJ_DIR$/README.md">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/examples/nortos/CC2640R2_LAUNCHXL/easylink/rfEasyLinkEchoTx/README.md</path>
+      <path reference="$PROJ_DIR$/Board.html">$COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR$/source/ti/boards/CC2640R2_LAUNCHXL/Board.html</path>
+    </group>
+  </files>
+</iarProjectConnection>

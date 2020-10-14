@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CC2640 to CC2640R2F &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CC254x to CC2640" href="cc254x-to-cc2640.html" />
+    <link rel="prev" title="Running Software Examples on CC2640R2L" href="../cc2640/software-on-cc2640r2l.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x-guide cc2640-to-cc2640r2";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migration.html">Migration Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blestack3.03.04-to-blestack3.03.05.html">BLE-Stack 3.03.04 to BLE-Stack 3.03.05</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="migration.html#previous-migration-guides">Previous Migration Guides</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.03-to-blestack3.03.04.html">BLE-Stack 3.03.03 to BLE-Stack 3.03.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.02-to-blestack3.03.03.html">BLE-Stack 3.03.02 to BLE-Stack 3.03.03</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.01-to-blestack3.03.02.html">BLE-Stack 3.03.01 to BLE-Stack 3.03.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.00-to-blestack3.03.01.html">BLE-Stack 3.03.00 to BLE-Stack 3.03.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.03-to-blestack3.03.00.html">BLE-Stack 3.02.03 to BLE-Stack 3.03.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.02-to-blestack3.02.03.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.01-to-blestack3.02.02.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.00-to-blestack3.02.01.html">BLE-Stack 3.02.00 to BLE-Stack 3.02.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.01.01-to-blestack3.02.00.html">BLE-Stack 3.01.01 to BLE-Stack 3.02.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.01.00-to-blestack3.01.01.html">BLE-Stack 3.01.00 to BLE-Stack 3.01.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.00.01-to-blestack3.01.00.html">BLE-Stack 3.00.01 to BLE-Stack 3.01.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.00.00-to-blestack3.00.01.html">BLE-Stack 3.00.00 to BLE-Stack 3.00.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc2640/software-on-cc2640r2l.html">Running Software Examples on CC2640R2L</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CC2640 to CC2640R2F</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features-and-benefits">Features and Benefits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#porting-guide-from-cc2640-to-cc2640r2f">Porting Guide from CC2640 to CC2640R2F</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cc254x-to-cc2640.html">CC254x to CC2640</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="migration.html">Migration Guides</a> &raquo;</li>
+        
+      <li>CC2640 to CC2640R2F</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cc2640-to-cc2640r2f">
+<span id="cc2640-cc2640r2-migration-guide"></span><h1>CC2640 to CC2640R2F<a class="headerlink" href="#cc2640-to-cc2640r2f" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This section describes main differences an Application Developer must
+be aware of between the CC2640 and the CC2640R2F along with a example
+porting guide to demonstrate the migration effort.</p>
+<p>The CC2640R2F was designed to increase flash availability for the
+application, without changing underlying proven hardware of the CC2640.</p>
+<p>Due to the underlaying hardware and platform based on the CC2640, the
+migration effort from a CC2640 to CC2640R2F is very minor. For more information
+on specific steps, see <a class="reference internal" href="#cc2640-to-cc2640r2-porting-guide"><span class="std std-ref">Porting Guide from CC2640 to CC2640R2F</span></a>.</p>
+</div>
+<div class="section" id="features-and-benefits">
+<h2>Features and Benefits<a class="headerlink" href="#features-and-benefits" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>To enable maximum possible flash availability, the CC2640R2F features:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-additional-rom-support"><span class="std std-ref">Additional ROM Support on CC2640R2F</span></a></li>
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-improved-icall"><span class="std std-ref">Improved ICall and App/Stack Library Builds</span></a></li>
+</ul>
+</dd>
+<dt>Additional benefits of the CC2640R2F:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-launchpad-support"><span class="std std-ref">CC2640R2F LaunchPad Support</span></a></li>
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-improved-oad-support"><span class="std std-ref">Improved OAD Support</span></a></li>
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-ti-u-stack-for-broadcaster"><span class="std std-ref">Micro BLE Stack for Broadcaster Applications</span></a></li>
+<li><a class="reference internal" href="#cc2640-to-cc2640r2-additional-vs-hci-cmds"><span class="std std-ref">Additional Vendor Specific HCI Functionality</span></a></li>
+</ul>
+</dd>
+</dl>
+<p>These features and benefits enable rapid development, future-ready, and
+innovative robust products.</p>
+<div class="section" id="additional-rom-support-on-cc2640r2f">
+<span id="cc2640-to-cc2640r2-additional-rom-support"></span><h3>Additional ROM Support on CC2640R2F<a class="headerlink" href="#additional-rom-support-on-cc2640r2f" title="Permalink to this headline">¶</a></h3>
+<p>A majority of the increase in application flash availability on the CC2640R2F is
+due to portions of the BLE-Stack being placed into ROM. When enabled, the stack
+flash usage dramatically decreases. Up to an ~50% decrease of the BLE-Stack flash
+usage can be realized with this feature alone; this results in up to an
+additional 30 kB for the application when migrating from an existing CC2640
+project.</p>
+<p>In addition, the BLE-Stack has the following Bluetooth 4.2 features always enabled:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ping</li>
+<li>Slave feature exchange</li>
+<li>Connection Parameter Update Request</li>
+<li>Multirole Connections</li>
+<li>Privacy</li>
+<li>LE Data Length Extension</li>
+</ul>
+</div></blockquote>
+<p>See <a class="reference internal" href="../ble-stack-3.x/stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a> for more information on
+selecting features.</p>
+<p>See <a class="reference internal" href="#cc2640-to-cc2640r2-porting-guide"><span class="std std-ref">Porting Guide from CC2640 to CC2640R2F</span></a> for specific instructions.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Flashing a CC2640 with binaries made for CC2640R2F will
+result in a spin-lock prior to <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/running-r2-on-r1-trap.png" src="../_images/running-r2-on-r1-trap.png" />
+<p class="caption"><span class="caption-number">Figure 167. </span><span class="caption-text">A screen shot highlighting the spin-lock in IAR when running
+CC2640R2F code on a CC2640.</span></p>
+</div>
+<div class="last figure align-center" id="id4">
+<img alt="../_images/running-r2-on-r1-trap-ccs.png" src="../_images/running-r2-on-r1-trap-ccs.png" />
+<p class="caption"><span class="caption-number">Figure 168. </span><span class="caption-text">A screen shot highlighting the spin-lock in CCS when running
+CC2640R2F code on a CC2640.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="improved-icall-and-app-stack-library-builds">
+<span id="cc2640-to-cc2640r2-improved-icall"></span><h3>Improved ICall and App/Stack Library Builds<a class="headerlink" href="#improved-icall-and-app-stack-library-builds" title="Permalink to this headline">¶</a></h3>
+<p>ICall has been optimized for reduced flash usage and increased stack operational
+efficiency. Given these improvements to ICall, stack library builds are possible.</p>
+<p>Library builds will not have an application/stack boundary. Instead, global
+linking is enabled. This allows the linker to only link the stack components
+that are utilized. Global linking also allows objects used by both the
+application and stack to be shared.</p>
+<p>No ICall/Stack API changes are required to realize these benefits.</p>
+<p>For details regarding improved ICall and it’s benefits, see
+<a class="reference internal" href="../ble-stack-3.x/the-application.html#sec-the-application-icall-lite"><span class="std std-ref">ICall Translation and Include</span></a>.</p>
+<p>For additional information on ICall see <a class="reference internal" href="../ble-stack-3.x/the-application.html#icall"><span class="std std-ref">ICall</span></a>.</p>
+</div>
+<div class="section" id="cc2640r2f-launchpad-support">
+<span id="cc2640-to-cc2640r2-launchpad-support"></span><h3>CC2640R2F LaunchPad Support<a class="headerlink" href="#cc2640r2f-launchpad-support" title="Permalink to this headline">¶</a></h3>
+<p>All example applications of the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> are compatible with the <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a>
+development kit. These features allow for a unified development experience and
+empowers developers to rapidly release to market.</p>
+<p><a class="reference external" href="http://www.ti.com/tool/launchxl-cc2640r2">CC2640R2 LaunchPad Development Kit Product Page</a></p>
+</div>
+<div class="section" id="improved-oad-support">
+<span id="cc2640-to-cc2640r2-improved-oad-support"></span><h3>Improved OAD Support<a class="headerlink" href="#improved-oad-support" title="Permalink to this headline">¶</a></h3>
+<p>OAD Support on the CC2640R2F has been improved with new features to boost flash
+availability to both the application and the stack and reduce costs to future
+proof.</p>
+<p>The CC2640R2F has been improved to allow linking to TI-RTOS ROM functions for
+OAD application images. The nature of OAD and BIM on CC2640 forced TI-RTOS to be
+linked into flash for OAD application images.</p>
+<p>In addition, BIM for CC2640R2F is redesigned to reside in Page 31 of flash.
+CC2640’s BIM resided in both Page 0 and Page 31, limiting Application and Stack
+flash. This feature allows for an additional Page for the developer to use.</p>
+<p>BTool now supports the OAD profile, replacing BLE Device Monitor. This change
+gives a consistent OAD Downloader experience across all devices supporting the
+TI BLE-Stack.</p>
+<p>For more information regarding OAD, see <a class="reference internal" href="../oad-secure/intro.html#sec-oad"><span class="std std-ref">Introduction</span></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On-Chip OAD was supported by IAR Embedded Workbench for Arm for
+CC2640.</p>
+</div>
+</div>
+<div class="section" id="micro-ble-stack-for-broadcaster-applications">
+<span id="cc2640-to-cc2640r2-ti-u-stack-for-broadcaster"></span><h3>Micro BLE Stack for Broadcaster Applications<a class="headerlink" href="#micro-ble-stack-for-broadcaster-applications" title="Permalink to this headline">¶</a></h3>
+<p>The Micro BLE Stack is included with the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>. It features the ability to send
+non-connectable advertisements.</p>
+<p>For more information on the Micro BLE Stack see <a class="reference internal" href="u-stack-index.html#sec-index-micro-ble-stack"><span class="std std-ref">Micro BLE Stack</span></a>.</p>
+</div>
+<div class="section" id="additional-vendor-specific-hci-functionality">
+<span id="cc2640-to-cc2640r2-additional-vs-hci-cmds"></span><h3>Additional Vendor Specific HCI Functionality<a class="headerlink" href="#additional-vendor-specific-hci-functionality" title="Permalink to this headline">¶</a></h3>
+<p>Two additional vendor specific commands were created in BLE-Stack 3.00.00:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference external" href="../../doxygen/ble/html/group___h_c_i.html#ga88234e9839d4e082b128af23e8d1bdce">HCI_EXT_ScanEventNoticeCmd()</a></p>
+<blockquote>
+<div><p>Scan Request Detection allows for a BLE Application operating as a
+Peripheral or Broadcaster GAPRole to receive a notification when a Scan
+Request is received from a peer device.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="../../doxygen/ble/html/group___h_c_i.html#ga60dd1ef4bd6adeab43a13b9692326f29">HCI_EXT_ScanReqRptCmd()</a></p>
+<blockquote>
+<div><p>Scan Event Notifications allows for a BLE Application operating as a
+Central or Observer GAPRole to receive a notification when a Scan Event
+is completed.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>For more information on how to use these commands, please see the <a class="reference external" href="../../TI_BLE_Vendor_Specific_HCI_Guide.pdf">TI Vendor
+Specific HCI Guide</a>.</p>
+</div>
+</div>
+<div class="section" id="porting-guide-from-cc2640-to-cc2640r2f">
+<span id="cc2640-to-cc2640r2-porting-guide"></span><h2>Porting Guide from CC2640 to CC2640R2F<a class="headerlink" href="#porting-guide-from-cc2640-to-cc2640r2f" title="Permalink to this headline">¶</a></h2>
+<p>These sections describe porting between different versions of the BLE-Stack. To
+port from versions of the BLE-Stack prior to BLE-Stack 2.2.1, see the
+<a class="reference external" href="http://processors.wiki.ti.com/index.php/CC2640_Porting_Projects">Porting Guide Wiki</a></p>
+<p>To port to newer versions of the BLE-Stack, see guides on the
+<a class="reference internal" href="migration.html#migration-guides"><span class="std std-ref">Migration Guides</span></a> page.</p>
+<div class="section" id="porting-instructions-from-ble-stack-2-2-3-to-ble-stack-3-3-2">
+<h3>Porting Instructions from BLE-Stack 2.2.3 to BLE-Stack 3.3.2<a class="headerlink" href="#porting-instructions-from-ble-stack-2-2-3-to-ble-stack-3-3-2" title="Permalink to this headline">¶</a></h3>
+<p>This section will describe a way to port a project from BLE-Stack 2.2.3 to
+a BLE-Stack 3.3.2 project. BLE-Stack 2.2.3 can be downloaded from ti.com (<a class="reference external" href="http://www.ti.com/tool/BLE-STACK">TI
+Bluetooth LE Software Stack</a>) and BLE-Stack 3.3.2 is bundled in the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> 3.40.</p>
+<p>For this porting guide, simple_peripheral from BLE-Stack 2.2.3 will be ported
+over to BLE-Stack 3.3.2. Due to the a number of changes in the directory
+structure and drivers, we will utilize the simple_peripheral project in
+BLE-Stack 3.3.2 as the project base. In other words, no modifications will be
+made to the BLE-Stack 2.2.3 project. All application specific code will be
+inserted into the BLE-Stack 3.3.2 project.</p>
+<ol class="arabic">
+<li><p class="first">Choose a BLE-Stack 3.3.2 example project</p>
+<blockquote>
+<div><p>For reference, see available sample projects that start with “simple_”. A
+full overview of example projects is given in the <a class="reference internal" href="get-started.html#get-started-develop"><span class="std std-ref">Develop</span></a>
+section of the Quick Start Guide.</p>
+<p>In this example, we’re going to use simple_peripheral as the starting
+BLE-Stack 3.3.2 sample project.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">All BLE-Stack 3.3.2 sample projects by default contain all the necessary
+includes and preprocessor defines to utilize the improved ICall in
+FlashROM_Library configurations.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Transfer all modified application files into the example project</p>
+<blockquote>
+<div><p>Place modified profile and application files the existing files in
+the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> to match those in BLE-Stack 2.2.3 project.</p>
+<p>Modify <code class="docutils literal notranslate"><span class="pre">main.c</span></code> in the BLE-Stack 3.3.2 example if additional tasks
+were added in the BLE-Stack 2.2.3 project.</p>
+<p>In this example, the following files from BLE-Stack 2.2.3 were moved into
+simple_peripheral BLE-Stack 3.3.2 example:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_gatt_profile.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_gatt_profile.h</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The folder structure has changed, see <a class="reference internal" href="../cc2640/ble-software-architecture.html#tbl-root-folder"><span class="std std-ref">SDK root folders</span></a>.</p>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>For applications using <strong>Directed Advertisements</strong> comment
+out <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">GBM_GATT_NO_CLIENT</span></code> in  <code class="docutils literal notranslate"><span class="pre">gapbondmgr.c</span></code> of BLE
+v3.3.2 project to remain compliant with the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>.</p>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#ifdef GATT_NO_CLIENT</span>
+<span class="cp">#ifndef GBM_GATT_NO_CLIENT</span>
+<span class="hll"><span class="c1">//#define GBM_GATT_NO_CLIENT // &lt;-- Comment this out</span>
+</span><span class="cp">#endif </span><span class="c1">// !GBM_GATT_NO_CLIENT</span>
+<span class="cp">#endif </span><span class="c1">// GATT_NO_CLIENT</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">See <a class="reference internal" href="../ble-stack-3.x/creating-a-custom-bluetooth-low-energy-application.html#creating-a-custom-ble-app-directed-advertisements"><span class="std std-ref">Directed Advertisements as GATT Server</span></a> for more
+information.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Include <code class="docutils literal notranslate"><span class="pre">icall.h</span></code> and <code class="docutils literal notranslate"><span class="pre">icall_ble_api.h</span></code> if Stack/ICall APIs are used.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;icall_apimsg.h&quot;            // Remove</span><span class="cp"></span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;icall.h&gt;                   // Add</span><span class="cp"></span>
+</span><span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;icall_ble_api.h&quot;           // Add</span><span class="cp"></span>
+</span></pre></div>
+</td></tr></table></div>
+<p>For more information regarding <code class="docutils literal notranslate"><span class="pre">icall_ble_api.h</span></code> see
+<a class="reference internal" href="../ble-stack-3.x/the-application.html#sec-the-application-icall-lite"><span class="std std-ref">ICall Translation and Include</span></a>.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">All Stack/ICall APIs are listed in <code class="docutils literal notranslate"><span class="pre">icall_ble_api.h</span></code>. If any APIs are
+used without <code class="docutils literal notranslate"><span class="pre">icall_ble_api.h</span></code>, build and or link errors may occur with
+erratic runtime behaviors!</p>
+</div>
+<p>Remove the <code class="docutils literal notranslate"><span class="pre">icall_apimsg.h</span></code> include. In addition, remove any include
+statements for BLE-Stack header files such as <code class="docutils literal notranslate"><span class="pre">gatt.h</span></code>, <code class="docutils literal notranslate"><span class="pre">gapbondmgr.h</span></code> etc.</p>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;hci_tl.h&quot;         // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;gatt.h&quot;           // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;gapgattserver.h&quot;  // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;gattservapp.h&quot;    // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;gapbondmgr.h&quot;     // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;osal_snv.h&quot;       // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;linkdb.h&quot;         // Remove</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;bcomdef.h&quot;        // Remove</span><span class="cp"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Convert the application to use the TI-RTOS Event module.</p>
+<blockquote>
+<div><p>ICall/the BLE-Stack now synchronize threads with the TI-RTOS Event Module
+instead of the TI-RTOS Semaphore module.</p>
+<p>In this example, simple_peripheral needs to modified as shown in
+<a class="reference internal" href="#cc2640-to-cc2640r2-using-events"><span class="std std-ref">ICall Utilizes the TI-RTOS Event Module Instead of Semaphores</span></a>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Apply changes from TI-RTOS drivers used in BLE-Stack 2.2.3 to the TI-RTOS
+drivers included with the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<blockquote>
+<div><p>TI-RTOS Kernel is now packaged with the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>. When
+migrating from the BLE-Stack 2.2.3, the following drivers have changed.
+Please see the changes to these files between TI-RTOS for SimpleLink
+CC13xx/CC26xx 2.21.01.08 with the supplied headers in the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">PDMCC26XX.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">PDMCC26XX_util.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">PINCC26XX.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">PWMTimerCC26XX.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">UARTCC26XX.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">WatchdogCC26XX.h</span></code></li>
+</ul>
+<p>Also, refer to the Core SDK release notes for additional information and the
+TI-RTOS examples included with <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<p>For additional information on how BLE-Stack 3.3.2 uses TI-RTOS see
+<a class="reference internal" href="tirtos-index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a></p>
+<p>For any utilized TI Drivers, review <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a> and <a class="reference external" href="../../../tidrivers/tidriversAPIs.html">TI
+Driver API Reference</a>.</p>
+<p>In this example, the simple_peripheral includes paths need to modified. The
+TI-RTOS Display Driver driver has been relocated to the following location:</p>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ti/mw/display/Display.h&gt; // NOT CORRECT</span><span class="cp"></span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;ti/display/Display.h&gt;    // CORRECT</span><span class="cp"></span>
+</span></pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Build the stack library project</p>
+<p>In the Output Folder of the IDE, a library file will be generated.</p>
+</li>
+<li><p class="first">Build application project
+Build and flash the project onto the CC2640R2F. At this point, you should
+have a functional BLE-Stack 3.3.2 project running on the CC2640R2F.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="icall-utilizes-the-ti-rtos-event-module-instead-of-semaphores">
+<span id="cc2640-to-cc2640r2-using-events"></span><h3>ICall Utilizes the TI-RTOS Event Module Instead of Semaphores<a class="headerlink" href="#icall-utilizes-the-ti-rtos-event-module-instead-of-semaphores" title="Permalink to this headline">¶</a></h3>
+<p>Applications for the BLE-Stack projects now use the TI-RTOS Event module
+instead of the TI-RTOS Semaphore module to implement stack-application ICall
+messaging and synchronization. The following items need to be changed when
+porting applications from BLE-Stack 2.2.3 to BLE-Stack 3.3.2. Existing
+applications that utilize Semaphores for non-ICall aware tasks do <strong>not</strong> need
+to adapt to the Event module.</p>
+<p>For more information on how to use the Event module, see the
+<a class="reference internal" href="../tirtos/synchronization.html#sec-rtos-overview-event"><span class="std std-ref">Event</span></a> and the Event Synchronization Module section
+the <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a></p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">To compare the changes required to use the TI-RTOS Event module instead of
+the Semaphore module in your application, see changes between
+<code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code> in BLE-Stack 2.2.3 and BLE-Stack 3.3.2. Use a text
+comparison program to look at the difference between the two
+<code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code> files.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Change include paths from Semaphore to Event module:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ti/sysbios/knl/Semaphore.h&gt; //Remove</span><span class="cp"></span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;ti/sysbios/knl/Event.h&gt;     //Add</span><span class="cp"></span>
+</span></pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Change the type <code class="docutils literal notranslate"><span class="pre">ICall_Semaphore</span></code> to <code class="docutils literal notranslate"><span class="pre">ICall_SyncHandle</span></code>:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">ICall_Semaphore</span> <span class="n">sem</span><span class="p">;</span>           <span class="c1">//Remove</span>
+<span class="hll"><span class="k">static</span> <span class="n">ICall_SyncHandle</span> <span class="n">syncEvent</span><span class="p">;</span>    <span class="c1">//Add</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>Replace any references to <code class="docutils literal notranslate"><span class="pre">sem</span></code> with <code class="docutils literal notranslate"><span class="pre">syncEvent</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add the <code class="docutils literal notranslate"><span class="pre">syncEvent</span></code> in <code class="docutils literal notranslate"><span class="pre">ICall_registerApp</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ******************************************************************</span>
+<span class="c1">// N0 STACK API CALLS CAN OCCUR BEFORE THIS CALL TO ICall_registerApp</span>
+<span class="c1">// ******************************************************************</span>
+<span class="c1">// Register the current thread as an ICall dispatcher application</span>
+<span class="c1">// so that the application can send and receive messages.</span>
+<span class="hll"><span class="n">ICall_registerApp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">selfEntity</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">syncEvent</span><span class="p">);</span>
+</span></pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">If you are using <code class="docutils literal notranslate"><span class="pre">Util_enqueueMsg</span></code> to enqueue messages in the application
+queue, it also takes the <code class="docutils literal notranslate"><span class="pre">syncEvent</span></code> argument:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Creates a message and puts the message in RTOS queue.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param   event - message event.</span>
+<span class="cm"> * @param   state - message state.</span>
+<span class="cm"> * @param   pData - message data pointer.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return  TRUE or FALSE</span>
+<span class="cm"> */</span>
+<span class="k">static</span> <span class="kt">uint8_t</span> <span class="nf">SimplePeripheral_enqueueMsg</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">event</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">state</span><span class="p">,</span>
+                                           <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pData</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">sbpEvt_t</span> <span class="o">*</span><span class="n">pMsg</span> <span class="o">=</span> <span class="n">ICall_malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">sbpEvt_t</span><span class="p">));</span>
+
+  <span class="c1">// Create dynamic pointer to message.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">pMsg</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">event</span><span class="p">;</span>
+    <span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="p">;</span>
+    <span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">pData</span> <span class="o">=</span> <span class="n">pData</span><span class="p">;</span>
+
+    <span class="c1">// Enqueue the message.</span>
+<span class="hll">    <span class="k">return</span> <span class="n">Util_enqueueMsg</span><span class="p">(</span><span class="n">appMsgQueue</span><span class="p">,</span> <span class="n">syncEvent</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">pMsg</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Add internal events for TI-RTOS. Add a bit mask to contain all the RTOS events
+(<code class="docutils literal notranslate"><span class="pre">SBP_ALL_EVENTS</span></code>). Any events to be processed in the task function
+(<code class="docutils literal notranslate"><span class="pre">SimplePeripheral_taskFxn</span></code>) must also be added here (in this case, we want
+to process the <code class="docutils literal notranslate"><span class="pre">SBP_PERIODIC_EVT</span></code> in the task function).</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Application events</span>
+<span class="cp">#define SBP_STATE_CHANGE_EVT                  0x0001</span>
+<span class="cp">#define SBP_CHAR_CHANGE_EVT                   0x0002</span>
+<span class="cp">#define SBP_PAIRING_STATE_EVT                 0x0004</span>
+<span class="cp">#define SBP_PASSCODE_NEEDED_EVT               0x0008</span>
+<span class="cp">#define SBP_CONN_EVT                          0x0010</span>
+
+<span class="c1">// Internal Events for RTOS application</span>
+<span class="cp">#define SBP_ICALL_EVT                         ICALL_MSG_EVENT_ID </span><span class="c1">// Event_Id_31</span>
+<span class="cp">#define SBP_QUEUE_EVT                         UTIL_QUEUE_EVENT_ID </span><span class="c1">// Event_Id_30</span>
+<span class="cp">#define SBP_PERIODIC_EVT                      Event_Id_00</span>
+
+<span class="c1">// Bitwise OR of all events to pend on</span>
+<span class="cp">#define SBP_ALL_EVENTS                        (SBP_ICALL_EVT        | \</span>
+<span class="cp">                                               SBP_QUEUE_EVT        | \</span>
+<span class="cp">                                               SBP_PERIODIC_EVT)</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Replace <code class="docutils literal notranslate"><span class="pre">Semaphore_post()</span></code> with <code class="docutils literal notranslate"><span class="pre">Event_post()</span></code> and remove any references
+to the previously used <code class="docutils literal notranslate"><span class="pre">events</span></code> flag.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">SimpleBLEPeripheral_clockHandler</span><span class="p">(</span><span class="n">UArg</span> <span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Store the event.</span>
+<span class="hll">    <span class="n">events</span> <span class="o">|=</span> <span class="n">arg</span><span class="p">;</span> <span class="c1">// Remove</span>
+</span>
+    <span class="c1">// Wake up the application.</span>
+<span class="hll">    <span class="n">Semaphore_post</span><span class="p">(</span><span class="n">sem</span><span class="p">);</span> <span class="c1">// Remove</span>
+</span>
+    <span class="c1">// Wake up the application.</span>
+<span class="hll">    <span class="n">Event_post</span><span class="p">(</span><span class="n">syncEvent</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span> <span class="c1">// Add</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">events</span> <span class="o">&amp;</span> <span class="n">SBP_PERIODIC_EVT</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="n">events</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">SBP_PERIODIC_EVT</span><span class="p">;</span> <span class="c1">// Remove</span>
+</span>
+    <span class="n">Util_startClock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">periodicClock</span><span class="p">);</span>
+
+    <span class="c1">// Perform periodic application task</span>
+    <span class="n">SimplePeripheral_performPeriodicTask</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Relocate the global <code class="docutils literal notranslate"><span class="pre">events</span></code> flag. Remove the global <code class="docutils literal notranslate"><span class="pre">uint16_t</span> <span class="pre">events</span></code>
+variable and place <code class="docutils literal notranslate"><span class="pre">uint32_t</span> <span class="pre">events</span></code> into <code class="docutils literal notranslate"><span class="pre">SimpleBLEPeripheral_taskFxn()</span></code>
+as a local variable.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#if defined(FEATURE_OAD)</span>
+<span class="c1">// Event data from OAD profile.</span>
+<span class="k">static</span> <span class="n">Queue_Struct</span> <span class="n">oadQ</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">Queue_Handle</span> <span class="n">hOadQ</span><span class="p">;</span>
+<span class="cp">#endif </span><span class="c1">//FEATURE_OAD</span>
+
+<span class="c1">// events flag for internal application events.</span>
+<span class="hll"><span class="k">static</span> <span class="kt">uint16_t</span> <span class="n">events</span><span class="p">;</span> <span class="c1">// Remove</span>
+</span>
+<span class="c1">// Task configuration</span>
+<span class="n">Task_Struct</span> <span class="n">sbpTask</span><span class="p">;</span>
+<span class="n">Char</span> <span class="n">sbpTaskStack</span><span class="p">[</span><span class="n">SBP_TASK_STACK_SIZE</span><span class="p">];</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">SimpleBLEPeripheral_taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="kt">uint32_t</span> <span class="n">events</span><span class="p">;</span> <span class="c1">// Add</span>
+</span>
+    <span class="c1">// Initialize application</span>
+    <span class="n">SimpleBLEPeripheral_init</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p class="first">Replace <code class="docutils literal notranslate"><span class="pre">ICall_wait()</span></code> in Application Task with <code class="docutils literal notranslate"><span class="pre">Event_pend()</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">SimpleBLEPeripheral_taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="c1">// Initialize application</span>
+   <span class="n">SimpleBLEPeripheral_init</span><span class="p">();</span>
+
+   <span class="c1">// Application main loop</span>
+   <span class="k">for</span> <span class="p">(;;)</span>
+   <span class="p">{</span>
+<span class="hll">       <span class="c1">// Waits for a signal to the semaphore associated with the calling thread.</span>
+</span><span class="hll">       <span class="c1">// Note that the semaphore associated with a thread is signaled when a</span>
+</span><span class="hll">       <span class="c1">// message is queued to the message receive queue of the thread or when</span>
+</span><span class="hll">       <span class="c1">// ICall_signal() function is called onto the semaphore.</span>
+</span><span class="hll">       <span class="n">ICall_Errno</span> <span class="n">errno</span> <span class="o">=</span> <span class="n">ICall_wait</span><span class="p">(</span><span class="n">ICALL_TIMEOUT_FOREVER</span><span class="p">);</span>  <span class="c1">// Remove</span>
+</span>
+<span class="hll">       <span class="k">if</span> <span class="p">(</span><span class="n">errno</span> <span class="o">==</span> <span class="n">ICALL_ERRNO_SUCCESS</span><span class="p">)</span> <span class="c1">// Remove</span>
+</span>       <span class="p">{</span>
+            <span class="n">ICall_EntityID</span> <span class="n">dest</span><span class="p">;</span>
+            <span class="n">ICall_ServiceEnum</span> <span class="n">src</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">SimpleBLEPeripheral_taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint32_t</span> <span class="n">events</span><span class="p">;</span>
+
+    <span class="c1">// Initialize application</span>
+    <span class="n">SimpleBLEPeripheral_init</span><span class="p">();</span>
+
+    <span class="c1">// Application main loop</span>
+    <span class="k">for</span> <span class="p">(;;)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="c1">// Waits for an event to be posted associated with the calling thread.</span>
+</span><span class="hll">        <span class="c1">// Note that an event associated with a thread is posted when a</span>
+</span><span class="hll">        <span class="c1">// message is queued to the message receive queue of the thread</span>
+</span><span class="hll">        <span class="n">events</span> <span class="o">=</span> <span class="n">Event_pend</span><span class="p">(</span><span class="n">syncEvent</span><span class="p">,</span> <span class="n">Event_Id_NONE</span><span class="p">,</span> <span class="n">SBP_ALL_EVENTS</span><span class="p">,</span>
+</span><span class="hll">                            <span class="n">ICALL_TIMEOUT_FOREVER</span><span class="p">);</span> <span class="c1">// Add</span>
+</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="c1">// Add</span>
+</span>    <span class="p">{</span>
+        <span class="n">ICall_EntityID</span> <span class="n">dest</span><span class="p">;</span>
+        <span class="n">ICall_ServiceEnum</span> <span class="n">src</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cc254x-to-cc2640.html" class="btn btn-neutral float-right" title="CC254x to CC2640" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../cc2640/software-on-cc2640r2l.html" class="btn btn-neutral float-left" title="Running Software Examples on CC2640R2L" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

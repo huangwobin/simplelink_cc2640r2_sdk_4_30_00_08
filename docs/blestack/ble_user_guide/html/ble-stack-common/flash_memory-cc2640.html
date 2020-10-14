@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flash &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RAM" href="memory_management.html" />
+    <link rel="prev" title="Memory Map" href="memory_map.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-common flash_memory-cc2640";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#main-initialization">Main initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#icall">ICall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#simple-peripheral-task">Simple Peripheral Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x/the-application.html#intertask-messages">Intertask Messages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#memory-management">Memory Management</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="memory_map.html">Memory Map</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Flash</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flash-vector-table">Flash Vector Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simple-nv-flash-storage-overview">Simple NV Flash Storage Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-simple-nv-for-flash-storage">Using Simple NV for Flash Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customer-configuration-ccfg-table">Customer Configuration (CCFG) Table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html">RAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html#cache">Cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory_management.html#aux-ram">AUX RAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cache-as-ram.html">Using the Cache as RAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aux-as-ram.html">Using the AUX RAM as RAM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a> &raquo;</li>
+        
+      <li>Flash</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flash">
+<span id="id3"></span><h1>Flash<a class="headerlink" href="#flash" title="Permalink to this headline">¶</a></h1>
+<p>The flash is split into erasable pages of 4 kB. The various sections
+of flash and their associate linker files are as follows.</p>
+<ul class="simple">
+<li><strong>Flash Reset Vector Table</strong>: This table holds the first 16 reset vectors
+that are critical for booting up the device. These vectors are set at build
+time and cannot be dynamically changed. See <a class="reference internal" href="#sec-flash-vector-table"><span class="std std-ref">Flash Vector Table</span></a>
+below for more information.</li>
+<li><strong>Simple NV (SNV) Area</strong>: used for nonvolatile memory storage by the GAP
+Bond Manager and also available for use by the application. See
+<a class="reference internal" href="#using-simple-nv"><span class="std std-ref">Using Simple NV for Flash Storage</span></a> for configuring SNV. When configured, the SNV
+flash storage area is part of the stack image.</li>
+</ul>
+<p>For projects where the stack project builds a <strong>library</strong>:</p>
+<ul class="simple">
+<li><strong>Application and Stack Image Code Space</strong>: A single region that contains
+both application and stack code in flash.
+This image is configured in the linker configuration file of the application:
+&lt;device name&gt;_app_and_stack.icf (IAR) and &lt;device name&gt;_app.cmd (CCS).</li>
+</ul>
+<div class="section" id="flash-vector-table">
+<span id="sec-flash-vector-table"></span><h2>Flash Vector Table<a class="headerlink" href="#flash-vector-table" title="Permalink to this headline">¶</a></h2>
+<p>This table contains the first 16 critical interrupt vectors required for the
+bootup process. The location of this table is controlled by
+<cite>m3Hwi.resetVectorAddress</cite> within the TI-RTOS config file (<cite>*.cfg</cite>), it defaults
+to address 0x00000000. At bootup time, the TI-RTOS kernel will run a first
+function to initialize the <a class="reference internal" href="../ble-stack-3.x-guide/reference.html#term-hwi"><span class="xref std std-term">Hwi</span></a> module. At this time the flash vector
+table will be copied to the RAM location shown in <a class="reference internal" href="memory_map.html#fig-stacklib-mem-map"><span class="std std-numref">Table 8.</span></a>
+and the VTOR register will be moved to point to the RAM table.
+For more information about the vector table format, please refer to
+<a class="reference external" href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0552a/BABIFJFG.html">Cortex-M3 Vector Table</a>.</p>
+<p>For more information on the kernel boot process and first functions, please see:
+<a class="reference external" href="http://processors.wiki.ti.com/index.php/SYS/BIOS_for_Stellaris_Devices">SYS/BIOS Boot Wiki</a>.</p>
+</div>
+<div class="section" id="simple-nv-flash-storage-overview">
+<span id="simple-nv-overview"></span><h2>Simple NV Flash Storage Overview<a class="headerlink" href="#simple-nv-flash-storage-overview" title="Permalink to this headline">¶</a></h2>
+<p>The Simple NV (SNV) area of flash is used for storing persistent data, such as
+encryption keys from bonding or to store custom defined parameters. The protocol
+stack can be configured to reserve up to two 4 kB flash pages for
+SNV, although valid data is only stored in one active flash page. To minimize
+the number of erase cycles on the flash, the SNV manager performs compaction on
+the flash sector (or sectors) when the sector has 80% invalidated data. A
+compaction is the copying of valid data to a temporary area followed by an erase
+of the sector where the data was previously stored. Depending on the OSAL_SNV
+value as described in <a class="reference internal" href="#osal-snv-values"><span class="std std-ref">OSAL_SNV Values</span></a>, this valid data is then either
+placed back in the newly erased sector or remains in a new sector.</p>
+<p>Each flash page contains a “page header” which indicates its current state. The
+page header is located at the first byte of the flash page. Following the
+page header is the “compact header”, which indicates the flash page’s
+compaction state. The remainder of the flash page contains NV data items which
+are packed together following the page header and compact header.</p>
+<p>Each NV data item is unique and has two parts:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A data block which is stored first (lower memory address)</li>
+<li>An item header following the data block (higher memory address)</li>
+</ol>
+</div></blockquote>
+<p>The item header (defined by <code class="docutils literal notranslate"><span class="pre">NVOCTP_itemHdr_t</span></code>) contains status information
+required to traverse packed data items in the flash page. An example of the NV
+item memory layout storing a single byte of data is illustrated below.</p>
+<div class="figure align-center" id="fig-nvoctp-header">
+<img alt="../_images/nvoctp_header.png" src="../_images/nvoctp_header.png" />
+</div>
+<p><strong>NV Item Header:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="20%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Field</strong></td>
+<td><strong>Size (bits)</strong></td>
+<td><strong>Purpose</strong></td>
+</tr>
+<tr class="row-even"><td>Header Status</td>
+<td>2</td>
+<td>Indicates if length is valid and header is active</td>
+</tr>
+<tr class="row-odd"><td>Length</td>
+<td>10</td>
+<td>Length of the data block</td>
+</tr>
+<tr class="row-even"><td>Sub ID</td>
+<td>10</td>
+<td>Identifier of the sub-data related to the NV item</td>
+</tr>
+<tr class="row-odd"><td>Item ID</td>
+<td>10</td>
+<td>Indicates the item data identifier</td>
+</tr>
+<tr class="row-even"><td>System ID</td>
+<td>6</td>
+<td>Indicates the system component identifier</td>
+</tr>
+<tr class="row-odd"><td>Item Status</td>
+<td>2</td>
+<td>Indicates item integrity and if the item is active</td>
+</tr>
+</tbody>
+</table>
+<p>For each NV item that is added or updated in NV storage, the item is written to
+the next lowest available memory address in the active flash page. If the NV
+item is being updated, the old NV item will be marked as inactive. Inactive
+items are removed from memory when a memory compaction takes place.</p>
+<p>For more information, see the API documentation in <cite>nvoctp.h</cite> and the design
+description in <cite>nvoctp.c</cite>.</p>
+</div>
+<div class="section" id="using-simple-nv-for-flash-storage">
+<span id="using-simple-nv"></span><h2>Using Simple NV for Flash Storage<a class="headerlink" href="#using-simple-nv-for-flash-storage" title="Permalink to this headline">¶</a></h2>
+<p>The number of flash sectors allocated to SNV can be configured by setting the
+OSAL_SNV preprocessor symbol in the stack project. <a class="reference internal" href="#osal-snv-values"><span class="std std-numref">Table 9.</span></a>
+lists valid values that can be configured as well as the corresponding
+trade-offs.</p>
+<span id="osal-snv-values"></span><table border="1" class="docutils" id="id4">
+<caption><span class="caption-number">Table 9. </span><span class="caption-text">OSAL_SNV Values</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>OSAL_SNV Value</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>SNV is disabled. Storing of bonding keys in NV is not possible. Maximizes code space for the
+application and/or stack project. GAP Bond Manager must be disabled. In the Stack project, set pre-
+processor symbol NO_OSAL_SNV and disable GAP Bond Manager. See <a class="reference internal" href="../ble-stack-3.x/stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a>
+for configuring Bluetooth Low Energy protocol stack features.</td>
+</tr>
+<tr class="row-odd"><td>1 (default)</td>
+<td>One flash sector is allocated to SNV. Bonding information is stored in NV.
+Set preprocessor symbol OSAL_SNV=1 in the Stack project.</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Two flash sectors are allocated to SNV. Bonding information is stored in NV. SNV data is protected
+against power-loss during compaction.</td>
+</tr>
+</tbody>
+</table>
+<p>Other values for OSAL_SNV are invalid. Using less than the maximum value has
+the net effect of allocating more code space to the application or stack
+project. SNV can be read from or written to using the following APIs.</p>
+<p><strong>uint8 osal_snv_read( osalSnvId_t id, osalSnvLen_t len, void
+*pBuf)</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td><strong>Read data from NV</strong></td>
+</tr>
+<tr class="row-even"><td><strong>Parameters</strong></td>
+<td><p class="first">id - valid NV item</p>
+<p>len - length of data to read</p>
+<p class="last">pBuf - pointer to buffer to store data read</p>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>Returns</strong></td>
+<td><p class="first">SUCCESS: NV item read successfully</p>
+<p class="last">NV_OPER_FAILED: failure reading NV item</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>uint8 osal_snv_write( osalSnvId_t id, osalSnvLen_t len, void
+*pBuf)</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td><strong>Write data to NV</strong></td>
+</tr>
+<tr class="row-even"><td><strong>Parameters</strong></td>
+<td><p class="first">id - valid NV item</p>
+<p>len - length of data to write</p>
+<p class="last">pBuf - pointer to buffer containing data to be written. All contents are updated at once.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>Returns</strong></td>
+<td><p class="first">SUCCESS: NV item write successfully</p>
+<p class="last">NV_OPER_FAILED: failure writing NV item</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Because SNV is shared with other modules in BLE-Stack such as the GAP Bond
+Manager, carefully manage the NV item IDs. By default, the IDs available to the
+customer are defined in bcomdef.h as shown in <a class="reference internal" href="#lst-inc-flash-snv"><span class="std std-numref">Listing 30.</span></a></p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<span id="lst-inc-flash-snv"></span><div class="code-block-caption"><span class="caption-number">Listing 30. </span><span class="caption-text">Usable SNV IDs available to customers</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Device NV Items -    Range 0 - 0x1F</span>
+<span class="cp">#define BLE_NVID_IRK                    0x02  </span><span class="c1">//!&lt; The Device&#39;s IRK</span>
+<span class="cp">#define BLE_NVID_CSRK                   0x03  </span><span class="c1">//!&lt; The Device&#39;s CSRK</span>
+<span class="cp">#define BLE_NVID_ADDR_MODE              0x04  </span><span class="c1">//!&lt; The Device&#39;s address type (@ref GAP_Addr_Modes_t)</span>
+<span class="cp">#define BLE_LRU_BOND_LIST               0x05  </span><span class="c1">//!&lt; The Device&#39;s order of bond indexes in least recently used order</span>
+<span class="cp">#define BLE_NVID_RANDOM_ADDR            0x06  </span><span class="c1">//!&lt; The Device&#39;s random address if set by the current @ref GAP_DeviceInit</span>
+
+<span class="c1">// Bonding NV Items -   Range  0x20 - 0x5F    - This allows for 10 bondings</span>
+<span class="cp">#define BLE_NVID_GAP_BOND_START         0x20  </span><span class="c1">//!&lt; Start of the GAP Bond Manager&#39;s NV IDs</span>
+<span class="cp">#define BLE_NVID_GAP_BOND_END           0x5f  </span><span class="c1">//!&lt; End of the GAP Bond Manager&#39;s NV IDs Range</span>
+
+<span class="c1">// GATT Configuration NV Items - Range  0x70 - 0x79 - This must match the number of Bonding entries</span>
+<span class="cp">#define BLE_NVID_GATT_CFG_START         0x70  </span><span class="c1">//!&lt; Start of the GATT Configuration NV IDs</span>
+<span class="cp">#define BLE_NVID_GATT_CFG_END           0x79  </span><span class="c1">//!&lt; End of the GATT Configuration NV IDs</span>
+
+<span class="hll"><span class="c1">// Customer NV Items - Range  0x80 - 0x8F - This must match the number of Bonding entries</span>
+</span><span class="hll"><span class="cp">#define BLE_NVID_CUST_START             0x80  </span><span class="c1">//!&lt; Start of the Customer&#39;s NV IDs</span>
+</span><span class="hll"><span class="cp">#define BLE_NVID_CUST_END               0x8F  </span><span class="c1">//!&lt; End of the Customer&#39;s NV IDs</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p><a class="reference internal" href="#lst-snv-api-usage"><span class="std std-numref">Listing 31.</span></a> shows how to read and write an array of bytes from
+SNV flash:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<span id="lst-snv-api-usage"></span><div class="code-block-caption"><span class="caption-number">Listing 31. </span><span class="caption-text">Using SNV Example Code</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm">* GLOBAL VARIABLES</span>
+<span class="cm">*/</span>
+<span class="cp">#define BUF_LEN 4</span>
+<span class="cp">#define SNV_ID_APP 0x80</span>
+<span class="n">uint8</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUF_LEN</span><span class="p">]</span> <span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,};</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Initialize application</span>
+  <span class="n">SimpleBLEPeripheral_init</span><span class="p">();</span>
+  <span class="n">uint8</span> <span class="n">status</span> <span class="o">=</span> <span class="n">SUCCESS</span><span class="p">;</span>
+
+<span class="hll">  <span class="n">status</span> <span class="o">=</span> <span class="n">osal_snv_read</span><span class="p">(</span><span class="n">SNV_ID_APP</span><span class="p">,</span> <span class="n">BUF_LEN</span><span class="p">,</span> <span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">);</span>
+</span>  <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Display_print1</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;SNV READ FAIL: %d&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="c1">//Write first time to initialize SNV ID</span>
+<span class="hll">    <span class="n">osal_snv_write</span><span class="p">(</span><span class="n">SNV_ID_APP</span><span class="p">,</span> <span class="n">BUF_LEN</span><span class="p">,</span> <span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="c1">//Increment first element of array and write to SNV flash</span>
+  <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="hll">  <span class="n">status</span> <span class="o">=</span> <span class="n">osal_snv_write</span><span class="p">(</span><span class="n">SNV_ID_APP</span><span class="p">,</span> <span class="n">BUF_LEN</span><span class="p">,</span> <span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">);</span>
+</span>  <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Display_print1</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;SNV WRITE FAIL: %d&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="n">Display_print1</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Num of Resets: %d&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Application main loop</span>
+  <span class="k">for</span> <span class="p">(;;)</span>
+  <span class="p">{</span>
+  <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>No prior initialization of a NV item ID is required; the OSAL SNV manager
+initializes the NV ID when first accessed by a successful osal_snv_write()
+call.</p>
+<p>When reading or writing large amounts of data to SNV, TI recommends placing the
+read/write data in statically (linker) allocated arrays or buffers allocated
+from the heap. Placing large amounts of data in local arrays may result in a
+task stack overflow.</p>
+<p>By default, osalSnvId_t and osalSnvLen_t are type defined as uint8. To use
+uint16-type definitions, define the preprocessor symbol OSAL_SNV_UINT16_ID
+in both the application and stack projects.</p>
+<p>Using osal_snv_read and osal_snv_write is only permitted from within a task
+context. Calling this API is not possible from within Swis or Hwis.</p>
+<p>Some care must be taken to not be close to 80% (or other compaction threshold)
+SNV utilization of a sector. BLE stack uses at most 1.5-2kB with 10 bonds
+stored. Frequent compactions are costly in terms of power consumption and can
+cause resets and lost SNV content (NVOCOP) and will also wear out the flash.</p>
+</div>
+<div class="section" id="customer-configuration-ccfg-table">
+<span id="cca"></span><h2>Customer Configuration (CCFG) Table<a class="headerlink" href="#customer-configuration-ccfg-table" title="Permalink to this headline">¶</a></h2>
+<p>The CCFG is placed at the end of the last flash page and lets
+customer configure various chip and system parameters in the Customer
+Configuration (CCFG) table. The CCFG table is defined in ccfg_app_ble.c,
+which can be found in the Startup folder of the application project. The last
+(sizeof(ccfg_t)) bytes of the CCFG sector are reserved by the system for the
+CCFG table. By default, the linker allocates the unused flash of the last flash
+page to the application image for code and data use.</p>
+<p>See the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a> for details on CCFG fields and related configuration options,
+including how to set the CCFG to disable access to internal flash memory
+contents.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The CCFG cannot be relocated, and must reside at the end of the last page of
+flash. Consult the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a> for more information.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="memory_management.html" class="btn btn-neutral float-right" title="RAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="memory_map.html" class="btn btn-neutral float-left" title="Memory Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

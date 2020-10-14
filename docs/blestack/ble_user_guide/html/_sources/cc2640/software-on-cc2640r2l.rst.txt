@@ -1,0 +1,32 @@
+Running Software Examples on CC2640R2L
+======================================
+
+The `CC2640R2F LaunchPad`_ development board can be used for evaluation and
+software development for the `CC2640R2L`_ device. The `CC2640R2L`_ is pin
+compatible with the `CC2640R2F`_ device.
+
+The `CC2640R2L`_ is functionally identical to the `CC2640R2F`_ except the
+following hardware peripherals are not included in the `CC2640R2L`_:
+
+* Sensor Controller Engine
+* Comparators
+* Constant Current Source
+
+Because the Sensor Controller is not available on the `CC2640R2L`_, the AUX RAM
+can be used freely by the application. This provides an additional 2KB of
+memory available to the application. For more information on how to configure
+the AUX RAM for use by the application, see :ref:`using-the-aux-as-ram`.
+
+Porting Software Examples for CC2640R2L
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can run `CC2640R2F`_ software examples that do not utilize the Sensor
+Controller on the `CC2640R2L`_  without making any changes.
+
+For applications that do utilize the Sensor Controller to control peripherals,
+such as the ADC for example, please utilize TI drivers to interface with the
+peripherals and implement control logic in the application. For more
+information on utilizing TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+`Driver APIs <..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.
+
+

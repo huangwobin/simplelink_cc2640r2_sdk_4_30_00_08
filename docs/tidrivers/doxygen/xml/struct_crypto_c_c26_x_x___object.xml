@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_c_c26_x_x___object" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoCC26XX_Object</compoundname>
+    <includes refid="_crypto_c_c26_x_x_8h" local="no">CryptoCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CryptoCC26XX_Object::openCnt</definition>
+        <argsstring></argsstring>
+        <name>openCnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counting number of clients </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="760" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="760" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t CryptoCC26XX_Object::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timeout for encrypt/decrypt operation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="761" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="761" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1a30e647b6ad6b608b60990929200686e0" kindref="member">CryptoCC26XX_KeyStore</ref></type>
+        <definition>CryptoCC26XX_KeyStore CryptoCC26XX_Object::keyStore</definition>
+        <argsstring></argsstring>
+        <name>keyStore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Key store for Crypto </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="762" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="762" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+        <definition>CryptoCC26XX_Transaction* CryptoCC26XX_Object::currentTransact</definition>
+        <argsstring></argsstring>
+        <name>currentTransact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to ongoing transaction </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="763" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="763" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" prot="public" static="no" mutable="no">
+        <type>HwiP_Struct</type>
+        <definition>HwiP_Struct CryptoCC26XX_Object::hwi</definition>
+        <argsstring></argsstring>
+        <name>hwi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hwi object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="765" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="765" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CryptoCC26XX Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="191">
+        <label>CryptoCC26XX_Transaction</label>
+        <link refid="struct_crypto_c_c26_x_x___transaction"/>
+      </node>
+      <node id="190">
+        <label>CryptoCC26XX_Object</label>
+        <link refid="struct_crypto_c_c26_x_x___object"/>
+        <childnode refid="191" relation="usage">
+          <edgelabel>currentTransact</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" line="758" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="758" bodyend="766"/>
+    <listofallmembers>
+      <member refid="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>currentTransact</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>hwi</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>keyStore</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>openCnt</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

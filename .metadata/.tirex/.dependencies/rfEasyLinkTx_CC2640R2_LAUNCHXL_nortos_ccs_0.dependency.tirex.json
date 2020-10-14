@@ -1,0 +1,24 @@
+[
+    {
+        "files": [
+            "+../easylink/EasyLink.h -> easylink/EasyLink.h",
+            "+../easylink/easylink_config.h -> easylink/easylink_config.h",
+            "+../easylink/easylink_config.c -> easylink/easylink_config.c",
+            "+../easylink/EasyLink_nortos.c -> easylink/EasyLink_nortos.c",
+            "+../main_nortos.c -> main_nortos.c",
+            "+../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+            "+../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+            "+../smartrf_settings/smartrf_settings_predefined.c -> smartrf_settings/smartrf_settings_predefined.c",
+            "+../smartrf_settings/smartrf_settings_predefined.h -> smartrf_settings/smartrf_settings_predefined.h",
+            "+../README.md -> README.md",
+            "+../rfEasyLinkTx_nortos.c -> rfEasyLinkTx_nortos.c",
+            "+../Board.h -> Board.h",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.cmd -> CC2640R2_LAUNCHXL_NoRTOS.cmd",
+            "+../ccfg.c -> ccfg.c"
+        ]
+    }
+]

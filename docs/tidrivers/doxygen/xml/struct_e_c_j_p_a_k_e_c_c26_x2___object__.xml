@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_j_p_a_k_e_c_c26_x2___object__" kind="struct" language="C++" prot="public">
+    <compoundname>ECJPAKECC26X2_Object_</compoundname>
+    <includes refid="_e_c_j_p_a_k_e_c_c26_x2_8h" local="no">ECJPAKECC26X2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1ac1fee03ba07b587bf40aa20c0cef8f29" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ECJPAKECC26X2_Object_::isOpen</definition>
+        <argsstring></argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="218" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a5fe8a1eabf4c8f03d2e525efcfa95aa2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ECJPAKECC26X2_Object_::operationInProgress</definition>
+        <argsstring></argsstring>
+        <name>operationInProgress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="219" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a81037ac68b264539ee5d465ce47cf323" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ECJPAKECC26X2_Object_::operationCanceled</definition>
+        <argsstring></argsstring>
+        <name>operationCanceled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="220" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a3e6502c933be4cbdbd222ea5c4272fc1" prot="public" static="no" mutable="no">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKECC26X2_Object_::operationStatus</definition>
+        <argsstring></argsstring>
+        <name>operationStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="221" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1abfbd906924eb9edc9ada0b8075cd8fc4" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_j_p_a_k_e_8h_1a743785709e9ca990077a97befed10232" kindref="member">ECJPAKE_CallbackFxn</ref></type>
+        <definition>ECJPAKE_CallbackFxn ECJPAKECC26X2_Object_::callbackFxn</definition>
+        <argsstring></argsstring>
+        <name>callbackFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="222" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a6e0aae9d23f8a6cf4bc8445834978445" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_j_p_a_k_e_8h_1a9955de2a9c7b9260b512ca14bf7a634c" kindref="member">ECJPAKE_ReturnBehavior</ref></type>
+        <definition>ECJPAKE_ReturnBehavior ECJPAKECC26X2_Object_::returnBehavior</definition>
+        <argsstring></argsstring>
+        <name>returnBehavior</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="223" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1ad5753a8f80b7129467bfb8618be68216" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_j_p_a_k_e_c_c26_x2_8h_1aee3a8235e15617b9c754e8944029557d" kindref="member">ECJPAKECC26X2_FsmState</ref></type>
+        <definition>ECJPAKECC26X2_FsmState ECJPAKECC26X2_Object_::fsmState</definition>
+        <argsstring></argsstring>
+        <name>fsmState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="224" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a2cd6b963069398b40c2b9532f4fbeb38" prot="public" static="no" mutable="no">
+        <type><ref refid="union_e_c_j_p_a_k_e___operation" kindref="compound">ECJPAKE_Operation</ref></type>
+        <definition>ECJPAKE_Operation ECJPAKECC26X2_Object_::operation</definition>
+        <argsstring></argsstring>
+        <name>operation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="225" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1abf94256356aaa0083d2cbb5a947beb5c" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_j_p_a_k_e_8h_1a7cc04050ce660dd03540b7bf8e53fb26" kindref="member">ECJPAKE_OperationType</ref></type>
+        <definition>ECJPAKE_OperationType ECJPAKECC26X2_Object_::operationType</definition>
+        <argsstring></argsstring>
+        <name>operationType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="226" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1adabde0fa798da7b617e7e337dde81df0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ECJPAKECC26X2_Object_::semaphoreTimeout</definition>
+        <argsstring></argsstring>
+        <name>semaphoreTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="227" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e_c_c26_x2___object___1af514ef9ba0ff26900dafb7b47cfd9880" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ECJPAKECC26X2_Object_::resultAddress</definition>
+        <argsstring></argsstring>
+        <name>resultAddress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="228" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ECJPAKECC26X2 Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="400">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="396">
+        <label>ECJPAKE_OperationVerifyZKP</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>theirGenerator</edgelabel>
+          <edgelabel>theirPublicKey</edgelabel>
+          <edgelabel>theirPublicV</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="404">
+        <label>ECJPAKE_OperationGenerateZKP</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>myPrivateV</edgelabel>
+          <edgelabel>myPrivateKey</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="402">
+        <label>ECJPAKE_OperationRoundOneGenerateKeys</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>myPublicKey1</edgelabel>
+          <edgelabel>myPublicKey2</edgelabel>
+          <edgelabel>myPrivateKey1</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>myPublicV1</edgelabel>
+          <edgelabel>myPublicV2</edgelabel>
+          <edgelabel>myPrivateV1</edgelabel>
+          <edgelabel>myPrivateV2</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="405">
+        <label>ECJPAKE_OperationComputeSharedSecret</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>theirPublicKey2</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>myCombinedPrivateKey</edgelabel>
+          <edgelabel>sharedSecret</edgelabel>
+          <edgelabel>theirCombinedPublicKey</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="397">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="398" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="399" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="400" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="401">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="394">
+        <label>ECJPAKECC26X2_Object_</label>
+        <link refid="struct_e_c_j_p_a_k_e_c_c26_x2___object__"/>
+        <childnode refid="395" relation="usage">
+          <edgelabel>operation</edgelabel>
+        </childnode>
+        <childnode refid="406" relation="usage">
+          <edgelabel>callbackFxn</edgelabel>
+        </childnode>
+      </node>
+      <node id="406">
+        <label>ECJPAKE_Config</label>
+        <link refid="struct_e_c_j_p_a_k_e___config"/>
+      </node>
+      <node id="403">
+        <label>ECJPAKE_OperationRoundTwoGenerateKeys</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys"/>
+        <childnode refid="397" relation="usage">
+          <edgelabel>myNewGenerator</edgelabel>
+          <edgelabel>myPublicKey1</edgelabel>
+          <edgelabel>theirPublicKey1</edgelabel>
+          <edgelabel>myPublicKey2</edgelabel>
+          <edgelabel>theirPublicKey2</edgelabel>
+          <edgelabel>myPrivateV</edgelabel>
+          <edgelabel>myCombinedPublicKey</edgelabel>
+          <edgelabel>myCombinedPrivateKey</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>theirNewGenerator</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="398">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="399">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+      <node id="395">
+        <label>ECJPAKE_Operation</label>
+        <link refid="union_e_c_j_p_a_k_e___operation"/>
+        <childnode refid="396" relation="usage">
+          <edgelabel>verifyZKP</edgelabel>
+        </childnode>
+        <childnode refid="402" relation="usage">
+          <edgelabel>generateRoundOneKeys</edgelabel>
+        </childnode>
+        <childnode refid="403" relation="usage">
+          <edgelabel>generateRoundTwoKeys</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>generateZKP</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>computeSharedSecret</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" line="217" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ecjpake/ECJPAKECC26X2.h" bodystart="217" bodyend="229"/>
+    <listofallmembers>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1abfbd906924eb9edc9ada0b8075cd8fc4" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>callbackFxn</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1ad5753a8f80b7129467bfb8618be68216" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>fsmState</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1ac1fee03ba07b587bf40aa20c0cef8f29" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>isOpen</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a2cd6b963069398b40c2b9532f4fbeb38" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>operation</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a81037ac68b264539ee5d465ce47cf323" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>operationCanceled</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a5fe8a1eabf4c8f03d2e525efcfa95aa2" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>operationInProgress</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a3e6502c933be4cbdbd222ea5c4272fc1" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>operationStatus</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1abf94256356aaa0083d2cbb5a947beb5c" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>operationType</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1af514ef9ba0ff26900dafb7b47cfd9880" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>resultAddress</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1a6e0aae9d23f8a6cf4bc8445834978445" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>returnBehavior</name></member>
+      <member refid="struct_e_c_j_p_a_k_e_c_c26_x2___object___1adabde0fa798da7b617e7e337dde81df0" prot="public" virt="non-virtual"><scope>ECJPAKECC26X2_Object_</scope><name>semaphoreTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

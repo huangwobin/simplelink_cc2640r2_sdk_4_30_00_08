@@ -1,0 +1,210 @@
+// BMM LOC annotation file.
+//
+// Release 13.3 - Data2MEM O.76xd, build 2.5 Aug 4, 2011
+// Copyright (c) 1995-2014 Xilinx, Inc.  All rights reserved.
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mst_efuse' 0x00000000:0x00000FFF (4 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mst_efuse RAMB32 [0x00000000:0x00000FFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/efuse_inst/cm26_efuse_inst/fuserom.u_rom0/fuserom [63:0] PLACED = X3Y44;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mcerom_mst' 0x00000000:0x00003FFF (16 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mcerom_mst RAMB32 [0x00000000:0x00003FFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_mcerom/u_mcerom_fpga/u_bram3 [15:12] PLACED = X6Y11;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_mcerom/u_mcerom_fpga/u_bram2 [11:8] PLACED = X6Y9;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_mcerom/u_mcerom_fpga/u_bram1 [7:4] PLACED = X6Y10;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_mcerom/u_mcerom_fpga/u_bram0 [3:0] PLACED = X7Y10;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'rferom_mst' 0x00000000:0x00003FFF (16 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE rferom_mst RAMB32 [0x00000000:0x00003FFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_rferom/u_rferom_fpga/u_bram3 [15:12] PLACED = X7Y21;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_rferom/u_rferom_fpga/u_bram2 [11:8] PLACED = X8Y21;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_rferom/u_rferom_fpga/u_bram1 [7:4] PLACED = X7Y22;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_rferom/u_rferom_fpga/u_bram0 [3:0] PLACED = X8Y22;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'cperom_mst' 0x00000000:0x0001FFFF (128 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE cperom_mst RAMB32 [0x00000000:0x0001FFFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram7 [7:7] PLACED = X3Y14;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram6 [6:6] PLACED = X4Y8;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram5 [5:5] PLACED = X3Y15;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram4 [4:4] PLACED = X5Y10;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram3 [3:3] PLACED = X4Y10;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram2 [2:2] PLACED = X3Y10;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram1 [1:1] PLACED = X3Y11;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram0 [0:0] PLACED = X2Y10;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram15 [15:15] PLACED = X1Y14;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram14 [14:14] PLACED = X3Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram13 [13:13] PLACED = X1Y13;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram12 [12:12] PLACED = X2Y14;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram11 [11:11] PLACED = X2Y15;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram10 [10:10] PLACED = X0Y13;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram9 [9:9] PLACED = X3Y8;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram8 [8:8] PLACED = X4Y9;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram23 [23:23] PLACED = X1Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram22 [22:22] PLACED = X2Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram21 [21:21] PLACED = X4Y14;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram20 [20:20] PLACED = X2Y9;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram19 [19:19] PLACED = X4Y13;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram18 [18:18] PLACED = X5Y13;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram17 [17:17] PLACED = X4Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram16 [16:16] PLACED = X3Y13;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram31 [31:31] PLACED = X0Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram30 [30:30] PLACED = X1Y11;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram29 [29:29] PLACED = X2Y11;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram28 [28:28] PLACED = X4Y11;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram27 [27:27] PLACED = X3Y9;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram26 [26:26] PLACED = X4Y15;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram25 [25:25] PLACED = X5Y12;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/rfcore_pd/rfcore_pd_logic/rf/u_cperom/u_cperom_fpga/u_bram24 [24:24] PLACED = X2Y13;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mst_flash' 0x00000000:0x0001FFFF (128 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mst_flash RAMB32 [0x00000000:0x0001FFFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram3 [63:62] PLACED = X6Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram2 [61:60] PLACED = X5Y41;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram1 [59:58] PLACED = X5Y39;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram0 [57:56] PLACED = X4Y40;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram7 [55:54] PLACED = X6Y41;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram6 [53:52] PLACED = X6Y39;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram5 [51:50] PLACED = X6Y40;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram4 [49:48] PLACED = X4Y39;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram11 [47:46] PLACED = X6Y35;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram10 [45:44] PLACED = X6Y44;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram9 [43:42] PLACED = X5Y35;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram8 [41:40] PLACED = X5Y38;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram15 [39:38] PLACED = X5Y40;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram14 [37:36] PLACED = X6Y43;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram13 [35:34] PLACED = X5Y43;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram12 [33:32] PLACED = X6Y42;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram19 [31:30] PLACED = X4Y35;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram18 [29:28] PLACED = X5Y34;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram17 [27:26] PLACED = X4Y33;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram16 [25:24] PLACED = X5Y32;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram23 [23:22] PLACED = X4Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram22 [21:20] PLACED = X4Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram21 [19:18] PLACED = X3Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram20 [17:16] PLACED = X2Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram27 [15:14] PLACED = X4Y38;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram26 [13:12] PLACED = X5Y33;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram25 [11:10] PLACED = X4Y32;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram24 [9:8] PLACED = X4Y34;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram31 [7:6] PLACED = X3Y38;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram30 [5:4] PLACED = X3Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram29 [3:2] PLACED = X7Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/MAIN_ARRAY/BA16384064084_U1/flash_init/u_bram28 [1:0] PLACED = X5Y42;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mst_rom' 0x10000000:0x1001FFFF (128 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mst_rom RAMB32 [0x10000000:0x1001FFFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram7 [31:31] PLACED = X2Y38;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram6 [30:30] PLACED = X2Y39;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram5 [29:29] PLACED = X7Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram4 [28:28] PLACED = X4Y31;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram3 [27:27] PLACED = X7Y38;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram2 [26:26] PLACED = X5Y30;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram1 [25:25] PLACED = X8Y31;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram0 [24:24] PLACED = X3Y30;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram15 [23:23] PLACED = X5Y29;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram14 [22:22] PLACED = X4Y30;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram13 [21:21] PLACED = X7Y33;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram12 [20:20] PLACED = X6Y29;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram11 [19:19] PLACED = X3Y40;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram10 [18:18] PLACED = X2Y33;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram9 [17:17] PLACED = X3Y34;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram8 [16:16] PLACED = X1Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram23 [15:15] PLACED = X4Y41;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram22 [14:14] PLACED = X7Y35;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram21 [13:13] PLACED = X3Y39;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram20 [12:12] PLACED = X6Y30;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram19 [11:11] PLACED = X6Y31;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram18 [10:10] PLACED = X8Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram17 [9:9] PLACED = X2Y40;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram16 [8:8] PLACED = X3Y32;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram31 [7:7] PLACED = X2Y35;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram30 [6:6] PLACED = X6Y32;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram29 [5:5] PLACED = X3Y33;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram28 [4:4] PLACED = X5Y31;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram27 [3:3] PLACED = X3Y31;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram26 [2:2] PLACED = X3Y41;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram25 [1:1] PLACED = X2Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/vims/bootrom/brom.brom/I_ram/rom_init/u_bram24 [0:0] PLACED = X3Y35;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mst_engr' 0x50109000:0x5010AFFF (8 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mst_engr RAMB32 [0x50109000:0x5010AFFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/ENGR_ARRAY/BA00128064084_U1/engr_init/u_bram1 [63:32] PLACED = X5Y37;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/ENGR_ARRAY/BA00128064084_U1/engr_init/u_bram0 [31:0] PLACED = X6Y37;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Address space 'mst_otp' 0x5010A000:0x5010BFFF (8 KBytes).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_SPACE mst_otp RAMB32 [0x5010A000:0x5010BFFF]
+    BUS_BLOCK
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/OTP_ARRAY/BA00128064084_U1/engr_init/u_bram1 [63:32] PLACED = X5Y36;
+        dut_mst/genblk1.chameleon/mcu_vd/mcu_vd_logic/vims_pd/vims_pd_logic/flash/cm26_flash_bank_inst/flee_inst/OTP_ARRAY/BA00128064084_U1/engr_init/u_bram0 [31:0] PLACED = X6Y38;
+    END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+

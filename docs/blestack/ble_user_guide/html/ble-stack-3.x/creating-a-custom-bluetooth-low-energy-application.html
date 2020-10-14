@@ -1,0 +1,1283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Defining Application Behavior &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Serial Interface (NPI)" href="network-processor.html" />
+    <link rel="prev" title="Stack Configurations" href="stack-configuration.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x creating-a-custom-bluetooth-low-energy-application";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Defining Application Behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#directed-advertisements-as-gatt-server">Directed Advertisements as GATT Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compiler-options">Compiler Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying">Modifying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-additional-icall-enabled-tasks">Creating Additional ICall Enabled Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-production-test-mode-ptm">Using Production Test Mode (PTM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stack-project-changes">Stack Project Changes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preprocessor-defines">Preprocessor Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-ptm-and-configure-hci-transport-layer">Enable PTM and Configure HCI Transport Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-project-changes">Application Project Changes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Preprocessor Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-npi-and-icall-hci-tl-files">Adding NPI and ICall HCI TL Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-npi-task-in-main-c">Creating the NPI Task in main.c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-the-npi-task-priority">Set the NPI Task Priority</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modifying-the-app-file">Modifying the App File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizing-bluetooth-low-energy-flash-and-ram-memory-usage">Optimizing Bluetooth Low Energy Flash and RAM Memory Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flash-optimization">Flash optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ram-optimization">RAM optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-bluetooth-low-energy-behavior">Defining Bluetooth Low Energy Behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a> &raquo;</li>
+        
+      <li>Defining Application Behavior</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="defining-application-behavior">
+<h1>Defining Application Behavior<a class="headerlink" href="#defining-application-behavior" title="Permalink to this headline">¶</a></h1>
+<p>The Sample Applications will often contain simple TI-RTOS tasks with a
+barebones messaging system between tasks. For more information on how the
+application tasks works in general, review <a class="reference internal" href="the-application.html#the-application"><span class="std std-ref">Introduction</span></a>.</p>
+<div class="section" id="directed-advertisements-as-gatt-server">
+<span id="creating-a-custom-ble-app-directed-advertisements"></span><h2>Directed Advertisements as GATT Server<a class="headerlink" href="#directed-advertisements-as-gatt-server" title="Permalink to this headline">¶</a></h2>
+<p>In BLE-Stack 3.03.05.00, Privacy is always enabled. Most of the privacy
+features are handled by the GAP bond manager in the stack. To conserve
+flash memory, by default, the GAP bond manager does not enable GATT
+client features. The implication of these disabled GATT client features
+is that the GAP bond manager will not query the Central Address
+Resolution characteristic of the remote device.</p>
+<p>In order to perform a directed advertisement when the initiator’s
+address is set to Private Resolvable Address, the peripheral device
+must read the Central Address Resolution characteristic of its remote
+device to make sure address resolution is supported. Failure to do so
+before sending directed advertisements violates the <a class="reference external" href="https://www.bluetooth.com/specifications/adopted-specifications">Bluetooth Core Specification Version 5.1</a>.</p>
+<p>If you require the use of directed advertisements, you can add this
+functionality by commenting out the <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">GBM_GATT_NO_CLIENT</span></code>
+preprocessor option in <code class="docutils literal notranslate"><span class="pre">gapbondmgr.c</span></code> as shown below:</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 67. </span><span class="caption-text">Compiling using GATT_NO_CLIENT</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/*</span>
+<span class="cm">   * When GATT_NO_CLIENT is used, the use of GATT Client API is compiled out under</span>
+<span class="cm">   * GBM_GATT_NO_CLIENT.  This means that, in the context of Privacy 1.2, the Bond</span>
+<span class="cm">   * Manager of this device will not read the Central Address Resolution</span>
+<span class="cm">   * Characteristic of the remote device.  If it is desired that this device uses</span>
+<span class="cm">   * a Private Resolvable Address for Directed Advertisements, comment out the</span>
+<span class="cm">   * pre-processor logic below.</span>
+<span class="cm">   */</span>
+  <span class="cp">#ifdef GATT_NO_CLIENT</span>
+    <span class="cp">#ifndef GBM_GATT_NO_CLIENT</span>
+      <span class="cp">#define GBM_GATT_NO_CLIENT</span>
+    <span class="cp">#endif </span><span class="c1">// !GBM_GATT_NO_CLIENT</span>
+  <span class="cp">#endif </span><span class="c1">// GATT_NO_CLIENT</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="compiler-options">
+<span id="sec-compiler-options"></span><h1>Compiler Options<a class="headerlink" href="#compiler-options" title="Permalink to this headline">¶</a></h1>
+<p>Preprocessor options (IAR) or Predefined symbols (CCS) configure system behavior,
+features, and resource usage at compile time. Some symbols are required as part
+of the Bluetooth Low Energy system, while others are configurable. See
+<a class="reference internal" href="../cc2640/developing_in_ccs.html#sec-developing-with-ccs-accessing-preprocessor-symbols"><span class="std std-ref">Accessing Preprocessor Symbols</span></a> (CCS) or
+<a class="reference internal" href="../cc2640/developing_in_iar.html#sec-developing-with-iar-accessing-preprocessor-symbols"><span class="std std-ref">Accessing Preprocessor Symbols</span></a> (IAR) for details on
+accessing preprocessor symbols. Symbols defined in a particular project are
+defined in all files within the project.</p>
+<div class="section" id="modifying">
+<h2>Modifying<a class="headerlink" href="#modifying" title="Permalink to this headline">¶</a></h2>
+<p>To disable a symbol, put an <em>x</em> in front of the name. To disable
+power management, change <code class="docutils literal notranslate"><span class="pre">POWER_SAVING</span></code> to <code class="docutils literal notranslate"><span class="pre">xPOWER_SAVING</span></code>.</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#tbl-preproc-symbols-ble-app"><span class="std std-numref">Table 18.</span></a> lists the preprocessor symbols used by the application in the
+simple_peripheral project. Symbols that must remain unmodified are
+marked with an <em>N</em> in the Modify column while symbols that may be modified are marked with a <em>Y</em>.</p>
+<span id="tbl-preproc-symbols-ble-app"></span><table border="1" class="docutils" id="id5">
+<caption><span class="caption-number">Table 18. </span><span class="caption-text">BLE Application Preprocessor Symbols</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="10%" />
+<col width="26%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Modify</strong></th>
+<th class="head"><strong>Preprocessor Symbol</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Y</td>
+<td>BOARD_DISPLAY_USE_LCD</td>
+<td>0 or 1 determines if the Display driver should use LCD</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>BOARD_DISPLAY_USE_UART</td>
+<td>0 or 1 determines if the Display driver should use UART</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>BOARD_DISPLAY_USE_UART_ANSI</td>
+<td>0 or 1 determines if the Display driver should use UART ANSI</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>CC26XX</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>CC26XX_R2</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>DeviceFamily_CC26X0R2</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>ICALL_EVENTS</td>
+<td>Configures ICall to use Events</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>ICALL_JT</td>
+<td>Configures ICall to use the jumptable</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>ICALL_LITE</td>
+<td>Configures ICall to use the jumptable</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>STACK_LIBRARY</td>
+<td>During build, only includes the correct files
+for the stack library configuration</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>USE_ICALL</td>
+<td>Required to use ICall Bluetooth Low Energy and primitive services</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>TBM_ACTIVE_ITEMS_ONLY</td>
+<td>When using the Two Button Menu, Only active items will be displayed</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>RF_SINGLEMODE</td>
+<td>Used for core radio configuration</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>POWER_SAVING</td>
+<td>Power management is enabled when defined, and disabled when
+not defined. Requires same option in stack project</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>ICALL_MAX_NUM_TASKS</td>
+<td>Defines the number of ICall aware tasks. Modify only if adding a
+new TI-RTOS task that uses ICall services</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>ICALL_MAX_NUM_ENTITIES</td>
+<td>Defines maximum number of entities that use ICall, including
+service entities and application entities. Modify only if adding a
+new TI-RTOS task that uses ICall services</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>ICALL_STACK0_ADDR</td>
+<td>Stack entry address (flash)</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>Display_DISABLE_ALL</td>
+<td>All Display statements are removed and no display operations will
+take place. See Display.h for more details found in the Drivers
+virtual folder in the project</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>MAX_NUM_BLE_CONNS</td>
+<td>This is the maximum number of simultaneous Bluetooth low
+energy collections allowed. Adding more connections uses more
+RAM and may require increasing HEAPMGR_SIZE. Profile heap
+usage accordingly</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td><code class="docutils literal notranslate"><span class="pre">&lt;board_type&gt;</span></code></td>
+<td>In <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>, only CC2640R2_LAUNCHXL is supported by default</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>xdc_runtime_Assert</td>
+<td>Disables XDC run-time assert <code class="docutils literal notranslate"><span class="pre">xdc_runtime_Assert_DISABLE_ALL</span></code></td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>xdc_runtime_Log</td>
+<td>Disables XDC run-time logging <code class="docutils literal notranslate"><span class="pre">xdc_runtime_Log_DISABLE_ALL</span></code></td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>HEAPMGR_METRICS</td>
+<td>Enables collection of ICall heap metrics. See
+<a class="reference internal" href="../ble-stack-common/memory_management.html#dynamic-memory-allocation"><span class="std std-ref">Dynamic Memory Allocation</span></a> for details on how to profile heap
+usage</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#tbl-preproc-symbols-ble-stack"><span class="std std-numref">Table 19.</span></a> lists the only stack preprocessor options.
+Symbols that must remain unmodified are marked with an <em>N</em> in the Modify column
+while symbols that may be modified are marked with a <em>Y</em>.</p>
+<span id="tbl-preproc-symbols-ble-stack"></span><table border="1" class="docutils" id="id6">
+<caption><span class="caption-number">Table 19. </span><span class="caption-text">BLE Stack Preprocessor Symbols</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="9%" />
+<col width="29%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Modify</strong></th>
+<th class="head"><strong>Preprocessor Symbol</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>N</td>
+<td>CC26XX</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>CC26XX_R2</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>DeviceFamily_CC26X0R2</td>
+<td>This selects the chipset</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>FLASH_ROM_BUILD</td>
+<td>Allows tools to correctly pull in libraries
+and applicable jump table configuration
+for ICall</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>GATT_NO_CLIENT</td>
+<td>When defined, the GATT client is not
+included to save flash. GATT client is
+excluded from most peripheral projects,
+included in central and certain peripheral
+projects (for example, TimeApp)</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>NO_BLE_SECURITY</td>
+<td>Unlink security functions from the
+dispatcher, used in conjunction with
+disabling GAP bond manager and SNV to
+further reduce flash space.</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>ICALL_EVENTS</td>
+<td>Configures ICall to use Events</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>ICALL_JT</td>
+<td>Configures ICall to use the jumptable</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>ICALL_LITE</td>
+<td>Configures ICall to correctly use the jumptable</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>OSAL_CBTIMER_NUM_TASKS=1</td>
+<td>Configures the stack for BLE Operation</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>STACK_LIBRARY</td>
+<td>During build, only includes the correct files
+for the stack library configuration</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>USE_ICALL</td>
+<td>Required to use ICall Bluetooth Low Energy and primitive services</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>RF_SINGLEMODE</td>
+<td>Used for core radio configuration</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>POWER_SAVING</td>
+<td>Power management is enabled when
+defined, and disabled when not defined.
+Requires the same option in application
+project</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>OSAL_SNV=1</td>
+<td>Select the number of NV pages to use for
+SNV. Each page is 4kB of flash. A
+minimum of one page is required when
+GAP_BOND_MANAGER is defined. See
+<a class="reference internal" href="../ble-stack-common/flash_memory-cc2640.html#using-simple-nv"><span class="std std-ref">Using Simple NV for Flash Storage</span></a></td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>OSAL_MAX_NUM_PROXY_TASKS</td>
+<td>Number of ICall-aware tasks the protocol
+task can communicate with. Default is 2.
+Increase this value if more TI-RTOS tasks
+are added that make ICall protocol stack
+API calls</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>EXT_HAL_ASSERT</td>
+<td>Extended assert enables support for
+application callback for asserts</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="creating-additional-icall-enabled-tasks">
+<span id="sec-creating-custom-ble-application-creating-additional-tasks"></span><h1>Creating Additional ICall Enabled Tasks<a class="headerlink" href="#creating-additional-icall-enabled-tasks" title="Permalink to this headline">¶</a></h1>
+<p>The objective of this section is to familiarize the programmer with the
+process of adding an RTOS task that can communicate with the BLE-Stack. Tasks
+call functions within the BLE-Stack must follow a few additional steps
+to register with ICall. These details are covered below:</p>
+<p>1. Follow all the steps detailed in <a class="reference internal" href="../ble-stack-tirtos/tasks.html#sec-rtos-overview-tasks"><span class="std std-ref">Tasks</span></a> to
+create a TI-RTOS task.</p>
+<ol class="arabic simple" start="2">
+<li>Modify the task’s init function to register with ICall
+(explained in <a class="reference internal" href="the-application.html#the-application-icall-initialization-and-registration"><span class="std std-ref">ICall Initialization and Registration</span></a>)</li>
+</ol>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-number">Listing 68. </span><span class="caption-text">ICall Registration for custom task</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ******************************************************************</span>
+<span class="c1">// N0 STACK API CALLS CAN OCCUR BEFORE THIS CALL TO ICall_registerApp</span>
+<span class="c1">// ******************************************************************</span>
+<span class="c1">// Register the current thread as an ICall dispatcher application</span>
+<span class="c1">// so that the application can send and receive messages.</span>
+<span class="n">ICall_registerApp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">selfEntity</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">syncEvent</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Modify the task’s main function to pend on <code class="docutils literal notranslate"><span class="pre">syncEvent</span></code>
+(explained in <a class="reference internal" href="the-application.html#sec-the-application-icall-thread-sync"><span class="std std-ref">ICall Thread Synchronization</span></a>)</li>
+</ol>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">Listing 69. </span><span class="caption-text">ICall Wait</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">NotificationTask_taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Initialize application</span>
+  <span class="n">NotificationTask_init</span><span class="p">();</span>
+
+  <span class="c1">// Application main loop</span>
+  <span class="k">for</span> <span class="p">(;;)</span>
+  <span class="p">{</span>
+      <span class="c1">// Waits for an event to be posted associated with the calling thread.</span>
+      <span class="c1">// Note that an event associated with a thread is posted when a</span>
+      <span class="c1">// message is queued to the message receive queue of the thread</span>
+      <span class="n">events</span> <span class="o">=</span> <span class="n">Event_pend</span><span class="p">(</span><span class="n">syncEvent</span><span class="p">,</span> <span class="n">Event_Id_NONE</span><span class="p">,</span> <span class="n">SBP_ALL_EVENTS</span><span class="p">,</span> <span class="n">ICALL_TIMEOUT_FOREVER</span><span class="p">);</span>
+
+      <span class="c1">//...</span>
+  <span class="p">}</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Modify number of ICall enabled tasks:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Increase the following preprocessor defines:<ul>
+<li>ICALL_MAX_NUM_TASKS (<strong>App</strong>)</li>
+<li>OSAL_MAX_NUM_PROXY_TASKS (<strong>Stack</strong>)</li>
+</ul>
+</li>
+<li>See <a class="reference internal" href="../cc2640/developing_in_ccs.html#sec-developing-with-ccs-accessing-preprocessor-symbols"><span class="std std-ref">Accessing Preprocessor Symbols</span></a> (CCS) and
+<a class="reference internal" href="../cc2640/developing_in_iar.html#sec-developing-with-iar-accessing-preprocessor-symbols"><span class="std std-ref">Accessing Preprocessor Symbols</span></a> (IAR) for steps
+on how to change symbols</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If (OSAL_MAX_NUM_PROXY_TASKS + 1) != ICALL_MAX_NUM_TASKS do not match,
+the stack will abort.</p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Modify number of ICall entities:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Increase the following preprocessor defines:<ul>
+<li>ICALL_MAX_NUM_ENTITIES (<strong>App</strong>)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>For further description of the above preprocessor defines, please see <a class="reference internal" href="stack-configuration.html#stackconfigurablefeatures"><span class="std std-numref">Table 17.</span></a></p>
+</div>
+<div class="section" id="using-production-test-mode-ptm">
+<span id="sec-using-production-test-mode"></span><h1>Using Production Test Mode (PTM)<a class="headerlink" href="#using-production-test-mode-ptm" title="Permalink to this headline">¶</a></h1>
+<p>PTM is a way to pass HCI commands from an external communication protocol to
+the controller of the BLE-Stack.</p>
+<p>This section provides a brief overview of enabling PTM and an example of
+how to implement PTM on a <strong>simple_peripheral</strong> project using UART as the
+transfer protocol. The following two sections contain steps and detailed
+instructions on how to enable the example PTM implementation. The outlined
+steps will show the approach for IAR but the steps will be the same
+for CCS.</p>
+<p>To enable PTM and send the HCI status back via external transport protocol,
+the application must:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><strong>Add NPI to the Application Project</strong></p>
+<blockquote>
+<div><p>Network Processor Interface (NPI) is utilized to move HCI commands from
+the various entities in the embedded application. Relevant NPI files will
+need to be added to the application to enable access for this
+functionality.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Configure NPI to Receive Commands From Transport Protocol</strong></p>
+<blockquote>
+<div><p>A transport protocol is used to transfer commands and status between a
+BLE HCI Tester and the application. NPI currently supports SPI and
+UART protocols. UART will be used in the example below. NPI by default
+utilizes a handshake/flow control system to signal when a slave is ready
+to transmit/receive and when a master is ready to transmit/receive.
+This feature will be disabled as the functionality is not needed.
+For more information on NPI please see <a class="reference internal" href="../ble-stack-common/npi-index.html#sec-npi"><span class="std std-ref">Network Processor Interface (NPI)</span></a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Send HCI Commands Using ICall Direct API</strong></p>
+<blockquote>
+<div><p>The embedded application must intercept the NPI Frame and send the
+message to the BLE-Stack through the enhanced ICall’s direct message API.
+To configure NPI to only send messages to the embedded application,
+users must register <code class="docutils literal notranslate"><span class="pre">NPITask_registerIncomingRXEventAppCB</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">NPITask_registerIncomingRXEventAppCB</span></code> is used to tell NPI to
+<code class="docutils literal notranslate"><span class="pre">INTERCEPT</span></code> messages and send them to a function which will then
+utilize ICall Direct API. The ICall HCI Transport Layer
+(<code class="docutils literal notranslate"><span class="pre">icall_hci_tl.c</span></code>) will also need to be added to the
+project. ICall Direct API for any given HCI command can be translated
+from an NPI frame via <code class="docutils literal notranslate"><span class="pre">HCI_TL_SendToStack</span></code>, defined by the ICall HCI
+Transport Layer, into a Direct API expected by the BLE-Stack.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Explicitly Enable PTM and Configure HCI Transport Layer</strong></p>
+<blockquote>
+<div><p>On the stack side, the transport layer capability is defined in the
+<code class="docutils literal notranslate"><span class="pre">build_config.opt</span></code> file under the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> folder. To enable the
+transport layer, this file will need to be modified to define
+<code class="docutils literal notranslate"><span class="pre">HCI_TL_PTM</span></code>. The stack can now be notified to enter PTM via the
+<code class="docutils literal notranslate"><span class="pre">HCI_EXT_EnablePTMCmd()</span></code> Vendor Specific HCI Command.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Configure NPI to Forward Responses to Transport Protocol</strong></p>
+<blockquote>
+<div><p>Events and status of commands should be sent back to the transport
+protocol. This is done by registering callback functions with the
+transport layer which forward the messages to NPI. Once NPI has the
+messages, it then will send the message to the transport protocol
+configured.</p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<div class="section" id="stack-project-changes">
+<h2>Stack Project Changes<a class="headerlink" href="#stack-project-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preprocessor-defines">
+<h3>Preprocessor Defines<a class="headerlink" href="#preprocessor-defines" title="Permalink to this headline">¶</a></h3>
+<p>Add or modify (if it pre-exists) the following preprocessor define:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-number">Listing 70. </span><span class="caption-text">Stack Preprocessor Defines</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+<span class="hll">OSAL_MAX_NUM_PROXY_TASKS=4
+</span>...
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">OSAL_MAX_NUM_PROXY_TASKS</span></code> increases by one to accommodate for an NPI Task to
+be created. So this should increase by one based on your appplication’s
+current value. The value of 4 here is because the default simple_peripheral
+project use <code class="docutils literal notranslate"><span class="pre">OSAL_MAX_NUM_PROXY_TASKS=3</span></code>.</p>
+</div>
+<div class="section" id="enable-ptm-and-configure-hci-transport-layer">
+<h3>Enable PTM and Configure HCI Transport Layer<a class="headerlink" href="#enable-ptm-and-configure-hci-transport-layer" title="Permalink to this headline">¶</a></h3>
+<p>The HCI Transport Layer needs to be configured to use the correct
+jump table.</p>
+<p>On the stack side, the transport layer capabilities is defined in the
+<code class="docutils literal notranslate"><span class="pre">build_config.opt</span></code> file under the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> folder. By default no
+transport layer is included on the stack side to save flash.</p>
+<p>In this example, the following modification in <code class="docutils literal notranslate"><span class="pre">build_config.opt</span></code>
+to enable PTM commands:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* Include Transport Layer (Full or PTM) */
+/* -DHCI_TL_NONE Comment this line */
+<span class="hll">-DHCI_TL_PTM
+</span>/* -DHCI_TL_FULL */
+</pre></div>
+</div>
+</div></blockquote>
+<p>The stack must now be rebuilt for the changes to take effect and ensure support
+for the PTM commands.</p>
+</div>
+</div>
+<div class="section" id="application-project-changes">
+<h2>Application Project Changes<a class="headerlink" href="#application-project-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Preprocessor Defines<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Add or modify (if it pre-exists) the following preprocessor defines:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-number">Listing 71. </span><span class="caption-text">Application Preprocessor Defines</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+<span class="hll">ICALL_MAX_NUM_TASKS=4
+</span><span class="hll">NPI_USE_UART
+</span><span class="hll">NPI_FLOW_CTRL=0
+</span>...
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ICALL_MAX_NUM_TASKS</span></code> increases by one to accommodate for an NPI Task to
+be created. So this should increase by one based on your appplication’s
+current value. The value of 4 here is used as an example. For additional
+information on adding ICall Aware Tasks, and the modifications made to the
+Application and Stack Projects see
+<a class="reference internal" href="#sec-creating-custom-ble-application-creating-additional-tasks"><span class="std std-ref">Creating Additional ICall Enabled Tasks</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NPI_USE_UART</span></code> enables UART as the transport protocol for NPI.
+A transport protocol is used to transfer commands and status between
+a BLE HCI Tester and the application. NPI currently supports SPI and UART
+protocols.</p>
+<p>NPI by default utilizes a handshake/flow control system to signal
+when a slave is ready to transmit/receive and when a master is
+ready to transmit/receive. For testing purposes,
+this functionality isn’t needed and is disabled with <code class="docutils literal notranslate"><span class="pre">NPI_FLOW_CTRL=0</span></code>.</p>
+</div>
+<div class="section" id="adding-npi-and-icall-hci-tl-files">
+<h3>Adding NPI and ICall HCI TL Files<a class="headerlink" href="#adding-npi-and-icall-hci-tl-files" title="Permalink to this headline">¶</a></h3>
+<p>To add NPI and the ICall HCI TL file to the project, add the following files
+to your application. Replace <strong>&lt;SDK&gt;</strong> with your SDK’s file path.
+You may want to copy these files into the project instead of linking it to
+prevent unwanted SDK modifications:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;SDK&gt;\source\ti\blestack\npi\src\npi_frame_hci.c
+&lt;SDK&gt;\source\ti\blestack\npi\src\npi_rxbuf.c
+&lt;SDK&gt;\source\ti\blestack\npi\src\npi_task.c
+&lt;SDK&gt;\source\ti\blestack\npi\src\npi_tl.c
+&lt;SDK&gt;\source\ti\blestack\npi\src\npi_tl_uart.c
+&lt;SDK&gt;\source\ti\blestack\icall\app\icall_hci_tl.c
+</pre></div>
+</div>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/ptm_npi_include_folder.jpg"><img alt="../_images/ptm_npi_include_folder.jpg" src="../_images/ptm_npi_include_folder.jpg" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Figure 73. </span><span class="caption-text">Added Files in NPI Folder (IAR)</span></p>
+</div>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/ptm_hci_tl.jpg"><img alt="../_images/ptm_hci_tl.jpg" src="../_images/ptm_hci_tl.jpg" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Figure 74. </span><span class="caption-text">Added File in ICallBLE Folder (IAR)</span></p>
+</div>
+</div></blockquote>
+<p>And remove the following lines from <code class="docutils literal notranslate"><span class="pre">ICallBLE/icall_hci_tl.c</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if (defined(HCI_TL_FULL) || defined(HCI_TL_PTM))</span>
+<span class="cp">#ifdef HOST_CONFIG</span>
+<span class="hll"><span class="cp">#ifndef HCI_TL_PTM</span>
+</span>
+<span class="cp">#if ( HOST_CONFIG &amp; ( PERIPHERAL_CFG | CENTRAL_CFG ) )</span>
+<span class="k">static</span> <span class="kt">void</span>      <span class="nf">host_tl_connEvtCallback</span><span class="p">(</span><span class="n">Gap_ConnEventRpt_t</span> <span class="o">*</span><span class="n">pReport</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span>      <span class="nf">host_tl_connEvtCallbackProcess</span><span class="p">(</span><span class="n">Gap_ConnEventRpt_t</span> <span class="o">*</span><span class="n">pReport</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">// PERIPHERAL_CFG | CENTRAL_CF</span>
+
+<span class="hll"><span class="cp">#endif </span><span class="cm">/* (HCI_TL_PTM) */</span><span class="cp"></span>
+</span><span class="cp">#endif </span><span class="c1">//HOST_CONFIG</span>
+<span class="cp">#endif </span><span class="cm">/* (defined(HCI_TL_FULL) || defined(HCI_TL_PTM)) */</span><span class="cp"></span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If not added already, within your application’s project settings add the NPI and
+ROM (for ICall) include directory to the include search path for the IDE:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;SDK&gt;\source\ti\blestack\npi\src
+&lt;SDK&gt;\source\ti\blestack\npi\src\inc
+&lt;SDK&gt;\source\ti\blestack\rom
+</pre></div>
+</div>
+<div class="figure align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/ptm_npi_include_search.jpg"><img alt="../_images/ptm_npi_include_search.jpg" src="../_images/ptm_npi_include_search.jpg" style="width: 85%;" /></a>
+<p class="caption"><span class="caption-number">Figure 75. </span><span class="caption-text">NPI and ROM Include Directories (IAR)</span></p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="creating-the-npi-task-in-main-c">
+<h3>Creating the NPI Task in main.c<a class="headerlink" href="#creating-the-npi-task-in-main-c" title="Permalink to this headline">¶</a></h3>
+<p>The following changes are to be made in the <code class="docutils literal notranslate"><span class="pre">Startup/main.c</span></code> file.
+To include the NPI Task into the project, add <code class="docutils literal notranslate"><span class="pre">npi_task.h</span></code> to <code class="docutils literal notranslate"><span class="pre">main.c</span></code>
+and add <code class="docutils literal notranslate"><span class="pre">NPITask_createTask(ICALL_SERVICE_CLASS_BLE);</span></code> towards the end of
+<code class="docutils literal notranslate"><span class="pre">main()</span></code> where tasks are being created.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;simple_peripheral.h&quot;</span><span class="cp"></span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;npi_task.h&quot;</span><span class="cp"></span>
+</span>
+<span class="c1">//...</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+  <span class="c1">//...</span>
+
+<span class="hll">  <span class="cm">/* Start task for NPI task */</span>
+</span><span class="hll">  <span class="n">NPITask_createTask</span><span class="p">(</span><span class="n">ICALL_SERVICE_CLASS_BLE</span><span class="p">);</span>
+</span>
+  <span class="cm">/* enable interrupts and start SYS/BIOS */</span>
+  <span class="n">BIOS_start</span><span class="p">();</span>
+  <span class="c1">//...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="set-the-npi-task-priority">
+<h3>Set the NPI Task Priority<a class="headerlink" href="#set-the-npi-task-priority" title="Permalink to this headline">¶</a></h3>
+<p>The NPI task must be set to a proper priority in <code class="docutils literal notranslate"><span class="pre">npi_task.c</span></code>.
+Ideally it should be lower than the stack task, but higher than the GAP task.
+This allows commands to interrupt tasks if required.</p>
+<p>For this example, the priority of 4 worked perfectly:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//! \brief Task priority for NPI RTOS task</span>
+<span class="cp">#define NPITASK_PRIORITY 4</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="modifying-the-app-file">
+<h3>Modifying the App File<a class="headerlink" href="#modifying-the-app-file" title="Permalink to this headline">¶</a></h3>
+<p>The following changes are to be made in the application’s <code class="docutils literal notranslate"><span class="pre">.c</span></code> file.
+This example will be provided with the context of <code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code>.
+Refer to the added comments for further information.</p>
+<p>Include the following header files:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;simple_peripheral.h&quot;</span><span class="cp"></span>
+
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;npi_task.h&quot;        // To allow RX event registration</span><span class="cp"></span>
+</span><span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;npi_ble.h&quot;         // To enable transmission of messages to UART</span><span class="cp"></span>
+</span><span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;icall_hci_tl.h&quot;    // To allow ICall HCI Transport Layer</span><span class="cp"></span>
+</span>
+<span class="c1">//...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Add the following function declarations and definitions:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+
+<span class="hll"><span class="kt">void</span> <span class="nf">simple_peripheral_handleNPIRxInterceptEvent</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pMsg</span><span class="p">);</span>  <span class="c1">// Declaration</span>
+</span><span class="hll"><span class="k">static</span> <span class="kt">void</span> <span class="nf">simple_peripheral_sendToNPI</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>  <span class="c1">// Declaration</span>
+</span>
+<span class="c1">//...</span>
+
+<span class="hll"> <span class="cm">/*********************************************************************</span>
+</span><span class="hll"><span class="cm">* @fn      simple_peripheral_handleNPIRxInterceptEvent</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @brief   Intercept an NPI RX serial message and queue for this application.</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @param   pMsg - a NPIMSG_msg_t containing the intercepted message.</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @return  none.</span>
+</span><span class="hll"><span class="cm">*/</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">simple_peripheral_handleNPIRxInterceptEvent</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pMsg</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">  <span class="c1">// Send Command via HCI TL</span>
+</span><span class="hll">  <span class="n">HCI_TL_SendToStack</span><span class="p">(((</span><span class="n">NPIMSG_msg_t</span> <span class="o">*</span><span class="p">)</span><span class="n">pMsg</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">pBuf</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// The data is stored as a message, free this first.</span>
+</span><span class="hll">  <span class="n">ICall_freeMsg</span><span class="p">(((</span><span class="n">NPIMSG_msg_t</span> <span class="o">*</span><span class="p">)</span><span class="n">pMsg</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">pBuf</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// Free container.</span>
+</span><span class="hll">  <span class="n">ICall_free</span><span class="p">(</span><span class="n">pMsg</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll"><span class="cm">/*********************************************************************</span>
+</span><span class="hll"><span class="cm">* @fn      simple_peripheral_sendToNPI</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @brief   Create an NPI packet and send to NPI to transmit.</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @param   buf - pointer HCI event or data.</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @param   len - length of buf in bytes.</span>
+</span><span class="hll"><span class="cm">*</span>
+</span><span class="hll"><span class="cm">* @return  none</span>
+</span><span class="hll"><span class="cm">*/</span>
+</span><span class="hll"><span class="k">static</span> <span class="kt">void</span> <span class="nf">simple_peripheral_sendToNPI</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">  <span class="n">npiPkt_t</span> <span class="o">*</span><span class="n">pNpiPkt</span> <span class="o">=</span> <span class="p">(</span><span class="n">npiPkt_t</span> <span class="o">*</span><span class="p">)</span><span class="n">ICall_allocMsg</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">npiPkt_t</span><span class="p">)</span> <span class="o">+</span> <span class="n">len</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="n">pNpiPkt</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="n">pNpiPkt</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//Has the event status code in first byte of payload</span>
+</span><span class="hll">    <span class="n">pNpiPkt</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">pNpiPkt</span><span class="o">-&gt;</span><span class="n">pktLen</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">pNpiPkt</span><span class="o">-&gt;</span><span class="n">pData</span>  <span class="o">=</span> <span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="p">)(</span><span class="n">pNpiPkt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">memcpy</span><span class="p">(</span><span class="n">pNpiPkt</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// Send to NPI</span>
+</span><span class="hll">    <span class="c1">// Note: there is no need to free this packet.  NPI will do that itself.</span>
+</span><span class="hll">    <span class="n">NPITask_sendToHost</span><span class="p">((</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">pNpiPkt</span><span class="p">);</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div></blockquote>
+<p>At the end of the initialization function, add the following function calls:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+
+  <span class="c1">//...</span>
+
+<span class="hll">  <span class="c1">// Intercept NPI RX events.</span>
+</span><span class="hll">  <span class="n">NPITask_registerIncomingRXEventAppCB</span><span class="p">(</span><span class="n">simple_peripheral_handleNPIRxInterceptEvent</span><span class="p">,</span> <span class="n">INTERCEPT</span><span class="p">);</span>
+</span>
+<span class="hll">  <span class="c1">// Register for Command Status information</span>
+</span><span class="hll">  <span class="n">HCI_TL_Init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="p">(</span><span class="n">HCI_TL_CommandStatusCB_t</span><span class="p">)</span> <span class="n">simple_peripheral_sendToNPI</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">selfEntity</span><span class="p">);</span>
+</span>
+<span class="hll">  <span class="c1">// Register for Events</span>
+</span><span class="hll">  <span class="n">HCI_TL_getCmdResponderID</span><span class="p">(</span><span class="n">ICall_getLocalMsgEntityId</span><span class="p">(</span><span class="n">ICALL_SERVICE_CLASS_BLE_MSG</span><span class="p">,</span> <span class="n">selfEntity</span><span class="p">));</span>
+</span>
+<span class="hll">  <span class="c1">// Inform Stack to Initialize PTM</span>
+</span><span class="hll">  <span class="n">HCI_EXT_EnablePTMCmd</span><span class="p">();</span>
+</span>
+<span class="p">}</span>
+
+<span class="c1">//...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>At the end of the process stack message function, add the following:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+
+<span class="k">static</span> <span class="kt">uint8_t</span> <span class="nf">SimplePeripheral_processStackMsg</span><span class="p">(</span><span class="n">ICall_Hdr</span> <span class="o">*</span><span class="n">pMsg</span><span class="p">)</span>
+<span class="p">{</span>
+
+  <span class="c1">//...</span>
+
+  <span class="k">switch</span> <span class="p">(</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">event</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+
+<span class="hll">  <span class="c1">// Check for NPI Messages</span>
+</span><span class="hll">  <span class="n">hciPacket_t</span> <span class="o">*</span><span class="n">pBuf</span> <span class="o">=</span> <span class="p">(</span><span class="n">hciPacket_t</span> <span class="o">*</span><span class="p">)</span><span class="n">pMsg</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// Serialized HCI Event</span>
+</span><span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">event</span> <span class="o">==</span> <span class="n">HCI_CTRL_TO_HOST_EVENT</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="kt">uint16_t</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// Determine the packet length</span>
+</span><span class="hll">    <span class="k">switch</span><span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="k">case</span> <span class="nl">HCI_EVENT_PACKET</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">len</span> <span class="o">=</span> <span class="n">HCI_EVENT_MIN_LENGTH</span> <span class="o">+</span> <span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span><span class="hll">        <span class="k">break</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">      <span class="k">case</span> <span class="nl">HCI_ACL_DATA_PACKET</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">len</span> <span class="o">=</span> <span class="n">HCI_DATA_MIN_LENGTH</span> <span class="o">+</span> <span class="n">BUILD_UINT16</span><span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+</span><span class="hll">        <span class="k">break</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">      <span class="k">default</span><span class="o">:</span>
+</span><span class="hll">        <span class="k">break</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// Send to Remote Host.</span>
+</span><span class="hll">    <span class="n">simple_peripheral_sendToNPI</span><span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// Free buffers if needed.</span>
+</span><span class="hll">    <span class="k">switch</span> <span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="k">case</span> <span class="nl">HCI_ACL_DATA_PACKET</span><span class="p">:</span>
+</span><span class="hll">      <span class="k">case</span> <span class="nl">HCI_SCO_DATA_PACKET</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">BM_free</span><span class="p">(</span><span class="n">pBuf</span><span class="o">-&gt;</span><span class="n">pData</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">default</span><span class="o">:</span>
+</span><span class="hll">        <span class="k">break</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">safeToDealloc</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>When PTM is enabled, a <code class="docutils literal notranslate"><span class="pre">HCI_ResetCmd()</span></code> is issued. This resets the controller
+and various parts of the stack. PTM should be configured such that it’s only
+enabled if a particular set of GPIOs or other signals are in a particular state.
+Else the regular application should run. So the following functions in the app
+should be called when PTM is desired by the developer.
+For example, <code class="docutils literal notranslate"><span class="pre">PTM_ENABLE_FLAG</span></code> can be set to a value when specific conditions
+are met, such as when a GPIO is toggled during start up:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="k">if</span><span class="p">(</span><span class="n">PTM_ENABLE_FLAG</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span>  <span class="c1">// Intercept NPI RX events.</span>
+  <span class="n">NPITask_registerIncomingRXEventAppCB</span><span class="p">(</span><span class="n">simple_peripheral_handleNPIRxInterceptEvent</span><span class="p">,</span> <span class="n">INTERCEPT</span><span class="p">);</span>
+
+  <span class="c1">// Register for Command Status information</span>
+  <span class="n">HCI_TL_Init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="p">(</span><span class="n">HCI_TL_CommandStatusCB_t</span><span class="p">)</span> <span class="n">simple_peripheral_sendToNPI</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">selfEntity</span><span class="p">);</span>
+
+  <span class="c1">// Register for Events</span>
+  <span class="n">HCI_TL_getCmdResponderID</span><span class="p">(</span><span class="n">ICall_getLocalMsgEntityId</span><span class="p">(</span><span class="n">ICALL_SERVICE_CLASS_BLE_MSG</span><span class="p">,</span> <span class="n">selfEntity</span><span class="p">));</span>
+
+  <span class="c1">// Inform Stack to Initialize PTM</span>
+  <span class="n">HCI_EXT_EnablePTMCmd</span><span class="p">();</span>
+<span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div></blockquote>
+<p>With the project now modified, the PTM configuration will now be entered at
+run-time. The application’s only functionality will be to receive PTM commands
+over HCI and send a response over HCI. PTM is only a subset of HCI commands and
+it won’t be able to do anything other than the commands found in the
+<code class="docutils literal notranslate"><span class="pre">hciCmdTable</span></code> found in <code class="docutils literal notranslate"><span class="pre">hci_tl.c</span></code>. Check this file for the latest table of
+supported commands.</p>
+</div>
+</div>
+</div>
+<div class="section" id="optimizing-bluetooth-low-energy-flash-and-ram-memory-usage">
+<span id="optimizing-ble-memory-usage"></span><h1>Optimizing Bluetooth Low Energy Flash and RAM Memory Usage<a class="headerlink" href="#optimizing-bluetooth-low-energy-flash-and-ram-memory-usage" title="Permalink to this headline">¶</a></h1>
+<p>Configuration of the Bluetooth Low Energy protocol stack is
+essential for maximizing the amount of RAM and flash memory
+available for the application. Refer to <a class="reference internal" href="stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a>
+to configure parameters that impact runtime RAM usage, such as the maximum
+allowable size and number of PDUs. The TI Bluetooth Low Energy
+protocol stack is implemented to use a small RAM footprint, and
+allow the application to control the behavior of the stack by using
+the runtime ICall heap. For example, an application that only sends
+one GATT notification per connection event must store only one PDU
+in the heap, whereas as an application that must send multiple
+notifications must enqueue multiple PDUs in the heap.</p>
+<p>To increase the available flash memory allocated to the application
+project, minimize the flash usage of the protocol stack by including
+only Bluetooth Low Energy features required to implement the defined
+role of the device. The available protocol stack configurable
+features are described in <a class="reference internal" href="stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a>.
+Adding additional features to the protocol stack has the net effect
+of reducing the amount of flash memory to the application.</p>
+<div class="section" id="flash-optimization">
+<h2>Flash optimization<a class="headerlink" href="#flash-optimization" title="Permalink to this headline">¶</a></h2>
+<p>The following tips may be useful for reducing the footprint of the BLE-Stack.
+In general, there is a feature vs. flash footprint tradeoff. Each of the
+improvements below offer a cost in terms of feature removal.</p>
+<ul class="simple">
+<li>Verify that your application uses the <em>optimize for flash size</em> compiler
+optimization settings (default for TI projects).</li>
+<li>Use only one page of SNV or do not use any NV pages if the GAP bond
+manager is not required. Set the <code class="docutils literal notranslate"><span class="pre">NO_OSAL_SNV</span></code> stack preprocessor
+option. See <a class="reference internal" href="../ble-stack-common/flash_memory-cc2640.html#using-simple-nv"><span class="std std-ref">Using Simple NV for Flash Storage</span></a> for a description of SNV.</li>
+<li>Exclude the GATT client functionality by defining the
+<code class="docutils literal notranslate"><span class="pre">GATT_NO_CLIENT</span></code> predefined symbol in the stack project for
+peripheral devices. This should only be done by devices that do not
+wish to discover the RPAO characteristic.</li>
+<li>Remove or exclude debug DISPLAY, Two button menu or other unused drivers from
+the application project.</li>
+<li>Use the stack library options defined in <code class="docutils literal notranslate"><span class="pre">build_config.opt</span></code> to pull in
+the smallest library available for the given use case. In general, this
+means a library that implements only one role (i.e. peripheral) with no
+additional features enabled (i.e. L2CAP CoC). See
+<a class="reference internal" href="stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a>.</li>
+<li>Remove HAL Asserts by removing the <code class="docutils literal notranslate"><span class="pre">EXT_HAL_ASSERT</span></code> define from stack
+project.</li>
+<li>If the application does not need to perform any BLE security, remove the GapBondMgr by:<ul>
+<li>Add the <code class="docutils literal notranslate"><span class="pre">NO_BLE_SECURITY</span></code> preprocessor definition in the stack project</li>
+<li>Comment out the <code class="docutils literal notranslate"><span class="pre">GAP_BOND_MGR</span></code> define in the <code class="docutils literal notranslate"><span class="pre">build_config.opt</span></code>. See
+<a class="reference internal" href="stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a>.</li>
+<li>Recompile the stack and the app projects and comment out any remaining calls to
+GAPBondMgr API’s in the app project.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ram-optimization">
+<h2>RAM optimization<a class="headerlink" href="#ram-optimization" title="Permalink to this headline">¶</a></h2>
+<p>The following tips may be useful for reducing the RAM footprint of the BLE-Stack.
+It is important to remember that often removing RAM results in reduced
+throughput or features, the tradeoffs listed below should be evaluated
+carefully.</p>
+<ul>
+<li><p class="first">If using L2CAP CoC, reference <a class="reference internal" href="../ble-stack-common/l2cap.html#l2cap-ram"><span class="std std-ref">RAM Considerations</span></a> for defines that may configure
+L2CAP CoC functionality and their RAM implications</p>
+</li>
+<li><p class="first">Set <code class="docutils literal notranslate"><span class="pre">MAX_NUM_PDU</span></code> and <code class="docutils literal notranslate"><span class="pre">MAX_PDU_SIZE</span></code> to reduce the amount of packets
+that can be queued up by the stack at a time. This will reduce heap
+consumption.</p>
+</li>
+<li><p class="first">Disable LE Secure Connections pairing if not needed. See <a class="reference internal" href="gapbondmngr.html#lesc-intro"><span class="std std-ref">LE Secure Connections</span></a>
+on how to do this. This will save
+<code class="docutils literal notranslate"><span class="pre">ECCROMCC26XX_NIST_P256_WORKZONE_LEN_IN_BYTES</span></code> during pairing.
+Removing LESC also removes the requirement of having <code class="docutils literal notranslate"><span class="pre">MAX_PDU_SIZE</span></code> set to
+69, this can be overriden in <code class="docutils literal notranslate"><span class="pre">ble_user_config.h</span></code> to as low as 27.</p>
+</li>
+<li><p class="first">The LE Data Length Extension feature will default to an RX size of 251.
+If the peer device also supports DLE and a <code class="docutils literal notranslate"><span class="pre">connMaxRxOctets</span></code> value is
+negotiated &gt; 27 (default) then the controller will allocate
+connMaxRxOctets*4. 4 is the number of receive buffers in the
+controller and is a fixed parameter of the stack. However, connMaxRxOctets
+can be limited by either disabling Data Length Extension or limiting the
+max of TX and RX ocetets. Trimming the values of TX and RX is covered in
+<a class="reference internal" href="../ble-stack-common/link-layer-cc2640.html#sec-ram-considerations-dle"><span class="std std-ref">RAM Considerations when using DLE</span></a>.</p>
+</li>
+<li><p class="first">Carefully set <code class="docutils literal notranslate"><span class="pre">MAX_NUM_BLE_CONNS</span></code>. This define has a large affect on the
+amount of dynamic memory used by the stack. Below is a list of structures
+that the stack will alloc on initialization based on number of Connections.
+Each structure is multiplied by <code class="docutils literal notranslate"><span class="pre">MAX_NUM_BLE_CONNS</span></code>. This is not an
+exhaustive list A rule of thumb is that the stack will allocate the sizes of
+the structures above on initialization, and around
+~(1070 + connMaxRxOctets*4) per connection on connect.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sizeof(linkDBItem_t)</span></code> : Link data base entry for each connection</li>
+<li><code class="docutils literal notranslate"><span class="pre">sizeof(</span> <span class="pre">l2capChannel_t</span> <span class="pre">)</span></code> : At least one signaling channel for each connection</li>
+<li><code class="docutils literal notranslate"><span class="pre">sizeof(prepareWrites_t)</span></code> : Structure to hold prepare write table</li>
+<li><code class="docutils literal notranslate"><span class="pre">GATT_MAX_NUM_PREPARE_WRITES</span> <span class="pre">*</span> <span class="pre">sizeof(</span> <span class="pre">attPrepareWriteReq_t</span> <span class="pre">)</span></code> : Prepare write queue.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sizeof(llConnState_t)</span></code>: Structure to hold connection information</li>
+<li><code class="docutils literal notranslate"><span class="pre">2*sizeof(dataQ_t)</span></code> : Each connection’s RX and TX data queue</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Check for heap failures by checking <code class="docutils literal notranslate"><span class="pre">heapmgrMemFail</span></code> from
+<a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html#sec-heap-debugging"><span class="std std-ref">Debugging Common Heap Issues</span></a>. If heap failures are occurring, attempt to tune
+stack build configuration using the features and defines above. See
+<a class="reference internal" href="stack-configuration.html#stack-features-configuration"><span class="std std-ref">Stack Configurations</span></a> for options that can be configured in
+the stack.</p>
+</li>
+<li><p class="first">If heap failures still  occur after optimizing the BLE-Stack build,
+the size of the heap can be increased by reducing the size of static
+allocation. Static allocation (.bss, .data) includes globally defined
+buffers, runtime task stacks, and other structures that are instantiated
+without the use of malloc.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Trim task stack sizes by inspecting them using Task –&gt; Detailed view in
+<a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html#sec-rov"><span class="std std-ref">TI-RTOS Object Viewer</span></a>. If there is unused space their size can be decreased.</li>
+<li>The system stack can be reduced in a similar way, its usage is shown
+under HWI –&gt; Module view in ROV. Changing the system stack size is
+covered in <a class="reference internal" href="../ble-stack-common/memory_management.html#sec-memory-management-system-stack"><span class="std std-ref">System Stack</span></a>.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The above RAM estimations may vary by release, and are not an exhaustive
+list. It is intended as a way to allow the developer to profile the RAM
+requirements based on the desired settings. The best way to estimate RAM
+usage is to measure it in the field using the techniques covered in
+<a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html#sec-heap-debugging"><span class="std std-ref">Debugging Common Heap Issues</span></a></p>
+</div>
+<p>See <a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html#development-and-debugging-check-system-flash-and-ram-usage-with-map-file"><span class="std std-ref">Check System Flash and RAM Usage With Map File</span></a> for
+the procedure to check the size of the configured protocol stack.</p>
+</div>
+</div>
+<div class="section" id="defining-bluetooth-low-energy-behavior">
+<h1>Defining Bluetooth Low Energy Behavior<a class="headerlink" href="#defining-bluetooth-low-energy-behavior" title="Permalink to this headline">¶</a></h1>
+<p>This step involves using Bluetooth Low Energy protocol stack APIs to
+define the system behavior and adding profiles, defining the GATT
+database, configuring the security model, and so forth. Use the
+concepts explained in <a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#the-stack"><span class="std std-ref">BLE-Stack</span></a> as well as the Bluetooth Low Energy
+API reference in <a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html#ble-api-reference"><span class="std std-ref">BLE Stack API Reference</span></a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="network-processor.html" class="btn btn-neutral float-right" title="Serial Interface (NPI)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stack-configuration.html" class="btn btn-neutral float-left" title="Stack Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

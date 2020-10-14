@@ -1,0 +1,30 @@
+.. _sdg-overview:
+
+#######################
+|STACK| User's Guide
+#######################
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   disclaimer
+   get-started
+   platform
+   tirtos-index
+   ble-stack-3-index
+   u-stack-index
+   /ble-stack-common/npi-index.rst
+   index-oad-cc2640.rst
+   /voice/voice
+   secure-fw-index
+   /sensor-controller/sensor-controller.rst
+   debugging-index
+   /ble-stack-3.x-guide/migration
+   /ble-stack-3.x-guide/api-reference
+   /ble-stack-3.x-guide/reference
+
+Indexes and tables
+##################
+* :ref:`genindex`

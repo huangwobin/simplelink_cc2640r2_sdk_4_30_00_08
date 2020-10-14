@@ -1,0 +1,41 @@
+[
+    {
+        "files": [
+            "+../../oad/native_oad/oad_server.c -> oad_server.c",
+            "+../../oad/native_oad/oad_protocol.c -> oad_protocol.c",
+            "+../../oad/native_oad/oad_storage.c -> oad_storage.c",
+            "+../../oad/native_oad/oad_target_external_flash.c -> oad_target_external_flash.c",
+            "+../../oad/ble_oad/oad_switch.c -> oad_switch.c",
+            "+../../easylink/easylink_config.c -> easylink_config.c",
+            "+../../easylink/EasyLink.c -> EasyLink.c",
+            "+../../extflash/ExtFlash.c -> ExtFlash.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../../smartrf_settings/smartrf_settings_predefined.c -> smartrf_settings_predefined.c",
+            "+../../ConcentratorRadioTask.c -> ConcentratorRadioTask.c",
+            "+../../ConcentratorTask.c -> ConcentratorTask.c",
+            "+../../rfWsnConcentrator.c -> rfWsnConcentrator.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../oad/native_oad/oad_server.h -> oad_server.h",
+            "+../../oad/native_oad/oad_protocol.h -> oad_protocol.h",
+            "+../../oad/native_oad/oad_storage.h -> oad_storage.h",
+            "+../../oad/native_oad/oad_target.h -> oad_target.h",
+            "+../../oad/native_oad/ext_flash_layout.h -> ext_flash_layout.h",
+            "+../../oad/ble_oad/oad_switch.h -> oad_switch.h",
+            "+../../RadioProtocol.h -> RadioProtocol.h",
+            "+../../easylink/EasyLink.h -> EasyLink.h",
+            "+../../easylink/easylink_config.h -> easylink_config.h",
+            "+../../extflash/ExtFlash.h -> ExtFlash.h",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../../smartrf_settings/smartrf_settings_predefined.h -> smartrf_settings_predefined.h",
+            "+../../ConcentratorRadioTask.h -> ConcentratorRadioTask.h",
+            "+../../ConcentratorTask.h -> ConcentratorTask.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

@@ -1,0 +1,155 @@
+Image Metadata
+--------------
+
+All TI OAD images use a 16-byte metadata header. This metadata vector is
+embedded at the beginning of the image, occupying the first 16 bytes before
+the application code. Metadata checking is done in
+:code:`OADTarget_validateNewImage()`. :numref:`tbl-metadata-description-table`
+below shows a description of the metadata vector.
+
+.. _tbl-metadata-description-table:
+.. table:: Description of the metadata vector.
+
+    +-----------------+-------------------+------------------------------------+
+    | Field           | Size (in bytes)   | Description                        |
+    +=================+===================+====================================+
+    | CRC             | 2                 | Cyclic Redundancy Check (CRC)      |
+    +-----------------+-------------------+------------------------------------+
+    | CRC Shadow      | 2                 | Place holder for CRC               |
+    +-----------------+-------------------+------------------------------------+
+    | Version         | 2                 | Version                            |
+    +-----------------+-------------------+------------------------------------+
+    | Length          | 2                 | Length of the image in words\*     |
+    +-----------------+-------------------+------------------------------------+
+    | UID             | 4                 | User Identification                |
+    +-----------------+-------------------+------------------------------------+
+    | Start Address   | 2                 | The destination address of the     |
+    |                 |                   | image in words\*                   |
+    +-----------------+-------------------+------------------------------------+
+    | Image Type      | 1                 | The type of image to be downloaded |
+    +-----------------+-------------------+------------------------------------+
+    | State           | 1                 | The status of this image           |
+    +-----------------+-------------------+------------------------------------+
+
+.. note::
+    The above fields that are marked with an asterisk \* are
+    measured in 32-bit words. For example, an image length of 0x100
+    describes an image that is 1024 bytes in size. The OAD word size is
+    defined by :code:`EFL_OAD_ADDR_RESOLUTION` for off-chip OAD and by
+    :code:`HAL_FLASH_WORD_SIZE` for on-chip OAD.
+
+
+CRC and CRC Shadow
+^^^^^^^^^^^^^^^^^^
+
+The cyclic redundancy check (CRC) is a means to check the integrity of an
+image. This must be done in two steps. First the CRC must be calculated when
+the image is generated from the toolchain, this will be stored in the CRC
+field within the metadata vector.
+
+This initial CRC will be sent over the air via the OAD service. Later, the
+target will need to ensure that the image has not been corrupted during
+transfer. The target will then re-calculate the CRC of the downloaded image;
+this will be stored in the CRC shadow field of the metadata vector.
+
+If the CRC and CRC shadow are equivalent, the target can assume that the
+image was not corrupted while sending over the air.
+
+The algorithm selected for CRC calculations is the :wikipedia:`CRC-16-CCITT
+<Cyclic_redundancy_check#Standards_and_common_use>`.
+
+
+Version
+^^^^^^^
+
+The image version field is used to track revisions of images and ensure
+upgrade compatibility. Customers may implement their own versioning
+scheme; however, there are additional checks imposed by the TI OAD profile.
+See the function :code:`OADTarget_validateNewImage()` within
+:code:`oad_target_external_flash.c` or  :code:`oad_target_internal_flash.c`
+how these version checks are done in Off-chip and On-chip OAD, respectively.
+
+
+Length
+^^^^^^
+
+The length field is the length of the image in words, where the word
+size is defined by :code:`EFL_OAD_ADDR_RESOLUTION` and :code:`HAL_FLASH_WORD_SIZE`
+for On-chip and Off-chip OAD respectively. Off-chip OAD customers who
+are using different external flash parts may need to modify
+:code:`EFL_OAD_ADDR_RESOLUTION` to match the word size of their part. For
+On-chip OAD, the word size of the |DEVICE| is fixed.
+
+
+User Identification (UID)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This field is un-used by the TI OAD profile in the BLE stack only, but the
+hooks are in place for a customer to add their own implementation of verifying
+images based on a UID.
+
+For on-chip OAD, the convention is that Image A will embed ‘A’, ‘A’,
+‘A’, ‘A’ and Image B will embed ‘B’, ‘B’, ‘B’, ‘B’. Off-chip images use
+‘E’, ‘E’, ‘E’, ‘E’ by default.
+
+
+Start Address
+^^^^^^^^^^^^^
+
+The start address is the first address where the proposed image is to be
+stored in internal flash. Similar to the length field, this is
+calculated in words. Off-chip OAD solutions put restrictions on the
+start address based on image type (more on this in the next section).
+
+.. note::
+    For On-chip OAD solutions, this field is reserved in the
+    metadata as they use a fixed start address that is based on the internal
+    flash memory map.
+
+
+Image Type
+^^^^^^^^^^
+
+In Off-chip OAD systems with external flash, there are multiple types of
+images that can be uploaded. They are explained in :numref:`tbl-off-chip-oad-image-types`.
+Note, that OAD via EasyLink supports only `Application` type as there are no
+stacks involved.
+
+.. _tbl-off-chip-oad-image-types:
+.. table:: Off-chip OAD Image Types.
+
+    +--------------------------------+---------+-------------------------------+
+    | Image Type                     | Value   | Description                   |
+    +================================+=========+===============================+
+    | EFL\_OAD\_IMG\_TYPE\_APP       | 1       | An application or application |
+    |                                |         | + stack merged update         |
+    +--------------------------------+---------+-------------------------------+
+    | EFL\_OAD\_IMG\_TYPE\_STACK     | 2       | A stack only update           |
+    +--------------------------------+---------+-------------------------------+
+    | EFL\_OAD\_IMG\_TYPE\_NP        | 3       | A network processor update.   |
+    |                                |         |  This only applies to the     |
+    |                                |         |  SimpleAP + SimpleNP demo     |
+    +--------------------------------+---------+-------------------------------+
+    | EFL\_OAD\_IMG\_TYPE\_FACTORY   | 4       | Describes the permanently     |
+    |                                |         | resident production image that|
+    |                                |         | runs on the device before any |
+    |                                |         | OTA updates.                  |
+    +--------------------------------+---------+-------------------------------+
+
+On-chip OAD solutions determine the image type based on the LSB of the image
+version field. The image type field is not used in this case.
+
+
+Image State
+^^^^^^^^^^^
+
+The image state is a one byte metadata field that is used only by
+Off-chip OAD solutions. The state informs the bootloader whether or not
+the image is ready to run or currently running. This prevents the
+bootloader from copying the same image from external to internal flash
+on every boot.
+
+.. note::
+    For On-chip OAD solutions this field is reserved in the
+    metadata as the OAD reset service handles switching between images in
+    the bootloader.

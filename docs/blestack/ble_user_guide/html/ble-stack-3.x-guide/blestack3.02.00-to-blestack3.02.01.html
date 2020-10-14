@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BLE-Stack 3.02.00 to BLE-Stack 3.02.01 &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BLE-Stack 3.01.01 to BLE-Stack 3.02.00" href="blestack3.01.01-to-blestack3.02.00.html" />
+    <link rel="prev" title="BLE-Stack 3.02.01 to BLE-Stack 3.02.02" href="blestack3.02.01-to-blestack3.02.02.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-3.x-guide blestack3.02.00-to-blestack3.02.01";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migration.html">Migration Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blestack3.03.04-to-blestack3.03.05.html">BLE-Stack 3.03.04 to BLE-Stack 3.03.05</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="migration.html#previous-migration-guides">Previous Migration Guides</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.03-to-blestack3.03.04.html">BLE-Stack 3.03.03 to BLE-Stack 3.03.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.02-to-blestack3.03.03.html">BLE-Stack 3.03.02 to BLE-Stack 3.03.03</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.01-to-blestack3.03.02.html">BLE-Stack 3.03.01 to BLE-Stack 3.03.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.03.00-to-blestack3.03.01.html">BLE-Stack 3.03.00 to BLE-Stack 3.03.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.03-to-blestack3.03.00.html">BLE-Stack 3.02.03 to BLE-Stack 3.03.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.02-to-blestack3.02.03.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.02.01-to-blestack3.02.02.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE-Stack 3.02.00 to BLE-Stack 3.02.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.01.01-to-blestack3.02.00.html">BLE-Stack 3.01.01 to BLE-Stack 3.02.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.01.00-to-blestack3.01.01.html">BLE-Stack 3.01.00 to BLE-Stack 3.01.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.00.01-to-blestack3.01.00.html">BLE-Stack 3.00.01 to BLE-Stack 3.01.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blestack3.00.00-to-blestack3.00.01.html">BLE-Stack 3.00.00 to BLE-Stack 3.00.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc2640/software-on-cc2640r2l.html">Running Software Examples on CC2640R2L</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cc2640-to-cc2640r2.html">CC2640 to CC2640R2F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cc254x-to-cc2640.html">CC254x to CC2640</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="migration.html">Migration Guides</a> &raquo;</li>
+        
+      <li>BLE-Stack 3.02.00 to BLE-Stack 3.02.01</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ble-stack-3-02-00-to-ble-stack-3-02-01">
+<h1>BLE-Stack 3.02.00 to BLE-Stack 3.02.01<a class="headerlink" href="#ble-stack-3-02-00-to-ble-stack-3-02-01" title="Permalink to this headline">¶</a></h1>
+<p>This section will describe a way to migrate a project from BLE-Stack 3.02.00 to
+a BLE-Stack 3.02.01.</p>
+<p>For this migration guide, simple_peripheral from BLE-Stack 3.02.00 will be ported
+over to BLE-Stack 3.02.01. Because the directory structure is nearly identical
+between the two releases, the recommended approach is to start with a BLE-Stack
+3.02.01 project that contains the same base functionality as the porting target
+project and merge in any custom functionality.</p>
+<p>If you choose to not start with an example project from BLE-Stack 3.02.01 and
+instead wish to port your project by going to Properties&gt;General&gt;Products and
+selecting the new version of the CC2640R2 SDK that you wish to point to, be
+careful to examine what files are linked and what files are copied into your
+workspace from the SDK and adjust your project accordingly. For example, if you
+are migrating code based on the Project Zero for the CC2640R2, be sure to reference
+the new <code class="docutils literal notranslate"><span class="pre">ble_user_config.c</span></code>, <code class="docutils literal notranslate"><span class="pre">ble_user_config.h</span></code> and board files from the
+target SDK. The <code class="docutils literal notranslate"><span class="pre">ble_user_config.c</span></code> and <code class="docutils literal notranslate"><span class="pre">ble_user_config.h</span></code> are linked to the
+project, therefore, you need to copy those files into the new SDK.</p>
+<ol class="arabic">
+<li><p class="first">Choose a BLE-Stack 3.02.01 example project that contains your target project’s base functionality.</p>
+<blockquote>
+<div><p>For reference, see available sample projects that start with simple_peripheral</p>
+<p>In this example, we’re going to use simple_peripheral as the starting
+BLE-Stack 3.02.01 sample project.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Transfer all modified application files from BLE-Stack 3.02.00 into the BLE-Stack 3.02.01 example project.</p>
+<blockquote>
+<div><p>In this example, the following files from BLE-Stack 3.02.01 were moved into
+simple_peripheral BLE-Stack 3.02.00 example:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.h</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">A generic ATT retransmission module is introduced in BLE-Stack 3.02.01, which will take care of retransmission
+mechanism of unsent responses. Please do the following in <code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code> to take advantage of the new module.</p>
+<blockquote>
+<div><p>Include att_rsp.h.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;att_rsp.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Remove the globals and functions for handling ATT retransmission from user application code.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Globals used for ATT Response retransmission</span>
+<span class="k">static</span> <span class="n">gattMsgEvent_t</span> <span class="o">*</span><span class="n">pAttRsp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">rspTxRetry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_sendAttRsp</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_freeAttRsp</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">status</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Inside function <code class="docutils literal notranslate"><span class="pre">SimplePeripheral_processGATTMsg</span></code>, replace <code class="docutils literal notranslate"><span class="pre">pMsg-&gt;hdr.status</span> <span class="pre">==</span> <span class="pre">blePending</span></code>
+with <code class="docutils literal notranslate"><span class="pre">attRsp_isAttRsp(pMsg)</span></code> and remove the following code.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// First free any pending response</span>
+<span class="n">SimplePeripheral_freeAttRsp</span><span class="p">(</span><span class="n">FAILURE</span><span class="p">);</span>
+
+<span class="c1">// Hold on to the response message for retransmission</span>
+<span class="n">pAttRsp</span> <span class="o">=</span> <span class="n">pMsg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Replace the function <code class="docutils literal notranslate"><span class="pre">SimplePeripheral_processConnEvt</span></code> with the following code block:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      SimplePeripheral_processConnEvt</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Process connection event.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param pReport pointer to connection event report</span>
+<span class="cm"> */</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">SimplePeripheral_processConnEvt</span><span class="p">(</span><span class="n">Gap_ConnEventRpt_t</span> <span class="o">*</span><span class="n">pReport</span><span class="p">)</span>
+<span class="p">{</span>
+
+  <span class="k">if</span><span class="p">(</span> <span class="n">CONNECTION_EVENT_REGISTRATION_CAUSE</span><span class="p">(</span><span class="n">FOR_ATT_RSP</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="c1">// The GATT server might have returned a blePending as it was trying</span>
+    <span class="c1">// to process an ATT Response. Now that we finished with this</span>
+    <span class="c1">// connection event, let&#39;s try sending any remaining ATT Responses</span>
+    <span class="c1">// on the next connection event.</span>
+    <span class="c1">// Try to retransmit pending ATT Response (if any)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">attRsp_sendAttRsp</span><span class="p">()</span> <span class="o">==</span> <span class="n">SUCCESS</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Disable connection event end notice</span>
+        <span class="n">SimplePeripheral_UnRegistertToAllConnectionEvent</span> <span class="p">(</span><span class="n">FOR_ATT_RSP</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Replace all <code class="docutils literal notranslate"><span class="pre">SimplePeripheral_freeAttRsp(bleNotConnected);</span></code> with <code class="docutils literal notranslate"><span class="pre">attRsp_freeAttRsp(bleNotConnected);</span></code></p>
+<p>Under function <code class="docutils literal notranslate"><span class="pre">SimplePeripheral_connEvtCB</span></code> replace <code class="docutils literal notranslate"><span class="pre">ICall_freeMsg(pReport);</span></code> with <code class="docutils literal notranslate"><span class="pre">ICall_free(pReport);</span></code> .
+This will avoid potential memory corruption.</p>
+</div></blockquote>
+</li>
+<li><p class="first">If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+</li>
+<li><p class="first">Refer to the Core SDK release notes for additional information and the TI-RTOS examples included with <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<blockquote>
+<div><p>For additional information on how BLE-Stack 3.02.01 uses TI-RTOS see
+<a class="reference internal" href="tirtos-index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a></p>
+<p>For any utilized TI Drivers, review <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a> and
+<a class="reference external" href="../../../../../tidrivers/tidriversAPIs.html">Driver APIs</a>.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="blestack3.01.01-to-blestack3.02.00.html" class="btn btn-neutral float-right" title="BLE-Stack 3.01.01 to BLE-Stack 3.02.00" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blestack3.02.01-to-blestack3.02.02.html" class="btn btn-neutral float-left" title="BLE-Stack 3.02.01 to BLE-Stack 3.02.02" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

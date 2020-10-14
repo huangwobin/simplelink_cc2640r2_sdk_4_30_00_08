@@ -1,0 +1,14 @@
+[
+    {
+        "files": [
+            "+../../src/secure_fw_main.c -> Application/secure_fw_main.c",
+            "+../../src/ccfg_app_ble.c -> Application/ccfg_app_ble.c",
+            "+../../src/secure_fw.c -> Application/secure_fw.c",
+            "+../../src/secure_fw.h -> Application/secure_fw.h",
+            "+../../../../../../../source/ti/blestack/common/cc26xx/sha2/SHA2CC26XX.h -> Application/SHA2CC26XX.h",
+            "+../../src/secure_fw_config.h -> Application/secure_fw_config.h",
+            "+../../src/startup_ccs.c -> Application/startup_ccs.c",
+            "+../../../../../../../source/ti/blestack/common/cc26xx/ccs/cc26xx_secure_fw.cmd -> TOOLS/cc26xx_secure_fw.cmd"
+        ]
+    }
+]

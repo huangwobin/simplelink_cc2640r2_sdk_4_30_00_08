@@ -1,0 +1,47 @@
+BLE-Stack 3.02.01 to BLE-Stack 3.02.02
+======================================
+
+This section will describe a way to migrate a project from BLE-Stack 3.02.01 to
+a BLE-Stack 3.02.02.
+
+For this migration guide, simple_peripheral from BLE-Stack 3.02.01 will be ported
+over to BLE-Stack 3.02.02. Because the directory structure is nearly identical
+between the two releases, the recommended approach is to start with a BLE-Stack
+3.02.02 project that contains the same base functionality as the porting target
+project and merge in any custom functionality.
+
+If you choose to not start with an example project from BLE-Stack 3.02.02 and
+instead wish to port your project by going to Properties>General>Products and
+selecting the new version of the |DEVICE| SDK that you wish to point to, be
+careful to examine what files are linked and what files are copied into your
+workspace from the SDK and adjust your project accordingly. For example, if you
+are migrating code based on the Project Zero for the |DEVICE|, be sure to reference
+the new ``ble_user_config.c``, ``ble_user_config.h`` and board files from the
+target SDK. The ``ble_user_config.c`` and ``ble_user_config.h`` are linked to the
+project, therefore, you need to copy those files into the new SDK.
+
+#. Choose a BLE-Stack 3.02.02 example project that contains your target project's base functionality.
+
+    For reference, see available sample projects that start with simple\_peripheral
+
+    In this example, we're going to use simple\_peripheral as the starting
+    BLE-Stack 3.02.02 sample project.
+
+#. Transfer all modified application files from BLE-Stack 3.02.01 into the BLE-Stack 3.02.02 example project.
+
+    In this example, the following files from BLE-Stack 3.02.02 were moved into
+    simple\_peripheral BLE-Stack 3.02.01 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+
+#. If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the |SDK|.
+
+#. Refer to the Core SDK release notes for additional information and the TI-RTOS examples included with |SDK|.
+
+    For additional information on how BLE-Stack 3.02.02 uses TI-RTOS see
+    :ref:`sec-tirtos-overview`
+
+    For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+    `Driver APIs <..\/..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.
+

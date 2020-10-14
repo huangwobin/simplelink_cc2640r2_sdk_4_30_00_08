@@ -1,0 +1,275 @@
+Opening, Configuring and Building Projects
+------------------------------------------
+
+This chapter is split into |CCS| and |IAR| instructions. If you are using IAR, 
+skip ahead to :ref:`opening-iar-projects`.
+
+.. _sec-inc-developing-in-ccs-discover-ccs-products:
+
+|STACK| CCS Project Build Configurations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. sidebar:: CCS Project Explorer
+
+    .. _fig-ccs-project-explorer:
+    .. figure:: resources/image33.jpeg
+        :align: center
+
+        CCS Project Explorer
+
+
+This and all |STACK| project workspaces contain various projects and build
+configurations as shown in :numref:`tbl-inc-developing-in-ccs-build-configs`
+\*_StackLibrary build configurations build the stack as a library as
+described in :ref:`sec-inc-architecture-stack-image-as-a-library`.
+
+Click the project name in the file explorer to select the project as the active
+project. In :numref:`fig-ccs-project-explorer`, the application is selected as
+the active project. Each of these projects produces a separate, downloadable
+image.
+
+The simple\_peripheral sample project is the primary sample application for the
+description of a generic application in this guide. The simple\_peripheral
+project implements a basic Bluetooth Low Energy peripheral device including a
+GATT server with GATT services. This project can be used as a framework for
+developing peripheral-role applications.
+
+.. _tbl-inc-developing-in-ccs-build-configs:
+.. table:: Available CCS project build configurations
+    :align: center
+
+    +--------------+-----------------------------------+--------------------------------+----------------------------------------------------------------+
+    | Project type | Project naming convention         | Project's build configuration  | Compatible project complement                                  |
+    +==============+===================================+================================+================================================================+
+    | Application  | ``*_cc2640r2lp_app``              | FlashROM                       | ``*_cc2640r2lp_stack``                                         |
+    |              |                                   +--------------------------------+----------------------------------------------------------------+
+    |              |                                   | FlashROM\_StackLibrary         | ``*_cc2640r2lp_stack_library``                                 |
+    |              |                                   +--------------------------------+----------------------------------------------------------------+
+    |              |                                   | FlashROM\_StackLibrary_RCOSC   | ``*_cc2640r2lp_stack_library``                                 |
+    |              +-----------------------------------+--------------------------------+----------------------------------------------------------------+
+    |              | ``*_cc2640r2lp_app_oad_onchip``   | FlashROM\_OAD\_ImgB            | ``*_cc2640r2lp_stack`` with FlashROM configuration             |
+    |              +-----------------------------------+--------------------------------+----------------------------------------------------------------+
+    |              | ``*_cc2640r2lp_app_oad_offchip``  | FlashROM\_OAD\_Offchip         | ``*_cc2640r2lp_stack`` with FlashROM configuration             |
+    +--------------+-----------------------------------+--------------------------------+----------------------------------------------------------------+
+    | Stack        | ``*_cc2640r2lp_stack_library``    | FlashROM\_Library              | ``*_cc2640r2lp_app`` with FlashROM\_StackLibrary configuration |
+    |              +-----------------------------------+--------------------------------+----------------------------------------------------------------+
+    |              | ``*_cc2640r2lp_stack``            | FlashROM                       | ``*_cc2640r2lp_app`` with FlashROM configuration               |
+    +--------------+-----------------------------------+--------------------------------+----------------------------------------------------------------+
+
+
+Compile and Download
+^^^^^^^^^^^^^^^^^^^^
+
+For all build configurations, the stack project should always be built before
+the application project. The default configuration is to build the stack as a 
+library. The OAD projects use a split-image configuration. For these projects, 
+follow the split-image steps below.
+
+For projects where the stack is built as a **library**:
+
+    #. Build the stack library project.
+
+        - Set the stack project as the active project.
+        - Select **Project** -> **Build All** to build the stack project.
+
+    #. Build the application project.
+
+        - Set the application project as the active project.
+        - Select **Project -> Build All** to build the application project.
+
+    #. Load the whole application
+
+        - Select **Run** -> **Debug** to download the application
+
+    .. note::
+        Application project that consume the stack in a library form will not
+        have hard defined image boundaries.
+
+        After the initial build, if the stack project is not modified, only the
+        application project needs to be rebuilt.
+
+For projects where the stack and application are **split images** (not a library):
+
+    #. Build the stack project.
+
+        - Set the stack project as the active project.
+        - Select **Project** -> **Build All** to build the stack project.
+
+    #. Build the application project.
+
+        - Set the application project as the active project.
+        - Select **Project -> Build All** to build the application project.
+
+    #. Load the stack project
+
+        - Set the stack project as the active project.
+        - Select **Run** -> **Debug** to download the stack
+
+    #. Load the application project
+
+        - Set the application project as the active project.
+        - Select **Run** -> **Debug** to download the application
+
+    .. note::
+        The stack project defines the flash and RAM boundary parameters used by
+        the application project. Any modifications to the stack project require
+        a rebuild of the stack project, followed by a rebuild of the application
+        project to use the new boundary settings.
+
+        After the initial build, if the stack project is not modified, only the
+        application project needs to be rebuilt.
+
+.. caution::
+    Do not modify the CPU Variant in the project settings. All sample projects
+    are configured with a CPU type, and changing this setting (that is, from
+    |DEVICE|) may result in build errors.
+
+
+.. _opening-iar-projects:
+
+Opening |STACK| IAR Projects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section describes how to open and build an existing project and references
+the simple\_peripheral project. All of the |STACK| projects included in the
+development kit have a similar structure.
+
+.. error::
+    If you have imported the global
+    ``<SDK_INSTALL_DIR>/tools/iar/SIMPLELINK_CC13XX_CC26XX_SDK.custom_argvars``
+    as described in :ref:`sec-importing-tidrivers-iar-projects`,
+    then |STACK| examples will fail to build. For |STACK| examples,
+    you must remove this custom_argvars file from your IAR global custom
+    arguments.
+
+#. Open the IAR Embedded Workbench IDE from the Start Menu.
+#. Open an IAR workspace project: **File** -> **Open** -> **Workspace...**
+
+    - For this example, select
+      *<SDK\_INSTALL\_DIR>\\examples\\rtos\\CC2640R2_LAUNCHXL\\ble5stack\\simple\_peripheral\\tirtos\\iar\\ble5\_simple\_peripheral.eww*
+
+.. sidebar:: IAR Workspace Pane
+
+    .. _fig-iar-workspace-pane:
+    .. figure:: resources/iar_workspace_pane.png
+        :align: center
+        :width: 75%
+
+        IAR Workspace Pane
+
+This workspace file is for the simple\_peripheral project. When selected, the
+files associated with the workspace become visible in the Workspace pane on the
+left side of the screen. See :numref:`fig-iar-workspace-pane`
+
+Select either project as the active project by clicking the respective tab at
+the bottom of the workspace pane. In :numref:`fig-iar-workspace-pane`, the
+Overview tab is selected. This tab displays the file structure for both projects
+simultaneously. In this case, use the drop-down menu at the top of the workspace
+pane to select the active project. Each of these projects produces a separate
+downloadable object. The simple\_peripheral sample project is the primary
+reference target for the description of a generic application in this guide. The
+simple\_peripheral project implements a basic |STACK| peripheral device
+including a GATT server with GATT services. This project can be a framework for
+developing peripheral-role applications.
+
+|STACK| IAR project build configurations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This and all |STACK| project workspaces contain various projects and build
+configurations as shown in :numref:`tbl-inc-developing-in-iar-build-configs`
+\*\_StackLibrary build configurations build the stack as a library as
+described in :ref:`sec-inc-architecture-stack-image-as-a-library`.
+
+.. _tbl-inc-developing-in-iar-build-configs:
+.. table:: Available IAR project build configurations
+
+    +--------------+--------------------------------+---------------------------------+
+    | Project type | Project's build configuration  | Compatible project complement   |
+    +==============+================================+=================================+
+    | Application  | FlashROM                       | Stack - FlashROM                |
+    |              +--------------------------------+---------------------------------+
+    |              | FlashROM\_StackLibrary         | Stack - FlashROM_StackLibrary   |
+    |              +--------------------------------+---------------------------------+
+    |              | FlashROM\_StackLibrary_RCOSC   | Stack - FlashROM_StackLibrary   |
+    |              +--------------------------------+---------------------------------+
+    |              | FlashROM\_OAD\_ImgB            | Stack - FlashROM                |
+    |              +--------------------------------+---------------------------------+
+    |              | FlashROM\_OAD\_Offchip         | Stack - FlashROM                |
+    +--------------+--------------------------------+---------------------------------+
+    | Stack        | FlashROM\_Library              | Application - FlashROM_Library  |
+    |              +--------------------------------+---------------------------------+
+    |              | FlashROM                       | Application - FlashROM          |
+    +--------------+--------------------------------+---------------------------------+
+
+
+Compile and Download
+^^^^^^^^^^^^^^^^^^^^
+
+For all build configurations, the stack project should always be built before
+the application project.
+
+For projects where the stack is built as a **library**:
+
+    #. Build the stack library project.
+
+        - Select the stack project.
+        - Select **Project** -> **Make** to build the stack.
+
+    #. Build the application project.
+
+        - Select the application project.
+        - Select **Project** -> Make to build the application.
+
+    #. Load the whole application
+
+        - To download and debug: Select **Project** -> **Download and Debug**
+        - To download without debugging: Select **Project** -> **Download** ->
+          **Download Active Application**
+
+    .. note::
+        Application project that consume the stack in a library form will not
+        have hard defined image boundaries.
+
+        After the initial build, if the stack project is not modified, only the
+        application project needs to be rebuilt.
+
+For projects where the stack and application are **split images** (not a library):
+
+    #. Build the stack project.
+
+        - Select the stack project.
+        - Select **Project** -> **Make** to build the stack.
+
+    #. Build the application project.
+
+        - Select the application project.
+        - Select **Project** -> Make to build the application.
+
+    #. Load the stack project.
+
+        - Select **Project** -> **Download** -> **Download Active Application**
+          to download the stack project.
+
+    #. Load the application project.
+
+        - To download and debug: Select **Project** -> **Download and Debug**
+        - To download without debugging: Select **Project** -> **Download** ->
+          **Download Active Application**
+
+    .. note::
+        The stack project defines the flash and RAM boundary parameters used by
+        the application project. Any modifications to the stack project require
+        a rebuild of the stack project, followed by a rebuild of the application
+        project to use the new boundary settings.
+
+        After the initial build, if the stack project is not modified, only the
+        application project needs to be rebuilt.
+
+        When the application is downloaded (that is, flash memory programmed),
+        you can debug without reflashing the device. Go to **Project** ->
+        **Debug without Downloading**.
+
+.. caution::
+    Do not modify the CPU Variant in the project settings. All sample projects
+    are configured with a CPU type, and changing this setting (that is, from
+    |DEVICE|) may result in build errors.

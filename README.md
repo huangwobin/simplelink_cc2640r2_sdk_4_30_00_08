@@ -1,0 +1,2 @@
+# simplelink_cc2640r2_sdk_4_30_00_08
+ SimplelinkSDK

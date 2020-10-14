@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hardware Architecture &mdash; 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developing with CCS" href="developing_in_ccs.html" />
+    <link rel="prev" title="The SimpleLink CC2640R2 SDK Platform" href="../proprietary-rf-guide/index-platform-cc2640.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc2640 hardware_architecture";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../proprietary-rf-guide/index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/quickstart-cc2640.html">Proprietary RF Quick Start Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arm-cortex-m0-radio-core">Arm Cortex-M0 (Radio Core)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arm-cortex-m3-system-core">Arm Cortex-M3 (System Core)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flash-ram-and-peripherals">Flash, RAM, and Peripherals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-internal-flash-with-the-rom-bootloader">Programming Internal Flash With the ROM Bootloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#startup-sequence">Startup Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resets">Resets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developing_in_ccs.html">Developing with CCS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developing_in_iar.html">Developing with IAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/examples-cc2640.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/proprietary-rf-index-cc2640.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/memory-index.html">Memory overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oad-easylink/oad.html">Over the Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/migration-cc2640.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/reference-cc2640.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proprietary-rf-guide/glossary-cc2640.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../proprietary-rf-guide/index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../proprietary-rf-guide/index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a> &raquo;</li>
+        
+      <li>Hardware Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hardware-architecture">
+<h1>Hardware Architecture<a class="headerlink" href="#hardware-architecture" title="Permalink to this headline">¶</a></h1>
+<p>The TI royalty-free <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a> is a complete software platform for developing CC2640R2
+applications. This kit is based on the SimpleLink CC2640R2, complete
+System-on-Chip (SoC) solution. The CC2640R2 combines a 2.4-GHz RF transceiver,
+128-KB in-system programmable memory, 20KB of SRAM, and
+a full range of peripherals. The device is centered on an Arm ®
+Cortex ® M3 series processor that handles the application layer and
+RF protocol stacks and an autonomous radio core centered on an
+Arm Cortex®-M0 processor that handles all the low-level radio control
+and processing associated with the physical layer and parts of the link layer.
+The sensor controller block provides additional flexibility by allowing
+autonomous data acquisition and control independent of the Cortex-M3 processor,
+further extending the low-power capabilities of the CC2640R2. The block diagram
+below shows the differences between the CC2640R2F and CC2640R2L devices.
+For more information about the CC2640R2, see the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>CC2640R2F</strong></td>
+<td><strong>CC2640R2L</strong></td>
+</tr>
+<tr class="row-even"><td><div class="align-center first last figure" id="id3">
+<img alt="../_images/cc2640r2f_block_diagram.png" src="../_images/cc2640r2f_block_diagram.png" />
+<p class="caption"><span class="caption-number">Figure 4. </span><span class="caption-text">SimpleLink <a class="reference external" href="https://www.ti.com/product/CC2640R2F">CC2640R2F</a> Block Diagram</span></p>
+</div>
+</td>
+<td><div class="align-center first last figure" id="id4">
+<img alt="../_images/cc2640r2l_block_diagram.png" src="../_images/cc2640r2l_block_diagram.png" />
+<p class="caption"><span class="caption-number">Figure 5. </span><span class="caption-text">SimpleLink <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a> Block Diagram</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed descriptions of the hardware
+described here, refer to the chapter 23 of the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>.</p>
+<div class="section" id="arm-cortex-m0-radio-core">
+<h2>Arm Cortex-M0 (Radio Core)<a class="headerlink" href="#arm-cortex-m0-radio-core" title="Permalink to this headline">¶</a></h2>
+<p>The Cortex-M0 (CM0) core within the CC2640R2 is responsible for both interfacing
+to the radio hardware, and translating complex instructions from the Cortex-M3
+(CM3) core into bits that are sent over the air using the radio. For the
+RF protocols, the CM0 implements the PHY layer of the protocol
+stack. Often, the CM0 is able to operate autonomously, which frees up the CM3
+for higher-level protocol and application-layer processing.</p>
+<p>The CM3 communicates with the CM0 through a hardware interface called the RF
+doorbell, which is documented in section 23.2 of the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>. The radio core
+firmware is not intended to be used or modified by the application developer.</p>
+</div>
+<div class="section" id="arm-cortex-m3-system-core">
+<h2>Arm Cortex-M3 (System Core)<a class="headerlink" href="#arm-cortex-m3-system-core" title="Permalink to this headline">¶</a></h2>
+<p>The system core (CM3) is designed to run the wireless protocol stack from the
+link layer up to the user application. The link layer interfaces to the radio
+core through a software module called the RF driver, which sits above the RF
+doorbell. The RF driver runs on the CM3 and acts as an interface to the radio
+on the CC2640R2, and also manages the power domains of the radio hardware and
+core. Documentation for the RF driver can be found at the <a class="reference external" href="../../../tidrivers/tidriversAPIs.html">TI Driver API
+Reference</a>.</p>
+</div>
+<div class="section" id="flash-ram-and-peripherals">
+<h2>Flash, RAM, and Peripherals<a class="headerlink" href="#flash-ram-and-peripherals" title="Permalink to this headline">¶</a></h2>
+<p>The CC2640R2 contains 128KB of in-system programmable flash memory, 20KB of
+SRAM, and a full range of peripherals. The flash is split into erasable pages of
+4KB. The CC2640R2 also contains 8KB of cache SRAM that can be utilized to extend
+RAM capacity or can function as a normal cache to increase application
+performance. Other peripherals include UART, I2C, I2S, AES, TRNG, temperature
+and battery monitors, 4x 32-bit timers, 2x SSI, and an integrated and autonomous
+sensor controller (CC2640R2F only). See <a class="reference internal" href="../sensor-controller/sensor-controller.html#sensor-controller"><span class="std std-ref">Sensor Controller</span></a> for more information on the
+sensor controller.</p>
+</div>
+<div class="section" id="programming-internal-flash-with-the-rom-bootloader">
+<span id="sec-programming-internal-flash-rom-bootloader"></span><h2>Programming Internal Flash With the ROM Bootloader<a class="headerlink" href="#programming-internal-flash-with-the-rom-bootloader" title="Permalink to this headline">¶</a></h2>
+<p>The CC2640R2 internal flash memory can be programmed using the bootloader in the
+ROM of the device. Both UART and SPI protocols are supported. For more details
+on the programming protocol and requirements, see the Bootloader chapter of the
+<a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because the ROM bootloader uses predefined DIO pins for internal flash
+programming, allocate these pins in the layout of your board. For details on
+the pins allocated to the bootloader based on the chip package type, see
+<a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>.</p>
+</div>
+</div>
+<div class="section" id="startup-sequence">
+<h2>Startup Sequence<a class="headerlink" href="#startup-sequence" title="Permalink to this headline">¶</a></h2>
+<p>For a complete description of the CC2640R2 reset sequence, see the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC13x0 CC26x0 SimpleLink Wireless MCU Technical Reference Manual</a>.</p>
+</div>
+<div class="section" id="resets">
+<span id="sec-resets"></span><h2>Resets<a class="headerlink" href="#resets" title="Permalink to this headline">¶</a></h2>
+<p>Reset the device using only hard resets. From the software, this reset can be
+accomplished using:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">HAL_SYSTEM_RESET();</span></code></p>
+<p>In CCS, select Board Reset (automatic) from the reset menu (see
+<a class="reference internal" href="#fig-board-reset"><span class="std std-numref">Figure 6.</span></a>).</p>
+<div class="figure" id="id5">
+<span id="fig-board-reset"></span><img alt="../_images/fig-board-reset.png" src="../_images/fig-board-reset.png" />
+<p class="caption"><span class="caption-number">Figure 6. </span><span class="caption-text">Board Reset</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developing_in_ccs.html" class="btn btn-neutral float-right" title="Developing with CCS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../proprietary-rf-guide/index-platform-cc2640.html" class="btn btn-neutral float-left" title="The SimpleLink CC2640R2 SDK Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2016-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

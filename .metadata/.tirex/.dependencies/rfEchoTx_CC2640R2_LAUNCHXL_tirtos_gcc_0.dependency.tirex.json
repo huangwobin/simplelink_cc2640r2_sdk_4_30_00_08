@@ -1,0 +1,25 @@
+[
+    {
+        "files": [
+            "+../../RFQueue.h -> RFQueue.h",
+            "+../../RFQueue.c -> RFQueue.c",
+            "+../../overview.rov.json -> overview.rov.json",
+            "+../main_tirtos.c -> main_tirtos.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+            "+../../README.md -> README.md",
+            "+../../rfEchoTx.c -> rfEchoTx.c",
+            "+../../rfEcho_ErrorTxRx.png -> rfEcho_ErrorTxRx.png",
+            "+../../rfEcho_MissedFirstPacket.png -> rfEcho_MissedFirstPacket.png",
+            "+../../rfEcho_MissingFirstCouplePackets.png -> rfEcho_MissingFirstCouplePackets.png",
+            "+../../rfEcho_PerfectEcho.png -> rfEcho_PerfectEcho.png",
+            "+../../Board.h -> Board.h",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.lds -> CC2640R2_LAUNCHXL_TIRTOS.lds",
+            "+../../ccfg.c -> ccfg.c"
+        ]
+    }
+]

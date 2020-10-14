@@ -1,0 +1,43 @@
+BLE-Stack 3.03.04 to BLE-Stack 3.03.05
+======================================
+
+This section will describe a way to migrate a project from BLE-Stack 3.03.04 to
+a BLE-Stack 3.03.05.
+
+There are little or no changes in the examples, but the method provided below 
+is a general safe approach to adopt.
+
+For this migration guide, simple_peripheral from BLE-Stack 3.03.04 will be
+ported over to BLE-Stack 3.03.05. Because the directory structure is
+identical between the two releases, the recommended approach is to start with
+a BLE-Stack 3.03.05 project that contains the same base functionality as the
+porting target project and merge in any custom functionality.
+
+#. Choose a BLE-Stack 3.03.05 example project that contains your target
+   project's base functionality.
+
+   For reference, see available sample projects that start with simple\_.
+
+   In this example, we're going to use simple\_peripheral as the starting
+   BLE-Stack 3.03.04 sample project.
+
+#. Transfer all modified application files from BLE-Stack 3.03.04 into the
+   BLE-Stack 3.03.05 example project.
+
+   In this example, the following files from BLE-Stack 3.03.04 were moved into
+   simple\_peripheral BLE-Stack 3.03.05 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+
+#. If necessary, update the project to use the newer TI-RTOS drivers that are
+   supplied with the |SDK|.
+
+#. Refer to the Core SDK release notes for additional information and the TI-RTOS
+   examples included with |SDK|.
+
+   For additional information on how BLE-Stack 3.03.04 uses TI-RTOS see
+   :ref:`sec-tirtos-overview`
+
+   For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+   `Driver APIs <..\/..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.

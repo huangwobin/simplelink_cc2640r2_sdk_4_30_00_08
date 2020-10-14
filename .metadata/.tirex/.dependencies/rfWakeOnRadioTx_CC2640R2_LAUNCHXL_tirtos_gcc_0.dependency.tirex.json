@@ -1,0 +1,18 @@
+[
+    {
+        "files": [
+            "+../../overview.rov.json -> overview.rov.json",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+            "+../../README.md -> README.md",
+            "+../../rfWakeOnRadioTx.c -> rfWakeOnRadioTx.c",
+            "+../../Board.h -> Board.h",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.lds -> CC2640R2_LAUNCHXL_TIRTOS.lds",
+            "+../../ccfg.c -> ccfg.c"
+        ]
+    }
+]

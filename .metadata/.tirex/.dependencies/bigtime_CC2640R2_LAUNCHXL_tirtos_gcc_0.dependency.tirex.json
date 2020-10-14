@@ -1,0 +1,19 @@
+[
+    {
+        "files": [
+            "+../../overview.rov.json -> overview.rov.json",
+            "+../bigtime.cfg -> bigtime.cfg",
+            "+../../README.md -> README.md",
+            "+../../bigtime.cpp -> bigtime.cpp",
+            "+../../README.html -> README.html",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+CC2640R2_LAUNCHXL_TIRTOS.lds -> CC2640R2_LAUNCHXL_TIRTOS.lds",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../makefile.defs -> makefile.defs"
+        ]
+    }
+]

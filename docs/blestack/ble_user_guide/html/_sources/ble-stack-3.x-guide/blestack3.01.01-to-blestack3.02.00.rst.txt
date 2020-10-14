@@ -1,0 +1,270 @@
+BLE-Stack 3.01.01 to BLE-Stack 3.02.00
+======================================
+
+This section will describe a way to migrate a project from BLE-Stack 3.01.01 to
+a BLE-Stack 3.02.00.
+
+For this migration guide, simple_peripheral from BLE-Stack 3.01.01 will be ported
+over to BLE-Stack 3.02.00. Because the directory structure is nearly identical
+between the two releases, the recommended approach is to start with a BLE-Stack
+3.02.00 project that contains the same base functionality as the porting target
+project and merge in any custom functionality.
+
+If you choose to not start with an example project from BLE-Stack 3.02.00 and
+instead wish to port your project by going to Properties>General>Products and
+selecting the new version of the |DEVICE| SDK that you wish to point to, be
+careful to examine what files are linked and what files are copied into your
+workspace from the SDK and adjust your project accordingly. For example, if you
+are migrating code based on the Project Zero for the |DEVICE|, be sure to reference
+the new ``ble_user_config.c``, ``ble_user_config.h`` and board files from the
+target SDK.
+
+#. Choose a BLE-Stack 3.02.00 example project that contains your target project's base functionality.
+
+    For reference, see available sample projects that start with simple\_peripheral
+
+    In this example, we're going to use simple\_peripheral as the starting
+    BLE-Stack 3.02.00 sample project.
+
+#. Transfer all modified application files from BLE-Stack 3.01.01 into the BLE-Stack 3.02.00 example project.
+
+    In this example, the following files from BLE-Stack 3.01.01 were moved into
+    simple\_peripheral BLE-Stack 3.02.00 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+    - ``simple_gatt_profile.c``
+    - ``simple_gatt_profile.h``
+
+#. Update function name from ``SimplePeripheral_createTask`` to ``SimpleBLEPeripheral_createTask`` in ``main.c``. Please keep in mind that all the functions in this example were updated and ``BLE`` keyword was removed. This also applies to all of the ``blestack`` SDK examples.
+
+#. A new way of processing connection events was implemented. In order to take advantage of this new functionality do the following in ``simple_peripheral.c``:
+
+    Define an new event ``SBP_CONN_EVT`` such that the ``SimplePeripheral_connEvtCB``
+    function can enqueue a message for the application task to handle:
+
+    .. code-block:: c
+
+        #define SBP_CONN_EVT                          0x0010
+
+    Add the following macros:
+
+    .. code-block:: c
+
+        // Set the register cause to the registration bit-mask
+        #define CONNECTION_EVENT_REGISTER_BIT_SET(RegisterCause) (connectionEventRegisterCauseBitMap |= RegisterCause )
+        // Remove the register cause from the registration bit-mask
+        #define CONNECTION_EVENT_REGISTER_BIT_REMOVE(RegisterCause) (connectionEventRegisterCauseBitMap &= (~RegisterCause) )
+        // Gets whether the current App is registered to the receive connection events
+        #define CONNECTION_EVENT_IS_REGISTERED (connectionEventRegisterCauseBitMap > 0)
+        // Gets whether the RegisterCause was registered to recieve connection event
+        #define CONNECTION_EVENT_REGISTRATION_CAUSE(RegisterCause) (connectionEventRegisterCauseBitMap & RegisterCause )
+
+    Add the following function prototypes:
+
+    .. code-block:: c
+
+        static void SimplePeripheral_connEvtCB(Gap_ConnEventRpt_t *pReport);
+        static void SimplePeripheral_processConnEvt(Gap_ConnEventRpt_t *pReport);
+
+    And the functions definition add it at the end of the file. The callback function will push this event to application task
+    so that the |STACK| API call can happen in the application context:
+
+    .. code-block:: c
+
+        /*********************************************************************
+         * @fn      SimplePeripheral_processConnEvt
+         *
+         * @brief   Process connection event.
+         *
+         * @param pReport pointer to connection event report
+         */
+        static void SimplePeripheral_processConnEvt(Gap_ConnEventRpt_t *pReport)
+        {
+          if( CONNECTION_EVENT_REGISTRATION_CAUSE(FOR_ATT_RSP))
+          {
+            // The GATT server might have returned a blePending as it was trying
+            // to process an ATT Response. Now that we finished with this
+            // connection event, let's try sending any remaining ATT Responses
+            // on the next connection event.
+            // Try to retransmit pending ATT Response (if any)
+            SimplePeripheral_sendAttRsp();
+          }
+        }
+
+    .. code-block:: c
+
+        /*********************************************************************
+         * @fn      SimplePeripheral_connEvtCB
+         *
+         * @brief   Connection event callback.
+         *
+         * @param pReport pointer to connection event report
+         */
+        static void SimplePeripheral_connEvtCB(Gap_ConnEventRpt_t *pReport)
+        {
+          // Enqueue the event for processing in the app context.
+          if( SimplePeripheral_enqueueMsg(SBP_CONN_EVT, 0 ,(uint8_t *) pReport) == FALSE)
+          {
+            ICall_freeMsg(pReport);
+          }
+        }
+
+    Add the following enum ``connectionEventRegisterCause_u`` to handle the registration of connection events. At the same time define ``connectionEventRegisterCauseBitMap``:
+
+    .. code-block:: c
+
+        typedef enum
+        {
+           NOT_REGISTER       = 0,
+           FOR_AOA_SCAN       = 1,
+           FOR_ATT_RSP        = 2,
+           FOR_AOA_SEND       = 4,
+           FOR_TOF_SEND       = 8
+        }connectionEventRegisterCause_u;
+
+        // Handle the registration and un-registration for the connection event, since only one can be registered.
+        uint32_t       connectionEventRegisterCauseBitMap = NOT_REGISTER; //see connectionEventRegisterCause_u
+
+    Two new ``connectionEvent`` functions were created, also these functions can be added at the end of the file.
+
+    .. code-block:: c
+
+        /*********************************************************************
+         * @fn      SimplePeripheral_RegistertToAllConnectionEvent()
+         *
+         * @brief   register to receive connection events for all the connection
+         *
+         * @param connectionEventRegisterCause represents the reason for registration
+         *
+         * @return @ref SUCCESS
+         *
+         */
+        bStatus_t SimplePeripheral_RegistertToAllConnectionEvent (connectionEventRegisterCause_u connectionEventRegisterCause)
+        {
+          bStatus_t status = SUCCESS;
+
+          // in case  there is no registration for the connection event, make the registration
+          if (!CONNECTION_EVENT_IS_REGISTERED)
+          {
+            status = GAP_RegisterConnEventCb(SimplePeripheral_connEvtCB, GAP_CB_REGISTER, LINKDB_CONNHANDLE_ALL);
+          }
+          if(status == SUCCESS)
+          {
+            //add the reason bit to the bitamap.
+            CONNECTION_EVENT_REGISTER_BIT_SET(connectionEventRegisterCause);
+          }
+
+          return(status);
+        }
+
+        /*********************************************************************
+         * @fn      SimplePeripheral_UnRegistertToAllConnectionEvent()
+         *
+         * @brief   Unregister connection events
+         *
+         * @param connectionEventRegisterCause represents the reason for registration
+         *
+         * @return @ref SUCCESS
+         *
+         */
+        bStatus_t SimplePeripheral_UnRegistertToAllConnectionEvent (connectionEventRegisterCause_u connectionEventRegisterCause)
+        {
+          bStatus_t status = SUCCESS;
+
+          CONNECTION_EVENT_REGISTER_BIT_REMOVE(connectionEventRegisterCause);
+          // in case  there is no more registration for the connection event than unregister
+          if (!CONNECTION_EVENT_IS_REGISTERED)
+          {
+            GAP_RegisterConnEventCb(SimplePeripheral_connEvtCB, GAP_CB_UNREGISTER, LINKDB_CONNHANDLE_ALL);
+          }
+
+          return(status);
+        }
+
+    In the function ``SimpleBLEPeripheral_taskFxn`` update the following code:
+
+    .. code-block:: c
+
+        // Check for BLE stack events first
+        if (pEvt->signature == 0xffff)
+        {
+          // The GATT server might have returned a blePending as it was trying
+          // to process an ATT Response. Now that we finished with this
+          // connection event, let's try sending any remaining ATT Responses
+          // on the next connection event.
+          if (pEvt->event_flag & SBP_HCI_CONN_EVT_END_EVT)
+          {
+            // Try to retransmit pending ATT Response (if any)
+            SimpleBLEPeripheral_sendAttRsp();
+          }
+        }
+        else
+        {
+          // Process inter-task message
+          safeToDealloc = SimpleBLEPeripheral_processStackMsg((ICall_Hdr *)pMsg);
+        }
+
+    with this one:
+
+    .. code-block:: c
+
+        if (pEvt->signature != 0xffff)
+        {
+          // Process inter-task message
+          safeToDealloc = SimplePeripheral_processStackMsg((ICall_Hdr *)pMsg);
+        }
+
+    In the function ``SimplePeripheral_processGATTMsg`` update the following code:
+
+    .. code-block:: c
+
+        if (HCI_EXT_ConnEventNoticeCmd(pMsg->connHandle, selfEntity,
+                                    SBP_HCI_CONN_EVT_END_EVT) == SUCCESS)
+
+    with this one:
+
+    .. code-block:: c
+
+        if( SimplePeripheral_RegistertToAllConnectionEvent(FOR_ATT_RSP) == SUCCESS)
+
+    Lastly, to process the connection event ``SBP_CONN_EVT``  in ``SimpleBLEPeripheral_processAppMsg``
+    add this new case:
+
+    .. code-block:: c
+
+        case SBP_CONN_EVT:
+        {
+           SimplePeripheral_processConnEvt((Gap_ConnEventRpt_t *)(pMsg->pData));
+
+           ICall_free(pMsg->pData);
+           break;
+        }
+
+#. If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the |SDK|.
+
+    The following drivers have changed from BLE-Stack 3.01.01. Please see the
+    changes to these drivers by comparing the supplied headers between those in
+    simplelink_cc2640r2_sdk_1_50_00_58 and those in the |SDK|.
+
+    - ``ECDH``
+    - ``AESCCM``
+    - ``RF``
+    - ``NVS``
+    - ``SD``
+
+    .. attention:: The display folder should in BLE-Stack 3.02.00 be included with the path ``<ti/display/Display.h>``, not ``<ti/mw/display/Display.h>``.
+
+        .. code-block:: c
+
+            #include <ti/display/Display.h>
+
+
+#. Refer to the Core SDK release notes for additional information and the TI-RTOS examples included with |SDK|.
+
+    For additional information on how BLE-Stack 3.02.00 uses TI-RTOS see
+    :ref:`sec-tirtos-overview`
+
+    For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+    `Driver APIs <..\/..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.
+

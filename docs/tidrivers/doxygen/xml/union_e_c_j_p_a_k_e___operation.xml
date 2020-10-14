@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="union_e_c_j_p_a_k_e___operation" kind="union" language="C++" prot="public">
+    <compoundname>ECJPAKE_Operation</compoundname>
+    <includes refid="_e_c_j_p_a_k_e_8h" local="no">ECJPAKE.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_e_c_j_p_a_k_e___operation_1a6c46e845743811aae2037f8dd6876316" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys</ref> *</type>
+        <definition>ECJPAKE_OperationRoundOneGenerateKeys* ECJPAKE_Operation::generateRoundOneKeys</definition>
+        <argsstring></argsstring>
+        <name>generateRoundOneKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an <ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys</ref> struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1017" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1017" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_e_c_j_p_a_k_e___operation_1ac8503245dc8cf2a5987e2a73ee6550e6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p" kindref="compound">ECJPAKE_OperationGenerateZKP</ref> *</type>
+        <definition>ECJPAKE_OperationGenerateZKP* ECJPAKE_Operation::generateZKP</definition>
+        <argsstring></argsstring>
+        <name>generateZKP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an <ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p" kindref="compound">ECJPAKE_OperationGenerateZKP</ref> struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1018" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1018" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_e_c_j_p_a_k_e___operation_1a728e6fd48622866c96a0cca65d9086c2" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p" kindref="compound">ECJPAKE_OperationVerifyZKP</ref> *</type>
+        <definition>ECJPAKE_OperationVerifyZKP* ECJPAKE_Operation::verifyZKP</definition>
+        <argsstring></argsstring>
+        <name>verifyZKP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an <ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p" kindref="compound">ECJPAKE_OperationVerifyZKP</ref> struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1019" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1019" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_e_c_j_p_a_k_e___operation_1ab867fa191e0c11a5efdc81804427cede" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys</ref> *</type>
+        <definition>ECJPAKE_OperationRoundTwoGenerateKeys* ECJPAKE_Operation::generateRoundTwoKeys</definition>
+        <argsstring></argsstring>
+        <name>generateRoundTwoKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an <ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys</ref> struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1020" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1020" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_e_c_j_p_a_k_e___operation_1ad3a8ee59d8b6ee74a1016c9e44a49c6a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret" kindref="compound">ECJPAKE_OperationComputeSharedSecret</ref> *</type>
+        <definition>ECJPAKE_OperationComputeSharedSecret* ECJPAKE_Operation::computeSharedSecret</definition>
+        <argsstring></argsstring>
+        <name>computeSharedSecret</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an <ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret" kindref="compound">ECJPAKE_OperationComputeSharedSecret</ref> struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1021" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1021" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="347">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="343">
+        <label>ECJPAKE_OperationVerifyZKP</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>theirGenerator</edgelabel>
+          <edgelabel>theirPublicKey</edgelabel>
+          <edgelabel>theirPublicV</edgelabel>
+        </childnode>
+        <childnode refid="348" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="351">
+        <label>ECJPAKE_OperationGenerateZKP</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>myPrivateV</edgelabel>
+          <edgelabel>myPrivateKey</edgelabel>
+        </childnode>
+        <childnode refid="348" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="349">
+        <label>ECJPAKE_OperationRoundOneGenerateKeys</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>myPublicKey1</edgelabel>
+          <edgelabel>myPublicKey2</edgelabel>
+          <edgelabel>myPrivateKey1</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>myPublicV1</edgelabel>
+          <edgelabel>myPublicV2</edgelabel>
+          <edgelabel>myPrivateV1</edgelabel>
+          <edgelabel>myPrivateV2</edgelabel>
+        </childnode>
+        <childnode refid="348" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="352">
+        <label>ECJPAKE_OperationComputeSharedSecret</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>theirPublicKey2</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>myCombinedPrivateKey</edgelabel>
+          <edgelabel>sharedSecret</edgelabel>
+          <edgelabel>theirCombinedPublicKey</edgelabel>
+        </childnode>
+        <childnode refid="348" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="344">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="345" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="346" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="347" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="348">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="350">
+        <label>ECJPAKE_OperationRoundTwoGenerateKeys</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>myNewGenerator</edgelabel>
+          <edgelabel>myPublicKey1</edgelabel>
+          <edgelabel>theirPublicKey1</edgelabel>
+          <edgelabel>myPublicKey2</edgelabel>
+          <edgelabel>theirPublicKey2</edgelabel>
+          <edgelabel>myPrivateV</edgelabel>
+          <edgelabel>myCombinedPublicKey</edgelabel>
+          <edgelabel>myCombinedPrivateKey</edgelabel>
+          <edgelabel>myPrivateKey2</edgelabel>
+          <edgelabel>theirNewGenerator</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="348" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="345">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="346">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+      <node id="342">
+        <label>ECJPAKE_Operation</label>
+        <link refid="union_e_c_j_p_a_k_e___operation"/>
+        <childnode refid="343" relation="usage">
+          <edgelabel>verifyZKP</edgelabel>
+        </childnode>
+        <childnode refid="349" relation="usage">
+          <edgelabel>generateRoundOneKeys</edgelabel>
+        </childnode>
+        <childnode refid="350" relation="usage">
+          <edgelabel>generateRoundTwoKeys</edgelabel>
+        </childnode>
+        <childnode refid="351" relation="usage">
+          <edgelabel>generateZKP</edgelabel>
+        </childnode>
+        <childnode refid="352" relation="usage">
+          <edgelabel>computeSharedSecret</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="1016" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="1016" bodyend="1022"/>
+    <listofallmembers>
+      <member refid="union_e_c_j_p_a_k_e___operation_1ad3a8ee59d8b6ee74a1016c9e44a49c6a" prot="public" virt="non-virtual"><scope>ECJPAKE_Operation</scope><name>computeSharedSecret</name></member>
+      <member refid="union_e_c_j_p_a_k_e___operation_1a6c46e845743811aae2037f8dd6876316" prot="public" virt="non-virtual"><scope>ECJPAKE_Operation</scope><name>generateRoundOneKeys</name></member>
+      <member refid="union_e_c_j_p_a_k_e___operation_1ab867fa191e0c11a5efdc81804427cede" prot="public" virt="non-virtual"><scope>ECJPAKE_Operation</scope><name>generateRoundTwoKeys</name></member>
+      <member refid="union_e_c_j_p_a_k_e___operation_1ac8503245dc8cf2a5987e2a73ee6550e6" prot="public" virt="non-virtual"><scope>ECJPAKE_Operation</scope><name>generateZKP</name></member>
+      <member refid="union_e_c_j_p_a_k_e___operation_1a728e6fd48622866c96a0cca65d9086c2" prot="public" virt="non-virtual"><scope>ECJPAKE_Operation</scope><name>verifyZKP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+BLE-Stack 3.03.03 to BLE-Stack 3.03.04
+======================================
+
+This section will describe a way to migrate a project from BLE-Stack 3.03.03 to
+a BLE-Stack 3.03.04.
+
+There are little or no changes in the examples, but the method provided below 
+is a general safe approach to adopt.
+
+For this migration guide, simple_peripheral from BLE-Stack 3.03.03 will be
+ported over to BLE-Stack 3.03.04. Because the directory structure is
+identical between the two releases, the recommended approach is to start with
+a BLE-Stack 3.03.04 project that contains the same base functionality as the
+porting target project and merge in any custom functionality.
+
+#. Choose a BLE-Stack 3.03.04 example project that contains your target
+   project's base functionality.
+
+   For reference, see available sample projects that start with simple\_.
+
+   In this example, we're going to use simple\_peripheral as the starting
+   BLE-Stack 3.03.04 sample project.
+
+#. Transfer all modified application files from BLE-Stack 3.03.03 into the
+   BLE-Stack 3.03.04 example project.
+
+   In this example, the following files from BLE-Stack 3.03.03 were moved into
+   simple\_peripheral BLE-Stack 3.03.04 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+
+#. If necessary, update the project to use the newer TI-RTOS drivers that are
+   supplied with the |SDK|.
+
+#. Refer to the Core SDK release notes for additional information and the TI-RTOS
+   examples included with |SDK|.
+
+   For additional information on how BLE-Stack 3.03.04 uses TI-RTOS see
+   :ref:`sec-tirtos-overview`
+
+   For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+   `Driver APIs <..\/..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.
+
+
+Noteworthy Changes from BLE-Stack 3.03.03 to BLE-Stack 3.03.04
+-------------------------------------------------------------------------
+
+You can follow the guide above without addressing these updates, they are listed
+for your information only. All fine grained details might not be mentioned, 
+please refer to the specific example you need to port and to a compare between 
+the old and new project files. Always refer to the BLE-Stack Release Notes for 
+all the details.
+
+* It is now possible to configure active scan channels with 
+  ``TGAP_SET_SCAN_CHAN`` in ``GAP_SetParamValue`` or with the new HCI command 
+  ``HCI_EXT_SetScanChannels``.

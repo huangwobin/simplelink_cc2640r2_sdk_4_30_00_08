@@ -1,0 +1,20 @@
+[
+    {
+        "files": [
+            "+../main_tirtos.c -> main_tirtos.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../../application_settings.c -> application_settings.c",
+            "+../../rfListenBeforeTalk.c -> rfListenBeforeTalk.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../../application_settings.h -> application_settings.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

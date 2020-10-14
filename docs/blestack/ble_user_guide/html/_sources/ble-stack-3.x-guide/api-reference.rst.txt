@@ -1,0 +1,81 @@
+.. _Standard TI Driver API Reference:       ..\/..\/..\/..\/tidrivers\/tidriversAPIs.html
+.. _BLE Stack API Reference:                ..\/..\/doxygen\/ble\/html\/index.html
+.. _uBLE API Reference:                     ..\/..\/doxygen\/ble\/html\/group___u_b_l_e.html
+.. _uGAP API Reference:                     ..\/..\/doxygen\/ble\/html\/group___u_g_a_p.html
+.. _Simple Network Processor API Reference: ..\/..\/doxygen\/ble\/html\/group___s_n_p.html
+.. _SNP Device API Reference:               ..\/..\/doxygen\/ble\/html\/_s_n_p__d_e_v__a_p_i.html
+.. _SNP GATT API Reference:                 ..\/..\/doxygen\/ble\/html\/_s_n_p__g_a_t_t__a_p_i.html
+.. _SNP GAP API Reference:                  ..\/..\/doxygen\/ble\/html\/_s_n_p__g_a_p__a_p_i.html
+
+.. _Peripheral:                             ..\/..\/doxygen\/ble\/html\/group___peripheral.html
+.. _Central:                                ..\/..\/doxygen\/ble\/html\/group___central.html
+.. _ATT_GATT:                               ..\/..\/doxygen\/ble\/html\/group___a_t_t___g_a_t_t.html
+.. _GATTServApp:                            ..\/..\/doxygen\/ble\/html\/group___g_a_t_t_serv_app.html
+.. _GAPBondMgr:                             ..\/..\/doxygen\/ble\/html\/group___g_a_p_bond_mgr.html
+.. _L2CAP:                                  ..\/..\/doxygen\/ble\/html\/group___l2_c_a_p.html
+.. _HCI:                                    ..\/..\/doxygen\/ble\/html\/group___h_c_i.html
+.. _GAP:                                    ..\/..\/doxygen\/ble\/html\/group___g_a_p.html
+.. _LinkDB:                                 ..\/..\/doxygen\/ble\/html\/group___link_d_b.html
+.. _Multi:                                  ..\/..\/doxygen\/ble\/html\/group___multi.html
+.. _Util:                                   ..\/..\/doxygen\/ble\/html\/group___util.html
+.. _ICall:                                  ..\/..\/doxygen\/ble\/html\/group___i_call.html
+
+.. _Elliptic Curve Cryptography (ECC) API Reference: ..\/..\/doxygen\/ble\/html\/group___e_c_c_r_o_m_c_c26_x_x_8h.html
+
+.. _OAD Profile: ..\/..\/doxygen\/ble\/html\/group___o_a_d___p_r_o_f_i_l_e.html
+.. _OAD Image Header: ..\/..\/doxygen\/ble\/html\/group___o_a_d___i_m_a_g_e___h_e_a_d_e_r.html
+.. _OAD External Flash Image Header: ..\/..\/doxygen\/ble\/html\/group___e_x_t___f_l_a_s_h___l_a_y_o_u_t.html
+.. _OAD Flash Interface: ..\/..\/doxygen\/ble\/html\/group___f_l_a_s_h___i_n_t_e_r_f_a_c_e.html
+
+
+API References
+==============
+
+.. _ble_api_reference:
+
+`BLE Stack API Reference`_
+--------------------------
+
+* `ATT_GATT`_
+* `GATTServApp`_
+* `GAP`_
+* `GAPBondMgr`_
+* `L2CAP`_
+* `LinkDB`_
+* `HCI`_
+* `Peripheral`_
+* `Central`_
+* `Multi`_
+* `Util`_
+* `ICall`_
+
+.. _micro_ble_api_reference:
+
+Micro BLE Stack API Reference
+-----------------------------
+
+* `uBLE API Reference`_
+* `uGAP API Reference`_
+
+.. _ti_driver_reference:
+
+Driver API Reference
+--------------------
+
+* `Standard TI Driver API Reference`_
+* `Elliptic Curve Cryptography (ECC) API Reference`_
+
+`Simple Network Processor API Reference`_
+-----------------------------------------
+
+* `SNP Device API Reference`_
+* `SNP GATT API Reference`_
+* `SNP GAP API Reference`_
+
+Over the Air Download (OAD) Reference
+-------------------------------------
+
+* `OAD Profile`_
+* `OAD Image Header`_
+* `OAD External Flash Image Header`_
+* `OAD Flash Interface`_

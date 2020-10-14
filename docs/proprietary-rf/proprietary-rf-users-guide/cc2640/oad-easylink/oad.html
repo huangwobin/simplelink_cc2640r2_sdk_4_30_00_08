@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Over the Air Download (OAD) &mdash; 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overview" href="oad_overview.html" />
+    <link rel="prev" title="Using the Cache as RAM" href="../../proprietary-rf-guide/cache-as-ram.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc2640 oad-easylink oad";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/quickstart-cc2640.html">Proprietary RF Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/examples-cc2640.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/proprietary-rf-index-cc2640.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/memory-index.html">Memory overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Over the Air Download (OAD)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html">Firmware update process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html">Image Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html">Off-Chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html">On-Chip OAD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/migration-cc2640.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/reference-cc2640.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../proprietary-rf-guide/index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Over the Air Download (OAD)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="over-the-air-download-oad">
+<span id="sec-oad"></span><h1>Over the Air Download (OAD)<a class="headerlink" href="#over-the-air-download-oad" title="Permalink to this headline">¶</a></h1>
+<p>This section serves as a guide to the Texas Instruments Over-the-Air Download
+(<a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a>) ecosystem. <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> is a device firmware upgrade method that
+allows the firmware image running on a device to be updated over the air using
+a proprietary RF connection while providing power loss protection.</p>
+<p>The <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> guide section will cover:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> theory of operation and architecture</li>
+<li>How to run the <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> examples included in the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a></li>
+<li>How to add <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> to an existing sample application</li>
+</ul>
+</div></blockquote>
+<p>The supported development kit for <a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html#term-57"><span class="xref std std-term">OAD</span></a> is a launchpad. To follow the
+procedures listed in this guide, two launchpad development kits are required.</p>
+<p class="rubric">Table of contents</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="oad_overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html#oad-types">OAD Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html#boot-image-manager-bim">Boot Image Manager (BIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html#halt-in-boot-hib">Halt In Boot (HIB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html#example-projects">Example Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oad_process.html">Firmware update process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html#firmware-image-creation">Firmware image creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html#upload-to-the-oad-server-device">Upload to the OAD Server device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html#distribution-of-the-firmware-image">Distribution of the firmware image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html#image-validation-and-storage-on-the-oad-client">Image validation and storage on the OAD Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html#replacement-of-the-existing-firmware-by-the-bim">Replacement of the existing firmware by the BIM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oad_image_header.html">Image Metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#crc-and-crc-shadow">CRC and CRC Shadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#version">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#length">Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#user-identification-uid">User Identification (UID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#start-address">Start Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#image-type">Image Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_image_header.html#image-state">Image State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oad_offchip.html">Off-Chip OAD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html#constraints-and-requirements-for-off-chip-oad">Constraints and Requirements for Off-chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html#off-chip-oad-memory-layout">Off-chip OAD Memory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html#bim-for-off-chip-oad">BIM for Off-chip OAD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oad_onchip.html">On-Chip OAD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html#constraints-and-requirements-for-on-chip-oad">Constraints and Requirements for On-chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html#on-chip-oad-memory-layout">On-Chip OAD Memory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html#creating-an-on-chip-oad-image">Creating an On-chip OAD image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html#bim-for-on-chip-oad">BIM for On-chip OAD</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="oad_overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../proprietary-rf-guide/cache-as-ram.html" class="btn btn-neutral float-left" title="Using the Cache as RAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2016-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

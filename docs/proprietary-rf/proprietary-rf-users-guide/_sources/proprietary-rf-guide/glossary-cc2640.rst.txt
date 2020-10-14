@@ -1,0 +1,13 @@
+..
+
+:orphan:
+
+
+Terms and acronyms
+==================
+
+.. include:: /cc2640/inc_glossary.rst
+.. include:: /sensor-controller/inc_glossary.rst
+.. include:: /rf-core/inc_glossary.rst
+.. include:: /cc2640/oad-easylink/inc_glossary.rst
+.. include:: /tirtos/inc_glossary.rst

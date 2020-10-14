@@ -1,0 +1,294 @@
+.. _flash:
+
+Flash
+=====
+
+The flash is split into erasable pages of |FLASH_PAGE_SIZE|. The various sections
+of flash and their associate linker files are as follows.
+
+-  **Flash Reset Vector Table**: This table holds the first 16 reset vectors
+   that are critical for booting up the device. These vectors are set at build
+   time and cannot be dynamically changed. See :ref:`sec-flash-vector-table`
+   below for more information.
+
+-  **Simple NV (SNV) Area**: used for nonvolatile memory storage by the GAP
+   Bond Manager and also available for use by the application. See
+   :ref:`using-simple-nv` for configuring SNV. When configured, the SNV
+   flash storage area is part of the stack image.
+
+For projects where the stack project builds a **library**:
+
+-  **Application and Stack Image Code Space**: A single region that contains
+   both application and stack code in flash.
+   This image is configured in the linker configuration file of the application:
+   <device name>\_app\_and\_stack.icf (IAR) and <device name>\_app.cmd (CCS).
+
+.. _sec-flash-vector-table:
+
+Flash Vector Table
+------------------
+
+This table contains the first 16 critical interrupt vectors required for the
+bootup process. The location of this table is controlled by
+`m3Hwi.resetVectorAddress` within the TI-RTOS config file (`*.cfg`), it defaults
+to address 0x00000000. At bootup time, the TI-RTOS kernel will run a first
+function to initialize the :term:`Hwi` module. At this time the flash vector
+table will be copied to the RAM location shown in :numref:`fig-stacklib-mem-map`
+and the VTOR register will be moved to point to the RAM table.
+For more information about the vector table format, please refer to
+`Cortex-M3 Vector Table <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0552a/BABIFJFG.html>`__.
+
+For more information on the kernel boot process and first functions, please see:
+`SYS/BIOS Boot Wiki <http://processors.wiki.ti.com/index.php/SYS/BIOS_for_Stellaris_Devices>`__.
+
+
+.. _simple-nv-overview:
+
+Simple NV Flash Storage Overview
+--------------------------------
+
+The Simple NV (SNV) area of flash is used for storing persistent data, such as
+encryption keys from bonding or to store custom defined parameters. The protocol
+stack can be configured to reserve up to two |FLASH_PAGE_SIZE| flash pages for
+SNV, although valid data is only stored in one active flash page. To minimize
+the number of erase cycles on the flash, the SNV manager performs compaction on
+the flash sector (or sectors) when the sector has 80% invalidated data. A
+compaction is the copying of valid data to a temporary area followed by an erase
+of the sector where the data was previously stored. Depending on the OSAL\_SNV
+value as described in :ref:`osal-snv-values`, this valid data is then either
+placed back in the newly erased sector or remains in a new sector.
+
+Each flash page contains a "page header" which indicates its current state. The
+page header is located at the first byte of the flash page. Following the
+page header is the "compact header", which indicates the flash page's
+compaction state. The remainder of the flash page contains NV data items which
+are packed together following the page header and compact header.
+
+Each NV data item is unique and has two parts:
+
+  1. A data block which is stored first (lower memory address)
+  2. An item header following the data block (higher memory address)
+
+The item header (defined by ``NVOCTP_itemHdr_t``) contains status information
+required to traverse packed data items in the flash page. An example of the NV
+item memory layout storing a single byte of data is illustrated below.
+
+.. _fig-nvoctp-header:
+.. figure:: resources/nvoctp_header.png
+    :align: center
+
+**NV Item Header:**
+
++---------------+-----------------+----------------------------------------------------+
+| **Field**     | **Size (bits)** | **Purpose**                                        |
++---------------+-----------------+----------------------------------------------------+
+| Header Status | 2               | Indicates if length is valid and header is active  |
++---------------+-----------------+----------------------------------------------------+
+| Length        | 10              | Length of the data block                           |
++---------------+-----------------+----------------------------------------------------+
+| Sub ID        | 10              | Identifier of the sub-data related to the NV item  |
++---------------+-----------------+----------------------------------------------------+
+| Item ID       | 10              | Indicates the item data identifier                 |
++---------------+-----------------+----------------------------------------------------+
+| System ID     | 6               | Indicates the system component identifier          |
++---------------+-----------------+----------------------------------------------------+
+| Item Status   | 2               | Indicates item integrity and if the item is active |
++---------------+-----------------+----------------------------------------------------+
+
+For each NV item that is added or updated in NV storage, the item is written to
+the next lowest available memory address in the active flash page. If the NV
+item is being updated, the old NV item will be marked as inactive. Inactive
+items are removed from memory when a memory compaction takes place.
+
+For more information, see the API documentation in `nvoctp.h` and the design
+description in `nvoctp.c`.
+
+
+.. _using-simple-nv:
+
+Using Simple NV for Flash Storage
+---------------------------------
+
+The number of flash sectors allocated to SNV can be configured by setting the
+OSAL\_SNV preprocessor symbol in the stack project. :numref:`osal-snv-values`
+lists valid values that can be configured as well as the corresponding
+trade-offs.
+
+.. _osal-snv-values:
+.. table:: OSAL\_SNV Values
+
+    +-----------------------+---------------------------------------------------------------------------------------------------------+
+    | **OSAL\_SNV Value**   | **Description**                                                                                         |
+    +-----------------------+---------------------------------------------------------------------------------------------------------+
+    | 0                     | SNV is disabled. Storing of bonding keys in NV is not possible. Maximizes code space for the            |
+    |                       | application and/or stack project. GAP Bond Manager must be disabled. In the Stack project, set pre-     |
+    |                       | processor symbol NO\_OSAL\_SNV and disable GAP Bond Manager. See :ref:`stack_features_configuration`    |
+    |                       | for configuring Bluetooth Low Energy protocol stack features.                                           |
+    +-----------------------+---------------------------------------------------------------------------------------------------------+
+    | 1 (default)           | One flash sector is allocated to SNV. Bonding information is stored in NV.                              |
+    |                       | Set preprocessor symbol OSAL\_SNV=1 in the Stack project.                                               |
+    +-----------------------+---------------------------------------------------------------------------------------------------------+
+    | 2                     | Two flash sectors are allocated to SNV. Bonding information is stored in NV. SNV data is protected      |
+    |                       | against power-loss during compaction.                                                                   |
+    +-----------------------+---------------------------------------------------------------------------------------------------------+
+
+
+Other values for OSAL\_SNV are invalid. Using less than the maximum value has
+the net effect of allocating more code space to the application or stack
+project. SNV can be read from or written to using the following APIs.
+
+**uint8 osal\_snv\_read( osalSnvId\_t id, osalSnvLen\_t len, void
+\*pBuf)**
+
++------------------+------------------------------------------------+
+|                  |   **Read data from NV**                        |
++------------------+------------------------------------------------+
+| **Parameters**   |    id - valid NV item                          |
+|                  |                                                |
+|                  |    len - length of data to read                |
+|                  |                                                |
+|                  |    pBuf - pointer to buffer to store data read |
++------------------+------------------------------------------------+
+| **Returns**      |    SUCCESS: NV item read successfully          |
+|                  |                                                |
+|                  |    NV\_OPER\_FAILED: failure reading NV item   |
++------------------+------------------------------------------------+
+
+**uint8 osal\_snv\_write( osalSnvId\_t id, osalSnvLen\_t len, void
+\*pBuf)**
+
++------------------+---------------------------------------------------------------------------------------------+
+|                  |   **Write data to NV**                                                                      |
++------------------+---------------------------------------------------------------------------------------------+
+| **Parameters**   |    id - valid NV item                                                                       |
+|                  |                                                                                             |
+|                  |    len - length of data to write                                                            |
+|                  |                                                                                             |
+|                  |    pBuf - pointer to buffer containing data to be written. All contents are updated at once.|
++------------------+---------------------------------------------------------------------------------------------+
+| **Returns**      |    SUCCESS: NV item write successfully                                                      |
+|                  |                                                                                             |
+|                  |    NV\_OPER\_FAILED: failure writing NV item                                                |
++------------------+---------------------------------------------------------------------------------------------+
+
+
+Because SNV is shared with other modules in |STACK| such as the GAP Bond
+Manager, carefully manage the NV item IDs. By default, the IDs available to the
+customer are defined in bcomdef.h as shown in :numref:`lst-inc_flash_snv`
+
+.. _lst-inc_flash_snv:
+.. code-block:: c
+    :linenos:
+    :caption: Usable SNV IDs available to customers
+    :emphasize-lines: 16-18
+
+    // Device NV Items -    Range 0 - 0x1F
+    #define BLE_NVID_IRK                    0x02  //!< The Device's IRK
+    #define BLE_NVID_CSRK                   0x03  //!< The Device's CSRK
+    #define BLE_NVID_ADDR_MODE              0x04  //!< The Device's address type (@ref GAP_Addr_Modes_t)
+    #define BLE_LRU_BOND_LIST               0x05  //!< The Device's order of bond indexes in least recently used order
+    #define BLE_NVID_RANDOM_ADDR            0x06  //!< The Device's random address if set by the current @ref GAP_DeviceInit
+
+    // Bonding NV Items -   Range  0x20 - 0x5F    - This allows for 10 bondings
+    #define BLE_NVID_GAP_BOND_START         0x20  //!< Start of the GAP Bond Manager's NV IDs
+    #define BLE_NVID_GAP_BOND_END           0x5f  //!< End of the GAP Bond Manager's NV IDs Range
+
+    // GATT Configuration NV Items - Range  0x70 - 0x79 - This must match the number of Bonding entries
+    #define BLE_NVID_GATT_CFG_START         0x70  //!< Start of the GATT Configuration NV IDs
+    #define BLE_NVID_GATT_CFG_END           0x79  //!< End of the GATT Configuration NV IDs
+
+    // Customer NV Items - Range  0x80 - 0x8F - This must match the number of Bonding entries
+    #define BLE_NVID_CUST_START             0x80  //!< Start of the Customer's NV IDs
+    #define BLE_NVID_CUST_END               0x8F  //!< End of the Customer's NV IDs
+
+:numref:`lst-snv_api_usage` shows how to read and write an array of bytes from
+SNV flash:
+
+.. _lst-snv_api_usage:
+.. code-block:: c
+    :caption: Using SNV Example Code
+    :emphasize-lines: 14, 19, 24
+
+    /*********************************************************************
+    * GLOBAL VARIABLES
+    */
+    #define BUF_LEN 4
+    #define SNV_ID_APP 0x80
+    uint8 buf[BUF_LEN] ={0,};
+
+    static void SimplePeripheral_taskFxn(UArg a0, UArg a1)
+    {
+      // Initialize application
+      SimpleBLEPeripheral_init();
+      uint8 status = SUCCESS;
+
+      status = osal_snv_read(SNV_ID_APP, BUF_LEN, (uint8 *)buf);
+      if(status != SUCCESS)
+      {
+        Display_print1(dispHandle, 0, 0, "SNV READ FAIL: %d", status);
+        //Write first time to initialize SNV ID
+        osal_snv_write(SNV_ID_APP, BUF_LEN, (uint8 *)buf);
+      }
+
+      //Increment first element of array and write to SNV flash
+      buf[0]++;
+      status = osal_snv_write(SNV_ID_APP, BUF_LEN, (uint8 *)buf);
+      if(status != SUCCESS)
+      {
+        Display_print1(dispHandle, 0, 0, "SNV WRITE FAIL: %d", status);
+      }
+      else
+      {
+        Display_print1(dispHandle, 0, 0, "Num of Resets: %d", buf[0]);
+      }
+
+      // Application main loop
+      for (;;)
+      {
+      //...
+      }
+    }
+
+No prior initialization of a NV item ID is required; the OSAL SNV manager
+initializes the NV ID when first accessed by a successful osal\_snv\_write()
+call.
+
+When reading or writing large amounts of data to SNV, TI recommends placing the
+read/write data in statically (linker) allocated arrays or buffers allocated
+from the heap. Placing large amounts of data in local arrays may result in a
+task stack overflow.
+
+By default, osalSnvId\_t and osalSnvLen\_t are type defined as uint8. To use
+uint16-type definitions, define the preprocessor symbol OSAL\_SNV\_UINT16\_ID
+in both the application and stack projects.
+
+Using osal\_snv\_read and osal\_snv\_write is only permitted from within a task
+context. Calling this API is not possible from within Swis or Hwis.
+
+Some care must be taken to not be close to 80% (or other compaction threshold)
+SNV utilization of a sector. BLE stack uses at most 1.5-2kB with 10 bonds
+stored. Frequent compactions are costly in terms of power consumption and can
+cause resets and lost SNV content (NVOCOP) and will also wear out the flash.
+
+.. _cca:
+
+Customer Configuration (CCFG) Table
+-----------------------------------
+
+The CCFG is placed at the end of the last flash page and lets
+customer configure various chip and system parameters in the Customer
+Configuration (CCFG) table. The CCFG table is defined in ccfg\_app\_ble.c,
+which can be found in the Startup folder of the application project. The last
+(sizeof(ccfg_t)) bytes of the CCFG sector are reserved by the system for the
+CCFG table. By default, the linker allocates the unused flash of the last flash
+page to the application image for code and data use.
+
+See the |TRM| for details on CCFG fields and related configuration options,
+including how to set the CCFG to disable access to internal flash memory
+contents.
+
+.. note::
+
+  The CCFG cannot be relocated, and must reside at the end of the last page of
+  flash. Consult the |TRM| for more information.
+

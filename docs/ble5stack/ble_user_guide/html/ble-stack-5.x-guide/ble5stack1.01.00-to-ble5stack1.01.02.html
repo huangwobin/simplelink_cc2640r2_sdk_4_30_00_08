@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BLE5-Stack 1.01.00 to BLE5-Stack 1.01.02 &mdash; 
+SimpleLink™ CC2640R2 SDK
+BLE5-Stack User&#39;s Guide
+ 1.01.11.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00" href="ble5stack1.00.01-to-ble5stack1.01.00.html" />
+    <link rel="prev" title="BLE5-Stack 1.01.02 to BLE5-Stack 1.01.03" href="ble5stack1.01.02-to-ble5stack1.01.03.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-5.x-guide ble5stack1.01.00-to-ble5stack1.01.02";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+BLE5-Stack User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.01.11.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart-guide/ble5-quick-start-cc2640.html">TI BLE5-Stack Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_architecture.html">Software Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-5-index-cc2640.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-5-index-cc2640.html#ble5-stack">BLE5-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-5-index-cc2640.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble-stack-5-index-cc2640.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migration-cc2640.html">Updating from previous SDKs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="migration-cc2640.html#porting-guides">Porting Guides</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.09-to-ble5stack1.01.11.html">BLE5-Stack 1.01.09 to BLE5-Stack 1.01.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.08-to-ble5stack1.01.09.html">BLE5-Stack 1.01.08 to BLE5-Stack 1.01.09</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.07-to-ble5stack1.01.08.html">BLE5-Stack 1.01.07 to BLE5-Stack 1.01.08</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.06-to-ble5stack1.01.07.html">BLE5-Stack 1.01.06 to BLE5-Stack 1.01.07</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.05-to-ble5stack1.01.06.html">BLE5-Stack 1.01.05 to BLE5-Stack 1.01.06</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.04-to-ble5stack1.01.05.html">BLE5-Stack 1.01.04 to BLE5-Stack 1.01.05</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.03-to-ble5stack1.01.04.html">BLE5-Stack 1.01.03 to BLE5-Stack 1.01.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.01.02-to-ble5stack1.01.03.html">BLE5-Stack 1.01.02 to BLE5-Stack 1.01.03</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE5-Stack 1.01.00 to BLE5-Stack 1.01.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble5stack1.00.01-to-ble5stack1.01.00.html">BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="migration-cc2640.html#migration-guides">Migration Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-cc2640.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-cc2640.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+BLE5-Stack User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="migration-cc2640.html">Updating from previous SDKs</a> &raquo;</li>
+        
+      <li>BLE5-Stack 1.01.00 to BLE5-Stack 1.01.02</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ble5-stack-1-01-00-to-ble5-stack-1-01-02">
+<h1>BLE5-Stack 1.01.00 to BLE5-Stack 1.01.02<a class="headerlink" href="#ble5-stack-1-01-00-to-ble5-stack-1-01-02" title="Permalink to this headline">¶</a></h1>
+<p>This section will describe a way to migrate a project from BLE5-Stack 1.01.00 to
+a BLE5-Stack 1.01.02 project.</p>
+<p>For this migration guide, simple_peripheral from BLE5-Stack 1.01.00 will be
+ported over to BLE5-Stack 1.01.02. Because the directory structure is nearly
+identical between the two releases, the recommended approach is to start with a
+BLE5-Stack 1.01.02 project that contains the same base functionality as the
+porting target project and merge in any custom functionality.</p>
+<ol class="arabic">
+<li><p class="first">Choose a BLE5-Stack 1.01.02 example project that contains your target project’s base functionality.</p>
+<blockquote>
+<div><p>For reference, see available sample projects that start with simple_</p>
+<p>In this example, we’re going to use simple_peripheral as the starting
+BLE5-Stack 1.01.02 sample project.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Transfer all modified application files from BLE5-Stack 1.01.00 into the BLE5-Stack 1.01.02 example project.</p>
+<blockquote>
+<div><p>In this example, the following files from BLE5-Stack 1.01.00 were moved into
+simple_peripheral BLE5-Stack 1.01.02 example:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_peripheral.h</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_gatt_profile.c</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">simple_gatt_profile.h</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Modify <code class="docutils literal notranslate"><span class="pre">main.c</span></code> in the BLE5-Stack 1.01.02 example if additional tasks were added in the BLE5-Stack 1.01.00 project.</p>
+</li>
+<li><p class="first">Note that address mode and random address are now set from <code class="docutils literal notranslate"><span class="pre">GAP_DeviceInit</span></code></p>
+<blockquote>
+<div><p>The <code class="docutils literal notranslate"><span class="pre">GAP_DeviceInit()</span></code> function now includes parameters for setting the
+address mode and for setting a pointer to a random address when that mode is
+used.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * GAP Device Initialization</span>
+<span class="cm"> *</span>
+<span class="cm"> * Setup the device. Can only be called once per reset. In order to change</span>
+<span class="cm"> * the address mode / random address, it is necessary to reset the device</span>
+<span class="cm"> * and call this API again. In the case where the address mode or random address</span>
+<span class="cm"> * is different than it was for the last initialization, all bonds and local</span>
+<span class="cm"> * information stored in NV will be erased.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @par Corresponding Events:</span>
+<span class="cm"> * @ref GAP_DEVICE_INIT_DONE_EVENT of type @ref gapDeviceInitDoneEvent_t</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param profileRole GAP Profile Roles: @ref GAP_Profile_Roles</span>
+<span class="cm"> * @param taskID end application task to receive unprocessed GAP events.</span>
+<span class="cm"> * @param addrMode Own address mode. If always using Resolvable Private Address,</span>
+<span class="cm"> *        set this to either @ref ADDRMODE_RP_WITH_PUBLIC_ID or</span>
+<span class="cm"> *        @ref ADDRMODE_RP_WITH_RANDOM_ID. If always using Identity</span>
+<span class="cm"> *        Address, set this to either @ref ADDRMODE_PUBLIC or</span>
+<span class="cm"> *        @ref ADDRMODE_RANDOM.</span>
+<span class="cm"> * @param pRandomAddr Pointer to 6-byte Random Static Address of this device</span>
+<span class="cm"> *        that will be copied to the stack. Valid only if addrMode</span>
+<span class="cm"> *        is @ref ADDRMODE_RANDOM or @ref ADDRMODE_RP_WITH_RANDOM_ID and can</span>
+<span class="cm"> *        not be NULL in these cases. Ignored for other address types.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return @ref SUCCESS : initialization started</span>
+<span class="cm"> * @return @ref INVALIDPARAMETER : invalid profile role, role combination,</span>
+<span class="cm"> *         or invalid Random Static Address,</span>
+<span class="cm"> * @return @ref bleIncorrectMode : initialization has already occurred</span>
+<span class="cm"> * @return @ref bleInternalError : error erasing NV</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">bStatus_t</span> <span class="nf">GAP_DeviceInit</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">profileRole</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">taskID</span><span class="p">,</span>
+                                <span class="n">GAP_Addr_Modes_t</span> <span class="n">addrMode</span><span class="p">,</span>
+                                <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">pRandomAddr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Any calls to <code class="docutils literal notranslate"><span class="pre">GAP_DeviceInit()</span></code> should be modified to pass a parameter
+addrMode of type <code class="docutils literal notranslate"><span class="pre">GAP_Addr_Modes_t</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Address mode of the local device</span>
+<span class="cp">#define DEFAULT_ADDRESS_MODE                  ADDRMODE_PUBLIC</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Address mode</span>
+<span class="k">static</span> <span class="n">GAP_Addr_Modes_t</span> <span class="n">addrMode</span> <span class="o">=</span> <span class="n">DEFAULT_ADDRESS_MODE</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Initialize GAP layer for Peripheral role and register to receive GAP events</span>
+<span class="n">GAP_DeviceInit</span><span class="p">(</span><span class="n">GAP_PROFILE_PERIPHERAL</span><span class="p">,</span> <span class="n">selfEntity</span><span class="p">,</span> <span class="n">addrMode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Additionally, remove all code using <code class="docutils literal notranslate"><span class="pre">GAP_ConfigDeviceAddr()</span></code> because the
+address mode and random address are now only able to be set from
+<code class="docutils literal notranslate"><span class="pre">GAP_DeviceInit()</span></code>. <code class="docutils literal notranslate"><span class="pre">GAP_DeviceInit()</span></code> can only be called once after a
+reset, so any functions related to change the address mode on the fly should
+be removed.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Removal of HCI Extension notice commands:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The following HCI Extension commands have been removed:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">HCI_EXT_ConnEventNoticeCmd()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">HCI_EXT_AdvEventNoticeCmd()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">HCI_EXT_ScanEventNoticeCmd()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">HCI_EXT_ScanReqRptCmd()</span></code></li>
+</ul>
+</dd>
+</dl>
+<p>Any calls to these commands should be removed as well as references to
+events related to these commands.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">HCI_EXT_ConnEventNoticeCmd()</span></code>, <code class="docutils literal notranslate"><span class="pre">Gap_RegisterConnEventCb</span></code> is now
+provided  as an option instead as a way to handle connection events.</p>
+</div></blockquote>
+</li>
+<li><p class="first">If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<blockquote>
+<div><p>The following drivers have changed from BLE5-Stack 1.01.00. Please see the
+changes to these drivers by comparing the supplied headers between them in
+simplelink_cc2640r2_sdk_1_50_00_71 and those in the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<ul class="simple">
+<li>LCD: Driver is found in source/ti/display/lcd instead of previous ti/mw/lcd/</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Refer to the Core SDK release notes for additional information and the TI-RTOS examples included with <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink CC2640R2 SDK</a>.</p>
+<blockquote>
+<div><p>For additional information on how BLE5-Stack 1.01.02 uses TI-RTOS see
+<a class="reference internal" href="tirtos-index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a></p>
+<p>For any utilized TI Drivers, review <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a> and
+<a class="reference external" href="../../../../../tidrivers/tidriversAPIs.html">Driver APIs</a>.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ble5stack1.00.01-to-ble5stack1.01.00.html" class="btn btn-neutral float-right" title="BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ble5stack1.01.02-to-ble5stack1.01.03.html" class="btn btn-neutral float-left" title="BLE5-Stack 1.01.02 to BLE5-Stack 1.01.03" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "files": [
+            "+../main_nortos.c -> main_nortos.c",
+            "+../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../rfWakeOnRadioTx_nortos.c -> rfWakeOnRadioTx_nortos.c",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.icf -> CC2640R2_LAUNCHXL_NoRTOS.icf",
+            "+../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../Board.h -> Board.h",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../README.md -> README.md",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

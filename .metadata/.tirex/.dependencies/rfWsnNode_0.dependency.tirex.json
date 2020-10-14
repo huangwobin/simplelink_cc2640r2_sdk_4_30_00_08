@@ -1,0 +1,36 @@
+[
+    {
+        "files": [
+            "+../../sce/scif.c -> scif.c",
+            "+../../SceAdc.c -> SceAdc.c",
+            "+../../easylink/easylink_config.c -> easylink_config.c",
+            "+../../easylink/EasyLink.c -> EasyLink.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../../smartrf_settings/smartrf_settings_predefined.c -> smartrf_settings_predefined.c",
+            "+../../NodeRadioTask.c -> NodeRadioTask.c",
+            "+../../NodeTask.c -> NodeTask.c",
+            "+../../rfWsnNode.c -> rfWsnNode.c",
+            "+../../sce/scif_framework.c -> scif_framework.c",
+            "+../../sce/scif_osal_tirtos.c -> scif_osal_tirtos.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../sce/scif.h -> scif.h",
+            "+../../RadioProtocol.h -> RadioProtocol.h",
+            "+../../SceAdc.h -> SceAdc.h",
+            "+../../easylink/EasyLink.h -> EasyLink.h",
+            "+../../easylink/easylink_config.h -> easylink_config.h",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../../smartrf_settings/smartrf_settings_predefined.h -> smartrf_settings_predefined.h",
+            "+../../NodeRadioTask.h -> NodeRadioTask.h",
+            "+../../NodeTask.h -> NodeTask.h",
+            "+../../sce/scif_framework.h -> scif_framework.h",
+            "+../../sce/scif_osal_tirtos.h -> scif_osal_tirtos.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

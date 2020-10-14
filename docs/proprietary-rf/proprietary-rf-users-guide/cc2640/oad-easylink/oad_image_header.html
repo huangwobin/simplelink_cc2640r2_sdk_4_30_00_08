@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Image Metadata &mdash; 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Off-Chip OAD" href="oad_offchip.html" />
+    <link rel="prev" title="Firmware update process" href="oad_process.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc2640 oad-easylink oad_image_header";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/quickstart-cc2640.html">Proprietary RF Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/index-platform-cc2640.html">The SimpleLink CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/examples-cc2640.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/proprietary-rf-index-cc2640.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/memory-index.html">Memory overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="oad.html">Over the Air Download (OAD)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oad_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_process.html">Firmware update process</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Image Metadata</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#crc-and-crc-shadow">CRC and CRC Shadow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#length">Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-identification-uid">User Identification (UID)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-address">Start Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-type">Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-state">Image State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oad_offchip.html">Off-Chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad_onchip.html">On-Chip OAD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/migration-cc2640.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/reference-cc2640.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proprietary-rf-guide/glossary-cc2640.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../proprietary-rf-guide/index-cc2640.html">
+SimpleLink™ CC2640R2 SDK
+Proprietary RF User's Guide
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../proprietary-rf-guide/index-cc2640.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="oad.html">Over the Air Download (OAD)</a> &raquo;</li>
+        
+      <li>Image Metadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="image-metadata">
+<h1>Image Metadata<a class="headerlink" href="#image-metadata" title="Permalink to this headline">¶</a></h1>
+<p>All TI OAD images use a 16-byte metadata header. This metadata vector is
+embedded at the beginning of the image, occupying the first 16 bytes before
+the application code. Metadata checking is done in
+<code class="code docutils literal notranslate"><span class="pre">OADTarget_validateNewImage()</span></code>. <a class="reference internal" href="#tbl-metadata-description-table"><span class="std std-numref">Table 14.</span></a>
+below shows a description of the metadata vector.</p>
+<span id="tbl-metadata-description-table"></span><table border="1" class="docutils" id="id3">
+<caption><span class="caption-number">Table 14. </span><span class="caption-text">Description of the metadata vector.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="26%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Size (in bytes)</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CRC</td>
+<td>2</td>
+<td>Cyclic Redundancy Check (CRC)</td>
+</tr>
+<tr class="row-odd"><td>CRC Shadow</td>
+<td>2</td>
+<td>Place holder for CRC</td>
+</tr>
+<tr class="row-even"><td>Version</td>
+<td>2</td>
+<td>Version</td>
+</tr>
+<tr class="row-odd"><td>Length</td>
+<td>2</td>
+<td>Length of the image in words*</td>
+</tr>
+<tr class="row-even"><td>UID</td>
+<td>4</td>
+<td>User Identification</td>
+</tr>
+<tr class="row-odd"><td>Start Address</td>
+<td>2</td>
+<td>The destination address of the
+image in words*</td>
+</tr>
+<tr class="row-even"><td>Image Type</td>
+<td>1</td>
+<td>The type of image to be downloaded</td>
+</tr>
+<tr class="row-odd"><td>State</td>
+<td>1</td>
+<td>The status of this image</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The above fields that are marked with an asterisk * are
+measured in 32-bit words. For example, an image length of 0x100
+describes an image that is 1024 bytes in size. The OAD word size is
+defined by <code class="code docutils literal notranslate"><span class="pre">EFL_OAD_ADDR_RESOLUTION</span></code> for off-chip OAD and by
+<code class="code docutils literal notranslate"><span class="pre">HAL_FLASH_WORD_SIZE</span></code> for on-chip OAD.</p>
+</div>
+<div class="section" id="crc-and-crc-shadow">
+<h2>CRC and CRC Shadow<a class="headerlink" href="#crc-and-crc-shadow" title="Permalink to this headline">¶</a></h2>
+<p>The cyclic redundancy check (CRC) is a means to check the integrity of an
+image. This must be done in two steps. First the CRC must be calculated when
+the image is generated from the toolchain, this will be stored in the CRC
+field within the metadata vector.</p>
+<p>This initial CRC will be sent over the air via the OAD service. Later, the
+target will need to ensure that the image has not been corrupted during
+transfer. The target will then re-calculate the CRC of the downloaded image;
+this will be stored in the CRC shadow field of the metadata vector.</p>
+<p>If the CRC and CRC shadow are equivalent, the target can assume that the
+image was not corrupted while sending over the air.</p>
+<p>The algorithm selected for CRC calculations is the <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check#Standards_and_common_use">CRC-16-CCITT</a>.</p>
+</div>
+<div class="section" id="version">
+<h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>The image version field is used to track revisions of images and ensure
+upgrade compatibility. Customers may implement their own versioning
+scheme; however, there are additional checks imposed by the TI OAD profile.
+See the function <code class="code docutils literal notranslate"><span class="pre">OADTarget_validateNewImage()</span></code> within
+<code class="code docutils literal notranslate"><span class="pre">oad_target_external_flash.c</span></code> or  <code class="code docutils literal notranslate"><span class="pre">oad_target_internal_flash.c</span></code>
+how these version checks are done in Off-chip and On-chip OAD, respectively.</p>
+</div>
+<div class="section" id="length">
+<h2>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h2>
+<p>The length field is the length of the image in words, where the word
+size is defined by <code class="code docutils literal notranslate"><span class="pre">EFL_OAD_ADDR_RESOLUTION</span></code> and <code class="code docutils literal notranslate"><span class="pre">HAL_FLASH_WORD_SIZE</span></code>
+for On-chip and Off-chip OAD respectively. Off-chip OAD customers who
+are using different external flash parts may need to modify
+<code class="code docutils literal notranslate"><span class="pre">EFL_OAD_ADDR_RESOLUTION</span></code> to match the word size of their part. For
+On-chip OAD, the word size of the CC2640R2 is fixed.</p>
+</div>
+<div class="section" id="user-identification-uid">
+<h2>User Identification (UID)<a class="headerlink" href="#user-identification-uid" title="Permalink to this headline">¶</a></h2>
+<p>This field is un-used by the TI OAD profile in the BLE stack only, but the
+hooks are in place for a customer to add their own implementation of verifying
+images based on a UID.</p>
+<p>For on-chip OAD, the convention is that Image A will embed ‘A’, ‘A’,
+‘A’, ‘A’ and Image B will embed ‘B’, ‘B’, ‘B’, ‘B’. Off-chip images use
+‘E’, ‘E’, ‘E’, ‘E’ by default.</p>
+</div>
+<div class="section" id="start-address">
+<h2>Start Address<a class="headerlink" href="#start-address" title="Permalink to this headline">¶</a></h2>
+<p>The start address is the first address where the proposed image is to be
+stored in internal flash. Similar to the length field, this is
+calculated in words. Off-chip OAD solutions put restrictions on the
+start address based on image type (more on this in the next section).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For On-chip OAD solutions, this field is reserved in the
+metadata as they use a fixed start address that is based on the internal
+flash memory map.</p>
+</div>
+</div>
+<div class="section" id="image-type">
+<h2>Image Type<a class="headerlink" href="#image-type" title="Permalink to this headline">¶</a></h2>
+<p>In Off-chip OAD systems with external flash, there are multiple types of
+images that can be uploaded. They are explained in <a class="reference internal" href="#tbl-off-chip-oad-image-types"><span class="std std-numref">Table 15.</span></a>.
+Note, that OAD via EasyLink supports only <cite>Application</cite> type as there are no
+stacks involved.</p>
+<span id="tbl-off-chip-oad-image-types"></span><table border="1" class="docutils" id="id4">
+<caption><span class="caption-number">Table 15. </span><span class="caption-text">Off-chip OAD Image Types.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="44%" />
+<col width="13%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Image Type</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>EFL_OAD_IMG_TYPE_APP</td>
+<td>1</td>
+<td>An application or application
++ stack merged update</td>
+</tr>
+<tr class="row-odd"><td>EFL_OAD_IMG_TYPE_STACK</td>
+<td>2</td>
+<td>A stack only update</td>
+</tr>
+<tr class="row-even"><td>EFL_OAD_IMG_TYPE_NP</td>
+<td>3</td>
+<td><dl class="first last docutils">
+<dt>A network processor update.</dt>
+<dd>This only applies to the
+SimpleAP + SimpleNP demo</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>EFL_OAD_IMG_TYPE_FACTORY</td>
+<td>4</td>
+<td>Describes the permanently
+resident production image that
+runs on the device before any
+OTA updates.</td>
+</tr>
+</tbody>
+</table>
+<p>On-chip OAD solutions determine the image type based on the LSB of the image
+version field. The image type field is not used in this case.</p>
+</div>
+<div class="section" id="image-state">
+<h2>Image State<a class="headerlink" href="#image-state" title="Permalink to this headline">¶</a></h2>
+<p>The image state is a one byte metadata field that is used only by
+Off-chip OAD solutions. The state informs the bootloader whether or not
+the image is ready to run or currently running. This prevents the
+bootloader from copying the same image from external to internal flash
+on every boot.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For On-chip OAD solutions this field is reserved in the
+metadata as the OAD reset service handles switching between images in
+the bootloader.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="oad_offchip.html" class="btn btn-neutral float-right" title="Off-Chip OAD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="oad_process.html" class="btn btn-neutral float-left" title="Firmware update process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2016-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.. _sec-oad:
+
+Over the Air Download (OAD)
+===========================
+
+This section serves as a guide to the Texas Instruments Over-the-Air Download
+(:term:`OAD`) ecosystem. :term:`OAD` is a device firmware upgrade method that
+allows the firmware image running on a device to be updated over the air using
+a proprietary RF connection while providing power loss protection.
+
+The :term:`OAD` guide section will cover:
+
+    - :term:`OAD` theory of operation and architecture
+    - How to run the :term:`OAD` examples included in the |SDK|
+    - How to add :term:`OAD` to an existing sample application
+
+The supported development kit for :term:`OAD` is a launchpad. To follow the
+procedures listed in this guide, two launchpad development kits are required.
+
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   oad_overview
+   oad_process
+   oad_image_header
+   oad_offchip
+   oad_onchip
+
+..
+    oad_troubleshooting
+    oad_appendix
+

@@ -1,0 +1,2032 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <title>CC26XX Configuration Reference</title>
+    <link href="tiapistylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen/html/tiapistylesheet.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="contents">
+      <div class="textblock">
+        <div id="ADC_Configuration_Options">
+          <h3 title="Summary of all ADC configuration options">ADC Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_$name"><code>.$name</code></a><code> = 'Board_ADC{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_referenceSource"><code>.referenceSource</code></a><code> = 'Fixed';</code></td><td><code>// (CC13XX/CC26XX only) Reference Source</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_resolution"><code>.resolution</code></a><code> = '12 Bits';</code></td><td><code>// (CC13XX/CC26XX only) Resolution</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_samplingDuration"><code>.samplingDuration</code></a><code> = '2.7 us';</code></td><td><code>// (CC13XX/CC26XX only) Sampling Duration</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_triggerSource"><code>.triggerSource</code></a><code> = 'Manual';</code></td><td><code>// (CC13XX/CC26XX only) Trigger Source</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_inputScaling"><code>.inputScaling</code></a><code> = true;</code></td><td><code>// (CC13XX/CC26XX only) Input Scaling</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_adjustSampleValue"><code>.adjustSampleValue</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Adjust Sample Value</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADC_internalSignal"><code>.internalSignal</code></a><code> = 'None';</code></td><td><code>// (CC13XX/CC26XX only) Internal Signal</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ADC_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ADC instance">ADC Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_ADC{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to ADC runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_ADC</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_referenceSource"></a>Reference Source
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.referenceSource = 'Fixed'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies the ADC's reference source.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Fixed'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'VDDS'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_resolution"></a>Resolution
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.resolution = '12 Bits'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies the ADC's resolution<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'12 Bits'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_samplingDuration"></a>Sampling Duration
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.samplingDuration = '2.7 us'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies the ADC's sampling duration.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'2.7 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5.3 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10.6 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'21.3 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'42.6 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'85.3 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'170 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'341 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'682 us'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1.37 ms'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2.73 ms'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5.46 ms'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10.9 ms'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_triggerSource"></a>Trigger Source
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.triggerSource = 'Manual'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies the trigger to start an ADC sample.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Manual'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_inputScaling"></a>Input Scaling
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.inputScaling = true</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Enable or disable scaling on the ADC input pin.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_adjustSampleValue"></a>Adjust Sample Value
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.adjustSampleValue = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies if the returned sample value is adjusted.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADC_internalSignal"></a>Internal Signal
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.internalSignal = 'None'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specifies internal signal(s) to use as a sample source.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'None'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Battery Channel'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Adds a channel to sample the internal battery voltage, VDDS.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Decoupling Channel'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Adds a channel to sample the decoupling capacitor voltage, DCOUPL.<br><p>The digital core is supplied by a 1.28-V regulator connected to VDDR.
+The output of this regulator requires an external decoupling capacitor
+for proper operation; this capcitor is connected to DCOUPL.</p>
+</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Ground Channel'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Adds a channel to sample the ground voltage, VSS.</td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="ADCBuf_Configuration_Options">
+          <h3 title="Summary of all ADCBuf configuration options">ADCBuf Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_$name"><code>.$name</code></a><code> = 'Board_ADCBUF{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Hardware Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// (CC13XX/CC26XX only) Software Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_channels"><code>.channels</code></a><code> = 1;</code></td><td><code>// (CC13XX/CC26XX only) Channels</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_batteryChannel"><code>.batteryChannel</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Battery Channel</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_decouplingChannel"><code>.decouplingChannel</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Decoupling Channel</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_ADCBuf_groundChannel"><code>.groundChannel</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Ground Channel</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ADCBuf_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ADCBuf instance">ADCBuf Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_ADCBUF{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to ADC runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_ADCBUF</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_interruptPriority"></a>Hardware Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.softwareInterruptPriority = '0'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_channels"></a>Channels
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.channels = 1</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Number of external channels to configure. Must be between 0 and 8.<p /><p>Select <strong>0</strong> if you only wish to use one of the <strong>Battery</strong>,
+<strong>Decoupling</strong>, or <strong>Ground</strong> channel(s).</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_batteryChannel"></a>Battery Channel
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.batteryChannel = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Adds a channel to sample the internal battery voltage, VDDS.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_decouplingChannel"></a>Decoupling Channel
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.decouplingChannel = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Adds a channel to sample the decoupling capacitor voltage, DCOUPL.<p /><p>The digital core is supplied by a 1.28-V regulator connected to VDDR. The output of this regulator requires an external decoupling capacitor for proper operation; this capcitor is connected to DCOUPL.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_ADCBuf_groundChannel"></a>Ground Channel
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.groundChannel = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Adds a channel to sample the ground voltage, VSS.<p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESCBC_Configuration_Options">
+          <h3 title="Summary of all AESCBC configuration options">AESCBC Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESCBC_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESCBC_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESCBC instance">AESCBC Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESCBC_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESCTR_Configuration_Options">
+          <h3 title="Summary of all AESCTR configuration options">AESCTR Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESCTR_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESCTR_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESCTR instance">AESCTR Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESCTR_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESCTRDRBG_Configuration_Options">
+          <h3 title="Summary of all AESCTRDRBG configuration options">AESCTRDRBG Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESCTRDRBG_$name"><code>.$name</code></a><code> = 'Board_AESCTRDRBG{num}';</code></td><td><code>// Name</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESCTRDRBG_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESCTRDRBG instance">AESCTRDRBG Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESCTRDRBG_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_AESCTRDRBG{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to aesctrdrbg runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_AESCTRDRBG</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESCCM_Configuration_Options">
+          <h3 title="Summary of all AESCCM configuration options">AESCCM Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESCCM_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESCCM_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESCCM instance">AESCCM Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESCCM_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESGCM_Configuration_Options">
+          <h3 title="Summary of all AESGCM configuration options">AESGCM Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESGCM_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESGCM_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESGCM instance">AESGCM Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESGCM_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="AESECB_Configuration_Options">
+          <h3 title="Summary of all AESECB configuration options">AESECB Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_AESECB_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="AESECB_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added AESECB instance">AESECB Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_AESECB_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="Display_Configuration_Options">
+          <h3 title="Summary of all Display configuration options">Display Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_display_Display_$name"><code>.$name</code></a><code> = 'Board_Display{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_displayType"><code>.displayType</code></a><code> = 'UART';</code></td><td><code>// Display Type</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_lcdSize"><code>.lcdSize</code></a><code> = 128;</code></td><td><code>// LCD Size</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_uartBufferSize"><code>.uartBufferSize</code></a><code> = 1024;</code></td><td><code>// UART Buffer Size</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_enableANSI"><code>.enableANSI</code></a><code> = false;</code></td><td><code>// Enable ANSI</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_maxPrintLength"><code>.maxPrintLength</code></a><code> = 256;</code></td><td><code>// Maximum Print Length</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_mutexTimeout"><code>.mutexTimeout</code></a><code> = 'Never Timeout';</code></td><td><code>// Mutex Timeout</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_mutexTimeoutValue"><code>.mutexTimeoutValue</code></a><code> = 1;</code></td><td><code>// Mutex Timeout Value</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_display_Display_baudRate"><code>.baudRate</code></a><code> = 115200;</code></td><td><code>// Baud Rate</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="Display_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added Display instance">Display Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_display_Display_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_Display{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to Display runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_Display</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_displayType"></a>Display Type
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.displayType = 'UART'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'UART'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'LCD'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Host'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_lcdSize"></a>LCD Size
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.lcdSize = 128</code>]
+               </a></dt><dd>
+              <em></em> Size of the LCD in pixels.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_uartBufferSize"></a>UART Buffer Size
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.uartBufferSize = 1024</code>]
+               </a></dt><dd>
+              <em></em> UART display buffer size in bytes<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_enableANSI"></a>Enable ANSI
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.enableANSI = false</code>]
+               </a></dt><dd>
+              <em></em> Enables or disables ANSI cursor support.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_maxPrintLength"></a>Maximum Print Length
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.maxPrintLength = 256</code>]
+               </a></dt><dd>
+              <em></em> <p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_mutexTimeout"></a>Mutex Timeout
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.mutexTimeout = 'Never Timeout'</code>]
+               </a></dt><dd>
+              <em></em> Timeout to acquire mutex for synchronizing access to UART.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Never Timeout'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Never Wait'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Custom'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Custom number of RTOS ticks</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_mutexTimeoutValue"></a>Mutex Timeout Value
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.mutexTimeoutValue = 1</code>]
+               </a></dt><dd>
+              <em></em> <p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_display_Display_baudRate"></a>Baud Rate
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.baudRate = 115200</code>]
+               </a></dt><dd>
+              <em></em> UART baud rate<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>1200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>2400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>4800</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>9600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>19200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>38400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>57600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>115200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>230400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>460800</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>921600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="DMA_Configuration_Options">
+          <h3 title="Summary of all DMA configuration options">DMA Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>DMA</var><a href="#ti_drivers_DMA_dmaErrorFunction"><code>.dmaErrorFunction</code></a><code> = 'dmaErrorFxn';</code></td><td><code>// DMA Error Function</code></td></tr>
+            <tr><td><var>DMA</var><a href="#ti_drivers_DMA_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+        <div id="DMA_Module_Configuration_Options">
+          <h3 title="Options that apply to the DMA driver as a whole">DMA Module Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_DMA_dmaErrorFunction"></a>DMA Error Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>DMA</var><code>.dmaErrorFunction = 'dmaErrorFxn']</code>
+               </a></dt><dd>
+              <em></em> Specifies function invoked when a DMA error occurs.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_DMA_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>DMA</var><code>.interruptPriority = '7']</code>
+               </a></dt><dd>
+              <em></em> DMA interrupt priority.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Module_Configuration_Options -->
+
+        <div id="ECDH_Configuration_Options">
+          <h3 title="Summary of all ECDH configuration options">ECDH Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_ECDH_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13X2/CC26X2 only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ECDH_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ECDH instance">ECDH Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_ECDH_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13X2/CC26X2 only)</em> Public key acceleration module interrupt priority.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="ECDSA_Configuration_Options">
+          <h3 title="Summary of all ECDSA configuration options">ECDSA Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_ECDSA_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13X2/CC26X2 only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ECDSA_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ECDSA instance">ECDSA Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_ECDSA_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13X2/CC26X2 only)</em> Public key acceleration module interrupt priority.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="ECJPAKE_Configuration_Options">
+          <h3 title="Summary of all ECJPAKE configuration options">ECJPAKE Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_ECJPAKE_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13X2/CC26X2 only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ECJPAKE_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ECJPAKE instance">ECJPAKE Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_ECJPAKE_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13X2/CC26X2 only)</em> Public key acceleration module interrupt priority.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="GPIO_Configuration_Options">
+          <h3 title="Summary of all GPIO configuration options">GPIO Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>GPIO</var><a href="#ti_drivers_GPIO_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// Interrupt Priority</code></td></tr>
+            <tr><td><var>GPIO</var><a href="#ti_drivers_GPIO_optimizeCallbackTableSize"><code>.optimizeCallbackTableSize</code></a><code> = false;</code></td><td><code>// Optimize Callback Table Size</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_$name"><code>.$name</code></a><code> = 'Board_GPIO{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_mode"><code>.mode</code></a><code> = 'Input';</code></td><td><code>// Mode</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_outputType"><code>.outputType</code></a><code> = 'Standard';</code></td><td><code>// Output Type</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_outputStrength"><code>.outputStrength</code></a><code> = 'Medium';</code></td><td><code>// Output Strength</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_initialOutputState"><code>.initialOutputState</code></a><code> = 'Low';</code></td><td><code>// Initial Output State</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_pull"><code>.pull</code></a><code> = 'None';</code></td><td><code>// Pull</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_interruptTrigger"><code>.interruptTrigger</code></a><code> = 'None';</code></td><td><code>// Interrupt Trigger</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_callbackFunction"><code>.callbackFunction</code></a><code> = '';</code></td><td><code>// Callback Function</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_GPIO_comment"><code>.comment</code></a><code> = '';</code></td><td><code>// Comment</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+        <div id="GPIO_Module_Configuration_Options">
+          <h3 title="Options that apply to the GPIO driver as a whole">GPIO Module Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>GPIO</var><code>.interruptPriority = '7']</code>
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_optimizeCallbackTableSize"></a>Optimize Callback Table Size
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>GPIO</var><code>.optimizeCallbackTableSize = false]</code>
+               </a></dt><dd>
+              <em></em> Enabling this option removes unnecessary entries in the GPIO callback table. Before enabling this option, carefully review the detailed help for runtime benefits AND caveats.<p /><p>This option causes the GPIO driver tables to be sorted so that all GPIOs that trigger interrupts appear first in the GPIO table. This allows the table of GPIO callbacks, which is also indexed by the GPIO index, to be substantially shorter then the table of all GPIOs.</p>
+<p>However, this also means that calls to <code>GPIO_setCallback()</code> must <strong>never</strong> be made to GPIOs whose callbacks are configured as the empty string (which is shown as &#39;&lt;no callback is needed&gt;&#39; in the GUI).</p>
+
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Module_Configuration_Options -->
+
+        <div id="GPIO_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added GPIO instance">GPIO Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_GPIO{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_GPIO</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_mode"></a>Mode
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.mode = 'Input'</code>]
+               </a></dt><dd>
+              <em></em> Select the GPIO mode<p /><p>The mode configuration parameter is used to determine the initial state of GPIO, eliminating the need to configure the GPIO pin at runtime prior to using it.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Input'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - This GPIO is always used for input</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Output'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - This GPIO is always used for output</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Dynamic'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - This GPIO is dynamically reconfigured at runtime using the GPIO APIs<br><p>This mode indicates that the application will dynamically configure the GPIO at runtime using the GPIO APIs. As a result, it&#39;s assumed that this GPIO requires an entry in the table of GPIO callback functions; see <a href="../../../tidrivers/syscfg/html/ConfigDoc.html#ti_drivers_GPIO_optimizeCallbackTableSize">Optimize Callback Table Size</a>.</p>
+</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_outputType"></a>Output Type
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.outputType = 'Standard'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Standard'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Open Drain'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_outputStrength"></a>Output Strength
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.outputStrength = 'Medium'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'High'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Medium'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Low'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_initialOutputState"></a>Initial Output State
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.initialOutputState = 'Low'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'High'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Low'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_pull"></a>Pull
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.pull = 'None'</code>]
+               </a></dt><dd>
+              <em></em> Specifies the internal pull-up or pull-down resistor configuration of this GPIO pin.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'None'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Pull Up'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Pull Down'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_interruptTrigger"></a>Interrupt Trigger
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptTrigger = 'None'</code>]
+               </a></dt><dd>
+              <em></em> Specifies when or if interrupts are triggered<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'None'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'High'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Low'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Falling Edge'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Rising Edge'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Both Edges'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_callbackFunction"></a>Callback Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.callbackFunction = ''</code>]
+               </a></dt><dd>
+              <em></em> The name of the callback function called when this GPIO pin triggers an interrupt, or 'NULL' if it's specified at runtime<p /><p>If you need to set the callback at runtime, set this configuration parameter
+to &#39;NULL&#39; and call <a href="../../../tidrivers/doxygen/html/_g_p_i_o_8h.html#a24c401f32e65f60f11a1594fdafb9d2a"><code>GPIO_setCallback()</code></a> with the name of the function you
+want to be triggered.</p>
+<p>If this config is not set, GPIO assumes that no callback will ever be set for
+this GPIO and, as a result, no space will be allocated to save the address of
+the callback; thus, it&#39;s important to never use <code>GPIO_setCallback()</code> on a
+GPIO for which this config is empty.</p>
+<p>This function is of type <a href="../../../tidrivers/doxygen/html/_g_p_i_o_8h.html#a46b0c9afbe998c88539abc92082a1173"><code>GPIO_CallbackFxn</code></a>,
+it&#39;s called in the context of a hardware ISR, and it&#39;s passed
+a single parameter: the index of the GPIO that triggered the interrupt.</p>
+<p>Example: <a href="../../../tidrivers/doxygen/html/_g_p_i_o_8h.html#ti_drivers_GPIO_Example_callback" title="C/C++ source">Creating an input callback</a>.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_GPIO_comment"></a>Comment
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.comment = ''</code>]
+               </a></dt><dd>
+              <em></em> User specified comment to add the generated files.<p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="I2C_Configuration_Options">
+          <h3 title="Summary of all I2C configuration options">I2C Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_$name"><code>.$name</code></a><code> = 'Board_I2C{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_maxBitRate"><code>.maxBitRate</code></a><code> = 0;</code></td><td><code>// Maximum Bit Rate</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_ignoreUnusedAddressConflicts"><code>.ignoreUnusedAddressConflicts</code></a><code> = false;</code></td><td><code>// Ignore Unused Address Conflicts</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_addressChecks"><code>.addressChecks</code></a><code> = 'Fail';</code></td><td><code>// Address Checks</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_speedChecks"><code>.speedChecks</code></a><code> = 'Fail';</code></td><td><code>// Speed Checks</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2C_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// (CC13XX/CC26XX only) Software Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="I2C_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added I2C instance">I2C Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_I2C{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to I2C runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_I2C</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_maxBitRate"></a>Maximum Bit Rate
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.maxBitRate = 0</code>]
+               </a></dt><dd>
+              <em></em> Maximum bit rate (Kbps) supported by this bus<p /><p>This parameter determines the values of a symbol declared in the generated <code>Board.h</code> file: <var>{bus_name}</var><code>_MAXBITRATE</code>, where <var>{bus_name}</var> is the name of this bus instance. This symbol is used to portably open the bus at a speed that&#39;s likely to work.</p>
+<p>If this configuration parameter is set to zero, the maximum speed for this instance is the maximum speed supported by the slowest attached slave.  If no slave devices are attached, the maximum bit rate is 100 Kbps.
+For example, if an I2C instance named <code>SENSORS</code> is defined in SysConfig, the following snippet opens it at an appropriate speed.</p>
+<pre><code>    #include &quot;Board.h&quot; // defines I2C id SENSORS
+
+    // initialize optional I2C bus parameters
+    I2C_Params params;
+    I2C_Params_init(&amp;params);
+    params.bitRate = SENSORS_MAXBITRATE;
+
+    // Open I2C bus for usage
+    I2C_Handle i2cHandle = I2C_open(SENSORS, &amp;params);</code></pre><p>By default, SysConfig triggers an error in the event that the declared maximum speed of an attached slave is less then this value.  You can disable this error by setting the  <a href="../../../tidrivers/syscfg/html/ConfigDoc.html#ti_drivers_I2C_speedChecks">speedChecks</a> configuration parameter to either <code>&#39;Warn&#39;</code> or <code>&#39;Remark&#39;</code>.</p>
+<p><strong>Note</strong>: The maximum bit rate for an I2C bus is a function of the electrical capacitance and resistance on the I2C signal lines and the speed supported by the slowest slave.  Even if all devices on the bus are capable of supporting the specified bit rate, you may need to lower it if the electrical characteristics of your hardware imply large  bus signal rise-times. This can be caused by long wires, which increase the capacitance of a circuit.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_ignoreUnusedAddressConflicts"></a>Ignore Unused Address Conflicts
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.ignoreUnusedAddressConflicts = false</code>]
+               </a></dt><dd>
+              <em></em> Don't warn about address conflicts between unused components on this bus<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_addressChecks"></a>Address Checks
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.addressChecks = 'Fail'</code>]
+               </a></dt><dd>
+              <em></em> How to handle detected peripheral address conflicts<p /><p> By default, SysConfig triggers an error if two or more devices in this bus have the same address.  You can override this error by setting this configuration parameter to either <code>&#39;Warn&#39;</code> or <code>&#39;Remark&#39;</code>.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Fail'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Trigger an error if two or more devices in the bus have the same address</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Warn'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Warn if two or more devices on the bus have the same address</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Remark'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Emit a remark if two or more devices on the bus have the same address</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_speedChecks"></a>Speed Checks
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.speedChecks = 'Fail'</code>]
+               </a></dt><dd>
+              <em></em> How to handle detected bit rate conflicts<p /><p> By default, SysConfig triggers an error if a slave device on the bus has a maximum speed below the maximum bit rate specified for the bus. You can override this error by setting this configuration parameter to either <code>&#39;Warn&#39;</code> or <code>&#39;Remark&#39;</code>.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Fail'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Trigger an error if the bus speed exceeds a slave's maximum speed</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Warn'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Warn if the bus speed exceeds any slave's maximum speed</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Remark'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Emit a remark if the bus speed exceeds a slave's maximum speed</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2C_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.softwareInterruptPriority = '0'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="I2S_Configuration_Options">
+          <h3 title="Summary of all I2S configuration options">I2S Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_$name"><code>.$name</code></a><code> = 'Board_I2S{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// Hardware Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_sd1DataDirection"><code>.sd1DataDirection</code></a><code> = 'Input';</code></td><td><code>// SD1 Data Direction</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_sd0DataDirection"><code>.sd0DataDirection</code></a><code> = 'Output';</code></td><td><code>// SD0 Data Direction</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_masterSlaveSelection"><code>.masterSlaveSelection</code></a><code> = 'Master';</code></td><td><code>// Master Slave Selection</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_I2S_enableMCLK"><code>.enableMCLK</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Enable MCLK</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="I2S_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added I2S instance">I2S Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_I2S{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to I2S runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_I2S</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_interruptPriority"></a>Hardware Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_sd1DataDirection"></a>SD1 Data Direction
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.sd1DataDirection = 'Input'</code>]
+               </a></dt><dd>
+              <em></em> Serial Data Line<p /><p>May also be referred to as the AD or McAXR.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Input'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Output'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Disabled'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_sd0DataDirection"></a>SD0 Data Direction
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.sd0DataDirection = 'Output'</code>]
+               </a></dt><dd>
+              <em></em> Serial Data Line<p /><p>May also be referred to as the AD or McAXR</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Input'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Output'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Disabled'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_masterSlaveSelection"></a>Master Slave Selection
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.masterSlaveSelection = 'Master'</code>]
+               </a></dt><dd>
+              <em></em> Select the I2S module role<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Master'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Clocks internally generated</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Slave'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Clocks externally generated</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_I2S_enableMCLK"></a>Enable MCLK
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.enableMCLK = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="NVS_Configuration_Options">
+          <h3 title="Summary of all NVS configuration options">NVS Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_NVS_$name"><code>.$name</code></a><code> = 'Board_NVS{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_NVS_nvsType"><code>.nvsType</code></a><code> = 'Internal';</code></td><td><code>// NVS Type</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="NVS_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added NVS instance">NVS Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_NVS_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_NVS{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to NVS runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_NVS</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_NVS_nvsType"></a>NVS Type
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.nvsType = 'Internal'</code>]
+               </a></dt><dd>
+              <em></em> Specifies the type of non-volatile storage used by the NVS region.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Internal'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Normal CPU directly addressable flash memory.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'External'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - SPI Flash. Not directly addressable flash memory.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'RAM'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Region is in CPU directly addressable RAM.<br><p>Typically used to emulate flash memory while developing applications that use
+real flash memory. This avoids wearing out device flash during software development.</p>
+</td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="Power_Configuration_Options">
+          <h3 title="Summary of all Power configuration options">Power Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_enablePolicy"><code>.enablePolicy</code></a><code> = true;</code></td><td><code>// (CC13XX/CC26XX only) Enable Policy</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_policyFunction"><code>.policyFunction</code></a><code> = 'PowerCC26XX_standbyPolicy';</code></td><td><code>// (CC13XX/CC26XX only) Policy Function</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_policyCustomFunction"><code>.policyCustomFunction</code></a><code> = 'customPolicyFxn';</code></td><td><code>// (CC13XX/CC26XX only) Custom Policy Function</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_policyInitFunction"><code>.policyInitFunction</code></a><code> = 'Not Required';</code></td><td><code>// (CC13XX/CC26XX only) Policy Init Function</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_policyInitCustomFunction"><code>.policyInitCustomFunction</code></a><code> = 'customPolicyInitFxn';</code></td><td><code>// (CC13XX/CC26XX only) Custom Policy Init Function</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_calibrateFunction"><code>.calibrateFunction</code></a><code> = 'PowerCC26XX_calibrate';</code></td><td><code>// (CC13XX/CC26XX only) RCOSC Calibration Function</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_calibrateRCOSC_LF"><code>.calibrateRCOSC_LF</code></a><code> = true;</code></td><td><code>// (CC13XX/CC26XX only) Calibrate RCOSC_LF</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_calibrateRCOSC_HF"><code>.calibrateRCOSC_HF</code></a><code> = true;</code></td><td><code>// (CC13XX/CC26XX only) Calibrate RCOSC_HF</code></td></tr>
+            <tr><td><var>Power</var><a href="#ti_drivers_Power_vddrRechargeMargin"><code>.vddrRechargeMargin</code></a><code> = 0;</code></td><td><code>// (CC13XX/CC26XX only) VDDR Recharge Margin</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+        <div id="Power_Module_Configuration_Options">
+          <h3 title="Options that apply to the Power driver as a whole">Power Module Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_enablePolicy"></a>Enable Policy
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.enablePolicy = true]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Enable the power policy to run when the CPU is idle.<p /><p>If enabled, the policy function will be invoked once for each pass of the
+idle loop.</p>
+<p>In addition to this static setting, the Power Policy can be dynamically
+enabled and disabled at runtime, via the Power_enablePolicy() and
+Power_disablePolicy() APIs, respectively.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_policyFunction"></a>Policy Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.policyFunction = 'PowerCC26XX_standbyPolicy']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Power policy function called from the idle loop.<p /><p>When enabled, this function is invoked in the idle loop, to opportunistically
+select and activate sleep states.</p>
+<p>Two reference policies are provided:</p>
+<ul>
+<li><strong>PowerCC26XX_standbyPolicy</strong></li>
+<li><strong>PowerCC26XX_doWFI</strong></li>
+</ul>
+<p>In addition to this static selection, the Power Policy can be
+dynamically changed at runtime, via the Power_setPolicy() API.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'PowerCC26XX_standbyPolicy'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - An agressive policy that checks constraints and time until next scheduled work, and optionally chooses STANDBY, IDLE (power down), or WFI, in that order of preference.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'PowerCC26XX_doWFI'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - A simple policy that will invoke CPU wait for interrupt (WFI).</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Custom'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Custom policies can be written and specified via configuration of a Custom Policy Function.</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_policyCustomFunction"></a>Custom Policy Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.policyCustomFunction = 'customPolicyFxn']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> User-provided Custom Policy Function.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_policyInitFunction"></a>Policy Init Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.policyInitFunction = 'Not Required']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> The initialization function for the Power policy.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Not Required'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - The selected Policy Function does not require an Init function.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Custom'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - A custom initialization function can be written and specified via configuration of a Custom Policy Init Function.</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_policyInitCustomFunction"></a>Custom Policy Init Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.policyInitCustomFunction = 'customPolicyInitFxn']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> User-provided Custom Policy Init Function. Usage not typical.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_calibrateFunction"></a>RCOSC Calibration Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.calibrateFunction = 'PowerCC26XX_calibrate']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Function to be used for RC Oscillator (RCOSC) calibration.<p /><p>The High Frequency RC Oscillator (RCOSC_HF) and Low Frequency RC Oscillator
+ (RCOSC_LF), are typically re-calibrated on each device wakeup
+ from STANDBY.  This calibration enables high accuracy RCOSC operation, and
+ faster High Frequency crystal oscillator (XOSC_HF) startups.  The name of
+ the calibration function to be used is specified with this configuration
+ parameter.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'PowerCC26XX_calibrate'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - The typical function used for performing RCOSC calibration.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'PowerCC26XX_noCalibrate'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - No calibration. This function can be used to disable RCOSC calibration, and remove the corresponding code and data from the program image.</td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_calibrateRCOSC_LF"></a>Calibrate RCOSC_LF
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.calibrateRCOSC_LF = true]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Enable calibration of RCOSC_LF.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_calibrateRCOSC_HF"></a>Calibrate RCOSC_HF
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.calibrateRCOSC_HF = true]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Enable calibration of RCOSC_HF.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Power_vddrRechargeMargin"></a>VDDR Recharge Margin
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>Power</var><code>.vddrRechargeMargin = 0]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Margin to adjust initial VDDR recharge period (in units of SCLK_LF periods).<p /><p>While in STANDBY the VDDR rail will be adaptively recharged to maintain the
+ STANDBY state of the device.  Before the next entry to STANDBY, the initial
+ recharge period can be reduced (with this margin) from the maximum recharge
+ period used during the previous STANDBY interval.  This margin may be useful
+ in high temperature environments, but is typically left as zero, and no
+ margin is used.</p>
+
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Module_Configuration_Options -->
+
+        <div id="PWM_Configuration_Options">
+          <h3 title="Summary of all PWM configuration options">PWM Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_PWM_$name"><code>.$name</code></a><code> = 'Board_PWM{num}';</code></td><td><code>// Name</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="PWM_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added PWM instance">PWM Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_PWM_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_PWM{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to PWM runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_PWM</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="RTOS_Configuration_Options">
+          <h3 title="Summary of all RTOS configuration options">RTOS Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>RTOS</var><a href="#ti_drivers_RTOS_timerID"><code>.timerID</code></a><code> = 0;</code></td><td><code>// Timer ID</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+        <div id="RTOS_Module_Configuration_Options">
+          <h3 title="Options that apply to the RTOS driver as a whole">RTOS Module Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_RTOS_timerID"></a>Timer ID
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RTOS</var><code>.timerID = 0]</code>
+               </a></dt><dd>
+              <em></em> Timer's numeric ID<p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Module_Configuration_Options -->
+
+        <div id="RF_Configuration_Options">
+          <h3 title="Summary of all RF configuration options">RF Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>RF</var><a href="#ti_drivers_RF_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+            <tr><td><var>RF</var><a href="#ti_drivers_RF_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// (CC13XX/CC26XX only) Software Interrupt Priority</code></td></tr>
+            <tr><td><var>RF</var><a href="#ti_drivers_RF_xoscNeeded"><code>.xoscNeeded</code></a><code> = true;</code></td><td><code>// (CC13XX/CC26XX only) XOSC Needed</code></td></tr>
+            <tr><td><var>RF</var><a href="#ti_drivers_RF_globalCallbackFunction"><code>.globalCallbackFunction</code></a><code> = 'NULL';</code></td><td><code>// (CC13XX/CC26XX only) Global Callback Function</code></td></tr>
+            <tr><td><var>RF</var><a href="#ti_drivers_RF_globalEventMask"><code>.globalEventMask</code></a><code> = ;</code></td><td><code>// (CC13XX/CC26XX only) Global Event Mask</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+        <div id="RF_Module_Configuration_Options">
+          <h3 title="Options that apply to the RF driver as a whole">RF Module Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_RF_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RF</var><code>.interruptPriority = '7']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> RF peripheral hardware interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_RF_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RF</var><code>.softwareInterruptPriority = '0']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> RF driver software interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_RF_xoscNeeded"></a>XOSC Needed
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RF</var><code>.xoscNeeded = true]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Specify if the High Frequency Crystal Oscillator (XOSC-HF) shall always be started by the Power driver.<p /><p>When <strong>true</strong>, the power driver always starts the XOSC-HF. When <strong>false</strong>, the RF
+driver will request the XOSC-HF if needed.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_RF_globalCallbackFunction"></a>Global Callback Function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RF</var><code>.globalCallbackFunction = 'NULL']</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p /><p>The RF driver serves additional global, client independent events by invoking
+the <strong>Global Callback Function</strong>. If the board has antenna switches, a
+default callback (rfDriverCallback) is provided. By setting the
+<strong>Global Callback Function</strong> to <strong>NULL</strong>, the default callback, if it exists,
+will be registered.</p>
+<p>Global events triggering this callback can be configured through the
+<strong>Global Event Mask</strong> configuration.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_RF_globalEventMask"></a>Global Event Mask
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Module parameter's script
+                 name and its default value">
+                 [<var>RF</var><code>.globalEventMask = ]</code>
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Sets global RF driver events<p /><p>This specifies a mask of global events which the <strong>Global Callback Function</strong>
+is invoked upon.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>RF_GlobalEventRadioSetup</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Global event triggered when the RF core is being reconfigured through a setup.</td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>RF_GlobalEventRadioPowerDown</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"> - Global event triggered when the RF core is being powered down.</td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Module_Configuration_Options -->
+
+
+        <div id="SHA2_Configuration_Options">
+          <h3 title="Summary of all SHA2 configuration options">SHA2 Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_SHA2_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13X2/CC26X2 only) Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="SHA2_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added SHA2 instance">SHA2 Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_SHA2_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13X2/CC26X2 only)</em> Crypto peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="SPI_Configuration_Options">
+          <h3 title="Summary of all SPI configuration options">SPI Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_$name"><code>.$name</code></a><code> = 'Board_SPI{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_mode"><code>.mode</code></a><code> = 'Three Pin';</code></td><td><code>// Mode</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_defaultTxBufferValue"><code>.defaultTxBufferValue</code></a><code> = '~0';</code></td><td><code>// Default TX Buffer Value</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_minDmaTransferSize"><code>.minDmaTransferSize</code></a><code> = 10;</code></td><td><code>// Min DMA Transfer Size</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_duplex"><code>.duplex</code></a><code> = 'Full';</code></td><td><code>// Duplex</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_dmaInterruptPriority"><code>.dmaInterruptPriority</code></a><code> = '7';</code></td><td><code>// DMA Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_SPI_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// Software Interrupt Priority</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="SPI_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added SPI instance">SPI Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_SPI{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to SPI runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_SPI</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_mode"></a>Mode
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.mode = 'Three Pin'</code>]
+               </a></dt><dd>
+              <em></em> In three pin mode the SS signal is not used.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Three Pin'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Four Pin SS Active Low'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Four Pin SS Active High'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_defaultTxBufferValue"></a>Default TX Buffer Value
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.defaultTxBufferValue = '~0'</code>]
+               </a></dt><dd>
+              <em></em> Specifies the default transmit buffer value.<p /><p>Value sent when a TX buffer is not specified.This value must be provided in hexadecimal format;0 and ~0 also acceptable inputs.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_minDmaTransferSize"></a>Min DMA Transfer Size
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.minDmaTransferSize = 10</code>]
+               </a></dt><dd>
+              <em></em> Specifies the minimum transfer size in bytes for which the DMA will be used. Otherwise a polling transfer will occur with some exceptions.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_duplex"></a>Duplex
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.duplex = 'Full'</code>]
+               </a></dt><dd>
+              <em></em> One or both device transmit/receive<p /><p>In a typical SPI transfer, both participants transmit and receive at the same time (full duplex) but in some situations only one side will ever transmit and the other side may only need to receive. In these cases some pins can stay unassigned. If full duplex is not required, the user may select the role of this SPI.</p>
+
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Full'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Master TX Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Master RX Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Slave TX Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Slave RX Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_dmaInterruptPriority"></a>DMA Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.dmaInterruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_SPI_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.softwareInterruptPriority = '0'</code>]
+               </a></dt><dd>
+              <em></em> SPI Software Interrupt Priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="Timer_Configuration_Options">
+          <h3 title="Summary of all Timer configuration options">Timer Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_Timer_$name"><code>.$name</code></a><code> = 'Board_TIMER{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_Timer_timerType"><code>.timerType</code></a><code> = '16 Bits';</code></td><td><code>// Timer Type</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_Timer_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_Timer_useCase"><code>.useCase</code></a><code> = 'None';</code></td><td><code>// (CC13XX/CC26XX only) Use Case</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="Timer_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added Timer instance">Timer Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_Timer_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_TIMER{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to Timer runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_TIMER</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Timer_timerType"></a>Timer Type
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.timerType = '16 Bits'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'16 Bits'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'32 Bits'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Timer_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em></em> Timer Interrupt Priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Timer_useCase"></a>Use Case
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.useCase = 'None'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'None'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'ADCBuf'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'PWM'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Capture'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="TRNG_Configuration_Options">
+          <h3 title="Summary of all TRNG configuration options">TRNG Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_TRNG_$name"><code>.$name</code></a><code> = 'Board_TRNG{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_TRNG_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_TRNG_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// (CC13XX/CC26XX only) Software Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_TRNG_entropyGenerationCycles"><code>.entropyGenerationCycles</code></a><code> = 240000;</code></td><td><code>// (CC13XX/CC26XX only) Entropy Generation Cycles</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="TRNG_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added TRNG instance">TRNG Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_TRNG_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_TRNG{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to TRNG runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_TRNG</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_TRNG_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> TRNG peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_TRNG_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.softwareInterruptPriority = '0'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> TRNG software interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_TRNG_entropyGenerationCycles"></a>Entropy Generation Cycles
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.entropyGenerationCycles = 240000</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Clock cycles used for TRNG entropy generation. Default values set to generate 64 bits of entropy in 5ms with all FROs active.<p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="UART_Configuration_Options">
+          <h3 title="Summary of all UART configuration options">UART Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_$name"><code>.$name</code></a><code> = 'Board_UART{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_dataDirection"><code>.dataDirection</code></a><code> = 'Send and Receive';</code></td><td><code>// Data Direction</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_errorCallbackFunction"><code>.errorCallbackFunction</code></a><code> = '';</code></td><td><code>// Error callback function</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_baudRates"><code>.baudRates</code></a><code> = 115200;</code></td><td><code>// Baud Rates</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_flowControl"><code>.flowControl</code></a><code> = false;</code></td><td><code>// (CC13XX/CC26XX only) Flow Control</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_ringBufferSize"><code>.ringBufferSize</code></a><code> = 32;</code></td><td><code>// (CC13XX/CC26XX only) Ring Buffer Size</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_interruptPriority"><code>.interruptPriority</code></a><code> = '7';</code></td><td><code>// (CC13XX/CC26XX only) Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_softwareInterruptPriority"><code>.softwareInterruptPriority</code></a><code> = '0';</code></td><td><code>// (CC13XX/CC26XX only) Software Interrupt Priority</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_txInterruptFifoThreshold"><code>.txInterruptFifoThreshold</code></a><code> = '1/8';</code></td><td><code>// (CC13XX/CC26XX only) TX Interrupt FIFO Threshold</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_UART_rxInterruptFifoThreshold"><code>.rxInterruptFifoThreshold</code></a><code> = '4/8';</code></td><td><code>// (CC13XX/CC26XX only) RX Interrupt FIFO Threshold</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="UART_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added UART instance">UART Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_UART{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to UART runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_UART</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_dataDirection"></a>Data Direction
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.dataDirection = 'Send and Receive'</code>]
+               </a></dt><dd>
+              <em></em> <p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'Send and Receive'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Send Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'Receive Only'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_errorCallbackFunction"></a>Error callback function
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.errorCallbackFunction = ''</code>]
+               </a></dt><dd>
+              <em></em> Optional application defined error function to be called on receive errors.<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_baudRates"></a>Baud Rates
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.baudRates = 115200</code>]
+               </a></dt><dd>
+              <em></em> The set of baud rates that are used by this instance. On some devices, these rates are used to pre-compute a table of clock dividers necessary for each rate.<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>1200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>2400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>4800</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>9600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>19200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>38400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>57600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>115200</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>230400</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>460800</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>921600</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_flowControl"></a>Flow Control
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.flowControl = false</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Enable hardware flow control<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_ringBufferSize"></a>Ring Buffer Size
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.ringBufferSize = 32</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Number of bytes in the ring buffer<p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_interruptPriority"></a>Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.interruptPriority = '7'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> UART peripheral interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code>7 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code>1 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_softwareInterruptPriority"></a>Software Interrupt Priority
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.softwareInterruptPriority = '0'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> UART module software interrupt priority<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'0'</code></td><td style="padding:10px"><code>0 - Lowest Priority</code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'1'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'3'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'5'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'9'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'10'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'11'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'12'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'13'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'14'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'15'</code></td><td style="padding:10px"><code>15 - Highest Priority</code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_txInterruptFifoThreshold"></a>TX Interrupt FIFO Threshold
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.txInterruptFifoThreshold = '1/8'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Select the FIFO level for the TX interrupt<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'1/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_UART_rxInterruptFifoThreshold"></a>RX Interrupt FIFO Threshold
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.rxInterruptFifoThreshold = '4/8'</code>]
+               </a></dt><dd>
+              <em>(CC13XX/CC26XX only)</em> Select the FIFO level for the RX interrupt<p />
+              <p style="margin-bottom:2px;">Valid options include the following:</p>
+              <table style="margin-left:35px">
+  <tr><td style="padding:10px;vertical-align: top"><code>'1/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'2/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'4/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'6/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+  <tr><td style="padding:10px;vertical-align: top"><code>'7/8'</code></td><td style="padding:10px"><code></code></td><td style="padding:10px"></td></tr>
+</table><p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="Watchdog_Configuration_Options">
+          <h3 title="Summary of all Watchdog configuration options">Watchdog Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_Watchdog_$name"><code>.$name</code></a><code> = 'Board_WATCHDOG{num}';</code></td><td><code>// Name</code></td></tr>
+            <tr><td><var>inst</var><a href="#ti_drivers_Watchdog_period"><code>.period</code></a><code> = 1000;</code></td><td><code>// Period</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="Watchdog_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added Watchdog instance">Watchdog Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_Watchdog_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'Board_WATCHDOG{num}'</code>]
+               </a></dt><dd>
+              <em></em> The C/C++ identifier used in applications as the index parameter passed to Watchdog runtime APIs<p /><p>This name is declared in the generated Board.h file so applications can reference this instance symbolically.  It can be set to any globally unique name that is also a valid C/C++ identifier.</p>
+<p>The SysConfig tooling ensures that <em>all</em> names defined in a configuration are unique.  When instances are first created, SysConfig gives them a default name, <code>Board_WATCHDOG</code>, that&#39;s made unique by appending a numeric id.  If you provide a name, it&#39;s checked against all other instance names in the configuration and, if another instance has the same name, an error is triggered.</p>
+<p>Note: since not all names are added to Board.h, it&#39;s possible that some names will not be allowed even though they do not actually collide in the generated files.</p>
+
+            </dd>
+            <dt style="font-weight: bold;"><a id="ti_drivers_Watchdog_period"></a>Period
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.period = 1000</code>]
+               </a></dt><dd>
+              <em></em> Watchdog timer period in milliseconds<p />
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <div id="ADCBufChanCC26XX_Configuration_Options">
+          <h3 title="Summary of all ADCBufChanCC26XX configuration options">ADCBufChanCC26XX Configuration Synopsis</h3>
+          <table style="margin-left:35px">
+            <tr><td><var>inst</var><a href="#ti_drivers_adcbuf_ADCBufChanCC26XX_$name"><code>.$name</code></a><code> = 'undefined{num}';</code></td><td><code>// Name</code></td></tr>
+          </table>
+          <hr />
+        </div> <!-- end Configuration_Options summary -->
+
+        <div id="ADCBufChanCC26XX_Instance_Configuration_Options">
+          <h3 title="Options that are separately set for each added ADCBufChanCC26XX instance">ADCBufChanCC26XX Instance Configuration Options</h3>
+          <dl style="list-style-type:none">
+            <dt style="font-weight: bold;"><a id="ti_drivers_adcbuf_ADCBufChanCC26XX_$name"></a>Name
+              <a href="#How_to_Read_SysConfig_Synopsis_Lines"
+                 title="Instance parameter's script
+                 name and its default value">
+                 [<var>inst</var><code>.$name = 'undefined{num}'</code>]
+               </a></dt><dd>
+              <em></em> C identifier used to identify this ADCBuf channel.<p /><p>This name is concatenated to the end of the name <strong>Name</strong> specified in the ADCBuf module configuration above.</p>
+
+            </dd>
+          </dl>
+          <hr />
+        </div> <!-- end Instance_Configuration_Options -->
+        <a id="How_to_Read_SysConfig_Synopsis_Lines"></a>
+        <h3>How to Read SysConfig Synopsis Lines</h3>
+        <p>SysConfig configuration scripts consist of a sequence of assignments
+          to configuration parameters defined by the modules used in an
+          application.  There are two types of assignments: assignments to
+          module-level configuration parameters (that apply to all
+          instances of the module) and assignments to instance-level
+          configuration parameters (which are specific to the instance
+          alone). All configuration parameters have a default value
+          that's used in the event that it's not explicitly set in the
+          configuration script.
+        </p>
+        <p>Synopsis lines of the form<br>
+          <table style="margin-left:35px">
+            <tr><td>
+              <var>MOD</var><code>.paramName = defaultValue</code>
+            </td></tr>
+          </table>
+          illustrate an assignment of a module configuration
+          parameter's default value to the configuration
+          parameter itself.
+        </p>
+        <p>Similarily,<br>
+          <table style="margin-left:35px">
+            <tr><td>
+              <var>inst</var><code>.paramName = defaultValue</code>
+            </td></tr>
+          </table>
+          illustrates an assignment of a instance configuration
+          parameter's default value to the configuration
+          parameter itself.
+        </p>
+        <p>For example, the following is a snippet of a SysConfg
+          script that configures the GPIO module and a GPIO instance.
+        </p>
+        <div class="fragment">
+          <div class="line"><span class="comment">// Add the GPIO module to this configuration</span></div>
+          <div class="line"><span class="keyword">var</span> GPIO = system.addModule('/ti/drivers/GPIO');</div>
+          <div class="line"></div>
+          <div class="line"><span class="comment">// Set a GPIO module configuration parameter</span></div>
+          <div class="line">GPIO.optimizeCallbackTableSize = true;</div>
+          <div class="line"></div>
+          <div class="line"><span class="comment">// Add a new GPIO instance</span></div>
+          <div class="line"><span class="keyword">var</span> led = GPIO.addInstance();</div>
+          <div class="line"></div>
+          <div class="line"><span class="comment">// Set this instance's configuration parameters</span></div>
+          <div class="line">led.$name = 'LED';</div>
+          <div class="line">led.mode = 'Output';</div>
+        </div> <!-- end class "fragment" -->
+      </div> <!-- end class "textblock" -->
+    </div> <!-- end class "contents" -->
+  </body>
+</html>

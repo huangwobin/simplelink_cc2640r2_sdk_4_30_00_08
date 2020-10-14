@@ -1,0 +1,108 @@
+
+Hardware Architecture
+=====================
+
+The TI royalty-free |SDK| is a complete software platform for developing |DEVICE|
+applications. This kit is based on the SimpleLink |DEVICE|, complete
+System-on-Chip (SoC) solution. The |DEVICE| combines a 2.4-GHz RF transceiver,
+128-KB in-system programmable memory, 20KB of SRAM, and
+a full range of peripherals. The device is centered on an Arm |reg|
+Cortex |reg| M3 series processor that handles the application layer and
+RF protocol stacks and an autonomous radio core centered on an
+Arm Cortex\ |reg|-M0 processor that handles all the low-level radio control
+and processing associated with the physical layer and parts of the link layer.
+The sensor controller block provides additional flexibility by allowing
+autonomous data acquisition and control independent of the Cortex-M3 processor,
+further extending the low-power capabilities of the |DEVICE|. The block diagram
+below shows the differences between the CC2640R2F and CC2640R2L devices.
+For more information about the |DEVICE|, see the |TRM|.
+
++---------------------------------------------------+---------------------------------------------------+
+| **CC2640R2F**                                     | **CC2640R2L**                                     |
++---------------------------------------------------+---------------------------------------------------+
+| .. figure:: resources/cc2640r2f_block_diagram.png | .. figure:: resources/cc2640r2l_block_diagram.png |
+|    :figclass: align-center                        |    :figclass: align-center                        |
+|                                                   |                                                   |
+|    SimpleLink CC2640R2F_ Block Diagram            |    SimpleLink CC2640R2L_ Block Diagram            |
++---------------------------------------------------+---------------------------------------------------+
+
+For detailed descriptions of the hardware
+described here, refer to the chapter 23 of the |TRM|.
+
+Arm Cortex-M0 (Radio Core)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Cortex-M0 (CM0) core within the |DEVICE| is responsible for both interfacing
+to the radio hardware, and translating complex instructions from the Cortex-M3
+(CM3) core into bits that are sent over the air using the radio. For the
+RF protocols, the CM0 implements the PHY layer of the protocol
+stack. Often, the CM0 is able to operate autonomously, which frees up the CM3
+for higher-level protocol and application-layer processing.
+
+The CM3 communicates with the CM0 through a hardware interface called the RF
+doorbell, which is documented in section 23.2 of the |TRM|. The radio core
+firmware is not intended to be used or modified by the application developer.
+
+Arm Cortex-M3 (System Core)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The system core (CM3) is designed to run the wireless protocol stack from the
+link layer up to the user application. The link layer interfaces to the radio
+core through a software module called the RF driver, which sits above the RF
+doorbell. The RF driver runs on the CM3 and acts as an interface to the radio
+on the |DEVICE|, and also manages the power domains of the radio hardware and
+core. Documentation for the RF driver can be found at the `TI Driver API
+Reference`_.
+
+Flash, RAM, and Peripherals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The |DEVICE| contains 128KB of in-system programmable flash memory, 20KB of
+SRAM, and a full range of peripherals. The flash is split into erasable pages of
+4KB. The |DEVICE| also contains 8KB of cache SRAM that can be utilized to extend
+RAM capacity or can function as a normal cache to increase application
+performance. Other peripherals include UART, I2C, I2S, AES, TRNG, temperature
+and battery monitors, 4x 32-bit timers, 2x SSI, and an integrated and autonomous
+sensor controller (CC2640R2F only). See :ref:`sensor-controller` for more information on the
+sensor controller.
+
+
+.. _sec-programming-internal-flash-rom-bootloader:
+
+Programming Internal Flash With the ROM Bootloader
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The |DEVICE| internal flash memory can be programmed using the bootloader in the
+ROM of the device. Both UART and SPI protocols are supported. For more details
+on the programming protocol and requirements, see the Bootloader chapter of the
+|TRM|.
+
+.. note::
+    Because the ROM bootloader uses predefined DIO pins for internal flash
+    programming, allocate these pins in the layout of your board. For details on
+    the pins allocated to the bootloader based on the chip package type, see
+    |TRM|.
+
+Startup Sequence
+^^^^^^^^^^^^^^^^
+
+For a complete description of the |DEVICE| reset sequence, see the |TRM|.
+
+.. _sec-resets:
+
+Resets
+^^^^^^
+
+Reset the device using only hard resets. From the software, this reset can be
+accomplished using:
+
+:code:`HAL_SYSTEM_RESET();`
+
+In CCS, select Board Reset (automatic) from the reset menu (see
+:numref:`fig-board-reset`).
+
+.. _fig-board-reset:
+.. figure:: resources/fig-board-reset.png
+
+    Board Reset
+

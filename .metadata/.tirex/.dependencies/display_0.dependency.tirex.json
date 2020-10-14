@@ -1,0 +1,19 @@
+[
+    {
+        "files": [
+            "+../main_nortos.c -> main_nortos.c",
+            "+../display.c -> display.c",
+            "+../splash_image.c -> splash_image.c",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.icf -> CC2640R2_LAUNCHXL_NoRTOS.icf",
+            "+../splash_image.h -> splash_image.h",
+            "+../Board.h -> Board.h",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../README.md -> README.md",
+            "+../README.html -> README.html",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

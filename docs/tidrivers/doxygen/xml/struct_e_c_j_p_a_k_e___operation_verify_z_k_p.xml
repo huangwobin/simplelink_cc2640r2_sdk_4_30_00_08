@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p" kind="struct" language="C++" prot="public">
+    <compoundname>ECJPAKE_OperationVerifyZKP</compoundname>
+    <includes refid="_e_c_j_p_a_k_e_8h" local="no">ECJPAKE.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1aa9fd0c3220148eb260da304767b845e7" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_e_c_c_params_8h_1a6cbbd6d7c8362ef7e8fccc4f8c4925e4" kindref="member">ECCParams_CurveParams</ref> *</type>
+        <definition>const ECCParams_CurveParams* ECJPAKE_OperationVerifyZKP::curve</definition>
+        <argsstring></argsstring>
+        <name>curve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to the elliptic curve parameters used in the operation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="890" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="890" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1acf6d864f4e02a34195700a538f3ec3c4" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>const CryptoKey* ECJPAKE_OperationVerifyZKP::theirGenerator</definition>
+        <argsstring></argsstring>
+        <name>theirGenerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A CryptoKey describing the generator point to be used. In the first round, this will be the default generator of the curve. In the second round, this parameter is computed by <ref refid="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" kindref="member">ECJPAKE_roundTwoGenerateKeys()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="893" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="893" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1a22bf5b561832f7be21e7c766573f906a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>const CryptoKey* ECJPAKE_OperationVerifyZKP::theirPublicKey</definition>
+        <argsstring></argsstring>
+        <name>theirPublicKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A CryptoKey describing the public key received from the other party that the ZKP to be verified supposedly signed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="899" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="899" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1a4be0a99f30ddb02784ae088d8b36d497" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>const CryptoKey* ECJPAKE_OperationVerifyZKP::theirPublicV</definition>
+        <argsstring></argsstring>
+        <name>theirPublicV</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A CryptoKey describing the public V of the ZKP. Received from the other party. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="903" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="903" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1ad524369b4c52fbff25abef2b7dc5f2b2" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECJPAKE_OperationVerifyZKP::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The hash of the ZKP generated as the other party generated it to compute r. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="906" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="906" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1acd55d6b35c8713a96fe853cf813df8ac" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECJPAKE_OperationVerifyZKP::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>R component of the ZKP signature. Received from the other party. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="909" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="909" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct containing the parameters required to verify a ZKP. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="386">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="382">
+        <label>ECJPAKE_OperationVerifyZKP</label>
+        <link refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p"/>
+        <childnode refid="383" relation="usage">
+          <edgelabel>theirGenerator</edgelabel>
+          <edgelabel>theirPublicKey</edgelabel>
+          <edgelabel>theirPublicV</edgelabel>
+        </childnode>
+        <childnode refid="387" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="383">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="384" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="385" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="386" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="387">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="384">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="385">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" line="889" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/ECJPAKE.h" bodystart="889" bodyend="912"/>
+    <listofallmembers>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1aa9fd0c3220148eb260da304767b845e7" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>curve</name></member>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1ad524369b4c52fbff25abef2b7dc5f2b2" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>hash</name></member>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1acd55d6b35c8713a96fe853cf813df8ac" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>r</name></member>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1acf6d864f4e02a34195700a538f3ec3c4" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>theirGenerator</name></member>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1a22bf5b561832f7be21e7c766573f906a" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>theirPublicKey</name></member>
+      <member refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p_1a4be0a99f30ddb02784ae088d8b36d497" prot="public" virt="non-virtual"><scope>ECJPAKE_OperationVerifyZKP</scope><name>theirPublicV</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

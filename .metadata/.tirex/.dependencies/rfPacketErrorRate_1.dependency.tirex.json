@@ -1,0 +1,29 @@
+[
+    {
+        "files": [
+            "+../../RFQueue.c -> RFQueue.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../../smartrf_settings/smartrf_settings_ble.c -> smartrf_settings_ble.c",
+            "+../../smartrf_settings/smartrf_settings_predefined.c -> smartrf_settings_predefined.c",
+            "+../../config.c -> config.c",
+            "+../../menu.c -> menu.c",
+            "+../../rfPacketErrorRate.c -> rfPacketErrorRate.c",
+            "+../../rx.c -> rx.c",
+            "+../../tx.c -> tx.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../RFQueue.h -> RFQueue.h",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../../smartrf_settings/smartrf_settings_ble.h -> smartrf_settings_ble.h",
+            "+../../smartrf_settings/smartrf_settings_predefined.h -> smartrf_settings_predefined.h",
+            "+../../config.h -> config.h",
+            "+../../menu.h -> menu.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_i2_s___params__" kind="struct" language="C++" prot="public">
+    <compoundname>I2S_Params_</compoundname>
+    <includes refid="_i2_s_8h" local="no">I2S.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_i2_s___params___1ab63bb5c611a5d8d1b878d30785f20d74" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool I2S_Params_::trueI2sFormat</definition>
+        <argsstring></argsstring>
+        <name>trueI2sFormat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Activate &quot;true I2S format&quot;. false: Data are read/write on the data lines from the first SCK period of the WS half-period to the last SCK edge of the WS half-period. true: Data are read/write on the data lines from the second SCK period of the WS half-period to the first SCK edge of the next WS half-period. If no padding is activated, this corresponds to the I2S standard. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="798" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="798" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1ac241296ad6a75842b2221aa9c7ebd511" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool I2S_Params_::invertWS</definition>
+        <argsstring></argsstring>
+        <name>invertWS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>WS must be internally inverted when using I2S data format. false: The WS signal is not internally inverted. true: The WS signal is internally inverted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="806" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="806" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a43adf73f770fc1f2f06893df1792106d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool I2S_Params_::isMSBFirst</definition>
+        <argsstring></argsstring>
+        <name>isMSBFirst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Endianness selection. Not available on CC26XX. false: The samples are transmitted LSB first. true: The samples are transmitted MSB first. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="811" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="811" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a9cb2f843982e209aca2d7098de7c8a63" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool I2S_Params_::isDMAUnused</definition>
+        <argsstring></argsstring>
+        <name>isDMAUnused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Selection between DMA transmissions and CPU transmissions. false: Transmission are performed by DMA. true: Transmission are performed by CPU. Not available for CC26XX: all transmissions are performed by CPU. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="816" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="816" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1abb5b82efd574a61175bc032bd0776dc4" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1af17772fe96b97eabab3169d1071d8522" kindref="member">I2S_MemoryLength</ref></type>
+        <definition>I2S_MemoryLength I2S_Params_::memorySlotLength</definition>
+        <argsstring></argsstring>
+        <name>memorySlotLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Memory buffer used. <ref refid="_i2_s_8h_1a9fac4db9f2c58421eaafb5e801cb6afaa13e1dbc37a214b697892127dd14b39ec" kindref="member">I2S_MEMORY_LENGTH_8BITS</ref>: Memory length is 8 bits (not available for CC26XX). <ref refid="_i2_s_8h_1a9fac4db9f2c58421eaafb5e801cb6afaaa95b67ba7278bcb1d9a64cba9a8e1bc8" kindref="member">I2S_MEMORY_LENGTH_16BITS</ref>: Memory length is 16 bits. <ref refid="_i2_s_8h_1a9fac4db9f2c58421eaafb5e801cb6afaacc56087b412f11af3dc890f066fac0b6" kindref="member">I2S_MEMORY_LENGTH_24BITS</ref>: Memory length is 24 bits. <ref refid="_i2_s_8h_1a9fac4db9f2c58421eaafb5e801cb6afaa926727054bff1f3cbe2540434d0fab42" kindref="member">I2S_MEMORY_LENGTH_32BITS</ref>: Memory length is 32 bits (not available for CC26XX). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="822" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="822" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1ac22f472321151947f2d49d6fda47c3fd" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2S_Params_::beforeWordPadding</definition>
+        <argsstring></argsstring>
+        <name>beforeWordPadding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of SCK periods between the first WS edge and the MSB of the first audio channel data transferred during the phase. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="829" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="829" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a8945562d6ca586ea227c44317be2be04" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2S_Params_::afterWordPadding</definition>
+        <argsstring></argsstring>
+        <name>afterWordPadding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of SCK periods between the first WS edge and the MSB of the first audio channel data transferred during the phase. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="832" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="832" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a1d22bd4570339862333460a6d872e845" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2S_Params_::bitsPerWord</definition>
+        <argsstring></argsstring>
+        <name>bitsPerWord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bits per sample (Word length): must be between 8 and 24 bits. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="835" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="835" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1acef474246bce385bab7cad0b0cd3790f" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a5c8ca73490b1543e9208bf11966810f0" kindref="member">I2S_Role</ref></type>
+        <definition>I2S_Role I2S_Params_::moduleRole</definition>
+        <argsstring></argsstring>
+        <name>moduleRole</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select if the I2S module is a Slave or a Master.<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1ab255ddd1543bf85a8a55283a6e840476a2e9b49c09201c26bec35c9b854b09e08" kindref="member">I2S_SLAVE</ref>: The device is a slave (clocks are generated externally).</para></listitem><listitem><para><ref refid="_i2_s_8h_1ab255ddd1543bf85a8a55283a6e840476a10b52b2d09a9f58e2daeec0f5a392bea" kindref="member">I2S_MASTER</ref>: The device is a master (clocks are generated internally). </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="838" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="838" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a5697e2772a5e5d5b7bc3f74a72ea2a81" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1aba10d78101dca20c71689a3bcd72a9df" kindref="member">I2S_SamplingEdge</ref></type>
+        <definition>I2S_SamplingEdge I2S_Params_::samplingEdge</definition>
+        <argsstring></argsstring>
+        <name>samplingEdge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select edge sampling type.<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1a64f399624d5e416237ab019457b571cdac2b123abf8d93dc779178fd3ede764eb" kindref="member">I2S_SAMPLING_EDGE_FALLING</ref>: Sampling on falling edges (for DSP data format).</para></listitem><listitem><para><ref refid="_i2_s_8h_1a64f399624d5e416237ab019457b571cda54900e14a06cfb9a08de7b1ed2583491" kindref="member">I2S_SAMPLING_EDGE_RISING</ref>: Sampling on rising edges (for I2S, LJF and RJF data formats). </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="843" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="843" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a1a065a60ed2ff86867b3a481f8239089" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a683a626a98ae8a61b0c77b5ed811b0ad" kindref="member">I2S_DataInterfaceUse</ref></type>
+        <definition>I2S_DataInterfaceUse I2S_Params_::SD0Use</definition>
+        <argsstring></argsstring>
+        <name>SD0Use</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select if SD0 is an input, an output or disabled.<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875aa745a9c11f2a2d74d1c6d001a32b355b" kindref="member">I2S_SD0_DISABLED</ref>: Disabled.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875ae0e5e7026b88277c279de0e798488e77" kindref="member">I2S_SD0_INPUT</ref>: Input.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875ab32df02fc78f8a4eabe6efa84fe3b28e" kindref="member">I2S_SD0_OUTPUT</ref>: Output. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="848" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="848" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a87dd7fa383ca106800d9729b485df7a1" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a683a626a98ae8a61b0c77b5ed811b0ad" kindref="member">I2S_DataInterfaceUse</ref></type>
+        <definition>I2S_DataInterfaceUse I2S_Params_::SD1Use</definition>
+        <argsstring></argsstring>
+        <name>SD1Use</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select if SD1 is an input, an output or disabled.<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875aac2fb5fe175b0b96da5c7ea069ae48b6" kindref="member">I2S_SD1_DISABLED</ref>: Disabled.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875abc860688d07b2022d075448f597d7811" kindref="member">I2S_SD1_INPUT</ref>: Input.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a2bf30e9c50d66a540e97c44212562875a966016f222e7831b399aac26e4b8c7f0" kindref="member">I2S_SD1_OUTPUT</ref>: Output. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="854" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="854" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a8437bdc34943957b8700e70492bde018" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a9a445124b8fe8062ccf8749106dd7df5" kindref="member">I2S_ChannelConfig</ref></type>
+        <definition>I2S_ChannelConfig I2S_Params_::SD0Channels</definition>
+        <argsstring></argsstring>
+        <name>SD0Channels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This parameter is a bit mask indicating which channels are valid on SD0. If phase type is &quot;dual&quot;, maximum channels number is two. Valid channels on SD1 and SD0 can be different. For dual phase mode:<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6af29054f891314a79ee5d2b105678fce5" kindref="member">I2S_CHANNELS_NONE</ref>: No channel activated: read -&gt; I2S does not receive anything (no buffer consumption) write -&gt; I2S does not send anything (no buffer consumption)</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a9ae976eea3f03628bac96b3bd5b590a9" kindref="member">I2S_CHANNELS_MONO</ref>: Only channel 1 is activated: read -&gt; I2S only reads channel 1 write -&gt; I2S transmits the data on channel 1 and duplicates it on channel 2</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6ace24478308aa18581ea899b4749e1eee" kindref="member">I2S_CHANNELS_MONO_INV</ref>: Only channel 2 is activated: read -&gt; I2S only reads channel 2 write -&gt; I2S transmits the data on channel 2 and duplicates it on the channel 1 of the next word</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6aa99f621d20e7c434dd8fc6eec81f88f7" kindref="member">I2S_CHANNELS_STEREO</ref>: STEREO: read -&gt; I2S reads both channel 1 and channel 2 write -&gt; I2S transmits data both on channel 1 and channel 2</para></listitem></itemizedlist>
+For single phase mode:<itemizedlist>
+<listitem><para>Various number of channels can be activated using: <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6aef21e0755c603bfa84cfcfb76087a2f9" kindref="member">I2S_1_CHANNEL</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a70296e535a023f5e486d169c56241938" kindref="member">I2S_2_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6acde532a4455d55712113984d1d9d14ee" kindref="member">I2S_3_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a4de908d16fbc3997ca26f9daf0a1ab15" kindref="member">I2S_4_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a4dbc52ac6e50657e77ab1a5663c9bebb" kindref="member">I2S_5_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a6393bde043d2d9a820d0eaae3723390f" kindref="member">I2S_6_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a3d28c1be7347c31842f949fce1b5c245" kindref="member">I2S_7_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a7f1bd716ad44f22c8b359102c206c0fb" kindref="member">I2S_8_CHANNELS</ref>.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a93050a292e0f863d146fc2bb6461505b" kindref="member">I2S_CHANNELS_ALL</ref>: The eight channels are activated </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="860" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="860" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a38000a066bd23eee109d6426d51e9e7f" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a9a445124b8fe8062ccf8749106dd7df5" kindref="member">I2S_ChannelConfig</ref></type>
+        <definition>I2S_ChannelConfig I2S_Params_::SD1Channels</definition>
+        <argsstring></argsstring>
+        <name>SD1Channels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This parameter is a bit mask indicating which channels are valid on SD1. If phase type is &quot;dual&quot;, maximum channels number is two. Valid channels on SD1 and SD0 can be different. For dual phase mode:<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6af29054f891314a79ee5d2b105678fce5" kindref="member">I2S_CHANNELS_NONE</ref>: No channel activated: read -&gt; I2S does not receive anything (no buffer consumption) write -&gt; I2S does not send anything (no buffer consumption)</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a9ae976eea3f03628bac96b3bd5b590a9" kindref="member">I2S_CHANNELS_MONO</ref>: Only channel 1 is activated: read -&gt; I2S only reads channel 1 write -&gt; I2S transmits the data on channel 1 and duplicates it on channel 2</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6ace24478308aa18581ea899b4749e1eee" kindref="member">I2S_CHANNELS_MONO_INV</ref>: Only channel 2 is activated: read -&gt; I2S only reads channel 2 write -&gt; I2S transmits the data on channel 2 and duplicates it on the channel 1 of the next word</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6aa99f621d20e7c434dd8fc6eec81f88f7" kindref="member">I2S_CHANNELS_STEREO</ref>: STEREO: read -&gt; I2S reads both channel 1 and channel 2 write -&gt; I2S transmits data both on channel 1 and channel 2</para></listitem></itemizedlist>
+For single phase mode:<itemizedlist>
+<listitem><para>Various number of channels can be activated using: <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6aef21e0755c603bfa84cfcfb76087a2f9" kindref="member">I2S_1_CHANNEL</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a70296e535a023f5e486d169c56241938" kindref="member">I2S_2_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6acde532a4455d55712113984d1d9d14ee" kindref="member">I2S_3_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a4de908d16fbc3997ca26f9daf0a1ab15" kindref="member">I2S_4_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a4dbc52ac6e50657e77ab1a5663c9bebb" kindref="member">I2S_5_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a6393bde043d2d9a820d0eaae3723390f" kindref="member">I2S_6_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a3d28c1be7347c31842f949fce1b5c245" kindref="member">I2S_7_CHANNELS</ref>, <ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a7f1bd716ad44f22c8b359102c206c0fb" kindref="member">I2S_8_CHANNELS</ref>.</para></listitem><listitem><para><ref refid="_i2_s_8h_1a869e02dcb8a44b982502ff8731e87ce6a93050a292e0f863d146fc2bb6461505b" kindref="member">I2S_CHANNELS_ALL</ref>: The eight channels are activated </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="883" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="883" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a65cae355ed8dc3d8eb46b7bb356a9f40" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a10c301d1d8adaa75e85bc5e19a510aad" kindref="member">I2S_PhaseType</ref></type>
+        <definition>I2S_PhaseType I2S_Params_::phaseType</definition>
+        <argsstring></argsstring>
+        <name>phaseType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select phase type.<itemizedlist>
+<listitem><para><ref refid="_i2_s_8h_1ae7a6a5c7436367f64c54d02a4aab86f3abe139271fd1177a8b3e81156a966695d" kindref="member">I2S_PHASE_TYPE_SINGLE</ref>: Single phase (for DSP format): up to eight channels are usable.</para></listitem><listitem><para><ref refid="_i2_s_8h_1ae7a6a5c7436367f64c54d02a4aab86f3a0b3e4c2e6cca0317d05ec75b872b34de" kindref="member">I2S_PHASE_TYPE_DUAL</ref>: Dual phase (for I2S, LJF and RJF data formats): up to two channels are usable.</para></listitem></itemizedlist>
+This parameter must not be considered on CC32XX. This chip only allows dual phase formats. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="906" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="906" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a2a8ccb59f26ff43303ebea9d4c9109db" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t I2S_Params_::fixedBufferLength</definition>
+        <argsstring></argsstring>
+        <name>fixedBufferLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of consecutive bytes of the samples buffers. This field must be set to a value x different from 0. All the data buffers used (both for input and output) must contain N*x bytes (with N an integer verifying N&gt;0). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="913" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="913" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1af489cbb683b64e99838d3dd59b8b6b70" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t I2S_Params_::startUpDelay</definition>
+        <argsstring></argsstring>
+        <name>startUpDelay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time (in number of WS cycles) to wait before the first transfer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="917" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="917" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a0bd8fe343f240970af78ad9a941285c5" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t I2S_Params_::MCLKDivider</definition>
+        <argsstring></argsstring>
+        <name>MCLKDivider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select the frequency divider for MCLK signal. Final value of MCLK is 48MHz/MCLKDivider. Value must be selected between 2 and 1024. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="920" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="920" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a9da18ece35f03dfbf5a68667f3587240" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t I2S_Params_::samplingFrequency</definition>
+        <argsstring></argsstring>
+        <name>samplingFrequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2S sampling frequency configuration in samples/second. SCK frequency limits:<itemizedlist>
+<listitem><para>For CC26XX, SCK frequency should be between 47 kHz and 4 MHz.</para></listitem><listitem><para>For CC32XX, SCK frequency should be between 57 Hz and 8 MHz. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="923" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="923" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1abcd538ba2de411afbbfcdbb6278d08f8" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a011a6a344bae2163e24b811e75c76fde" kindref="member">I2S_Callback</ref></type>
+        <definition>I2S_Callback I2S_Params_::readCallback</definition>
+        <argsstring></argsstring>
+        <name>readCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to read callback. Cannot be NULL if a read interface is activated. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="929" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="929" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a4392adb6b38a71d18a40f4383d90529d" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a011a6a344bae2163e24b811e75c76fde" kindref="member">I2S_Callback</ref></type>
+        <definition>I2S_Callback I2S_Params_::writeCallback</definition>
+        <argsstring></argsstring>
+        <name>writeCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to write callback. Cannot be NULL if a write interface is activated. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="932" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="932" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a72fc424dd561ba232346711b4b15a570" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_s_8h_1a011a6a344bae2163e24b811e75c76fde" kindref="member">I2S_Callback</ref></type>
+        <definition>I2S_Callback I2S_Params_::errorCallback</definition>
+        <argsstring></argsstring>
+        <name>errorCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to error callback. Cannot be NULL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="935" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="935" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_s___params___1a67b114c9e4dc215184db375076b5c10f" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2S_Params_::custom</definition>
+        <argsstring></argsstring>
+        <name>custom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to device specific custom params </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="938" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="938" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Basic I2S Parameters. </para>    </briefdescription>
+    <detaileddescription>
+<para>I2S parameters are used to with the <ref refid="_i2_s_8h_1a49305a04152a6fb37a7afceabca642eb" kindref="member">I2S_open()</ref> call. Default values for these parameters are set using <ref refid="_i2_s_8h_1a961c116273a6e8d4581278b2666f13b5" kindref="member">I2S_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_i2_s_8h_1a961c116273a6e8d4581278b2666f13b5" kindref="member">I2S_Params_init()</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="441">
+        <label>I2S_Config_</label>
+        <link refid="struct_i2_s___config__"/>
+      </node>
+      <node id="440">
+        <label>I2S_Params_</label>
+        <link refid="struct_i2_s___params__"/>
+        <childnode refid="441" relation="usage">
+          <edgelabel>errorCallback</edgelabel>
+          <edgelabel>readCallback</edgelabel>
+          <edgelabel>writeCallback</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" line="796" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx/source/ti/drivers/I2S.h" bodystart="796" bodyend="940"/>
+    <listofallmembers>
+      <member refid="struct_i2_s___params___1a8945562d6ca586ea227c44317be2be04" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>afterWordPadding</name></member>
+      <member refid="struct_i2_s___params___1ac22f472321151947f2d49d6fda47c3fd" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>beforeWordPadding</name></member>
+      <member refid="struct_i2_s___params___1a1d22bd4570339862333460a6d872e845" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>bitsPerWord</name></member>
+      <member refid="struct_i2_s___params___1a67b114c9e4dc215184db375076b5c10f" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>custom</name></member>
+      <member refid="struct_i2_s___params___1a72fc424dd561ba232346711b4b15a570" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>errorCallback</name></member>
+      <member refid="struct_i2_s___params___1a2a8ccb59f26ff43303ebea9d4c9109db" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>fixedBufferLength</name></member>
+      <member refid="struct_i2_s___params___1ac241296ad6a75842b2221aa9c7ebd511" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>invertWS</name></member>
+      <member refid="struct_i2_s___params___1a9cb2f843982e209aca2d7098de7c8a63" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>isDMAUnused</name></member>
+      <member refid="struct_i2_s___params___1a43adf73f770fc1f2f06893df1792106d" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>isMSBFirst</name></member>
+      <member refid="struct_i2_s___params___1a0bd8fe343f240970af78ad9a941285c5" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>MCLKDivider</name></member>
+      <member refid="struct_i2_s___params___1abb5b82efd574a61175bc032bd0776dc4" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>memorySlotLength</name></member>
+      <member refid="struct_i2_s___params___1acef474246bce385bab7cad0b0cd3790f" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>moduleRole</name></member>
+      <member refid="struct_i2_s___params___1a65cae355ed8dc3d8eb46b7bb356a9f40" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>phaseType</name></member>
+      <member refid="struct_i2_s___params___1abcd538ba2de411afbbfcdbb6278d08f8" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>readCallback</name></member>
+      <member refid="struct_i2_s___params___1a5697e2772a5e5d5b7bc3f74a72ea2a81" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>samplingEdge</name></member>
+      <member refid="struct_i2_s___params___1a9da18ece35f03dfbf5a68667f3587240" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>samplingFrequency</name></member>
+      <member refid="struct_i2_s___params___1a8437bdc34943957b8700e70492bde018" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>SD0Channels</name></member>
+      <member refid="struct_i2_s___params___1a1a065a60ed2ff86867b3a481f8239089" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>SD0Use</name></member>
+      <member refid="struct_i2_s___params___1a38000a066bd23eee109d6426d51e9e7f" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>SD1Channels</name></member>
+      <member refid="struct_i2_s___params___1a87dd7fa383ca106800d9729b485df7a1" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>SD1Use</name></member>
+      <member refid="struct_i2_s___params___1af489cbb683b64e99838d3dd59b8b6b70" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>startUpDelay</name></member>
+      <member refid="struct_i2_s___params___1ab63bb5c611a5d8d1b878d30785f20d74" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>trueI2sFormat</name></member>
+      <member refid="struct_i2_s___params___1a4392adb6b38a71d18a40f4383d90529d" prot="public" virt="non-virtual"><scope>I2S_Params_</scope><name>writeCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

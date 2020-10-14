@@ -1,0 +1,27 @@
+.. _sdg-overview:
+
+#######################
+|STACK| User's Guide
+#######################
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   ./disclaimer
+   /quickstart-guide/ble5-quick-start-cc2640.rst
+   /ble-stack-5.x-guide/software_architecture.rst
+   tirtos-index
+   ble-stack-5-index-cc2640
+   /voice/voice
+   /ble-stack-common/npi-index.rst
+   /sensor-controller/sensor-controller.rst
+   debugging-index
+   /ble-stack-5.x-guide/migration-cc2640.rst
+   /ble-stack-5.x-guide/api-reference-cc2640
+   /ble-stack-5.x-guide/reference-cc2640
+
+Indexes and tables
+##################
+* :ref:`genindex`

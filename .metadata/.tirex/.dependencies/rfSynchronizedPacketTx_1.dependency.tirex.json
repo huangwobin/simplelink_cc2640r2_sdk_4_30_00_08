@@ -1,0 +1,20 @@
+[
+    {
+        "files": [
+            "+../../StateMachine.c -> StateMachine.c",
+            "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings.c",
+            "+../../rfSynchronizedPacketTx.c -> rfSynchronizedPacketTx.c",
+            "+../../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+../../ccfg.c -> ccfg.c",
+            "+CC2640R2_LAUNCHXL_TIRTOS.icf -> CC2640R2_LAUNCHXL_TIRTOS.icf",
+            "+../../rfSynchronizedPacket.h -> rfSynchronizedPacket.h",
+            "+../../StateMachine.h -> StateMachine.h",
+            "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings.h",
+            "+../../Board.h -> Board.h",
+            "+../../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../../README.md -> README.md",
+            "+../../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html"
+        ]
+    }
+]

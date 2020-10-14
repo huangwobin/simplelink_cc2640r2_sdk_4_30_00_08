@@ -1,0 +1,12 @@
+.. _sec-add-ble-oad-to-project:
+
+Adding BLE OAD to an Existing Project
+=====================================
+
+.. _SimpleLink Academy Enhanced OAD Module for SimpleLink CC2640R2 SDK: http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC2640R2%20SDK
+
+Detailed steps and instructions can be found in the
+`SimpleLink Academy Enhanced OAD Module for SimpleLink CC2640R2 SDK`_.
+
+
+

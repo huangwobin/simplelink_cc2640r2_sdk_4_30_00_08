@@ -1,0 +1,11 @@
+
+.. _easylink-api:
+
+EasyLink API Reference
+======================
+
+.. doxygenfile:: EasyLink.h
+   :project: easylink
+
+.. doxygenfile:: easylink_config.h
+   :project: easylink

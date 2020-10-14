@@ -1,0 +1,183 @@
+.. _sec-oad-overview:
+
+Overview
+--------
+
+This section explains the major concepts involved in the OAD process from a
+high level. The concepts here will be expanded upon further in the following
+sections. Some concepts, such as the Boot Image Manager (:term:`BIM`), may
+vary in their implementation details. Wherever possible, the concepts will be
+covered in this chapter with their implementation details covered in the
+following chapters.
+
+OAD Types
+^^^^^^^^^
+
+There are two methods of implementing a firmware update using over the air
+download process. The key difference between the two methods is the location
+of the downloaded image.
+
+:On-chip:
+
+    During :ref:`sect-on-chip-oad`, the downloaded image is written to internal
+    flash, allowing for a single chip OAD solution.
+
+:Off-chip:
+
+    :ref:`sect-off-chip-oad` stores the downloaded image in an external flash
+    part, requiring a two chip OAD solution. The below figure shows a comparison
+    of different OAD methods. Each type of OAD has associated trade offs and
+    benefits which will be discussed in their respective sections.
+
+.. aafig::
+   :align: center
+
+    'Off-chip OAD'                                'On-chip OAD'
+
+    +------------------------------+              +------------------------------+
+    |  'CC13xx/CC26xx'             |              |  'CC13xx/CC26xx'             |
+    |                              |              |                              |
+    |  +------------------------+  |              |  +------------------------+  |
+    |  | 'Application Image'    |  |              |  | 'Application Image'    |  |
+    |  |                        |  |              |  |                        |  |
+    |  +------------------------+  |              |  +------------------------+  |
+    |  | 'Stack Image'          |  |              |  | 'Stack Image'          |  |
+    |  |                        |  |              |  |                        |  |
+    |  +------------------------+  |              |  +------------------------+  |
+    |  | 'Boot Image Manager'   |  |              |  | 'Boot Image Manager'   |  |
+    |  +------------------------+  |              |  +------------------------+  |
+    |                              |              |                              |
+    +--------------+---------------+              +------------------------------+
+                   ^
+                   |
+                   | 'SPI'
+                   |
+                   v
+    +--------------+---------------+              'Note: Stack Image applies only to projects'
+    |  'External flash'            |              'using a stack, such as BLE, TI 15.4.'
+    |                              |
+    |  +------------------------+  |
+    |  | 'Image Headers 0-n'    |  |
+    |  +------------------------+  |
+    |  | 'Image n'              |  |
+    |  |                        |  |
+    |  +------------------------+  |
+    |  | ...                    |  |
+    |  +------------------------+  |
+    |  | 'Image 0'              |  |
+    |  |                        |  |
+    |  +------------------------+  |
+    |                              |
+    +------------------------------+
+
+Despite their differences, both OAD methods share the same firmware image
+header format.
+
+
+.. _oad_types_overview:
+.. table:: OAD Types Overview.
+
+    +----------+-----------------------------------------------+-------------------------------------+
+    | OAD Type | Advantages                                    | Limitations                         |
+    +==========+===============================================+=====================================+
+    |  On-chip | - No external flash required                  | - Application size restriction      |
+    |          |                                               | - Stack image cannot be upgraded    |
+    +----------+-----------------------------------------------+-------------------------------------+
+    | Off-chip | - Ability to store multiple / backup images   | - Low power external flash required |
+    |          | - Full application + stack upgrade            |                                     |
+    |          | - Maximum application size                    |                                     |
+    +----------+-----------------------------------------------+-------------------------------------+
+
+Boot Image Manager (BIM)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The boot image manager (BIM) is a bootloader that runs after reset and copies
+a new application image either from internal or external flash to the
+destionation location. The :term:`BIM` is a very simple application. It only
+checks whether a new image has been copied to the system. It is the
+application's responsibility to receive the new image and to store it using
+the OAD service.
+
+:term:`BIM`’s implementation varies slightly for On-chip and Off-chip OAD
+solutions, thus there is a separate :term:`BIM` example project for each.
+
+    -  :code:`bim_oad_onchip` See :ref:`sect-bim-for-on-chip-oad`
+
+    -  :code:`bim_oad_offchip` See :ref:`sect-bim-for-off-chip-oad`
+
+.. _sec-oad-bim-hib:
+
+Halt In Boot (HIB)
+^^^^^^^^^^^^^^^^^^
+
+There is a bug with the emulation software package that would cause the
+processor to enter Halt In Boot (:term:`HIB`) on the next bootup when
+previously connected to JTAG. In the case of OAD, that is when a system reset
+is invoked at the end of an OAD procedure.
+
+.. note::
+
+    This only affects devices connected to JTAG, such as the XDS110 on
+    LaunchPads. This issue should not appear in field devices or devices that
+    are not connected to JTAG in general.
+
+The reason why the bug occurs is that the TCK pin (which powers up the JTAG
+power domain) is left in tri\-state. When a system reset occurs after an
+active debug connection, the TCK pin could potentially experience unwanted
+toggling from noise. HIB erroneously detects this as debug activity, and
+subsequently halts the processor.
+
+.. figure:: media/oad_hib.png
+    :align: center
+
+    Reset problems after programming with JTAG
+
+A symptom of this bug occurring is that OAD does not reboot into BIM after a
+successful OAD. A temporary workaround is to simply unplug/replug or hard
+reset the device, and the device will boot as normal.
+
+However, a permanent fix is available. As of version 8.0.27.9 of the emulation
+software package, the XDS110 emulator now drives the TCK pin high instead of
+leaving it in tri\-state. This removes any unwanted toggling on the TCK pin
+after a system reset, which no longer triggers HIB.
+
+To update the emulation software packages, start by downloading the latest
+`XDS Emulation Software Package`_. Then, depending on which tool you are
+using, follow the corresponding step\-by\-step guide below.
+
+* **For Flash Programmer 2**:
+
+  1. Run the above installer
+  2. Copy the contents of the emulation software package to ``<Flash Programmer 2>/config/xds/*``
+
+* **For Code Composer Studio**:
+
+  1. Run the above installer
+  2. Follow the steps described in Section *Manual CCS Installation* from the `XDS Emulation Software Package`_ page
+
+* **For IAR**:
+
+  1. Run the above installer
+  2. Change the debugger options of the project to point to the newly installed package
+
+.. figure:: media/oad_hib_update_xds.png
+    :align: center
+    :scale: 85 %
+
+    Update XDS emulation software package in IAR
+
+Example Projects
+^^^^^^^^^^^^^^^^
+
+The SDK provides example projects that show the OAD concept in action.
+
+.. _oad_projects_overview:
+.. table:: OAD example projects in the |SDK| for EasyLink.
+
+    +----------+--------------------------------+----------------------------------------------+
+    | OAD Type | BIM Project                    | Application Project                          |
+    +----------+--------------------------------+----------------------------------------------+
+    | On-chip  | bim                            | rfWsnNodeIntFlashOadClient                   |
+    +----------+--------------------------------+----------------------------------------------+
+    | Off-chip | bim_extflash                   | rfWsnNodeExtFlashOadClient                   |
+    +----------+--------------------------------+----------------------------------------------+

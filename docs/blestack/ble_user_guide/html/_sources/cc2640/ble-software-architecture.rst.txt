@@ -1,0 +1,463 @@
+.. _SNP API Reference: ..\/..\/doxygen\/group___s_n_p.html
+
+Software Architecture
+=====================
+
+The TI royalty-free Bluetooth Low Energy software development kit (SDK) is a
+complete software platform for developing single-mode Bluetooth Low Energy
+applications. This kit is based on the SimpleLink |DEVICE|, complete
+System-on-Chip (SoC) Bluetooth Low Energy solution. The |DEVICE| combines a
+2.4-GHz RF transceiver, 128-KB in-system programmable memory, 20KB of SRAM, and
+a full range of peripherals. The device is centered on an Arm\ |reg|
+Cortex\ |reg|-M3 series processor that handles the application layer and
+Bluetooth Low Energy protocol stack and an autonomous radio core centered on an
+Arm Cortex\ |reg|-M0 processor that handles all the low-level radio control
+and processing associated with the physical layer and parts of the link layer.
+The Sensor Controller block provides additional flexibility by allowing
+autonomous data acquisition and control independent of the Cortex-M3 processor,
+further extending the low-power capabilities of the |DEVICE|. For more
+information about the |DEVICE|, see the |TRM|.
+
+.. note::
+    The Sensor Controller is not available on the CC2640R2L_.
+
+|STACK| Protocol Stack and Application Configurations
+-----------------------------------------------------
+
+Above the RF driver is the TI Bluetooth Low Energy protocol stack, which is
+implemented in library code.
+
+The application developer interfaces with the protocol stack through a set of APIs
+(ICall) to implement a Bluetooth Low Energy application. The rest of this
+document intends to document application development on the |DEVICE| using the
+Bluetooth Low Energy stack.
+
+:numref:`fig-device-configurations` shows the platform that supports two
+different protocol stack and application configurations.
+
+-   **Single device:** The controller, host, profiles, and application are all
+    implemented on the |DEVICE| as a true single-chip solution. This
+    configuration is the simplest and most common when using the |DEVICE|. This
+    configuration is used by most of TI's sample projects. This configuration is
+    the most cost-effective technique and provides the lowest-power performance.
+
+-   **Simple network processor:** The Simple Network Processor (:term:`SNP`)
+    implements the controller and host layers of the |STACK|. Additionally,
+    the SNP exposes an interface for scheduling communication between the stack
+    and an external MCU. This accelerates dual MCU designs because the
+    application processor (:term:`AP`) is only responsible for managing custom
+    profiles and application code. Stack-related functionality, such as
+    security, is implemented on the SNP. The SNP currently supports the
+    peripheral and broadcaster GAP roles. Communication with the SNP is carried
+    out through the SNP API. The SNP API is built on the Unified Network
+    Processor Interface (:term:`UNPI`), which supports UART and SPI transport
+    layers. For more information, reference the
+    :ref:`npi-unified`. TI also provides the SAP library, which implements a
+    UNPI master and the SNP API. The SAP library can be ported to any
+    TI-RTOS-capable processor, or used as a reference for developing a custom
+    dual MCU solution. For a description of the SNP, see the README.html page
+    within the simple_np folder, advanced users can read the
+    `SNP API Reference`_ for a summary of the supported
+    commands.
+
+.. _fig-device-configurations:
+.. figure:: resources/image7.jpeg
+    :align: center
+    :width: 75%
+
+    Single-Device Processor and Simple Network Processor Configurations
+
+Solution Platform
+-----------------
+
+This section describes the various components that are installed with
+|STACKVER| and the directory structure of the protocol stack
+and any tools required for development.
+:numref:`fig-single-network-processor-configuration` shows the |STACK|
+development system.
+
+.. _fig-single-network-processor-configuration:
+.. figure:: resources/image8.jpeg
+    :align: center
+
+    Bluetooth Low Energy Stack Development System
+
+The solution platform includes the following components:
+
+-   **TI's Real-Time Operating System (TI-RTOS)** with the TI-RTOS kernel,
+    optimized power management support, and peripheral drivers (SPI, UART, and
+    so forth)
+
+-   **CC26xxware DriverLib** provides a register abstraction layer and is used
+    by software and drivers to control the |DEVICE| SoC.
+
+-   **The Bluetooth Low Energy protocol stack** is provided in library form with
+    parts of the protocol stack in the |DEVICE| ROM.
+
+-   **Sample applications and profiles** make starting development using both
+    proprietary and generic solutions easier.
+
+The following integrated development environments (IDEs) are
+supported:
+
+-  IAR Embedded Workbench for Arm
+
+-  Code Composer Studio™ (CCS)
+
+Refer to the SDK release notes for the specific IDE versions supported by this
+release.
+
+BLE Software Architecture
+-------------------------
+
+The |DEVICE| Bluetooth Low Energy software environment consists of the
+following parts:
+
+-  An application image with the TI-RTOS kernel, drivers and Bluetooth profile
+-  A stack image or library that implements Bluetooth Low Energy protocol
+
+TI-RTOS is a real-time, pre-emptive, multithreaded operating system that
+runs the software solution with task synchronization. Both the application and
+Bluetooth Low Energy protocol stack exist as separate tasks within the RTOS. The
+Bluetooth Low Energy protocol stack has the highest priority. A messaging
+framework called indirect call (ICall) is used for thread-safe synchronization
+between the application and stack. :numref:`fig-examples-software-architecture`
+shows the architecture.
+
+.. _fig-examples-software-architecture:
+.. figure:: resources/image43.jpeg
+    :align: center
+
+    Example Software Architecture
+
+-   The stack image includes the lower layers of the Bluetooth Low Energy
+    protocol stack from the LL up to and including the GAP and GATT layers. Most
+    of the Bluetooth Low Energy protocol stack code is provided as a library.
+
+-   The application image includes the RTOS, profiles, application code,
+    drivers, and the ICall module.
+
+.. _sec-supported-stack-image-types:
+
+Protocol Stack Build Configurations
+-----------------------------------
+
+The |STACK| applications have different options for configuring the protocol
+stack to maximize system implementations. These options are described below
+along with the relevant advantages and limitations.
+
+.. note::
+
+      This section aims to explain the two supported protocol stack build
+      configurations. Additionally, the protocol stack itself may be configured
+      to conditionally pull in different library builds based on the features
+      needed. Configuring the protocol stack is covered in
+      :ref:`stack_features_configuration`
+
+
+
+.. _sec-inc-architecture-stack-image-as-a-library:
+
+Stack Library Configuration (``_stack_library``)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In |STACKVER|, stack can be built as a library that can be statically linked
+to the application. Projects with build with this new configuration can be
+identified by project build configurations with ``_stack_library`` in its
+configuration name. Using this build configuration will yield additional flash
+footprint optimizations by the linker since the application and stack can share
+contiguous flash pages. The gained footprint savings will however prevent
+**split-image** application. See
+:ref:`tbl-inc-developing-in-ccs-build-configs` and
+:ref:`tbl-inc-developing-in-iar-build-configs` for the available project build
+configurations. Stack library projects have the following properties
+
+    - Stack project generates a static library (.lib)
+    - Application project will now link the stack in as a library
+    - There is no explicit app/stack boundary. The application's link step
+      decides the memory locations of the code within the stack_library. There
+      are some exceptions to this such as :term:`SNV`.
+    - This architecture saves flash by allowing the linker work more efficiently.
+    - These projects used the improved ICall architecture
+
+
+Covert Library Build to Split Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To covert the Stack_library build projects into split image, please visit `Task 2-Add OAD
+to Multi Role` in BLE Enhanced OAD section in
+**SimpleLink Academy** `www.ti.com/simplelinkacademy <http://ti.com/simplelinkacademy>`_
+
+.. _sec-inc-architecture-split-image-configuration:
+
+Split Image Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As with previous BLE-Stack releases, application and stack images are
+built as two separate projects that generate two separate images.
+These images occupy separate, non-overlapping flash memory pages. The split image
+configuration is useful in purposes such as  :term:`OAD` where it could
+be advantageous to perform independent application or stack downloads. Split
+image projects have the following properties:
+
+    - Fixed stack entry point
+    - Stack project generates a separate executable (.hex, .out, .bin)
+    - Explicit Flash/RAM boundaries between app and stack
+    - Independent update of stack/app (API compatibility must be ensured by the
+      user)
+
+Project Build Configurations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sample applications within the |STACK| portion of the |SDK| support multiple
+build configurations to enable using the protocol stack build types discussed
+above. Other build configurations may have been created to support features such
+as RCOSC or OAD out of the box.
+The table below gives a summary of the build configurations found within
+|STACK| and their compatibility with one another.
+
+.. _project_build_configurations:
+.. table:: Available project build configurations.
+
+    +-------------+-----------------------------+----------------------------------------------------------------------------------------+
+    | Project     | Project’s                   | Description                                                                            |
+    | type        | build configuration         |                                                                                        |
+    +-------------+-----------------------------+----------------------------------------------------------------------------------------+
+    | Application | FlashROM                    | Application image build configuration. Requires companion Stack FlashROM (split image  |
+    |             |                             | configuration)                                                                         |
+    +             +-----------------------------+----------------------------------------------------------------------------------------+
+    |             | FlashROM_StackLibrary       | Application build configuration linked to Stack library (fully executable)             |
+    +             +-----------------------------+----------------------------------------------------------------------------------------+
+    |             | FlashROM_StackLibrary_RCOSC | Application build configuration linked to Stack library for 32-kHz crystal-less device |
+    |             |                             | configuration                                                                          |
+    +             +-----------------------------+----------------------------------------------------------------------------------------+
+    |             | FlashROM_OAD_Offchip        | OAD off-chip application FlashROM configuration                                        |
+    +-------------+-----------------------------+----------------------------------------------------------------------------------------+
+    | Stack       | FlashROM_Library            | Stack library build configuration                                                      |
+    +             +-----------------------------+----------------------------------------------------------------------------------------+
+    |             | FlashROM                    | Stack                                                                                  |
+    |             |                             | image using protocol stack in ROM configuration                                        |
+    +-------------+-----------------------------+----------------------------------------------------------------------------------------+
+
+.. note::
+
+      Some of the build configurations above may be located in a separate
+      project for CCS, for example ``simple_peripheral_cc2640r2lp_app_oad_offchip``.
+      However the principles of the table above can still be applied. Always
+      consult the ``README.html`` file of the specific sample application for
+      more information on it's supported build configurations. Additionally,
+      refer to :ref:`tbl-inc-developing-in-ccs-build-configs`
+
+.. _sec-inc-architecture-standard-project-task-hierarchy:
+
+Standard Project Task Hierarchy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Considering the simple\_peripheral project as an example, these tasks are listed
+by priority. A higher task number corresponds to a higher priority task:
+
+-   Priority 5: Bluetooth Low Energy protocol stack task (must be highest priority)
+-   Priority 1: Application task (simple\_peripheral)
+
+:ref:`sec-tirtos-overview` introduces TI-RTOS tasks.
+:ref:`sec-ble-stack-overview` describes interfacing with the Bluetooth low
+energy protocol stack. :ref:`start-up-in-main` describes the application task.
+
+Directory Structure
+-------------------
+
+The default install location is: *C:\\ti\\simplelink\_cc2640r2\_sdk\_x\_xx\_xx\_xx*.
+
+The SDK installs to this location by default. For the purposes of this document,
+consider the above path to the |STACK| root directory; it will be omitted.
+All paths will be relative to the |STACK| root directory. Opening up the root
+install directory shows the new parent folders within the SDK, as shown in
+:numref:`tbl-root-folder`
+
+.. _tbl-root-folder:
+.. table:: SDK root folders
+
+    +--------------------------------+----------------------------------------------------+
+    | |STACK|    |version| folders   | Purpose                                            |
+    +================================+====================================================+
+    | docs\\                         | The docs directory now contains all relevant       |
+    |                                | documents included with the |DEVICE| SDK.          |
+    |                                | Refer to the Documentation Overview master page.   |
+    +--------------------------------+----------------------------------------------------+
+    | examples\\                     | The |DEVICE| SDK includes ble examples as well as  |
+    |                                | TI-RTOS kernel and TI-RTOS driver examples.        |
+    +--------------------------------+----------------------------------------------------+
+    | kernel\\                       | The TI-RTOS kernel is now included with the        |
+    |                                | |DEVICE| SDK.                                      |
+    +--------------------------------+----------------------------------------------------+
+    | source\\                       | The source\\ directory include source for          |
+    |                                | |STACK|, TI-RTOS kernel and drivers, and various   |
+    |                                | middleware modules.                                |
+    +--------------------------------+----------------------------------------------------+
+    | tools\\                        | Tools such as BTool                                |
+    +--------------------------------+----------------------------------------------------+
+
+Examples Folder
+^^^^^^^^^^^^^^^
+
+The examples\\ folder contains example source files for the |STACK|, TI-RTOS
+kernel, and TI-RTOS drivers. All the source code supporting the |SDK| examples
+can be found at \*examples\\rtos\\CC2640R2_LAUNCHXL\\. Examples for each
+product can be found within their respective folders and are accessible via
+various means as shown in :ref:`tbl-sdk-examples`.
+
+.. _tbl-sdk-examples:
+.. table:: Examples available for the |DEVICE| platform
+
+    +------------------+----------------------+---------------------------------------------+
+    | Type of examples | Example subdirectory | How to open the examples                    |
+    +==================+======================+=============================================+
+    | |STACK|          | ble5stack\\          | | Imported via TI Resource Explorer         |
+    |                  |                      | | Opened as existing IAR projects           |
+    +------------------+----------------------+---------------------------------------------+
+    | TI-RTOS Kernel   | sysbios\\            | | Imported via TI Resource Explorer         |
+    |                  |                      | | See the Quick Start Guide                 |
+    +------------------+----------------------+---------------------------------------------+
+    | TI-RTOS Drivers  | drivers\\            | | Imported via TI Resource Explorer         |
+    |                  |                      | | See the Quick Start Guide                 |
+    +------------------+----------------------+---------------------------------------------+
+
+For TI-RTOS Kernel and TI-RTOS driver examples, see the linked documentation.
+To help select a specific BLE example, see :ref:`tbl-sdk-ble-examples`. As with
+previous BLE-Stack releases, each example contains a toolchain subdirectory for
+CCS and IAR.
+
+IAR examples are available as .eww projects whereas CCS project are imported.
+
+See :numref:`tbl-sdk-ble-examples` for a list of examples supported by the SDK.
+
+
+Source Folder
+^^^^^^^^^^^^^
+
+The source\\ti\\ folder contains libraries and source files for the |STACK|,
+TI-RTOS drivers, and various shared modules. They can be found within their
+respective folders as shown in :ref:`tbl-sdk-source`.
+
+.. _tbl-sdk-source:
+.. table:: |DEVICE| SDK's source\\ti\\ directory
+
+    +------------------+----------------------+---------------------------------------------+
+    | source\\ti\\     | subdirectory         | Purpose                                     |
+    +==================+======================+=============================================+
+    | ble5stack\\                             | Root source directory for the |STACK|       |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | blelib\\             | Prebuilt BLE stack libraries                |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | boards\\             | Sample board files for use with the BLE     |
+    |                  |                      | stacks                                      |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | common\\             | Linker, RTOS config, and middleware used by |
+    |                  |                      | the stack                                   |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | config\\             | Symbol files for various stack builds and   |
+    |                  |                      | configurations                              |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | controller\\         | Header files for the BLE controller layer   |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | hal\\                | Hardware abstraction layer files for Stack  |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | heapmgr\\            | Heap Manager                                |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | host\\               | Header files for the BLE host layers        |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | icall\\              | Source files for the ICall module           |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | inc\\                | Header files used to interface with         |
+    |                  |                      | |STACK|                                     |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | npi\\                | Source files for the both NPI modules       |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | osal\\               | Source support files used by the |STACK|    |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | profiles\\           | Sample BLE profile implementations          |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | rom\\                | |STACK| ROM symbol files                    |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | services\\           | Miscellaneous support files                 |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | symbols\\            | ROM patch support files                     |
+    +------------------+----------------------+---------------------------------------------+
+    |                  | target\\             | Board gateway folder                        |
+    +------------------+----------------------+---------------------------------------------+
+    | devices\\                               | Support files from driverlib                |
+    +------------------+----------------------+---------------------------------------------+
+    | display\\                               | Display module                              |
+    +------------------+----------------------+---------------------------------------------+
+    | drivers\\                               | TI-RTOS drivers source and libraries        |
+    +------------------+----------------------+---------------------------------------------+
+    | grlib\\                                 | Graphics library                            |
+    +------------------+----------------------+---------------------------------------------+
+    | mw\\                                    | Other middleware modules dependent on       |
+    |                                         | TI-RTOS drivers                             |
+    +------------------+----------------------+---------------------------------------------+
+
+
+.. _sec-inc-architecture-working-with-hex-files:
+
+Working With Hex and Binary Files
+---------------------------------
+
+|STACK| projects have project build configurations in which the application
+and stack projects produce an Intel\ |reg|-extended hex file in their
+respective output folders. These hex files lack overlapping memory regions and
+can be programmed individually with a flash programming tool, such as SmartRF
+Flash Programmer 2. To simplify the flash programming process, you can combine
+the application and stack hex files into a super hex file manually or using
+freely available tools.
+Information on the `Intel Hex standard <https://en.wikipedia.org/wiki/Intel\_HEX>`_.
+
+One example for creating the super hex file is with the IntelHex python script
+hex\_merge.py, available at `IntelHex launchpad <https://launchpad.net/intelhex/+download>`_.
+To merge the hex files, install Python\ |reg| 2.7.x and add it to your system
+path environment variables.
+
+.. warning::
+
+    Note that when using any python script, you must use a compatible version
+    of Python. Refer to the tool documentation or contact the developer to
+    verify compatibility.
+
+The following is an example usage to create a merged
+simple\_peripheral\_cc2640r2lp.hex file consisting of the individual application
+and stack hex files:
+
+.. _lst-hexmerge-script:
+.. code-block:: console
+    :linenos:
+
+    C:\Python27\Scripts>python hexmerge.py \
+        -o .\simple_peripheral_cc2640r2lp_merged.hex \
+        -r 0000:1FFFF
+        simple_peripheral_cc2640r2lp_app.hex:0000:1FFFF
+        simple_peripheral_cc2640r2lp_stack.hex
+        --overlap=error
+
+If conversion of the super hex to binary is desired, this can be accomplished
+with the “hex2bin.py” or similar tools that support the hex standard.
+
+.. code-block:: console
+    :linenos:
+
+    C:\Python27\Scripts>python hex2bin.py \
+        simple_peripheral_cc2640r2lp_merged.hex \
+        simple_peripheral_cc2640r2lp_merged.bin
+
+
+.. only: sdk_includes_ble
+
+    Resetting the |DEVICE|
+    ----------------------
+
+    Use only hard resets to reset the device. From software, a reset can occur
+    through one of the following.
+
+    .. code-block:: c
+
+        HCI_EXT_ResetSystemCmd(HCI_EXT_RESET_SYSTEM_HARD);
+        HAL_SYSTEM_RESET();

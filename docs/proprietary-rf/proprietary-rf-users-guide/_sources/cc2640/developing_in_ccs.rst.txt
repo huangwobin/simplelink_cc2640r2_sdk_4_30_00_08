@@ -1,0 +1,227 @@
+.. _sec-developing-with-ccs:
+
+Developing with CCS
+===================
+
+Installing Code Composer Studio (CCS)
+-------------------------------------
+
+The CCS toolchain contains many features beyond the scope of this document.
+More information and documentation can be found on the
+`Code Composer Studio`_ tool page.
+
+Check the |STACKVER| release notes to see which CCS version to use and any
+required workarounds. Object code produced by CCS may differ in size and
+performance as compared to IAR produced object code.
+
+The following procedure describes installing and configuring the correct version
+of CCS and the necessary tools.
+
+#. Install Code Composer Studio for Arm
+
+    - Download `Code Composer Studio`_ .
+
+    - Start the installation process and accept the license agreement. It is
+      recommended to install CCS in its default location.
+
+    - In the **Processor Support** section, select **SimpleLink CC13xx and
+      CC26xx Wireless MCUs**.
+
+    - Under the **Debug Probes** section, CCS will install support for **TI XDS
+      Debug Probe Support**. This option supports the XDS110 debugger.
+
+    - Start the installation by selecting **Finish**.
+
+    .. attention::
+        The CCS version required is stated in the release notes.
+
+#. Verify Arm Compiler Tools version
+
+    - If needed, the CCS and Arm compiler versions can be verified by going to
+      into **Help** -> **About Code Composer Studio**. Under the **Installation
+      Details** button, you can determine the **Arm Compiler Tools** version.
+      Please ensure this version satisfies the version requirements as stated in
+      the release notes.
+
+    - If an update is required, refer to :ref:`sec-install-ti-arm-compiler`
+      for the procedure to install the required TI Arm Compiler version.
+
+
+.. _sec-install-ti-arm-compiler:
+
+Installing a Specific TI Arm Compiler
+-------------------------------------
+
+To install a specific TI Arm Compiler, refer to the following steps and
+:numref:`fig-verify-ccs-compiler`
+
+#. **Help** -> **Install New Software**
+#. Under the **Work with:** drop-down list, select **Code Generation Tools
+   Update**
+#. Uncheck **Show only the latest versions of available software**
+#. Expand **TI Compiler Update**.
+#. Select the desired Arm Compiler Tools version as stated in the release notes.
+#. Press **Next** to complete the installation. You may have to restart CCS
+   afterwards.
+
+.. _fig-verify-ccs-compiler:
+.. figure:: resources/ti-arm-compiler-version.jpg
+    :align: center
+    :width: 400px
+
+    TI Arm Compiler Version in Code Composer Studio
+
+Discovering CCS products
+------------------------
+
+Code Composer Studio automatically discovers the |SDK| if it installed in its
+default installation directory (``c:/ti``). Once discovered by CCS, it defines a
+build environment variable named ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR``
+which is used by |STACK| projects.
+
+If a |STACK| project is imported from a path other than what was specified
+during the |SDK| installation, the ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR``
+variable must be redefined after the import proceeding at a project-by-project
+basis.
+
+To redefine this variable:
+
+#. Open the CCS project's properties (**Project** -> **Properties**)
+#. Navigate to **Resource** -> **Linked Resources** and *edit*
+   ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR`` and have it point to your
+   imported root directory location.
+
+   .. _fig-inc-developing-in-ccs-redefine-ccs-linked-resources:
+   .. figure:: resources/redefine-ccs-linked-resources.jpg
+        :align: center
+        :width: 75%
+
+        Redefining ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR``
+
+Importing CCS projects
+----------------------
+
+This section describes how to import and build an existing project and
+references the multi\_role project. All of |STACK| projects included
+in the development kit have a similar structure.
+
+#. Open the CCS IDE from the Start Menu.
+#. Create a workspace.
+
+    .. attention::
+
+        Ensure that the CCS workspace path does not contain a whitespace.
+
+#. Import a CCS Project using Resource Explorer
+
+    - Open Resource Explorer (if not open already) **View** -> **Resource Explorer**
+    - Navigate to the CCS folder for your chosen example: E.g. **Software ->** |SDK| **-> Examples ->** |LP| **-> ble5stack -> multi_role -> TI-RTOS -> CCS Compiler -> multi_role_app**
+
+    .. _fig-ccs-import-projects:
+    .. figure:: resources/import_multi_role.png
+        :align: center
+
+        Import CCS Projects
+
+#.  Select the CCS Logo button to import project into Project Explorer
+
+    .. attention::
+
+        The import process will also install the |SDK| if a local version does
+        not exist. You must accept the End User License Agreement to proceeed.
+
+        .. _fig-resource-explorer-eula:
+        .. figure:: resources/eula.png
+            :align: center
+
+            Install |SDK|
+
+    - If you get a pop-up window with an error message, under "Details >>"
+      saying "Error: A project with the name 'xx_stack_library' already exists in
+      the workplace!", that is fine. You accidentally imported the stack twice.
+      Just click OK.
+    - If everything is successful, one or two projects should appear in Resource
+      Explorer: For BLE example projects: one for the application code and one for the stack code
+      (either stack or stack_library project). 
+
+    .. note::
+        Only projects part of the BLE stack will have an app and a stack
+        project.
+
+    .. _fig-ccs-project-explorer-after-import:
+    .. figure:: resources/project_explorer_after_import.png
+        :align: center
+
+        Projects Imported into CCS
+
+.. attention::
+
+    Do not use the ``Rename`` option found inside CCS to rename your project.
+    This may change certain build parameters and not others, which can lead to
+    build errors and is irreversible.
+
+    To rename a project, you should use the ``Copy`` and ``paste`` options found
+    inside CCS. As you ``Paste`` the project, you have the option of choosing a
+    new project name. This process is to be repeated for both application and
+    stack projects.
+
+    After pasting both project, you need to modify the application project's
+    properties and update its "Project Reference" (need to show advanced
+    settings) to only select newly pasted stack project.
+
+
+.. _sec-developing-with-ccs-accessing-preprocessor-symbols:
+
+Accessing Preprocessor Symbols
+------------------------------
+
+Various C preprocessor symbols may need to be set or adjusted at the project
+level. The following procedure describes how to access and modify preprocessor
+symbols.
+
+#.  Open **Project Properties**
+#.  Navigate to **Build** -> **ARM Compiler** -> **Predefined Symbols**
+#.  Use the buttons highlighted in :numref:`fig-ccs-defines-box` to add, delete,
+    or edit a preprocessor.
+
+.. _fig-ccs-defines-box:
+.. figure:: resources/image42.jpeg
+    :align: center
+    :width: 75%
+
+    CCS Predefined Symbols
+
+Certain projects also use a list of predefined symbols found in the 
+``TOOLS -> defines`` project folder.
+
+.. _sec-developing-with-ccs-accessing-linker-symbols:
+
+Accessing Linker Symbols
+------------------------
+
+Linker symbols may need to be set or adjusted at the project level in order to
+control the memory layout of the generated image.
+The following procedure describes how to access and modify linker
+symbols.
+
+#.  Open **Project Properties**
+#.  Navigate to **Build** -> **ARM Linker** -> **Command File Preprocessing**
+#.  Use the buttons highlighted in :numref:`fig-ccs-linker-defines-box` to add,
+    delete, or edit a linker symbol.
+
+.. _fig-ccs-linker-defines-box:
+.. figure:: resources/ccs_linker_opts.png
+    :align: center
+    :width: 75%
+
+    CCS Linker Symbols
+
+Resetting the |DEVICE| in CCS
+-----------------------------
+
+Select Board Reset from the reset menu.
+
+.. figure:: resources/fig-board-reset.png
+    :align: center
+
+    CCS Board Reset

@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running Software Examples on CC2640R2L &mdash; 
+SimpleLink™ CC2640R2 SDK
+User&#39;s Guide for BLE-Stack 3.x.x
+ 3.03.05.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CC2640 to CC2640R2F" href="../ble-stack-3.x-guide/cc2640-to-cc2640r2.html" />
+    <link rel="prev" title="BLE-Stack 3.00.00 to BLE-Stack 3.00.01" href="../ble-stack-3.x-guide/blestack3.00.00-to-blestack3.00.01.html" />
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc2640 software-on-cc2640r2l";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+   <!---- extra body elements for TI beyond RTD Sphinx Theme --->
+<div class="DocSite-globalNav tiNav">
+    <ul>
+    </ul>
+</div>
+
+<a class="DocSite-nav" href="https://www.ti.com" style="padding-bottom: 85px;">
+  <img class="DocSiteNav-logo"
+    src="../_static/img/ti_logo.png"
+    alt="TI Logo">
+  <div class="DocSiteNav-title"></div>
+</a> 
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../ble-stack-3.x-guide/index.html" class="icon icon-home" alt="Documentation Home"> 
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.03.05.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/get-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/platform.html">The CC2640R2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-stack">BLE-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#developing-a-custom-application">Developing a Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#ble-network-processor">BLE Network Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/ble-stack-3-index.html#running-the-sdk-on-custom-hardware">Running the SDK on Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/u-stack-index.html">Micro BLE Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-common/npi-index.html">Network Processor Interface (NPI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/index-oad-cc2640.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voice/voice.html">Creating a Voice Enabled Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/secure-fw-index.html">Secure Firmware (SFW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/debugging-index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html">Migration Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.03.04-to-blestack3.03.05.html">BLE-Stack 3.03.04 to BLE-Stack 3.03.05</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ble-stack-3.x-guide/migration.html#previous-migration-guides">Previous Migration Guides</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.03.03-to-blestack3.03.04.html">BLE-Stack 3.03.03 to BLE-Stack 3.03.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.03.02-to-blestack3.03.03.html">BLE-Stack 3.03.02 to BLE-Stack 3.03.03</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.03.01-to-blestack3.03.02.html">BLE-Stack 3.03.01 to BLE-Stack 3.03.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.03.00-to-blestack3.03.01.html">BLE-Stack 3.03.00 to BLE-Stack 3.03.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.02.03-to-blestack3.03.00.html">BLE-Stack 3.02.03 to BLE-Stack 3.03.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.02.02-to-blestack3.02.03.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.02.01-to-blestack3.02.02.html">BLE-Stack 3.02.01 to BLE-Stack 3.02.02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.02.00-to-blestack3.02.01.html">BLE-Stack 3.02.00 to BLE-Stack 3.02.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.01.01-to-blestack3.02.00.html">BLE-Stack 3.01.01 to BLE-Stack 3.02.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.01.00-to-blestack3.01.01.html">BLE-Stack 3.01.00 to BLE-Stack 3.01.01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.00.01-to-blestack3.01.00.html">BLE-Stack 3.00.01 to BLE-Stack 3.01.00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/blestack3.00.00-to-blestack3.00.01.html">BLE-Stack 3.00.00 to BLE-Stack 3.00.01</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running Software Examples on CC2640R2L</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#porting-software-examples-for-cc2640r2l">Porting Software Examples for CC2640R2L</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/cc2640-to-cc2640r2.html">CC2640 to CC2640R2F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ble-stack-3.x-guide/cc254x-to-cc2640.html">CC254x to CC2640</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-3.x-guide/reference.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+          <!-- extra nav elements for TI beyond RTD Sphinx Theme --->
+<div id="sideBanner">
+    <br/>
+    <br/><br/><br/>
+</div>
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../ble-stack-3.x-guide/index.html">
+SimpleLink™ CC2640R2 SDK
+User's Guide for BLE-Stack 3.x.x
+</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../ble-stack-3.x-guide/index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../ble-stack-3.x-guide/migration.html">Migration Guides</a> &raquo;</li>
+        
+      <li>Running Software Examples on CC2640R2L</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-software-examples-on-cc2640r2l">
+<h1>Running Software Examples on CC2640R2L<a class="headerlink" href="#running-software-examples-on-cc2640r2l" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="https://www.ti.com/tool/LAUNCHXL-CC2640R2">CC2640R2F LaunchPad</a> development board can be used for evaluation and
+software development for the <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a> device. The <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a> is pin
+compatible with the <a class="reference external" href="https://www.ti.com/product/CC2640R2F">CC2640R2F</a> device.</p>
+<p>The <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a> is functionally identical to the <a class="reference external" href="https://www.ti.com/product/CC2640R2F">CC2640R2F</a> except the
+following hardware peripherals are not included in the <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a>:</p>
+<ul class="simple">
+<li>Sensor Controller Engine</li>
+<li>Comparators</li>
+<li>Constant Current Source</li>
+</ul>
+<p>Because the Sensor Controller is not available on the <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a>, the AUX RAM
+can be used freely by the application. This provides an additional 2KB of
+memory available to the application. For more information on how to configure
+the AUX RAM for use by the application, see <a class="reference internal" href="../ble-stack-common/aux-as-ram.html#using-the-aux-as-ram"><span class="std std-ref">Using the AUX RAM as RAM</span></a>.</p>
+<div class="section" id="porting-software-examples-for-cc2640r2l">
+<h2>Porting Software Examples for CC2640R2L<a class="headerlink" href="#porting-software-examples-for-cc2640r2l" title="Permalink to this headline">¶</a></h2>
+<p>You can run <a class="reference external" href="https://www.ti.com/product/CC2640R2F">CC2640R2F</a> software examples that do not utilize the Sensor
+Controller on the <a class="reference external" href="https://www.ti.com/product/CC2640R2L">CC2640R2L</a>  without making any changes.</p>
+<p>For applications that do utilize the Sensor Controller to control peripherals,
+such as the ADC for example, please utilize TI drivers to interface with the
+peripherals and implement control logic in the application. For more
+information on utilizing TI Drivers, review <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a> and
+<a class="reference external" href="../../../../tidrivers/tidriversAPIs.html">Driver APIs</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ble-stack-3.x-guide/cc2640-to-cc2640r2.html" class="btn btn-neutral float-right" title="CC2640 to CC2640R2F" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ble-stack-3.x-guide/blestack3.00.00-to-blestack3.00.01.html" class="btn btn-neutral float-left" title="BLE-Stack 3.00.00 to BLE-Stack 3.00.01" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">2010-2020, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+        <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+    {
+        "files": [
+            "+../rfSynchronizedPacket.h -> rfSynchronizedPacket.h",
+            "+../StateMachine_nortos.c -> StateMachine_nortos.c",
+            "+../StateMachine_nortos.h -> StateMachine_nortos.h",
+            "+../main_nortos.c -> main_nortos.c",
+            "+../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+            "+../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+            "+../README.md -> README.md",
+            "+../rfSynchronizedPacketRx_nortos.c -> rfSynchronizedPacketRx_nortos.c",
+            "+../state-machine.png -> state-machine.png",
+            "+../Board.h -> Board.h",
+            "+../../../../../../source/ti/boards/CC2640R2_LAUNCHXL/Board.html -> Board.html",
+            "+../CC2640R2_LAUNCHXL.c -> CC2640R2_LAUNCHXL.c",
+            "+../CC2640R2_LAUNCHXL.h -> CC2640R2_LAUNCHXL.h",
+            "+../CC2640R2_LAUNCHXL_fxns.c -> CC2640R2_LAUNCHXL_fxns.c",
+            "+CC2640R2_LAUNCHXL_NoRTOS.lds -> CC2640R2_LAUNCHXL_NoRTOS.lds",
+            "+../ccfg.c -> ccfg.c"
+        ]
+    }
+]
